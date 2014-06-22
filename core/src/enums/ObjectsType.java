@@ -1,4 +1,4 @@
-package map;
+package enums;
 
 public enum ObjectsType {
 
@@ -6,6 +6,6 @@ public enum ObjectsType {
     BALL,
     BOX,
     END,
-    FINISHED;
+    FINISHED
 
 }

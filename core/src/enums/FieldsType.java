@@ -1,4 +1,4 @@
-package map;
+package enums;
 
 public enum FieldsType {
 

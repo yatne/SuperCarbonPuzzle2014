@@ -52,7 +52,7 @@
 
     </map>
 
-    <map name="nowe" number="5" gold="16" silver="19" plat="13">
+    <map name="trudne z platyna" number="5" gold="16" silver="19" plat="13">
 
         <row nr="1">XOOEOOO</row>
         <row nr="2">XOOOXXX</row>

@@ -1,5 +1,8 @@
 package map;
 
+import enums.FieldsType;
+import enums.ObjectsType;
+
 import java.util.ArrayList;
 
 public class Field {
@@ -51,10 +54,7 @@ public class Field {
 
     public boolean hasObject() {
 
-        if (object.getObjectsType() == ObjectsType.NONE)
-            return false;
-        else
-            return true;
+        return object.getObjectsType() != ObjectsType.NONE;
 
     }
 
@@ -101,15 +101,9 @@ public class Field {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 }

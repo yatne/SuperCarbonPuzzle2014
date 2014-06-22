@@ -1,5 +1,7 @@
 package map;
 
+import enums.ObjectsType;
+
 import java.util.ArrayList;
 
 public class Object {
