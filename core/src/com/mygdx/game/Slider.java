@@ -6,12 +6,12 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import help.utils.BlocksReader;
-
+import help.utils.Controls;
 import help.utils.KeybordControler;
 import help.utils.ObjectsReader;
 import map.Map;
 import map.MapView;
-
+import mapSolver.MapSolver;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
@@ -56,7 +56,7 @@ public class Slider extends ApplicationAdapter {
         }
 
 
-        map = new Map(5);
+        map = new Map(1);
 
     }
 
