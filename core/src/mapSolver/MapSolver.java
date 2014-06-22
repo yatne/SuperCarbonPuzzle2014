@@ -1,6 +1,6 @@
 package mapSolver;
 
-import help.utils.Controls;
+import enums.Controls;
 import map.Map;
 
 public class MapSolver {

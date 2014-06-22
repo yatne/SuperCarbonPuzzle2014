@@ -9,7 +9,7 @@ import help.utils.BlocksReader;
 import help.utils.KeybordControler;
 import help.utils.ObjectsReader;
 import map.Map;
-import mapView.MapView;
+import view.MapView;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 

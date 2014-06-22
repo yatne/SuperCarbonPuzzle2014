@@ -2,8 +2,9 @@ package help.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import enums.Controls;
 
-import static help.utils.Controls.*;
+import static enums.Controls.*;
 
 public class KeybordControler {
 

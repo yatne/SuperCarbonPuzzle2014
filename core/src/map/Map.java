@@ -1,6 +1,6 @@
 package map;
 
-import help.utils.Controls;
+import enums.Controls;
 
 import java.util.ArrayList;
 
