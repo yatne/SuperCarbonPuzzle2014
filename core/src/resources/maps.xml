@@ -1,0 +1,82 @@
+<maps>
+
+
+    <map name="klasyk" number="1" gold="9" silver="10">
+
+        <row nr="1">OXOXOXOO</row>
+        <row nr="2">OOOXOOOX</row>
+        <row nr="3">OOOOOSOO</row>
+        <row nr="4">XOOOOOOO</row>
+        <row nr="5">OOOXOOXO</row>
+        <row nr="6">XOOEOXOO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OXOOXOXO</row>
+
+    </map>
+
+    <map name="nowe" number="2" gold="6" silver="9">
+
+        <row nr="1">OOOOXO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OSOBXX</row>
+        <row nr="4">XXOOOX</row>
+        <row nr="5">OOOOOE</row>
+        <row nr="6">OOOXXO</row>
+        <row nr="7">OXOXXO</row>
+
+    </map>
+
+
+    <map name="zapchane" number="3" gold="21" silver="25">
+
+        <row nr="1">NXSXOOON</row>
+        <row nr="2">NXOXXXXN</row>
+        <row nr="3">NOOOBXON</row>
+        <row nr="4">NXXXBBXN</row>
+        <row nr="5">NOXXBXON</row>
+        <row nr="6">NOOXBXON</row>
+        <row nr="7">NOXOBXON</row>
+        <row nr="8">NOOXEXON</row>
+
+    </map>
+
+
+    <map name="proste" number="4" gold="8" silver="10" >
+
+        <row nr="1">OOOSOO</row>
+        <row nr="2">OOOXOO</row>
+        <row nr="3">OOSOOO</row>
+        <row nr="4">OOXOOX</row>
+        <row nr="5">XOOEOE</row>
+        <row nr="6">OOOOXO</row>
+
+    </map>
+
+    <map name="nowe" number="5" gold="16" silver="19" plat="13">
+
+        <row nr="1">XOOEOOO</row>
+        <row nr="2">XOOOXXX</row>
+        <row nr="3">SOOOOXB</row>
+        <row nr="4">XXOEOOO</row>
+        <row nr="5">SOOOXOX</row>
+        <row nr="6">OOEOXOO</row>
+        <row nr="7">OOOOXOS</row>
+
+    </map>
+
+
+
+
+    <map name="koniec" number="6">
+
+        <row nr="1">XOOOOOX</row>
+        <row nr="2">EXOOOXS</row>
+        <row nr="3">EEXOXSS</row>
+        <row nr="4">EEEXSSS</row>
+        <row nr="5">EEXOXSS</row>
+        <row nr="6">EXOOOXS</row>
+        <row nr="7">XOOOOOX</row>
+
+    </map>
+
+</maps>

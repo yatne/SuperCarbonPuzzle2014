@@ -1,0 +1,28 @@
+<objects>
+
+    <object name="start" enum="BALL" texture="ball.png" representation="S" placedOn="EMPTY">
+        <behavior>moving</behavior>
+        <behavior>solid</behavior>
+        <behavior>objective</behavior>
+    </object>
+
+    <object name="end" enum="END" texture="end.png" representation="E" placedOn="EMPTY">
+        <behavior>solid</behavior>
+        <behavior>objective-end</behavior>
+    </object>
+
+    <object name="box" enum="BOX" texture="box.png" representation="B" placedOn="EMPTY">
+        <behavior>moving</behavior>
+        <behavior>solid</behavior>
+    </object>
+
+    <object name="finished" enum="FINISHED" texture="fin.png">
+        <behavior>solid</behavior>
+    </object>
+
+    <object name="none" enum="NONE" texture="none.png" representation="n" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+    </object>
+
+</objects>
