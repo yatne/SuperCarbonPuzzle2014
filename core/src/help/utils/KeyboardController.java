@@ -6,7 +6,7 @@ import enums.Controls;
 
 import static enums.Controls.*;
 
-public class KeybordControler {
+public class KeyboardController {
 
     boolean leftPressed;
     boolean rightPressed;
@@ -14,7 +14,7 @@ public class KeybordControler {
     boolean downPressed;
     boolean backspacePressed;
 
-    public KeybordControler() {
+    public KeyboardController() {
         leftPressed = false;
         rightPressed = false;
         upPressed = false;

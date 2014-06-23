@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import help.utils.BlocksReader;
-import help.utils.KeybordControler;
+import help.utils.KeyboardController;
 import help.utils.ObjectsReader;
 import map.Map;
 import view.MapView;
@@ -22,12 +22,12 @@ public class Slider extends ApplicationAdapter {
     private Texture empty;
     private Map map;
     private HashMap<String, Texture> textureHashMap;
-    private KeybordControler keybordControler;
+    private KeyboardController keyboardController;
 
     @Override
     public void create() {
 
-        keybordControler = new KeybordControler();
+        keyboardController = new KeyboardController();
 
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
@@ -61,7 +61,7 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void render() {
 
-            map.makeMove(keybordControler.checkForControl());
+            map.makeMove(keyboardController.checkForControl());
 
         MapView.drawMap(batch, empty, map, camera, textureHashMap);
 
