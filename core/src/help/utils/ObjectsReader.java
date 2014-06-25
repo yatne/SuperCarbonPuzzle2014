@@ -14,34 +14,27 @@ import java.io.IOException;
 
 public class ObjectsReader {
 
+  public static NodeList getObjectsList() {
 
-    public static NodeList getObjectsList() {
+    NodeList objectTypes = null;
 
-        NodeList objectTypes = null;
+    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder dBuilder;
+    try {
+      dBuilder = builderFactory.newDocumentBuilder();
+      Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/objects.xml"));
+      document.normalize();
+      NodeList rootNodes = document.getElementsByTagName("objects");
+      Node rootNode = rootNodes.item(0);
+      Element rootElement = (Element) rootNode;
 
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder;
-        try {
-            dBuilder = builderFactory.newDocumentBuilder();
-            Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/objects.xml"));
-            document.normalize();
-            NodeList rootNodes = document.getElementsByTagName("objects");
-            Node rootNode = rootNodes.item(0);
-            Element rootElement = (Element) rootNode;
+      objectTypes = rootElement.getElementsByTagName("object");
 
-            objectTypes = rootElement.getElementsByTagName("object");
-
-
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return objectTypes;
+    } catch (ParserConfigurationException | SAXException | IOException e) {
+      e.printStackTrace();
     }
 
+    return objectTypes;
+  }
 
 }
