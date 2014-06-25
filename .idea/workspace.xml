@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="new obstacle texture">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/annotations.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/annotations.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/BlocksReader.java" afterPath="$PROJECT_DIR$/core/src/help/utils/BlocksReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/HelpUtils.java" afterPath="$PROJECT_DIR$/core/src/help/utils/HelpUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/mapSolver/MapSolver.java" afterPath="$PROJECT_DIR$/core/src/mapSolver/MapSolver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/map/Object.java" afterPath="$PROJECT_DIR$/core/src/map/Object.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/core.iml" afterPath="$PROJECT_DIR$/core/core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/desktop.iml" afterPath="$PROJECT_DIR$/desktop/desktop.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gwt_servlet_2_6_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gwt_servlet_2_6_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slider.iml" afterPath="$PROJECT_DIR$/slider.iml" />
+    <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="slider.iws" />
@@ -559,7 +548,11 @@
       <created>1403723819714</created>
       <updated>1403723819714</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new obstacle texture">
+      <created>1403727066505</created>
+      <updated>1403727066505</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
