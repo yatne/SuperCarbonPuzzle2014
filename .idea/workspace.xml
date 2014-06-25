@@ -597,7 +597,11 @@
       <created>1403723760862</created>
       <updated>1403723760862</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new obstacle texture">
+      <created>1403723811910</created>
+      <updated>1403723811910</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
