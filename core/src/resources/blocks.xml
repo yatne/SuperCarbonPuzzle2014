@@ -1,6 +1,6 @@
 <blocks>
 
-    <block name="obstacle" enum="OBSTACLE" texture="obstacle.png" representation="X">
+    <block name="obstacle" enum="OBSTACLE" texture="obstacle_2.png" representation="X">
         <behavior>solid</behavior>
     </block>
 
