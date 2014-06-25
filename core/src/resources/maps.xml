@@ -64,10 +64,20 @@
 
     </map>
 
+    <map name="same kule" number="6" gold="10" silver="15">
+
+        <row nr="1">OOOOOOO</row>
+        <row nr="2">OOEOEOO</row>
+        <row nr="3">OOSOOOO</row>
+        <row nr="4">ESSSOEO</row>
+        <row nr="5">OOSOOOO</row>
+        <row nr="6">OOEOOOO</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
 
 
-
-    <map name="koniec" number="6">
+    <map name="koniec" number="7">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>
