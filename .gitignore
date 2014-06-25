@@ -18,16 +18,9 @@ www-test/
 .gwt-tmp/
 
 ## Android Studio and Intellij and Android in general
-android/libs/armeabi/
-android/libs/armeabi-v7a/
-android/libs/x86/
-android/gen/
-.idea/
-*.ipr
-*.iws
-*.iml
+
 out/
-com_crashlytics_export_strings.xml
+
 
 ## Eclipse
 .classpath

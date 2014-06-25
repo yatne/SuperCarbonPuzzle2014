@@ -27,6 +27,7 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void create() {
 
+
         keyboardController = new KeyboardController();
 
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
