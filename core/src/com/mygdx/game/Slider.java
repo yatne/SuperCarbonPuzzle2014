@@ -9,10 +9,9 @@ import help.utils.BlocksReader;
 import help.utils.KeyboardController;
 import help.utils.ObjectsReader;
 import map.Map;
-import mapSolver.MapSolver;
-import view.MapView;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import view.MapView;
 
 import java.util.HashMap;
 
@@ -63,7 +62,7 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void render() {
 
-            map.makeMove(keyboardController.checkForControl());
+        map.makeMove(keyboardController.checkForControl());
 
         MapView.drawMap(batch, empty, map, camera, textureHashMap);
 
