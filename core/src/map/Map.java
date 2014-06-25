@@ -100,26 +100,7 @@ public class Map {
                 movesTaken = 0;
             }
 
-            if (completedPoints >= pointToComplete) {
-
-                if (goals.size() == 3) {
-                    if (movesTaken <= goals.get(2))
-                        System.out.println("super duper platyna!");
-                    else if (movesTaken <= goals.get(0))
-                        System.out.println("złotko!");
-                    else if (movesTaken <= goals.get(1))
-                        System.out.println("sreberro!");
-                    else System.out.println("brąz");
-
-                } else {
-                    if (movesTaken <= goals.get(0))
-                        System.out.println("złotko!");
-                    else if (movesTaken <= goals.get(1))
-                        System.out.println("sreberro!");
-                    else System.out.println("brąz");
-                }
-                loadNextMap();
-            }
+            checkForFinish();
         }
     }
 
@@ -156,6 +137,31 @@ public class Map {
         fieldA.setObject(new Object("NONE", null));
         fieldB.setObject(new Object("FINISHED"));
         completedPoints++;
+    }
+
+    private void checkForFinish() {
+        if (completedPoints >= pointToComplete) {
+
+            if (goals.size() == 3) {
+                if (movesTaken <= goals.get(2))
+                    System.out.println("super duper platyna!");
+                else if (movesTaken <= goals.get(0))
+                    System.out.println("złotko!");
+                else if (movesTaken <= goals.get(1))
+                    System.out.println("sreberro!");
+                else System.out.println("brąz");
+
+            } else {
+                if (movesTaken <= goals.get(0))
+                    System.out.println("złotko!");
+                else if (movesTaken <= goals.get(1))
+                    System.out.println("sreberro!");
+                else System.out.println("brąz");
+            }
+            loadNextMap();
+        }
+
+
     }
 
     private void loadNextMap() {
