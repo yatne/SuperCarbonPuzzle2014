@@ -20,6 +20,8 @@ www-test/
 ## Android Studio and Intellij and Android in general
 
 out/
+.idea/workspace.xml
+.idea/profiles_settings.xml
 
 
 ## Eclipse
