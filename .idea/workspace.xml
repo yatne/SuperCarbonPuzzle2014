@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android/assets/obstacle_2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/blocks.xml" afterPath="$PROJECT_DIR$/core/src/resources/blocks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="slider.iws" />
@@ -595,7 +593,11 @@
       <created>1403723375645</created>
       <updated>1403723375645</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new obstacle texture">
+      <created>1403723760862</created>
+      <updated>1403723760862</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -651,7 +653,8 @@
     <MESSAGE value="poprawione" />
     <MESSAGE value="rozrzucenie kodu po nowych paczkach: mapView i enums" />
     <MESSAGE value="gierka prawie skonczona" />
-    <option name="LAST_COMMIT_MESSAGE" value="gierka prawie skonczona" />
+    <MESSAGE value="new obstacle texture" />
+    <option name="LAST_COMMIT_MESSAGE" value="new obstacle texture" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
