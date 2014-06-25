@@ -34,14 +34,10 @@ public class BlocksReader {
             blockTypes = rootElement.getElementsByTagName("block");
 
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
 
-        return blockTypes;
+      return blockTypes;
     }
 }

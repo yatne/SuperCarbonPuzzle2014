@@ -2,6 +2,7 @@
   <library name="gwt-servlet-2.6.0">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/d1e40c23bf78192482ee76c93619a10b4ea649f7/gwt-servlet-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/.idea/libraries/annotations.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

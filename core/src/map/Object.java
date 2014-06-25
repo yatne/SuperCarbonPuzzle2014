@@ -14,7 +14,7 @@ public class Object {
         this.behavior = behavior;
     }
 
-    public Object(String anEnum){
+    public Object(String anEnum) {
         this.objectsType = ObjectsType.valueOf(anEnum);
         this.behavior = help.utils.HelpUtils.readBehaviors(help.utils.HelpUtils.getElementByAttributeValue(help.utils.ObjectsReader.getObjectsList(),"enum",anEnum));
     }

@@ -13,6 +13,7 @@
     <orderEntry type="library" exported="" name="gdx-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-backend-android-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-box2d-1.1.0" level="project" />
+    <orderEntry type="library" name="annotations" level="project" />
   </component>
 </module>
 
