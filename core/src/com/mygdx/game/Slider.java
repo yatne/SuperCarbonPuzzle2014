@@ -9,6 +9,7 @@ import help.utils.BlocksReader;
 import help.utils.KeyboardController;
 import help.utils.ObjectsReader;
 import map.Map;
+import mapSolver.MapSolver;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import view.MapView;
@@ -55,7 +56,8 @@ public class Slider extends ApplicationAdapter {
         }
 
 
-        map = new Map(1);
+        map = new Map(3);
+
 
     }
 

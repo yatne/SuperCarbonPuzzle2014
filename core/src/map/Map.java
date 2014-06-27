@@ -2,6 +2,7 @@ package map;
 
 import enums.Controls;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Map {
@@ -14,9 +15,9 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
+    private ArrayList<Point> objectsCords;
 
     public Map(int mapNumber) {
-
 
         MapBuilder mapBuilder = new MapBuilder();
         fields = mapBuilder.buildMap(mapNumber);
@@ -27,7 +28,9 @@ public class Map {
         goals = mapBuilder.getGoals(this);
         mapHeight = fields.size();
         mapWidth = fields.get(1).size();
+        objectsCords = new ArrayList<>();
 
+        refreshObjectCords();
     }
 
     public Map(Map map) {
@@ -39,58 +42,66 @@ public class Map {
         this.completedPoints = map.getCompletedPoints();
         this.movesTaken = map.getMovesTaken();
         this.goals = map.getGoals();
+        objectsCords = new ArrayList<>();
+
 
         for (ArrayList<Field> row : map.getFields()) {
             ArrayList<Field> fieldInRow = new ArrayList<Field>();
             for (Field field : row) {
                 fieldInRow.add(new Field(field));
+
+                if (field.hasObject()) {
+                    objectsCords.add(new Point(field.getX(), field.getY()));
+                }
             }
             this.fields.add(fieldInRow);
         }
     }
 
     public void makeMove(Controls controls) {
+
         if (controls != Controls.NONE) {
             movesTaken++;
 
-            if (controls == Controls.RIGHT) {
-                for (int n = 0; n < mapWidth; n++) {
-                    for (ArrayList<Field> row : fields) {
-                        for (int i = n - 1; i >= 0; i--) {
-                            combine(row.get(mapWidth - i - 2), row.get(mapWidth - i - 1));
-                        }
-                    }
-                }
-            }
             if (controls == Controls.LEFT) {
 
-                for (int n = 0; n < mapWidth; n++) {
-                    for (ArrayList<Field> row : fields) {
-                        for (int i = n - 1; i >= 0; i--) {
-                            combine(row.get(i + 1), row.get(i));
-                        }
+                help.utils.HelpUtils.sortByX(objectsCords);
+                for (Point cords : objectsCords) {
+
+                    for (double x = cords.getX(); x > 0; x--) {
+                        combine(fields.get((int) cords.getY()).get((int) x), fields.get((int) cords.getY()).get((int) x - 1));
                     }
                 }
-            }
-            if (controls == Controls.UP) {
-                for (int n = 0; n < mapHeight; n++) {
-                    for (int i = n - 1; i >= 0; i--) {
-                        for (int j = 0; j < mapWidth; j++) {
-                            combine(fields.get(mapHeight - i - 2).get(j), fields.get(mapHeight - i - 1).get(j));
-                        }
+            } else if (controls == Controls.RIGHT) {
+
+                help.utils.HelpUtils.sortByXReverse(objectsCords);
+                for (Point cords : objectsCords) {
+
+                    for (double x = cords.getX(); x < mapWidth - 1; x++) {
+                        combine(fields.get((int) cords.getY()).get((int) x), fields.get((int) cords.getY()).get((int) x + 1));
                     }
                 }
-            }
-            if (controls == Controls.DOWN) {
-                for (int n = 0; n < mapHeight; n++) {
-                    for (int i = n - 1; i >= 0; i--) {
-                        for (int j = 0; j < mapWidth; j++) {
-                            combine(fields.get(i + 1).get(j), fields.get(i).get(j));
-                        }
+            } else if (controls == Controls.DOWN) {
+
+                help.utils.HelpUtils.sortByY(objectsCords);
+                for (Point cords : objectsCords) {
+
+                    for (double y = cords.getY(); y > 0; y--) {
+                        combine(fields.get((int) y).get((int) cords.getX()), fields.get((int) y - 1).get((int) (cords.getX())));
                     }
                 }
-            }
-            if (controls == Controls.RESET) {
+
+            } else if (controls == Controls.UP) {
+
+                help.utils.HelpUtils.sortByYReverse(objectsCords);
+                for (Point cords : objectsCords) {
+
+                    for (double y = cords.getY(); y < mapHeight - 1; y++) {
+                        combine(fields.get((int) y).get((int) cords.getX()), fields.get((int) y + 1).get((int) (cords.getX())));
+                    }
+                }
+
+            } else if (controls == Controls.RESET) {
 
                 MapBuilder mapBuilder = new MapBuilder();
                 fields = mapBuilder.buildMap(mapNumber);
@@ -98,9 +109,13 @@ public class Map {
                 mapHeight = fields.size();
                 mapWidth = fields.get(0).size();
                 movesTaken = 0;
+
             }
 
+            refreshObjectCords();
             checkForFinish();
+
+
         }
     }
 
@@ -179,6 +194,16 @@ public class Map {
         mapHeight = fields.size();
         mapWidth = fields.get(1).size();
 
+        for (ArrayList<Field> row : fields) {
+            ArrayList<Field> fieldInRow = new ArrayList<Field>();
+            for (Field field : row) {
+                if (field.hasObject()) {
+                    objectsCords.add(new Point(field.getX(), field.getY()));
+                }
+            }
+
+        }
+
     }
 
     private ArrayList<Field> getAllFieldsByBehavior(String behavior) {
@@ -200,6 +225,19 @@ public class Map {
         }
         return fieldsList;
 
+    }
+
+    private void refreshObjectCords() {
+        objectsCords = new ArrayList<>();
+        for (ArrayList<Field> row : fields) {
+            ArrayList<Field> fieldInRow = new ArrayList<Field>();
+            for (Field field : row) {
+                if (field.hasObject()) {
+                    objectsCords.add(new Point(field.getX(), field.getY()));
+                }
+            }
+
+        }
     }
 
     public ArrayList<ArrayList<Field>> getFields() {
