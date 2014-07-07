@@ -13,7 +13,9 @@ import mapSolver.MapSolver;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import view.MapView;
+import view.Move;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Slider extends ApplicationAdapter {
@@ -56,17 +58,16 @@ public class Slider extends ApplicationAdapter {
         }
 
 
-        map = new Map(3);
-
+        map = new Map(1);
 
     }
 
     @Override
     public void render() {
 
-        map.makeMove(keyboardController.checkForControl());
+        ArrayList<Move> moves = map.makeMove(keyboardController.checkForControl());
 
-        MapView.drawMap(batch, empty, map, camera, textureHashMap);
+        MapView.drawMap(batch, empty, map, camera, textureHashMap, moves);
 
     }
 

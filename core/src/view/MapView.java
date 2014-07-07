@@ -4,7 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sun.deploy.util.Waiter;
+import enums.Animations;
 import map.Field;
 import map.Map;
 
@@ -13,7 +17,7 @@ import java.util.HashMap;
 
 public class MapView {
 
-    public static void drawMap(SpriteBatch batch, Texture img, Map map, OrthographicCamera camera, HashMap<String, Texture> textureHashMap) {
+    public static void drawMap(SpriteBatch batch, Texture img, Map map, OrthographicCamera camera, HashMap<String, Texture> textureHashMap, ArrayList<Move> moves) {
 
 
         Gdx.gl.glClearColor(1, 1, 0, 1);
@@ -44,7 +48,11 @@ public class MapView {
 
             }
         }
+          if(moves.size()>0){
+
+          }
         batch.end();
 
     }
+
 }

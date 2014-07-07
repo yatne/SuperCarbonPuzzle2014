@@ -1,6 +1,8 @@
 package map;
 
+import enums.Animations;
 import enums.Controls;
+import view.Move;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -16,21 +18,10 @@ public class Map {
     private int pointToComplete;
     private int completedPoints;
     private ArrayList<Point> objectsCords;
+    private ArrayList<Move> eventList;
 
     public Map(int mapNumber) {
-
-        MapBuilder mapBuilder = new MapBuilder();
-        fields = mapBuilder.buildMap(mapNumber);
-        pointToComplete = getAllFieldsByBehavior("objective").size();
-        completedPoints = 0;
-        this.mapNumber = mapNumber;
-        movesTaken = 0;
-        goals = mapBuilder.getGoals(this);
-        mapHeight = fields.size();
-        mapWidth = fields.get(1).size();
-        objectsCords = new ArrayList<>();
-
-        refreshObjectCords();
+        loadMap(mapNumber);
     }
 
     public Map(Map map) {
@@ -58,7 +49,30 @@ public class Map {
         }
     }
 
-    public void makeMove(Controls controls) {
+    private void loadMap(int mapNumber) {
+
+        MapBuilder mapBuilder = new MapBuilder();
+
+        fields = new ArrayList<>();
+        fields = mapBuilder.buildMap(mapNumber);
+        pointToComplete = getAllFieldsByBehavior("objective").size();
+        completedPoints = 0;
+        this.mapNumber = mapNumber;
+        movesTaken = 0;
+        goals = mapBuilder.getGoals(this);
+
+        mapHeight = fields.size();
+        mapWidth = fields.get(1).size();
+
+        objectsCords = new ArrayList<>();
+
+        refreshObjectCords();
+
+    }
+
+    public  ArrayList<Move> makeMove(Controls controls) {
+
+        eventList=new ArrayList<>();
 
         if (controls != Controls.NONE) {
             movesTaken++;
@@ -79,6 +93,7 @@ public class Map {
 
                     for (double x = cords.getX(); x < mapWidth - 1; x++) {
                         combine(fields.get((int) cords.getY()).get((int) x), fields.get((int) cords.getY()).get((int) x + 1));
+
                     }
                 }
             } else if (controls == Controls.DOWN) {
@@ -103,20 +118,17 @@ public class Map {
 
             } else if (controls == Controls.RESET) {
 
-                MapBuilder mapBuilder = new MapBuilder();
-                fields = mapBuilder.buildMap(mapNumber);
-                completedPoints = 0;
-                mapHeight = fields.size();
-                mapWidth = fields.get(0).size();
-                movesTaken = 0;
+                loadMap(mapNumber);
 
             }
 
-            refreshObjectCords();
+            calculateObjectCords(eventList);
             checkForFinish();
 
 
         }
+
+        return eventList;
     }
 
     public void combine(Field fieldA, Field fieldB) {
@@ -140,11 +152,17 @@ public class Map {
 
     private void swap(Field fieldA, Field fieldB) {
 
+
+
+        eventList.add(new Move(fieldA.getX(),fieldA.getY(), Animations.MOVE, fieldB.getX(),fieldB.getY()));
+
+
         Field swapField = new Field("NONE", null, fieldB.getX(), fieldB.getY());
         swapField.copyField(fieldB);
 
         fieldB.copyField(fieldA);
         fieldA.copyField(swapField);
+
 
     }
 
@@ -152,6 +170,7 @@ public class Map {
         fieldA.setObject(new Object("NONE", null));
         fieldB.setObject(new Object("FINISHED"));
         completedPoints++;
+        eventList.add(new Move(fieldA.getX(),fieldA.getY(),Animations.GOAL,fieldB.getX(),fieldB.getY()));
     }
 
     private void checkForFinish() {
@@ -173,38 +192,17 @@ public class Map {
                     System.out.println("sreberro!");
                 else System.out.println("brąz");
             }
-            loadNextMap();
+
+
+
+
+            loadMap(mapNumber + 1);
         }
 
 
     }
 
-    private void loadNextMap() {
 
-
-        MapBuilder mapBuilder = new MapBuilder();
-
-        fields = mapBuilder.buildMap(mapNumber + 1);
-        pointToComplete = getAllFieldsByBehavior("objective").size();
-        completedPoints = 0;
-        mapNumber = mapNumber + 1;
-        movesTaken = 0;
-        goals = mapBuilder.getGoals(this);
-
-        mapHeight = fields.size();
-        mapWidth = fields.get(1).size();
-
-        for (ArrayList<Field> row : fields) {
-            ArrayList<Field> fieldInRow = new ArrayList<Field>();
-            for (Field field : row) {
-                if (field.hasObject()) {
-                    objectsCords.add(new Point(field.getX(), field.getY()));
-                }
-            }
-
-        }
-
-    }
 
     private ArrayList<Field> getAllFieldsByBehavior(String behavior) {
 
@@ -227,6 +225,17 @@ public class Map {
 
     }
 
+    private void calculateObjectCords(ArrayList<Move> eventList){
+        for (Move move: eventList){
+            for (Point point: objectsCords){
+                if(move.getFromX()==point.getX() && move.getFromY()==point.getY()){
+                    point.setLocation(move.getToX(),move.getToY());
+                    break;
+                }
+            }
+        }
+    }
+
     private void refreshObjectCords() {
         objectsCords = new ArrayList<>();
         for (ArrayList<Field> row : fields) {
@@ -238,6 +247,7 @@ public class Map {
             }
 
         }
+
     }
 
     public ArrayList<ArrayList<Field>> getFields() {

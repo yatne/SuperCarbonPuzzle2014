@@ -23,8 +23,6 @@ public class BlocksReader {
         try {
             dBuilder = builderFactory.newDocumentBuilder();
 
-
-
             Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/blocks.xml"));
             document.normalize();
             NodeList rootNodes = document.getElementsByTagName("blocks");
