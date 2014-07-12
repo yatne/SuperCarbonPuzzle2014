@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import view.Move;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -105,6 +106,59 @@ public class HelpUtils {
                     return -1;
             }
         });
+    }
+
+    public static ArrayList<Move> combineMoves(ArrayList<Move> moves) {
+
+        ArrayList<Move> newMoves = new ArrayList<>();
+
+        if (moves.size() <= 1) {
+            newMoves = moves;
+        } else {
+
+            if (moves.get(0).getFromX() != moves.get(0).getToX()) { //lewo - prawo
+
+                int startX = -1;
+                for (int i = 0; i < moves.size(); i++) {
+                    if (startX == -1) {
+                        startX = moves.get(0).getFromX();
+                    }
+                    if (i + 1 < moves.size()) {
+                        if ((moves.get(i).getToX() != moves.get(i + 1).getFromX()) && (moves.get(i).getFromY() != moves.get(i + 1).getFromY())) {
+                            newMoves.add(new Move(startX, moves.get(i).getFromY(), moves.get(i).getAnimationType(), moves.get(i).getToX(), moves.get(i).getToY()));
+                            startX = -1;
+                        }
+                    } else {
+                        newMoves.add(new Move(startX, moves.get(i).getFromY(), moves.get(i).getAnimationType(), moves.get(i).getToX(), moves.get(i).getToY()));
+                        startX = -1;
+                    }
+                }
+
+            } else if (moves.get(0).getFromY() != moves.get(0).getToY()) { //góra - dół
+
+                int startY = -1;
+                for (int i = 0; i < moves.size(); i++) {
+                    if (startY == -1) {
+                        startY = moves.get(0).getFromY();
+                    }
+                    if (i + 1 < moves.size()) {
+                        if ((moves.get(i).getToY() != moves.get(i + 1).getFromY()) && (moves.get(i).getFromX() != moves.get(i + 1).getFromX())) {
+                            newMoves.add(new Move(moves.get(i).getFromX(), startY, moves.get(i).getAnimationType(), moves.get(i).getToX(), moves.get(i).getToY()));
+                            startY = -1;
+                        }
+                    } else {
+                        newMoves.add(new Move(moves.get(i).getFromX(), startY, moves.get(i).getAnimationType(), moves.get(i).getToX(), moves.get(i).getToY()));
+                        startY = -1;
+                    }
+                }
+
+
+            } else {
+                newMoves = moves;
+            }
+        }
+
+        return newMoves;
     }
 
 }

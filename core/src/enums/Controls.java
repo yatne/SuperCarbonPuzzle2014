@@ -7,6 +7,8 @@ public enum Controls {
     LEFT,
     RIGHT,
     RESET,
+    NEXT,
+    PREVIOUS,
     NONE;
 
 }

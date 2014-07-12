@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 public class MapView {
 
-    public static void drawMap(SpriteBatch batch, Texture img, Map map, OrthographicCamera camera, HashMap<String, Texture> textureHashMap, ArrayList<Move> moves) {
+    public static void drawMap(SpriteBatch batch, Texture img, Map map, OrthographicCamera camera, HashMap<String, Texture> textureHashMap) {
 
 
         Gdx.gl.glClearColor(1, 1, 0, 1);
@@ -48,11 +48,15 @@ public class MapView {
 
             }
         }
-          if(moves.size()>0){
-
-          }
         batch.end();
 
     }
 
+    public static void drawAnimation(SpriteBatch batch, Texture empty, Map map, OrthographicCamera camera, HashMap<String, Texture> textureHashMap, ArrayList<Move> moves, int i) {
+        Gdx.gl.glClearColor(1, 1, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+        batch.end();
+    }
 }

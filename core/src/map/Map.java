@@ -120,6 +120,14 @@ public class Map {
 
                 loadMap(mapNumber);
 
+            } else if (controls == Controls.NEXT) {
+
+                loadMap(mapNumber+1);
+
+            } else if (controls == Controls.PREVIOUS && mapNumber!=1) {
+
+                loadMap(mapNumber-1);
+
             }
 
             calculateObjectCords(eventList);
@@ -201,8 +209,6 @@ public class Map {
 
 
     }
-
-
 
     private ArrayList<Field> getAllFieldsByBehavior(String behavior) {
 

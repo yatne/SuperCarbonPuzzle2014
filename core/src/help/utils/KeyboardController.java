@@ -13,6 +13,8 @@ public class KeyboardController {
     boolean upPressed;
     boolean downPressed;
     boolean backspacePressed;
+    boolean nextPressed;
+    boolean previousPressed;
 
     public KeyboardController() {
         leftPressed = false;
@@ -20,6 +22,8 @@ public class KeyboardController {
         upPressed = false;
         downPressed = false;
         backspacePressed = false;
+        nextPressed = false;
+        previousPressed = false;
     }
 
     public Controls checkForControl() {
@@ -62,6 +66,22 @@ public class KeyboardController {
             }
         } else
             backspacePressed = false;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT_BRACKET)) {
+            if (!nextPressed) {
+                nextPressed = true;
+                return NEXT;
+            }
+        } else
+            nextPressed = false;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT_BRACKET)) {
+            if (!previousPressed) {
+                previousPressed= true;
+                return PREVIOUS;
+            }
+        } else
+            previousPressed = false;
 
         return NONE;
 
