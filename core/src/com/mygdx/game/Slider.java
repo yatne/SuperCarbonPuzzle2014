@@ -19,11 +19,12 @@ import java.util.HashMap;
 
 public class Slider extends ApplicationAdapter {
 
-    private SpriteBatch batch;
+
     private OrthographicCamera camera;
     private Texture empty;
     private Map map;
-    private HashMap<String, Texture> textureHashMap;
+
+    private MapView mapView;
     private KeyboardController keyboardController;
 
     @Override
@@ -33,46 +34,28 @@ public class Slider extends ApplicationAdapter {
         keyboardController = new KeyboardController();
 
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        batch = new SpriteBatch();
+
 
         empty = new Texture("empty.png");
 
-        NodeList blocksList = BlocksReader.getBlocksList();
-        NodeList objectsList = ObjectsReader.getObjectsList();
-
-        textureHashMap = new HashMap<String, Texture>();
-        for (int i = 0; i < blocksList.getLength(); i++) {
-            Element block = (Element) blocksList.item(i);
-            textureHashMap.put(
-                    block.getAttribute("enum"),
-                    new Texture(block.getAttribute("texture"))
-            );
-        }
-        for (int i = 0; i < objectsList.getLength(); i++) {
-            Element object = (Element) objectsList.item(i);
-            textureHashMap.put(
-                    object.getAttribute("enum"),
-                    new Texture(object.getAttribute("texture"))
-            );
-        }
-
 
         map = new Map(1);
-
+        mapView = new MapView();
     }
 
     @Override
     public void render() {
+
 
         ArrayList<Move> moves = map.makeMove(keyboardController.checkForControl());
 
         if (moves.size() > 0) {
            // System.out.println(moves.toString());
            // System.out.println(help.utils.HelpUtils.combineMoves(moves).toString());
-
+                mapView.drawAnimation(empty,map,camera,help.utils.HelpUtils.combineMoves(moves),moves.size());
         }
 
-        MapView.drawMap(batch, empty, map, camera, textureHashMap);
+        mapView.drawMap(empty, map, camera);
 
 
     }
