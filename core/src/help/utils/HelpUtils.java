@@ -1,5 +1,6 @@
 package help.utils;
 
+import map.Object;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Element;
@@ -48,11 +49,11 @@ public class HelpUtils {
         return false;
     }
 
-    public static void sortByX(ArrayList<Point> points) {
+    public static void sortByX(ArrayList<map.Object> objects) {
 
-        Collections.sort(points, new Comparator<Point>() {
+        Collections.sort(objects, new Comparator<Object>() {
             @Override
-            public int compare(Point o1, Point o2) {
+            public int compare(Object o1, Object o2) {
                 if (o1.getX() < o2.getX())
                     return -1;
                 else if (o1.getX() == o2.getX())
@@ -60,14 +61,16 @@ public class HelpUtils {
                 else
                     return 1;
             }
-        });
+        }
+        );
     }
 
-    public static void sortByXReverse(ArrayList<Point> points) {
 
-        Collections.sort(points, new Comparator<Point>() {
+    public static void sortByXReverse(ArrayList<map.Object> objects) {
+
+        Collections.sort(objects, new Comparator<Object>() {
             @Override
-            public int compare(Point o1, Point o2) {
+            public int compare(Object o1, Object o2) {
                 if (o1.getX() < o2.getX())
                     return 1;
                 else if (o1.getX() == o2.getX())
@@ -75,29 +78,32 @@ public class HelpUtils {
                 else
                     return -1;
             }
-        });
+        }
+        );
     }
 
-    public static void sortByY(ArrayList<Point> points) {
 
-        Collections.sort(points, new Comparator<Point>() {
+    public static void sortByY(ArrayList<map.Object> objects) {
+
+        Collections.sort(objects, new Comparator<Object>() {
             @Override
-            public int compare(Point o1, Point o2) {
+            public int compare(Object o1, Object o2) {
                 if (o1.getY() < o2.getY())
                     return -1;
-                else if (o1.getY() == o2.getY())
+                else if (o1.getX() == o2.getX())
                     return 0;
                 else
                     return 1;
             }
-        });
+        }
+        );
     }
 
-    public static void sortByYReverse(ArrayList<Point> points) {
+    public static void sortByYReverse(ArrayList<map.Object> objects) {
 
-        Collections.sort(points, new Comparator<Point>() {
+        Collections.sort(objects, new Comparator<Object>() {
             @Override
-            public int compare(Point o1, Point o2) {
+            public int compare(Object o1, Object o2) {
                 if (o1.getY() < o2.getY())
                     return 1;
                 else if (o1.getY() == o2.getY())
@@ -105,8 +111,10 @@ public class HelpUtils {
                 else
                     return -1;
             }
-        });
+        }
+        );
     }
+
 
     public static ArrayList<Move> combineMoves(ArrayList<Move> moves) {
 

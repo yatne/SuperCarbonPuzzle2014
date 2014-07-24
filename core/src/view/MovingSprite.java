@@ -18,17 +18,17 @@ public class MovingSprite {
         dist = Math.abs(moveFrom.getX() - moveTo.getX()) + Math.abs(moveFrom.getY() - moveTo.getY());
     }
 
-    public void moveSprite(int frame, float scaleX, float scaleY) {
+    public void moveSprite(int frame, int animationLength, float scaleX, float scaleY) {
 
-        if (frame <= dist * 10) {
+        if (frame >= (animationLength - dist) * ViewConstants.FRAMES_PER_MOVE) {
             if (moveFrom.getX() < moveTo.getX()) {
-                this.sprite.setPosition(sprite.getX() + (sprite.getWidth() * scaleX / 10), sprite.getY());
+                this.sprite.setPosition(sprite.getX() + (sprite.getWidth() * scaleX / (ViewConstants.FRAMES_PER_MOVE-2)), sprite.getY());
             } else if (moveFrom.getX() > moveTo.getX()) {
-                this.sprite.setPosition(sprite.getX() - (sprite.getWidth() * scaleX / 10), sprite.getY());
+                this.sprite.setPosition(sprite.getX() - (sprite.getWidth() * scaleX / (ViewConstants.FRAMES_PER_MOVE-2) ), sprite.getY());
             } else if (moveFrom.getY() < moveTo.getY()) {
-                this.sprite.setPosition(sprite.getX(), sprite.getY() + (sprite.getHeight() * scaleY / 10));
+                this.sprite.setPosition(sprite.getX(), sprite.getY() + (sprite.getHeight() * scaleY / (ViewConstants.FRAMES_PER_MOVE-2)));
             } else if (moveFrom.getY() > moveTo.getY()) {
-                this.sprite.setPosition(sprite.getX(), sprite.getY() - (sprite.getHeight() * scaleY / 10));
+                this.sprite.setPosition(sprite.getX(), sprite.getY() - (sprite.getHeight() * scaleY / (ViewConstants.FRAMES_PER_MOVE-2)));
 
 
             }

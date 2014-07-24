@@ -76,8 +76,15 @@
 
     </map>
 
+    <map name="blablab" number="7">
+        <row nr="1">OOOXOO</row>
+        <row nr="2">XOOOOE</row>
+        <row nr="3">OOOOXX</row>
+        <row nr="4">OXOOSO</row>
+        <row nr="5">OOOOXO</row>
+    </map>
 
-    <map name="koniec" number="7">
+    <map name="koniec" number="8">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>
@@ -88,5 +95,6 @@
         <row nr="7">XOOOOOX</row>
 
     </map>
+
 
 </maps>

@@ -1,14 +1,12 @@
 package map;
 
 import enums.FieldsType;
-import enums.ObjectsType;
 
 import java.util.ArrayList;
 
 public class Field {
 
     private FieldsType fieldType;
-    private Object object;
     private ArrayList<String> behavior;
     private int x;
     private int y;
@@ -21,7 +19,6 @@ public class Field {
         this.x = x;
         this.y = y;
 
-        addObject(objectEnum, objectBehavior);
     }
 
     public Field(String anEnum, ArrayList<String> behavior, int x, int y) {
@@ -30,36 +27,19 @@ public class Field {
         this.x = x;
         this.y = y;
 
-        addObject("NONE", null);
 
     }
 
-    public Field(Field field){
-        this.fieldType=field.getFieldType();
-        this.behavior=field.getBehavior();
-        this.x=field.getX();
-        this.y=field.getY();
-        this.object=new Object(field.getObject().getObjectsType().toString(),field.getObject().getBehavior());
+    public Field(Field field) {
+        this.fieldType = field.getFieldType();
+        this.behavior = field.getBehavior();
+        this.x = field.getX();
+        this.y = field.getY();
     }
 
     public void copyField(Field copyField) {
         this.fieldType = copyField.getFieldType();
         this.behavior = copyField.getBehavior();
-
-        if (copyField.hasObject())
-            addObject(copyField.getObject().getObjectsType().toString(), copyField.getObject().getBehavior());
-        else
-            addObject("NONE", null);
-    }
-
-    public boolean hasObject() {
-
-        return object.getObjectsType() != ObjectsType.NONE;
-
-    }
-
-    private void addObject(String anEnum, ArrayList<String> objectBehavior) {
-        this.object = new Object(anEnum, objectBehavior);
     }
 
     public boolean hasBehavior(String wantedBehavior) {
@@ -71,14 +51,6 @@ public class Field {
                     return true;
             }
         return false;
-    }
-
-    public Object getObject() {
-        return object;
-    }
-
-    public void setObject(Object object) {
-        this.object = object;
     }
 
     public ArrayList<String> getBehavior() {
@@ -100,7 +72,6 @@ public class Field {
     public int getX() {
         return x;
     }
-
 
     public int getY() {
         return y;

@@ -1,15 +1,15 @@
 package map;
 
-import enums.Animations;
 import enums.Controls;
+import enums.ObjectsType;
 import view.Move;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Map {
 
     private ArrayList<ArrayList<Field>> fields;
+    private ArrayList<Object> objects;
     private int mapWidth;
     private int mapHeight;
     private int mapNumber;
@@ -17,8 +17,8 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
-    private ArrayList<Point> objectsCords;
     private ArrayList<Move> eventList;
+
 
     public Map(int mapNumber) {
         loadMap(mapNumber);
@@ -33,7 +33,6 @@ public class Map {
         this.completedPoints = map.getCompletedPoints();
         this.movesTaken = map.getMovesTaken();
         this.goals = map.getGoals();
-        objectsCords = new ArrayList<>();
 
 
         for (ArrayList<Field> row : map.getFields()) {
@@ -41,9 +40,6 @@ public class Map {
             for (Field field : row) {
                 fieldInRow.add(new Field(field));
 
-                if (field.hasObject()) {
-                    objectsCords.add(new Point(field.getX(), field.getY()));
-                }
             }
             this.fields.add(fieldInRow);
         }
@@ -55,7 +51,8 @@ public class Map {
 
         fields = new ArrayList<>();
         fields = mapBuilder.buildMap(mapNumber);
-        pointToComplete = getAllFieldsByBehavior("objective").size();
+        objects = mapBuilder.loadObjects(mapNumber);
+        pointToComplete = getAllObjectsByBehavior("objective").size();
         completedPoints = 0;
         this.mapNumber = mapNumber;
         movesTaken = 0;
@@ -64,121 +61,109 @@ public class Map {
         mapHeight = fields.size();
         mapWidth = fields.get(1).size();
 
-        objectsCords = new ArrayList<>();
-
-        refreshObjectCords();
 
     }
 
-    public  ArrayList<Move> makeMove(Controls controls) {
+    public ArrayList<Move> makeMove(Controls control) {
 
-        eventList=new ArrayList<>();
+        eventList = new ArrayList<>();
 
-        if (controls != Controls.NONE) {
+        if (control != Controls.NONE) {
             movesTaken++;
 
-            if (controls == Controls.LEFT) {
+            if (control == Controls.RIGHT) {
 
-                help.utils.HelpUtils.sortByX(objectsCords);
-                for (Point cords : objectsCords) {
-
-                    for (double x = cords.getX(); x > 0; x--) {
-                        combine(fields.get((int) cords.getY()).get((int) x), fields.get((int) cords.getY()).get((int) x - 1));
-                    }
-                }
-            } else if (controls == Controls.RIGHT) {
-
-                help.utils.HelpUtils.sortByXReverse(objectsCords);
-                for (Point cords : objectsCords) {
-
-                    for (double x = cords.getX(); x < mapWidth - 1; x++) {
-                        combine(fields.get((int) cords.getY()).get((int) x), fields.get((int) cords.getY()).get((int) x + 1));
-
-                    }
-                }
-            } else if (controls == Controls.DOWN) {
-
-                help.utils.HelpUtils.sortByY(objectsCords);
-                for (Point cords : objectsCords) {
-
-                    for (double y = cords.getY(); y > 0; y--) {
-                        combine(fields.get((int) y).get((int) cords.getX()), fields.get((int) y - 1).get((int) (cords.getX())));
+                help.utils.HelpUtils.sortByXReverse(objects);
+                for (Object object : objects) {
+                    for (int x = object.getX(); x < mapWidth - 1; x++) {
+                        combine(object, object.getX() + 1, object.getY());
                     }
                 }
 
-            } else if (controls == Controls.UP) {
+            } else if (control == Controls.LEFT) {
 
-                help.utils.HelpUtils.sortByYReverse(objectsCords);
-                for (Point cords : objectsCords) {
-
-                    for (double y = cords.getY(); y < mapHeight - 1; y++) {
-                        combine(fields.get((int) y).get((int) cords.getX()), fields.get((int) y + 1).get((int) (cords.getX())));
+                help.utils.HelpUtils.sortByX(objects);
+                for (Object object : objects) {
+                    for (int x = object.getX(); x > 0; x--) {
+                        combine(object, object.getX() - 1, object.getY());
                     }
                 }
 
-            } else if (controls == Controls.RESET) {
+            } else if (control == Controls.UP) {
+
+                help.utils.HelpUtils.sortByYReverse(objects);
+                for (Object object : objects) {
+                    for (int y = object.getY(); y < mapHeight - 1; y++) {
+                        combine(object, object.getX(), object.getY() + 1);
+                    }
+                }
+
+            } else if (control == Controls.DOWN) {
+
+                help.utils.HelpUtils.sortByY(objects);
+                for (Object object : objects) {
+                    for (int y = object.getY(); y > 0; y--) {
+                        combine(object, object.getX(), object.getY() - 1);
+                    }
+                }
+
+            } else if (control == Controls.RESET) {
 
                 loadMap(mapNumber);
 
-            } else if (controls == Controls.NEXT) {
+            } else if (control == Controls.NEXT) {
 
-                loadMap(mapNumber+1);
+                loadMap(mapNumber + 1);
 
-            } else if (controls == Controls.PREVIOUS && mapNumber!=1) {
+            } else if (control == Controls.PREVIOUS && mapNumber != 1) {
 
-                loadMap(mapNumber-1);
+                loadMap(mapNumber - 1);
 
             }
 
-            calculateObjectCords(eventList);
             checkForFinish();
-
-
         }
 
         return eventList;
     }
 
-    public void combine(Field fieldA, Field fieldB) {
+    public void combine(Object objectA, int x, int y) {
 
-        if (fieldA.hasObject()) {
-            if (fieldA.getObject().hasBehavior("moving")) {
-
-                if (fieldB.hasBehavior("empty")) {
-                    if (fieldB.hasObject()) {
-                        if (fieldA.getObject().hasBehavior("objective") && fieldB.getObject().hasBehavior("objective-end")) {
-                            finish(fieldA, fieldB);
-                        }
-                    } else {
-                        swap(fieldA, fieldB);
-                    }
+        Object objectB = findObject(x, y);
+        if (objectA.hasBehavior("moving")) {
+            if (objectB.getObjectsType() == ObjectsType.NONE) {
+                if (fields.get(y).get(x).hasBehavior("empty")) {
+                    objectA.setX(x);
+                    objectA.setY(y);
                 }
-
+            } else if (objectA.hasBehavior("objective") && objectB.hasBehavior("objective-end")) {
+                finish(objectA, objectB);
             }
+
         }
     }
 
-    private void swap(Field fieldA, Field fieldB) {
+    private Object findObject(int x, int y) {
 
+        for (Object object : objects) {
+            if (object.getX() == x && object.getY() == y) {
+                return object;
+            }
+        }
 
-
-        eventList.add(new Move(fieldA.getX(),fieldA.getY(), Animations.MOVE, fieldB.getX(),fieldB.getY()));
-
-
-        Field swapField = new Field("NONE", null, fieldB.getX(), fieldB.getY());
-        swapField.copyField(fieldB);
-
-        fieldB.copyField(fieldA);
-        fieldA.copyField(swapField);
-
-
+        Object object = new Object("NONE", null);
+        return object;
     }
 
-    private void finish(Field fieldA, Field fieldB) {
-        fieldA.setObject(new Object("NONE", null));
-        fieldB.setObject(new Object("FINISHED"));
+    private void finish(Object objectA, Object objectB) {
+
+        objectB.setObjectsType(ObjectsType.FINISHED);
+        objectA.setX(objectB.getX());
+        objectA.setY(objectB.getY());
+        objectA.setObjectsType(ObjectsType.FINISHED);
+
+
         completedPoints++;
-        eventList.add(new Move(fieldA.getX(),fieldA.getY(),Animations.GOAL,fieldB.getX(),fieldB.getY()));
     }
 
     private void checkForFinish() {
@@ -201,9 +186,6 @@ public class Map {
                 else System.out.println("brąz");
             }
 
-
-
-
             loadMap(mapNumber + 1);
         }
 
@@ -219,41 +201,29 @@ public class Map {
                 if (field.hasBehavior(behavior)) {
                     fieldsList.add(field);
                 }
-                if (field.hasObject()) {
-                    if (field.getObject().hasBehavior(behavior)) {
-                        fieldsList.add(field);
-                    }
-                }
-
             }
         }
         return fieldsList;
 
     }
 
-    private void calculateObjectCords(ArrayList<Move> eventList){
-        for (Move move: eventList){
-            for (Point point: objectsCords){
-                if(move.getFromX()==point.getX() && move.getFromY()==point.getY()){
-                    point.setLocation(move.getToX(),move.getToY());
-                    break;
-                }
+    private ArrayList<Object> getAllObjectsByBehavior(String behavior) {
+        ArrayList<Object> objectsList = new ArrayList<>();
+
+        for (Object object : objects) {
+            if (object.hasBehavior(behavior)) {
+                objectsList.add(object);
             }
         }
+        return objectsList;
     }
 
-    private void refreshObjectCords() {
-        objectsCords = new ArrayList<>();
-        for (ArrayList<Field> row : fields) {
-            ArrayList<Field> fieldInRow = new ArrayList<Field>();
-            for (Field field : row) {
-                if (field.hasObject()) {
-                    objectsCords.add(new Point(field.getX(), field.getY()));
-                }
+    public void deleteObject(int x, int y) {
+        for (int i = 0; i < objects.size() - 1; i++) {
+            if (objects.get(i).getX() == x && objects.get(i).getY() == y) {
+                objects.remove(i);
             }
-
         }
-
     }
 
     public ArrayList<ArrayList<Field>> getFields() {
@@ -287,4 +257,9 @@ public class Map {
     public ArrayList<Integer> getGoals() {
         return goals;
     }
+
+    public ArrayList<Object> getObjects() {
+        return objects;
+    }
+
 }

@@ -1,5 +1,7 @@
 package map;
 
+import com.badlogic.gdx.maps.MapObject;
+import enums.ObjectsType;
 import help.utils.BlocksReader;
 import help.utils.ObjectsReader;
 import org.w3c.dom.Document;
@@ -59,7 +61,7 @@ public class MapBuilder {
             goals.add(Integer.parseInt(mapEle.getAttribute("silver")));
         else
             goals.add(50);
-        if(mapEle.hasAttribute("plat"))
+        if (mapEle.hasAttribute("plat"))
             goals.add(Integer.parseInt(mapEle.getAttribute("plat")));
         return goals;
     }
@@ -95,6 +97,7 @@ public class MapBuilder {
                     Element underBlock = getElementByAttributeValue(blocksList, "enum", object.getAttribute("placedOn"));
                     fieldsInARow.add(new Field(underBlock.getAttribute("enum"), readBehaviors(underBlock),
                             object.getAttribute("enum"), readBehaviors(object), j, i));
+
                 }
 
 
@@ -102,6 +105,41 @@ public class MapBuilder {
             map.add(fieldsInARow);
         }
         return map;
+    }
+
+    public ArrayList<Object> loadObjects(int mapNumber) {
+
+        ArrayList<Object> objects = new ArrayList<>();
+
+        Element mapBlueprint = getMapEle(mapNumber);
+        NodeList objectsList = ObjectsReader.getObjectsList();
+
+        NodeList rows = mapBlueprint.getElementsByTagName("row");
+        String rowBlueprint = null;
+
+        for (int i = 0; i < rows.getLength(); i++) {
+
+            for (int k = 0; k < rows.getLength(); k++) {
+                Element row = (Element) rows.item(k);
+                if (Integer.parseInt(row.getAttribute("nr")) == rows.getLength() - i)
+                    rowBlueprint = row.getTextContent();
+            }
+
+            for (int j = 0; j < rowBlueprint.length(); j++) {
+                String symbol = rowBlueprint.substring(j, j + 1);
+
+
+                Element object = getElementByAttributeValue(objectsList, "representation", symbol);
+
+                if (object != null) {
+                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), help.utils.HelpUtils.readBehaviors(object), j, i));
+                }
+
+
+            }
+        }
+        return objects;
+
     }
 
 }
