@@ -132,7 +132,7 @@ public class MapBuilder {
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (object != null) {
-                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), help.utils.HelpUtils.readBehaviors(object), j, i));
+                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), help.utils.HelpUtils.readBehaviors(object), j, i, objects.size()));
                 }
 
 

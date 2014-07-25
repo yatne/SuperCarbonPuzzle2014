@@ -17,7 +17,6 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
-    private ArrayList<Move> eventList;
 
 
     public Map(int mapNumber) {
@@ -61,12 +60,11 @@ public class Map {
         mapHeight = fields.size();
         mapWidth = fields.get(1).size();
 
-
     }
 
-    public ArrayList<Move> makeMove(Controls control) {
+    public void makeMove(Controls control) {
 
-        eventList = new ArrayList<>();
+
 
         if (control != Controls.NONE) {
             movesTaken++;
@@ -107,10 +105,6 @@ public class Map {
                     }
                 }
 
-            } else if (control == Controls.RESET) {
-
-                loadMap(mapNumber);
-
             } else if (control == Controls.NEXT) {
 
                 loadMap(mapNumber + 1);
@@ -122,9 +116,9 @@ public class Map {
             }
 
             checkForFinish();
+
         }
 
-        return eventList;
     }
 
     public void combine(Object objectA, int x, int y) {
@@ -151,7 +145,7 @@ public class Map {
             }
         }
 
-        Object object = new Object("NONE", null);
+        Object object = new Object("NONE", null, -1);
         return object;
     }
 
@@ -166,7 +160,7 @@ public class Map {
         completedPoints++;
     }
 
-    private void checkForFinish() {
+    public boolean checkForFinish() {
         if (completedPoints >= pointToComplete) {
 
             if (goals.size() == 3) {
@@ -185,11 +179,9 @@ public class Map {
                     System.out.println("sreberro!");
                 else System.out.println("brąz");
             }
-
-            loadMap(mapNumber + 1);
         }
 
-
+        return (completedPoints >= pointToComplete);
     }
 
     private ArrayList<Field> getAllFieldsByBehavior(String behavior) {

@@ -76,15 +76,27 @@
 
     </map>
 
-    <map name="blablab" number="7">
+    <map name="blablab" number="7" gold="8" silver="10">
         <row nr="1">OOOXOO</row>
         <row nr="2">XOOOOE</row>
         <row nr="3">OOOOXX</row>
-        <row nr="4">OXOOSO</row>
-        <row nr="5">OOOOXO</row>
+        <row nr="4">OXOOSX</row>
+        <row nr="5">OOOOOO</row>
+        <row nr="6">OXOOOO</row>
     </map>
 
-    <map name="koniec" number="8">
+    <map name="nie wylec" number="8">
+        <row nr="1">OOOOOOOO</row>
+        <row nr="2">OOOOXOOO</row>
+        <row nr="3">OXOOOOOO</row>
+        <row nr="4">OSOOOXOO</row>
+        <row nr="5">OOOOOOEO</row>
+        <row nr="6">OOXOOOOO</row>
+        <row nr="7">OXOOXOOO</row>
+        <row nr="8">OOOOOOOO</row>
+    </map>
+
+    <map name="koniec" number="9">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

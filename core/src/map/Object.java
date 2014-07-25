@@ -8,17 +8,22 @@ public class Object {
 
     private ObjectsType objectsType;
     private ArrayList<String> behavior;
+    private int id;
     private int x;
     private int y;
 
-    public Object(String anEnum, ArrayList<String> behavior) {
-        this.objectsType = ObjectsType.valueOf(anEnum);
+    public Object(ObjectsType objectsType, ArrayList<String> behavior, int x, int y, int id) {
+        this.objectsType = objectsType;
         this.behavior = behavior;
+        this.x = x;
+        this.y = y;
+        this.id = id;
     }
 
-    public Object(String anEnum) {
+    public Object(String anEnum, ArrayList<String> behavior, int id) {
         this.objectsType = ObjectsType.valueOf(anEnum);
-        this.behavior = help.utils.HelpUtils.readBehaviors(help.utils.HelpUtils.getElementByAttributeValue(help.utils.ObjectsReader.getObjectsList(), "enum", anEnum));
+        this.behavior = behavior;
+        this.id = id;
     }
 
     public boolean hasBehavior(String wantedBehavior) {
@@ -65,10 +70,7 @@ public class Object {
         this.y = y;
     }
 
-    public Object(ObjectsType objectsType, ArrayList<String> behavior, int x, int y) {
-        this.objectsType = objectsType;
-        this.behavior = behavior;
-        this.x = x;
-        this.y = y;
+    public int getId() {
+        return id;
     }
 }
