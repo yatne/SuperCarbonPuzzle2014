@@ -1,7 +1,26 @@
 <maps>
 
+    <map name="blablab" number="1" gold="8" silver="10">
+        <row nr="1">OOOXOO</row>
+        <row nr="2">XOOOOE</row>
+        <row nr="3">OOOOXX</row>
+        <row nr="4">OXOOSX</row>
+        <row nr="5">OOOOOO</row>
+        <row nr="6">OXOOOO</row>
+    </map>
 
-    <map name="klasyk" number="1" gold="9" silver="10">
+    <map name="nie wylec" number="2" gold="5" silver="7">
+        <row nr="1">OOOOOOOO</row>
+        <row nr="2">OOOOXOOO</row>
+        <row nr="3">OXOOOOOO</row>
+        <row nr="4">OSOOOXOO</row>
+        <row nr="5">OOOOOOEO</row>
+        <row nr="6">OOXOOOOO</row>
+        <row nr="7">OXOOXOOO</row>
+        <row nr="8">OOOOOOOO</row>
+    </map>
+
+    <map name="klasyk" number="3" gold="9" silver="10">
 
         <row nr="1">OXOXOXOO</row>
         <row nr="2">OOOXOOOX</row>
@@ -14,7 +33,7 @@
 
     </map>
 
-    <map name="nowe" number="2" gold="6" silver="9">
+    <map name="nowe" number="4" gold="6" silver="9">
 
         <row nr="1">OOOOXO</row>
         <row nr="2">OOOOOO</row>
@@ -27,7 +46,7 @@
     </map>
 
 
-    <map name="zapchane" number="3" gold="21" silver="25">
+    <map name="zapchane" number="5" gold="21" silver="25">
 
         <row nr="1">NXSXOOON</row>
         <row nr="2">NXOXXXXN</row>
@@ -41,7 +60,7 @@
     </map>
 
 
-    <map name="proste" number="4" gold="8" silver="10" >
+    <map name="proste" number="6" gold="8" silver="10" >
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -52,7 +71,7 @@
 
     </map>
 
-    <map name="trudne z platyna" number="5" gold="16" silver="19" plat="13">
+    <map name="trudne z platyna" number="7" gold="16" silver="19" plat="13">
 
         <row nr="1">XOOEOOO</row>
         <row nr="2">XOOOXXX</row>
@@ -64,7 +83,7 @@
 
     </map>
 
-    <map name="same kule" number="6" gold="10" silver="15">
+    <map name="same kule" number="8" gold="6" silver="12">
 
         <row nr="1">OOOOOOO</row>
         <row nr="2">OOEOEOO</row>
@@ -76,25 +95,6 @@
 
     </map>
 
-    <map name="blablab" number="7" gold="8" silver="10">
-        <row nr="1">OOOXOO</row>
-        <row nr="2">XOOOOE</row>
-        <row nr="3">OOOOXX</row>
-        <row nr="4">OXOOSX</row>
-        <row nr="5">OOOOOO</row>
-        <row nr="6">OXOOOO</row>
-    </map>
-
-    <map name="nie wylec" number="8">
-        <row nr="1">OOOOOOOO</row>
-        <row nr="2">OOOOXOOO</row>
-        <row nr="3">OXOOOOOO</row>
-        <row nr="4">OSOOOXOO</row>
-        <row nr="5">OOOOOOEO</row>
-        <row nr="6">OOXOOOOO</row>
-        <row nr="7">OXOOXOOO</row>
-        <row nr="8">OOOOOOOO</row>
-    </map>
 
     <map name="koniec" number="9">
 

@@ -15,7 +15,6 @@ import map.Object;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -104,10 +103,14 @@ public class MapView {
         boolean allSpritesReady = true;
 
         for (int i = 0; i < sprites.size(); i++) {
-            if (!isSpriteReady(sprites.get(i), wantedSprites.get(i))) {
-                moveSprite(sprites.get(i),wantedSprites.get(i));
+            if (!isSpriteInTheSamePlace(sprites.get(i), wantedSprites.get(i))) {
+                moveSprite(sprites.get(i), wantedSprites.get(i));
+                allSpritesReady = false;
+            } else if (!isSpriteTheSame(sprites.get(i), wantedSprites.get(i))) {
+                animateSprite(sprites.get(i), wantedSprites.get(i));
                 allSpritesReady = false;
             }
+
         }
 
         if (allSpritesReady)
@@ -121,27 +124,46 @@ public class MapView {
         return allSpritesReady;
     }
 
-
-
     private void moveSprite(Sprite sprite, Sprite desiredSprite) {
 
-        if(sprite.getX()<desiredSprite.getX())
+        if (sprite.getX() < desiredSprite.getX())
             sprite.translateX(Constants.spritesMovingSpeed);
-        else if(sprite.getX()>desiredSprite.getX())
+        else if (sprite.getX() > desiredSprite.getX())
             sprite.translateX(-Constants.spritesMovingSpeed);
-        else if(sprite.getY()>desiredSprite.getY())
+        else if (sprite.getY() > desiredSprite.getY())
             sprite.translateY(-Constants.spritesMovingSpeed);
-        else if(sprite.getY()<desiredSprite.getY())
+        else if (sprite.getY() < desiredSprite.getY())
             sprite.translateY(Constants.spritesMovingSpeed);
 
     }
 
-    private boolean isSpriteReady(Sprite spriteA, Sprite spriteB) {
+    private void animateSprite(Sprite sprite, Sprite desiredSprite) {
 
-        if (Math.abs(spriteA.getX() - spriteB.getX()) < Constants.spritesMovingSpeed && Math.abs(spriteA.getY() - spriteB.getY()) < Constants.spritesMovingSpeed)
+        if (sprite.getTexture().equals(textureHashMap.get("BALL"))) {
+            if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
+
+                //tutaj animacja
+                cleanEndSprite(desiredSprite);
+
+                sprite.setTexture(textureHashMap.get("FINISHED"));
+            }
+        }
+
+    }
+
+    private boolean isSpriteInTheSamePlace(Sprite spriteA, Sprite spriteB) {
+
+        if (Math.abs(spriteA.getX() - spriteB.getX()) < Constants.spritesMovingSpeed && Math.abs(spriteA.getY() - spriteB.getY()) < Constants.spritesMovingSpeed) {
+            spriteA.setPosition(spriteB.getX(), spriteB.getY());
             return true;
-        else
+        } else
             return false;
+
+    }
+
+    private boolean isSpriteTheSame(Sprite spriteA, Sprite spriteB) {
+
+        return (spriteA.getTexture().equals(spriteB.getTexture()));
 
     }
 
@@ -183,25 +205,12 @@ public class MapView {
         return spritesList;
     }
 
-    public int animationLength(ArrayList<Move> moves) {
+    public void cleanEndSprite(Sprite sprite) {
 
-        int i = 0;
-        for (Move move : moves) {
-            if (Math.abs(move.fromX - move.getToX()) > i) {
-                i = Math.abs(move.fromX - move.getToX());
-            } else if (Math.abs(move.fromY - move.getToY()) > i) {
-                i = Math.abs(move.fromY - move.getToY());
+        for (Sprite chosenSprite : sprites) {
+            if (isSpriteInTheSamePlace(chosenSprite, sprite)) {
+                chosenSprite.setTexture(textureHashMap.get("NOTHING"));
             }
         }
-        return i;
-    }
-
-    public Point fromMapCellToSpritePos(Point point, OrthographicCamera camera, Texture img, Map map) {
-
-        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportHeight / (map.getMapHeight() * img.getHeight());
-
-        Point newPoint = new Point((int) (point.getX() * img.getWidth() * scaleX), (int) (point.getY() * img.getHeight() * scaleY));
-        return newPoint;
     }
 }

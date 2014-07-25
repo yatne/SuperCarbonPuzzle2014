@@ -52,10 +52,10 @@ public class Slider extends ApplicationAdapter {
             }
 
             case LEVEL: {
-                if(map.checkForFinish()){
+                if (map.checkForFinish()) {
                     selectedLevel++;
-                    map=new Map(selectedLevel);
-                    mapView = new MapView(empty,map,camera);
+                    map = new Map(selectedLevel);
+                    mapView = new MapView(empty, map, camera);
                 }
 
                 Controls control = keyboardController.checkForControl();
@@ -63,8 +63,16 @@ public class Slider extends ApplicationAdapter {
                     mapView.drawMap(empty, map, camera);
                 } else {
                     if (control == Controls.RESET) {
-                        map=new Map(selectedLevel);
-                        mapView = new MapView(empty,map,camera);
+                        map = new Map(selectedLevel);
+                        mapView = new MapView(empty, map, camera);
+                    } else if (control == Controls.NEXT) {
+                        selectedLevel++;
+                        map = new Map(selectedLevel);
+                        mapView = new MapView(empty, map, camera);
+                    } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
+                        selectedLevel--;
+                        map = new Map(selectedLevel);
+                        mapView = new MapView(empty, map, camera);
                     } else {
                         map.makeMove(control);
                         gameState = LEVEL_ANIMATION;

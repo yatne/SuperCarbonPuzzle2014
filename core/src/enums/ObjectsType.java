@@ -6,6 +6,7 @@ public enum ObjectsType {
     BALL,
     BOX,
     END,
-    FINISHED
+    FINISHED,
+    NOTHING
 
 }

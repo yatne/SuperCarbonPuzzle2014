@@ -25,4 +25,9 @@
         <behavior>empty</behavior>
     </object>
 
+    <object name="nothing" enum="NOTHING" texture="nothing.png">
+
+        <behavior>solid</behavior>
+    </object>
+
 </objects>

@@ -2,7 +2,6 @@ package map;
 
 import enums.Controls;
 import enums.ObjectsType;
-import view.Move;
 
 import java.util.ArrayList;
 
@@ -65,7 +64,6 @@ public class Map {
     public void makeMove(Controls control) {
 
 
-
         if (control != Controls.NONE) {
             movesTaken++;
 
@@ -105,20 +103,10 @@ public class Map {
                     }
                 }
 
-            } else if (control == Controls.NEXT) {
-
-                loadMap(mapNumber + 1);
-
-            } else if (control == Controls.PREVIOUS && mapNumber != 1) {
-
-                loadMap(mapNumber - 1);
 
             }
 
-            checkForFinish();
-
         }
-
     }
 
     public void combine(Object objectA, int x, int y) {
@@ -151,7 +139,7 @@ public class Map {
 
     private void finish(Object objectA, Object objectB) {
 
-        objectB.setObjectsType(ObjectsType.FINISHED);
+        objectB.setObjectsType(ObjectsType.NOTHING);
         objectA.setX(objectB.getX());
         objectA.setY(objectB.getY());
         objectA.setObjectsType(ObjectsType.FINISHED);
@@ -208,14 +196,6 @@ public class Map {
             }
         }
         return objectsList;
-    }
-
-    public void deleteObject(int x, int y) {
-        for (int i = 0; i < objects.size() - 1; i++) {
-            if (objects.get(i).getX() == x && objects.get(i).getY() == y) {
-                objects.remove(i);
-            }
-        }
     }
 
     public ArrayList<ArrayList<Field>> getFields() {
