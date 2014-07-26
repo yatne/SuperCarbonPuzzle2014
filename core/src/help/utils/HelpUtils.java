@@ -31,7 +31,7 @@ public class HelpUtils {
 
     public static ArrayList<String> readBehaviors(Element ele) {
 
-        ArrayList<String> behavior = new ArrayList<String>();
+        ArrayList<String> behavior = new ArrayList<>();
         NodeList behaviorNodeList = ele.getElementsByTagName("behavior");
         for (int i = 0; i < behaviorNodeList.getLength(); i++) {
             Element behaviorElement = (Element) behaviorNodeList.item(i);

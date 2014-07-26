@@ -4,8 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
 import help.utils.BlocksReader;
 import help.utils.Constants;
 import help.utils.ObjectsReader;
@@ -23,15 +26,16 @@ public class MapView {
     private SpriteBatch batch;
     private HashMap<String, Texture> textureHashMap;
     private ArrayList<Sprite> sprites;
+    private HashMap<Sprite, Integer> spriteStates;
 
-    public MapView(Texture img, Map map, OrthographicCamera camera) {
+    public MapView(Map map, OrthographicCamera camera) {
 
         batch = new SpriteBatch();
 
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
 
-        textureHashMap = new HashMap<String, Texture>();
+        textureHashMap = new HashMap<>();
         for (int i = 0; i < blocksList.getLength(); i++) {
             Element block = (Element) blocksList.item(i);
             textureHashMap.put(
@@ -47,59 +51,29 @@ public class MapView {
             );
         }
 
-        createSpritesList(img, map, camera);
+        createSpritesList(map, camera);
     }
 
-    public void drawMap(Texture img, Map map, OrthographicCamera camera) {
+    public void drawMap(Map map, OrthographicCamera camera) {
 
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
+        drawStaticMap(map,camera);
+
         batch.begin();
-
-        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportHeight / (map.getMapHeight() * img.getHeight());
-
-        for (ArrayList<Field> row : map.getFields()) {
-            for (Field field : row) {
-
-                batch.draw(textureHashMap.get(field.getFieldType().toString()),
-                        field.getX() * img.getWidth() * scaleX,
-                        field.getY() * img.getWidth() * scaleY,
-                        img.getWidth() * scaleX,
-                        img.getWidth() * scaleY);
-            }
-        }
 
         for (Sprite sprite : sprites) {
             sprite.draw(batch);
         }
-
         batch.end();
+
     }
 
-    public boolean drawAnimation(Texture img, Map map, OrthographicCamera camera) {
+    public boolean drawAnimation(Map map, OrthographicCamera camera) {
 
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
+        drawStaticMap(map,camera);
+
         batch.begin();
 
-        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportHeight / (map.getMapHeight() * img.getHeight());
-
-        for (ArrayList<Field> row : map.getFields()) {
-            for (Field field : row) {
-
-                batch.draw(textureHashMap.get(field.getFieldType().toString()),
-                        field.getX() * img.getWidth() * scaleX,
-                        field.getY() * img.getWidth() * scaleY,
-                        img.getWidth() * scaleX,
-                        img.getWidth() * scaleY);
-            }
-        }
-
-        ArrayList<Sprite> wantedSprites = loadSpritesList(img, map, camera);
+        ArrayList<Sprite> wantedSprites = loadSpritesList(map, camera);
         boolean allSpritesReady = true;
 
         for (int i = 0; i < sprites.size(); i++) {
@@ -114,7 +88,7 @@ public class MapView {
         }
 
         if (allSpritesReady)
-            createSpritesList(img, map, camera);
+            createSpritesList(map, camera);
 
         for (Sprite sprite : sprites) {
             sprite.draw(batch);
@@ -122,6 +96,36 @@ public class MapView {
 
         batch.end();
         return allSpritesReady;
+    }
+
+    private void drawStaticMap(Map map, OrthographicCamera camera){
+        Gdx.gl.glClearColor(1, 1, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+
+
+        Texture img = textureHashMap.get("EMPTY");
+
+        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
+        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
+        float offset = camera.viewportHeight-camera.viewportWidth;
+
+
+        for (ArrayList<Field> row : map.getFields()) {
+            for (Field field : row) {
+
+                batch.draw(textureHashMap.get(field.getFieldType().toString()),
+                        field.getX() * img.getWidth() * scaleX,
+                        field.getY() * img.getWidth() * scaleY + (offset/2),
+                        img.getWidth() * scaleX,
+                        img.getWidth() * scaleY);
+            }
+        }
+
+        batch.end();
+
+
     }
 
     private void moveSprite(Sprite sprite, Sprite desiredSprite) {
@@ -139,15 +143,14 @@ public class MapView {
 
     private void animateSprite(Sprite sprite, Sprite desiredSprite) {
 
-        if (sprite.getTexture().equals(textureHashMap.get("BALL"))) {
+        if (sprite.getTexture().equals(textureHashMap.get("BALL")) || spriteStates.get(sprite)!=0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
 
-                //tutaj animacja
                 cleanEndSprite(desiredSprite);
 
-                sprite.setTexture(textureHashMap.get("FINISHED"));
+                    sprite.setTexture(textureHashMap.get("FINISHED"));
+
             }
-        }
 
     }
 
@@ -167,11 +170,16 @@ public class MapView {
 
     }
 
-    public void createSpritesList(Texture img, Map map, OrthographicCamera camera) {
+    public void createSpritesList(Map map, OrthographicCamera camera) {
 
         sprites = new ArrayList<>();
+        spriteStates = new HashMap<>();
+
+        Texture img = textureHashMap.get("EMPTY");
+
         float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportHeight / (map.getMapHeight() * img.getHeight());
+        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
+        float offset = camera.viewportHeight-camera.viewportWidth;
 
         ArrayList<Object> objects = map.getObjects();
         help.utils.HelpUtils.sortById(objects);
@@ -179,18 +187,24 @@ public class MapView {
         for (Object object : objects) {
             Texture texture = textureHashMap.get(object.getObjectsType().toString());
             Sprite sprite = new Sprite(texture);
-            sprite.setPosition(object.getX() * img.getWidth() * scaleX, object.getY() * img.getWidth() * scaleY);
+            sprite.setPosition(object.getX() * img.getWidth() * scaleX , object.getY() * img.getWidth() * scaleY + (offset/2));
             sprite.setSize(img.getWidth() * scaleX, img.getWidth() * scaleY);
             sprites.add(sprite);
+            spriteStates.put(sprite, 0);
         }
 
     }
 
-    public ArrayList<Sprite> loadSpritesList(Texture img, Map map, OrthographicCamera camera) {
+    public ArrayList<Sprite> loadSpritesList(Map map, OrthographicCamera camera) {
 
         ArrayList<Sprite> spritesList = new ArrayList<>();
+
+        Texture img = textureHashMap.get("EMPTY");
+
         float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportHeight / (map.getMapHeight() * img.getHeight());
+        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
+        float offset = camera.viewportHeight-camera.viewportWidth;
+
 
         ArrayList<Object> objects = map.getObjects();
         help.utils.HelpUtils.sortById(objects);
@@ -198,7 +212,7 @@ public class MapView {
         for (Object object : objects) {
             Texture texture = textureHashMap.get(object.getObjectsType().toString());
             Sprite sprite = new Sprite(texture);
-            sprite.setPosition(object.getX() * img.getWidth() * scaleX, object.getY() * img.getWidth() * scaleY);
+            sprite.setPosition(object.getX() * img.getWidth() * scaleX, object.getY() * img.getWidth() * scaleY + (offset/2));
             sprite.setSize(img.getWidth() * scaleX, img.getWidth() * scaleY);
             spritesList.add(sprite);
         }

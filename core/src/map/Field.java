@@ -37,11 +37,6 @@ public class Field {
         this.y = field.getY();
     }
 
-    public void copyField(Field copyField) {
-        this.fieldType = copyField.getFieldType();
-        this.behavior = copyField.getBehavior();
-    }
-
     public boolean hasBehavior(String wantedBehavior) {
 
 
@@ -55,10 +50,6 @@ public class Field {
 
     public ArrayList<String> getBehavior() {
         return behavior;
-    }
-
-    public void setBehavior(ArrayList<String> behavior) {
-        this.behavior = behavior;
     }
 
     public FieldsType getFieldType() {

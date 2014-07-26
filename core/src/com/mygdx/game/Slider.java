@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import enums.Controls;
 import enums.GameStates;
 import help.utils.KeyboardController;
@@ -14,9 +15,7 @@ import static enums.GameStates.*;
 
 public class Slider extends ApplicationAdapter {
 
-
     private OrthographicCamera camera;
-    private Texture empty;
     private Map map;
     private MapView mapView;
     private KeyboardController keyboardController;
@@ -28,9 +27,8 @@ public class Slider extends ApplicationAdapter {
     public void create() {
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        empty = new Texture("empty.png");
         map = new Map(1);
-        mapView = new MapView(empty, map, camera);
+        mapView = new MapView(map, camera);
         gameState = INTRO;
     }
 
@@ -55,24 +53,24 @@ public class Slider extends ApplicationAdapter {
                 if (map.checkForFinish()) {
                     selectedLevel++;
                     map = new Map(selectedLevel);
-                    mapView = new MapView(empty, map, camera);
+                    mapView = new MapView(map, camera);
                 }
 
                 Controls control = keyboardController.checkForControl();
                 if (control == Controls.NONE) {
-                    mapView.drawMap(empty, map, camera);
+                    mapView.drawMap(map, camera);
                 } else {
                     if (control == Controls.RESET) {
                         map = new Map(selectedLevel);
-                        mapView = new MapView(empty, map, camera);
+                        mapView = new MapView(map, camera);
                     } else if (control == Controls.NEXT) {
                         selectedLevel++;
                         map = new Map(selectedLevel);
-                        mapView = new MapView(empty, map, camera);
+                        mapView = new MapView(map, camera);
                     } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
                         selectedLevel--;
                         map = new Map(selectedLevel);
-                        mapView = new MapView(empty, map, camera);
+                        mapView = new MapView(map, camera);
                     } else {
                         map.makeMove(control);
                         gameState = LEVEL_ANIMATION;
@@ -82,7 +80,7 @@ public class Slider extends ApplicationAdapter {
             }
 
             case LEVEL_ANIMATION: {
-                if (mapView.drawAnimation(empty, map, camera)) {
+                if (mapView.drawAnimation(map, camera)) {
                     gameState = LEVEL;
                 }
                 break;
@@ -92,6 +90,7 @@ public class Slider extends ApplicationAdapter {
 
     @Override
     public void resize(int width, int height) {
-        camera.setToOrtho(false, 256, 256);
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        mapView.createSpritesList(map,camera);
     }
 }

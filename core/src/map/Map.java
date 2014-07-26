@@ -23,7 +23,7 @@ public class Map {
     }
 
     public Map(Map map) {
-        this.fields = new ArrayList<ArrayList<Field>>();
+        this.fields = new ArrayList<>();
         this.mapWidth = map.getMapWidth();
         this.mapHeight = map.getMapHeight();
         this.mapNumber = map.getMapNumber();
@@ -34,7 +34,7 @@ public class Map {
 
 
         for (ArrayList<Field> row : map.getFields()) {
-            ArrayList<Field> fieldInRow = new ArrayList<Field>();
+            ArrayList<Field> fieldInRow = new ArrayList<>();
             for (Field field : row) {
                 fieldInRow.add(new Field(field));
 
@@ -174,7 +174,7 @@ public class Map {
 
     private ArrayList<Field> getAllFieldsByBehavior(String behavior) {
 
-        ArrayList<Field> fieldsList = new ArrayList<Field>();
+        ArrayList<Field> fieldsList = new ArrayList<>();
 
         for (ArrayList<Field> row : fields) {
             for (Field field : row) {

@@ -10,8 +10,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
             config.title = "Super Carbon Puzzle 2014";
             config.useGL30 = false;
-            config.width = 256;
-            config.height = 256;
+            config.width = 180;
+            config.height = 240;
 		new LwjglApplication(new Slider(), config);
 	}
 }

@@ -39,11 +39,7 @@ public class MapBuilder {
             chosenMap = (Element) mapNode;
 
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
 
@@ -52,7 +48,7 @@ public class MapBuilder {
 
     public ArrayList<Integer> getGoals(Map map) {
         Element mapEle = getMapEle(map.getMapNumber());
-        ArrayList<Integer> goals = new ArrayList<Integer>();
+        ArrayList<Integer> goals = new ArrayList<>();
         if (mapEle.hasAttribute("gold"))
             goals.add(Integer.parseInt(mapEle.getAttribute("gold")));
         else
@@ -71,7 +67,7 @@ public class MapBuilder {
         Element mapBlueprint = getMapEle(mapNumber);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
-        ArrayList<ArrayList<Field>> map = new ArrayList<ArrayList<Field>>();
+        ArrayList<ArrayList<Field>> map = new ArrayList<>();
 
         NodeList rows = mapBlueprint.getElementsByTagName("row");
         String rowBlueprint = null;
@@ -84,7 +80,7 @@ public class MapBuilder {
                     rowBlueprint = row.getTextContent();
             }
 
-            ArrayList<Field> fieldsInARow = new ArrayList<Field>();
+            ArrayList<Field> fieldsInARow = new ArrayList<>();
             for (int j = 0; j < rowBlueprint.length(); j++) {
                 String symbol = rowBlueprint.substring(j, j + 1);
 
