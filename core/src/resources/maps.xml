@@ -60,7 +60,7 @@
     </map>
 
 
-    <map name="proste" number="6" gold="8" silver="10" >
+    <map name="proste" number="6" gold="8" silver="10">
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -121,7 +121,19 @@
 
     </map>
 
-    <map name="koniec" number="11">
+    <map name="z plusikiem" number="11">
+
+        <row nr="1">OOXEXO</row>
+        <row nr="2">O+OOOO</row>
+        <row nr="3">OSO+++</row>
+        <row nr="4">XOOOOO</row>
+        <row nr="5">O+OO+X</row>
+        <row nr="6">OXOOOO</row>
+
+
+    </map>
+
+    <map name="koniec" number="12">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

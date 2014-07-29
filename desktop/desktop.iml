@@ -30,6 +30,8 @@
     <orderEntry type="library" exported="" name="lwjgl-platform-2.9.1-natives-osx" level="project" />
     <orderEntry type="library" exported="" name="gdx-backend-lwjgl-1.1.0" level="project" />
     <orderEntry type="library" name="annotations" level="project" />
+    <orderEntry type="library" name="gdx-freetype" level="project" />
+    <orderEntry type="library" name="gdx-freetype-natives" level="project" />
   </component>
 </module>
 

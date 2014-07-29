@@ -25,6 +25,16 @@
         <behavior>empty</behavior>
     </object>
 
+    <object name="ghostly" enum="GHOSTLY" texture="ghostly.png" representation="+" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+    </object>
+
+    <object name="created" enum="CREATED" texture="created.png">
+
+        <behavior>solid</behavior>
+    </object>
+
     <object name="nothing" enum="NOTHING" texture="nothing.png">
 
         <behavior>solid</behavior>

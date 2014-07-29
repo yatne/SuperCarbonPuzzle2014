@@ -1,6 +1,5 @@
 package map;
 
-import com.badlogic.gdx.Screen;
 import enums.Controls;
 import enums.ObjectsType;
 
@@ -44,7 +43,7 @@ public class Map {
             this.fields.add(fieldInRow);
         }
 
-        for (Object object:map.getObjects()){
+        for (Object object : map.getObjects()) {
             this.objects.add(object);
         }
     }
@@ -122,6 +121,7 @@ public class Map {
         if (objectA.hasBehavior("moving")) {
             if (objectB.getObjectsType() == ObjectsType.NONE) {
                 if (fields.get(y).get(x).hasBehavior("empty")) {
+                    actionOnLeave(objectA);
                     objectA.setX(x);
                     objectA.setY(y);
                 }
@@ -129,6 +129,23 @@ public class Map {
                 finish(objectA, objectB);
             }
 
+            if (objectB.hasBehavior("empty")) {
+                actionOnLeave(objectA);
+                objectA.setX(x);
+                objectA.setY(y);
+
+            }
+        }
+
+    }
+
+    private void actionOnLeave(Object objectA) {
+        for (Object object : objects) {
+            if (object.getX() == objectA.getX() && object.getY() == objectA.getY()) {
+                if (object.getObjectsType() == ObjectsType.GHOSTLY) {
+                    object.setObjectsType(ObjectsType.CREATED);
+                }
+            }
         }
     }
 

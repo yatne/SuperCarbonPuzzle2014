@@ -3,13 +3,10 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import enums.Controls;
 import enums.GameStates;
 import help.utils.KeyboardController;
 import map.Map;
-import mapSolver.MapSolver;
 import view.MapView;
 
 import static enums.GameStates.*;
@@ -19,7 +16,6 @@ public class Slider extends ApplicationAdapter {
     private OrthographicCamera camera;
     private Map map;
     private MapView mapView;
-
     private KeyboardController keyboardController;
     private GameStates gameState;
     private int selectedLevel;
@@ -61,25 +57,31 @@ public class Slider extends ApplicationAdapter {
                     mapView = new MapView(map, camera);
                 }
 
-                Controls control = keyboardController.checkForControl();
-                if (control == Controls.NONE) {
-                    mapView.drawMap(map, camera);
-                } else {
-                    if (control == Controls.RESET) {
-                        map = new Map(selectedLevel);
-                        mapView = new MapView(map, camera);
-                    } else if (control == Controls.NEXT) {
-                        selectedLevel++;
-                        map = new Map(selectedLevel);
-                        mapView = new MapView(map, camera);
-                    } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
-                        selectedLevel--;
-                        map = new Map(selectedLevel);
-                        mapView = new MapView(map, camera);
+                if (mapView.getControl() == Controls.NONE) {
+
+                    Controls control = keyboardController.checkForControl();
+                    if (control == Controls.NONE) {
+                        mapView.drawMap(map, camera);
                     } else {
-                        map.makeMove(control);
-                        gameState = LEVEL_ANIMATION;
+                        if (control == Controls.RESET) {
+                            map = new Map(selectedLevel);
+                            mapView = new MapView(map, camera);
+                        } else if (control == Controls.NEXT) {
+                            selectedLevel++;
+                            map = new Map(selectedLevel);
+                            mapView = new MapView(map, camera);
+                        } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
+                            selectedLevel--;
+                            map = new Map(selectedLevel);
+                            mapView = new MapView(map, camera);
+                        } else {
+                            map.makeMove(control);
+                            gameState = LEVEL_ANIMATION;
+                        }
                     }
+                } else if (mapView.getControl() == Controls.RESET) {
+                    map = new Map(selectedLevel);
+                    mapView = new MapView(map, camera);
                 }
                 break;
             }
@@ -96,6 +98,8 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void resize(int width, int height) {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        mapView.createSpritesList(map,camera);
+        mapView.createSpritesList(map, camera);
+        mapView.resizeButtons(camera);
+        mapView.createFonts(camera);
     }
 }

@@ -7,6 +7,9 @@ public enum ObjectsType {
     BOX,
     END,
     FINISHED,
-    NOTHING
+    NOTHING,
+    GHOSTLY,
+    CREATED
+
 
 }
