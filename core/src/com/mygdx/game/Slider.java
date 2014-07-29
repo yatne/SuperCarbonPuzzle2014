@@ -9,6 +9,7 @@ import enums.Controls;
 import enums.GameStates;
 import help.utils.KeyboardController;
 import map.Map;
+import mapSolver.MapSolver;
 import view.MapView;
 
 import static enums.GameStates.*;
@@ -18,6 +19,7 @@ public class Slider extends ApplicationAdapter {
     private OrthographicCamera camera;
     private Map map;
     private MapView mapView;
+
     private KeyboardController keyboardController;
     private GameStates gameState;
     private int selectedLevel;
@@ -25,11 +27,13 @@ public class Slider extends ApplicationAdapter {
 
     @Override
     public void create() {
+
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         map = new Map(1);
         mapView = new MapView(map, camera);
         gameState = INTRO;
+
     }
 
     @Override
@@ -46,6 +50,7 @@ public class Slider extends ApplicationAdapter {
 
             case PRE_LEVEL: {
                 map = new Map(selectedLevel);
+                mapView = new MapView(map, camera);
                 gameState = LEVEL;
             }
 

@@ -95,8 +95,33 @@
 
     </map>
 
-
     <map name="koniec" number="9">
+
+        <row nr="1">OOXOOXOX</row>
+        <row nr="2">BOOOOOOO</row>
+        <row nr="3">SOOXOOXO</row>
+        <row nr="4">OOOOOOEO</row>
+        <row nr="5">SOOOOOXO</row>
+        <row nr="6">OXOOXOEO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OOXOXOOO</row>
+
+    </map>
+
+
+    <map name="paski" number="10">
+
+        <row nr="1">OOOXOOO</row>
+        <row nr="2">BXBOOXB</row>
+        <row nr="3">BXSXOXE</row>
+        <row nr="4">OOBXOOO</row>
+        <row nr="5">BXSOOXB</row>
+        <row nr="6">BXBXOXE</row>
+        <row nr="7">OOOXOXO</row>
+
+    </map>
+
+    <map name="koniec" number="11">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

@@ -1,5 +1,6 @@
 package map;
 
+import com.badlogic.gdx.Screen;
 import enums.Controls;
 import enums.ObjectsType;
 
@@ -31,6 +32,7 @@ public class Map {
         this.completedPoints = map.getCompletedPoints();
         this.movesTaken = map.getMovesTaken();
         this.goals = map.getGoals();
+        this.objects = new ArrayList<>();
 
 
         for (ArrayList<Field> row : map.getFields()) {
@@ -41,9 +43,14 @@ public class Map {
             }
             this.fields.add(fieldInRow);
         }
+
+        for (Object object:map.getObjects()){
+            this.objects.add(object);
+        }
     }
 
     private void loadMap(int mapNumber) {
+
 
         MapBuilder mapBuilder = new MapBuilder();
 

@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Array;
 import help.utils.BlocksReader;
 import help.utils.Constants;
@@ -27,9 +29,10 @@ public class MapView {
     private HashMap<String, Texture> textureHashMap;
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
+    private Stage stage;
 
     public MapView(Map map, OrthographicCamera camera) {
-
+        stage = new Stage();
         batch = new SpriteBatch();
 
         NodeList blocksList = BlocksReader.getBlocksList();
@@ -56,8 +59,9 @@ public class MapView {
 
     public void drawMap(Map map, OrthographicCamera camera) {
 
-        drawStaticMap(map,camera);
 
+
+        drawStaticMap(map, camera);
         batch.begin();
 
         for (Sprite sprite : sprites) {
@@ -98,35 +102,7 @@ public class MapView {
         return allSpritesReady;
     }
 
-    private void drawStaticMap(Map map, OrthographicCamera camera){
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
-        batch.begin();
 
-
-        Texture img = textureHashMap.get("EMPTY");
-
-        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
-        float offset = camera.viewportHeight-camera.viewportWidth;
-
-
-        for (ArrayList<Field> row : map.getFields()) {
-            for (Field field : row) {
-
-                batch.draw(textureHashMap.get(field.getFieldType().toString()),
-                        field.getX() * img.getWidth() * scaleX,
-                        field.getY() * img.getWidth() * scaleY + (offset/2),
-                        img.getWidth() * scaleX,
-                        img.getWidth() * scaleY);
-            }
-        }
-
-        batch.end();
-
-
-    }
 
     private void moveSprite(Sprite sprite, Sprite desiredSprite) {
 
@@ -227,4 +203,60 @@ public class MapView {
             }
         }
     }
+
+    private void drawStaticMap(Map map, OrthographicCamera camera){
+
+        Gdx.input.setInputProcessor(stage);
+
+        stage.clear();
+        Gdx.gl.glClearColor(1, 1, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
+
+        float panelsHeight = (camera.viewportHeight-camera.viewportWidth)/2;
+        Image bottomPanel = new Image(new Texture("bottom_pannel.png"));
+        Image upperPanel = new Image (new Texture("bottom_pannel.png"));
+
+        Image reset = new Image (new Texture("reset.png"));
+        Image menu= new Image (new Texture("menu.png"));
+
+        menu.setPosition(0,panelsHeight/5);
+        menu.setSize((3*camera.viewportWidth)/10, (3*panelsHeight)/5);
+        reset.setPosition((7*camera.viewportWidth)/10,panelsHeight/5);
+        reset.setSize((3*camera.viewportWidth)/10, (3*panelsHeight)/5);
+
+        bottomPanel.setPosition(0,0);
+        bottomPanel.setSize(camera.viewportWidth,panelsHeight);
+        upperPanel.setPosition(0,camera.viewportHeight-panelsHeight);
+        upperPanel.setSize(camera.viewportWidth,panelsHeight);
+
+        upperPanel.draw(batch,1);
+        bottomPanel.draw(batch,1);
+        menu.draw(batch,1);
+        reset.draw(batch,1);
+
+        Texture img = textureHashMap.get("EMPTY");
+
+        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
+        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
+        float offset = camera.viewportHeight-camera.viewportWidth;
+
+
+        for (ArrayList<Field> row : map.getFields()) {
+            for (Field field : row) {
+
+                batch.draw(textureHashMap.get(field.getFieldType().toString()),
+                        field.getX() * img.getWidth() * scaleX,
+                        field.getY() * img.getWidth() * scaleY + (offset/2),
+                        img.getWidth() * scaleX,
+                        img.getWidth() * scaleY);
+            }
+        }
+
+        batch.end();
+
+
+    }
+
 }
