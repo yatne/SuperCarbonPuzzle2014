@@ -1,6 +1,7 @@
 package view;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -10,10 +11,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import controllers.GestureController;
 import enums.Controls;
 import help.utils.BlocksReader;
 import help.utils.Constants;
@@ -34,6 +37,7 @@ public class MapView {
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
     private Stage stage;
+    private GestureController gestureController;
     private Image topPanel;
     private Image bottomPanel;
     private Image reset;
@@ -41,12 +45,10 @@ public class MapView {
     private BitmapFont counterFont;
     private Controls control;
 
-    public MapView(Map map, OrthographicCamera camera) {
+    public MapView() {
         stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
+        gestureController = new GestureController();
 
-        createFonts(camera);
-        resizeButtons(camera);
 
         batch = new SpriteBatch();
         NodeList blocksList = BlocksReader.getBlocksList();
@@ -67,6 +69,62 @@ public class MapView {
                     new Texture(object.getAttribute("texture"))
             );
         }
+
+        control = Controls.NONE;
+    }
+
+    public void prepareMapUI(OrthographicCamera camera) {
+
+        InputMultiplexer inputMultiplexer = new InputMultiplexer();
+        inputMultiplexer.addProcessor(new GestureDetector(gestureController));
+        inputMultiplexer.addProcessor(stage);
+        Gdx.input.setInputProcessor(inputMultiplexer);
+        stage.clear();
+
+        Gdx.gl.glClearColor(1, 1, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        batch.setProjectionMatrix(camera.combined);
+
+        float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+        bottomPanel = new Image(new Texture("bottom_pannel.png"));
+        topPanel = new Image(new Texture("bottom_pannel.png"));
+
+        reset = new Image(new Texture("reset.png"));
+        menu = new Image(new Texture("menu.png"));
+
+        menu.setPosition(0, panelsHeight / 5);
+        menu.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
+        reset.setPosition((7 * camera.viewportWidth) / 10, panelsHeight / 5);
+        reset.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
+
+        bottomPanel.setPosition(0, 0);
+        bottomPanel.setSize(camera.viewportWidth, panelsHeight);
+        topPanel.setPosition(0, camera.viewportHeight - panelsHeight);
+        topPanel.setSize(camera.viewportWidth, panelsHeight);
+
+        stage.addActor(reset);
+        stage.addActor(menu);
+
+        reset.addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                control = Controls.RESET;
+                return true;
+            }
+        });
+
+        menu.addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                control = Controls.MENU;
+                return true;
+            }
+        });
+
+        gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
+        createFonts(camera);
+    }
+
+    public void prepareMap(OrthographicCamera camera, Map map) {
 
         createSpritesList(map, camera);
         control = Controls.NONE;
@@ -234,13 +292,6 @@ public class MapView {
 
     private void drawStaticMap(Map map, OrthographicCamera camera) {
 
-        Gdx.input.setInputProcessor(stage);
-        stage.clear();
-
-
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
 
@@ -248,9 +299,6 @@ public class MapView {
         bottomPanel.draw(batch, 1);
         menu.draw(batch, 1);
         reset.draw(batch, 1);
-
-        stage.addActor(reset);
-        stage.addActor(menu);
 
 
         Texture img = textureHashMap.get("EMPTY");
@@ -277,43 +325,8 @@ public class MapView {
         } else
             moves = "99";
         counterFont.draw(batch, moves, camera.viewportWidth * 9 / 20, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
+
         batch.end();
-    }
-
-    public void resizeButtons(OrthographicCamera camera) {
-
-
-        float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
-        bottomPanel = new Image(new Texture("bottom_pannel.png"));
-        topPanel = new Image(new Texture("bottom_pannel.png"));
-
-        reset = new Image(new Texture("reset.png"));
-        menu = new Image(new Texture("menu.png"));
-
-        menu.setPosition(0, panelsHeight / 5);
-        menu.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
-        reset.setPosition((7 * camera.viewportWidth) / 10, panelsHeight / 5);
-        reset.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
-
-        bottomPanel.setPosition(0, 0);
-        bottomPanel.setSize(camera.viewportWidth, panelsHeight);
-        topPanel.setPosition(0, camera.viewportHeight - panelsHeight);
-        topPanel.setSize(camera.viewportWidth, panelsHeight);
-
-        reset.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                control = Controls.RESET;
-                return true;
-            }
-        });
-
-        menu.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                control = Controls.MENU;
-                return true;
-            }
-        });
-
     }
 
     public void createFonts(OrthographicCamera camera) {
@@ -325,6 +338,11 @@ public class MapView {
     }
 
     public Controls getControl() {
-        return control;
+        if (control != Controls.NONE) {
+            return control;
+        } else {
+            return gestureController.getControl();
+        }
+
     }
 }

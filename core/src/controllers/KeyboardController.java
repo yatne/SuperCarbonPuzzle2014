@@ -1,4 +1,4 @@
-package help.utils;
+package controllers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

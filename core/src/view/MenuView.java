@@ -1,4 +1,4 @@
-package menus;
+package view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import help.utils.Constants;
 import help.utils.MapsReader;
 import org.w3c.dom.NodeList;
 
@@ -37,7 +38,8 @@ public class MenuView {
 
     public void prepareMainMenu(OrthographicCamera camera) {
 
-        selectedLevel = 0;
+        selectedLevel = Constants.ValueLevelSelection;
+        control = Controls.NONE;
 
         Gdx.input.setInputProcessor(stage);
         stage.clear();
@@ -95,6 +97,7 @@ public class MenuView {
     public void prepareLevelSelection(OrthographicCamera camera) {
 
         control = Controls.NONE;
+        selectedLevel = Constants.ValueLevelSelection;
 
         Gdx.input.setInputProcessor(stage);
         stage.clear();
@@ -138,7 +141,7 @@ public class MenuView {
         stage.addActor(button1);
         button1.addListener(new ClickListener() {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                selectedLevel = -1;
+                selectedLevel = Constants.ValueReturnToMainMenu;
                 return true;
             }
         });
@@ -148,14 +151,11 @@ public class MenuView {
     public int drawMapSelection(OrthographicCamera camera) {
 
         batch.begin();
-
         background.draw(batch, 1);
         for (Image image : levelButtons) {
             image.draw(batch, 1);
         }
-
         button1.draw(batch, 1);
-
         batch.end();
         return selectedLevel;
 

@@ -3,12 +3,13 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import controllers.KeyboardController;
 import enums.Controls;
 import enums.GameStates;
-import help.utils.KeyboardController;
+import help.utils.Constants;
 import map.Map;
-import menus.MenuView;
 import view.MapView;
+import view.MenuView;
 
 import static enums.GameStates.*;
 
@@ -29,10 +30,9 @@ public class Slider extends ApplicationAdapter {
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         map = new Map(1);
-        mapView = new MapView(map, camera);
         gameState = INTRO;
         menuView = new MenuView();
-
+        mapView = new MapView();
 
     }
 
@@ -42,10 +42,8 @@ public class Slider extends ApplicationAdapter {
         switch (gameState) {
 
             case INTRO: {
-                System.out.println("intro");
-                selectedLevel = 1;
-                gameState = MENU;
                 menuView.prepareMainMenu(camera);
+                gameState = MENU;
                 break;
             }
 
@@ -54,16 +52,15 @@ public class Slider extends ApplicationAdapter {
                     menuView.prepareLevelSelection(camera);
                     gameState = LEVEL_SELECT;
                 }
-
                 break;
             }
 
             case LEVEL_SELECT: {
 
-                if (menuView.drawMapSelection(camera) > 0) {
+                if (menuView.drawMapSelection(camera) > Constants.ValueLevelSelection) {
                     selectedLevel = menuView.drawMapSelection(camera);
                     gameState = PRE_LEVEL;
-                } else if (menuView.drawMapSelection(camera) == -1) {
+                } else if (menuView.drawMapSelection(camera) == Constants.ValueReturnToMainMenu) {
                     menuView.prepareMainMenu(camera);
                     gameState = MENU;
                 }
@@ -72,10 +69,9 @@ public class Slider extends ApplicationAdapter {
 
             case PRE_LEVEL: {
                 map = new Map(selectedLevel);
-                mapView = new MapView(map, camera);
+                mapView.prepareMapUI(camera);
+                mapView.prepareMap(camera, map);
                 gameState = LEVEL;
-
-
                 break;
             }
 
@@ -83,38 +79,35 @@ public class Slider extends ApplicationAdapter {
                 if (map.checkForFinish()) {
                     selectedLevel++;
                     map = new Map(selectedLevel);
-                    mapView = new MapView(map, camera);
+                    mapView.prepareMap(camera, map);
                 }
+
                 Controls control = mapView.getControl();
 
                 if (control == Controls.NONE) {
-
                     control = keyboardController.checkForControl();
-                    if (control == Controls.NONE) {
-                        mapView.drawMap(map, camera);
+                }
+                if (control == Controls.NONE) {
+                    mapView.drawMap(map, camera);
+                } else {
+                    if (control == Controls.RESET) {
+                        map = new Map(selectedLevel);
+                        mapView.prepareMap(camera, map);
+                    } else if (control == Controls.NEXT) {
+                        selectedLevel++;
+                        map = new Map(selectedLevel);
+                        mapView.prepareMap(camera, map);
+                    } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
+                        selectedLevel--;
+                        map = new Map(selectedLevel);
+                        mapView.prepareMap(camera, map);
+                    } else if (control == Controls.MENU) {
+                        menuView.prepareMainMenu(camera);
+                        gameState = MENU;
                     } else {
-                        if (control == Controls.RESET) {
-                            map = new Map(selectedLevel);
-                            mapView = new MapView(map, camera);
-                        } else if (control == Controls.NEXT) {
-                            selectedLevel++;
-                            map = new Map(selectedLevel);
-                            mapView = new MapView(map, camera);
-                        } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
-                            selectedLevel--;
-                            map = new Map(selectedLevel);
-                            mapView = new MapView(map, camera);
-                        } else {
-                            map.makeMove(control);
-                            gameState = LEVEL_ANIMATION;
-                        }
+                        map.makeMove(control);
+                        gameState = LEVEL_ANIMATION;
                     }
-                } else if (control == Controls.RESET) {
-                    map = new Map(selectedLevel);
-                    mapView = new MapView(map, camera);
-                } else if (control == Controls.MENU) {
-                    menuView.prepareMainMenu(camera);
-                    gameState = MENU;
                 }
                 break;
             }
@@ -130,14 +123,13 @@ public class Slider extends ApplicationAdapter {
             case AFTER_LEVEL:
                 break;
         }
+
     }
 
     @Override
     public void resize(int width, int height) {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        mapView.createSpritesList(map, camera);
-        mapView.resizeButtons(camera);
-        mapView.createFonts(camera);
+
 
         switch (gameState) {
             case MENU: {
@@ -146,6 +138,11 @@ public class Slider extends ApplicationAdapter {
             }
             case LEVEL_SELECT: {
                 menuView.prepareLevelSelection(camera);
+                break;
+            }
+            case LEVEL: {
+                mapView.prepareMap(camera, map);
+                mapView.prepareMapUI(camera);
                 break;
             }
         }

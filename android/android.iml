@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
     </content>
@@ -12,9 +18,9 @@
     <orderEntry type="module" module-name="core" exported="" />
     <orderEntry type="library" exported="" name="gdx-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-backend-android-1.1.0" level="project" />
-    <orderEntry type="library" exported="" name="gdx-box2d-1.1.0" level="project" />
     <orderEntry type="library" name="annotations" level="project" />
     <orderEntry type="library" name="gdx-freetype" level="project" />
+    <orderEntry type="library" name="gwt-servlet-2.6.0" level="project" />
   </component>
 </module>
 
