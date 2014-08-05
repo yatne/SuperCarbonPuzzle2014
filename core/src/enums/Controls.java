@@ -9,6 +9,9 @@ public enum Controls {
     RESET,
     NEXT,
     PREVIOUS,
+    PLAY,
+    QUIT,
+    MENU,
     NONE;
 
 }

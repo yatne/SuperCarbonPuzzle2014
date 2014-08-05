@@ -7,6 +7,7 @@ import enums.Controls;
 import enums.GameStates;
 import help.utils.KeyboardController;
 import map.Map;
+import menus.MenuView;
 import view.MapView;
 
 import static enums.GameStates.*;
@@ -20,6 +21,7 @@ public class Slider extends ApplicationAdapter {
     private GameStates gameState;
     private int selectedLevel;
     private int selectedWorld;
+    private MenuView menuView;
 
     @Override
     public void create() {
@@ -29,6 +31,8 @@ public class Slider extends ApplicationAdapter {
         map = new Map(1);
         mapView = new MapView(map, camera);
         gameState = INTRO;
+        menuView = new MenuView();
+
 
     }
 
@@ -40,7 +44,29 @@ public class Slider extends ApplicationAdapter {
             case INTRO: {
                 System.out.println("intro");
                 selectedLevel = 1;
-                gameState = PRE_LEVEL;
+                gameState = MENU;
+                menuView.prepareMainMenu(camera);
+                break;
+            }
+
+            case MENU: {
+                if (menuView.drawMainMenu() == Controls.PLAY) {
+                    menuView.prepareLevelSelection(camera);
+                    gameState = LEVEL_SELECT;
+                }
+
+                break;
+            }
+
+            case LEVEL_SELECT: {
+
+                if (menuView.drawMapSelection(camera) > 0) {
+                    selectedLevel = menuView.drawMapSelection(camera);
+                    gameState = PRE_LEVEL;
+                } else if (menuView.drawMapSelection(camera) == -1) {
+                    menuView.prepareMainMenu(camera);
+                    gameState = MENU;
+                }
                 break;
             }
 
@@ -48,6 +74,9 @@ public class Slider extends ApplicationAdapter {
                 map = new Map(selectedLevel);
                 mapView = new MapView(map, camera);
                 gameState = LEVEL;
+
+
+                break;
             }
 
             case LEVEL: {
@@ -56,10 +85,11 @@ public class Slider extends ApplicationAdapter {
                     map = new Map(selectedLevel);
                     mapView = new MapView(map, camera);
                 }
+                Controls control = mapView.getControl();
 
-                if (mapView.getControl() == Controls.NONE) {
+                if (control == Controls.NONE) {
 
-                    Controls control = keyboardController.checkForControl();
+                    control = keyboardController.checkForControl();
                     if (control == Controls.NONE) {
                         mapView.drawMap(map, camera);
                     } else {
@@ -79,9 +109,12 @@ public class Slider extends ApplicationAdapter {
                             gameState = LEVEL_ANIMATION;
                         }
                     }
-                } else if (mapView.getControl() == Controls.RESET) {
+                } else if (control == Controls.RESET) {
                     map = new Map(selectedLevel);
                     mapView = new MapView(map, camera);
+                } else if (control == Controls.MENU) {
+                    menuView.prepareMainMenu(camera);
+                    gameState = MENU;
                 }
                 break;
             }
@@ -92,6 +125,10 @@ public class Slider extends ApplicationAdapter {
                 }
                 break;
             }
+            case WORLD_SELECT:
+                break;
+            case AFTER_LEVEL:
+                break;
         }
     }
 
@@ -101,5 +138,16 @@ public class Slider extends ApplicationAdapter {
         mapView.createSpritesList(map, camera);
         mapView.resizeButtons(camera);
         mapView.createFonts(camera);
+
+        switch (gameState) {
+            case MENU: {
+                menuView.prepareMainMenu(camera);
+                break;
+            }
+            case LEVEL_SELECT: {
+                menuView.prepareLevelSelection(camera);
+                break;
+            }
+        }
     }
 }

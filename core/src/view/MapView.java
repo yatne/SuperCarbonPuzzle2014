@@ -148,7 +148,12 @@ public class MapView {
                 sprite.setTexture(textureHashMap.get("FINISHED"));
 
             }
-        sprite.setTexture(desiredSprite.getTexture());
+        if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
+
+
+                sprite.setTexture(desiredSprite.getTexture());
+            }
 
 
     }
@@ -229,8 +234,6 @@ public class MapView {
 
     private void drawStaticMap(Map map, OrthographicCamera camera) {
 
-        control = Controls.NONE;
-
         Gdx.input.setInputProcessor(stage);
         stage.clear();
 
@@ -247,6 +250,7 @@ public class MapView {
         reset.draw(batch, 1);
 
         stage.addActor(reset);
+        stage.addActor(menu);
 
 
         Texture img = textureHashMap.get("EMPTY");
@@ -302,6 +306,14 @@ public class MapView {
                 return true;
             }
         });
+
+        menu.addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                control = Controls.MENU;
+                return true;
+            }
+        });
+
     }
 
     public void createFonts(OrthographicCamera camera) {

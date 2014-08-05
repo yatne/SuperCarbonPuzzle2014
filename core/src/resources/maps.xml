@@ -145,5 +145,17 @@
 
     </map>
 
+    <map name="koniec" number="13">
+
+        <row nr="1">XOOOOOX</row>
+        <row nr="2">EXOOOXS</row>
+        <row nr="3">EEXOXSS</row>
+        <row nr="4">EEEXSSS</row>
+        <row nr="5">EEXOXSS</row>
+        <row nr="6">EXOOOXS</row>
+        <row nr="7">XOOOOOX</row>
+
+    </map>
+
 
 </maps>
