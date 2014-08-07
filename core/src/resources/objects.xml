@@ -28,7 +28,44 @@
     <object name="ghostly" enum="GHOSTLY" texture="ghostly.png" representation="+" placedOn="EMPTY">
 
         <behavior>empty</behavior>
+        <behavior>gwb-on-enter</behavior>
     </object>
+
+    <object name="ghostlwithball" enum="GWB" texture="gwb.png" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>solid-on-leave</behavior>
+
+    </object>
+
+    <object name="left" enum="LEFT" texture="left.png" representation="L" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-left</behavior>
+    </object>
+
+    <object name="right" enum="RIGHT" texture="right.png" representation="R" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-right</behavior>
+    </object>
+
+    <object name="upper" enum="UPPER" texture="upper.png" representation="U" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-upper</behavior>
+    </object>
+
+    <object name="lower" enum="LOWER" texture="lower.png" representation="D" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-lower</behavior>
+    </object>
+
 
     <object name="created" enum="CREATED" texture="created.png">
 

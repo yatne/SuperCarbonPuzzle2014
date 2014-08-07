@@ -36,6 +36,7 @@ public class MapView {
     private HashMap<String, Texture> textureHashMap;
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
+    private HashMap<Sprite, Integer> portalStates;
     private Stage stage;
     private GestureController gestureController;
     private Image topPanel;
@@ -128,6 +129,7 @@ public class MapView {
 
         createSpritesList(map, camera);
         control = Controls.NONE;
+
     }
 
     public void drawMap(Map map, OrthographicCamera camera) {
@@ -144,7 +146,7 @@ public class MapView {
                 sprite.draw(batch);
         }
         batch.end();
-
+        drawUI();
     }
 
     public boolean drawAnimation(Map map, OrthographicCamera camera) {
@@ -158,7 +160,10 @@ public class MapView {
 
         for (int i = 0; i < sprites.size(); i++) {
             if (!isSpriteInTheSamePlace(sprites.get(i), wantedSprites.get(i))) {
-                moveSprite(sprites.get(i), wantedSprites.get(i));
+                if (portalStates.get(sprites.get(i)) == 1)
+                    portalMoveSprite(sprites.get(i), wantedSprites.get(i), camera);
+                else
+                    moveSprite(sprites.get(i), wantedSprites.get(i));
                 allSpritesReady = false;
             } else if (!isSpriteTheSame(sprites.get(i), wantedSprites.get(i))) {
                 animateSprite(sprites.get(i), wantedSprites.get(i));
@@ -179,46 +184,86 @@ public class MapView {
                 sprite.draw(batch);
         }
 
+
         batch.end();
+        drawUI();
         return allSpritesReady;
     }
 
     private void moveSprite(Sprite sprite, Sprite desiredSprite) {
 
         if (sprite.getX() < desiredSprite.getX())
-            sprite.translateX(Constants.spritesMovingSpeed);
+            sprite.translateX(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
         else if (sprite.getX() > desiredSprite.getX())
-            sprite.translateX(-Constants.spritesMovingSpeed);
+            sprite.translateX(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
         else if (sprite.getY() > desiredSprite.getY())
-            sprite.translateY(-Constants.spritesMovingSpeed);
+            sprite.translateY(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
         else if (sprite.getY() < desiredSprite.getY())
-            sprite.translateY(Constants.spritesMovingSpeed);
+            sprite.translateY(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
 
+    }
+
+    private void portalMoveSprite(Sprite sprite, Sprite desiredSprite, OrthographicCamera camera) {
+        if (sprite.getX() > desiredSprite.getX()) {
+            sprite.translateX(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
+            if (sprite.getX() > camera.viewportWidth) {
+                sprite.setPosition(-sprite.getWidth(), sprite.getY());
+                portalStates.put(sprite, 0);
+            }
+        } else if (sprite.getX() < desiredSprite.getX()) {
+            sprite.translateX(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
+            if (sprite.getX() < -sprite.getWidth()) {
+                sprite.setPosition(camera.viewportWidth, sprite.getY());
+                portalStates.put(sprite, 0);
+            }
+        } else if (sprite.getY() > desiredSprite.getY()) {
+            float panelHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+            sprite.translateY(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
+            if (sprite.getY() > panelHeight + camera.viewportWidth) {
+                sprite.setPosition(sprite.getX(), panelHeight - sprite.getHeight());
+                portalStates.put(sprite, 0);
+            }
+        } else if (sprite.getY() < desiredSprite.getY()) {
+            float panelHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+            sprite.translateY(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
+            if (sprite.getY() < panelHeight - sprite.getHeight()) {
+                portalStates.put(sprite, 0);
+                sprite.setPosition(sprite.getX(), panelHeight + camera.viewportWidth);
+            }
+        }
     }
 
     private void animateSprite(Sprite sprite, Sprite desiredSprite) {
 
         if (sprite.getTexture().equals(textureHashMap.get("BALL")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
-
                 cleanEndSprite(desiredSprite);
-
                 sprite.setTexture(textureHashMap.get("FINISHED"));
 
             }
         if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
-
-
-                sprite.setTexture(desiredSprite.getTexture());
+                if (checkOtherSpriteInThatPlace(sprite))
+                    sprite.setTexture(desiredSprite.getTexture());
             }
 
+        if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("GWB"))) {
+                if (checkOtherSpriteInThatPlace(sprite))
+                    sprite.setTexture(desiredSprite.getTexture());
+            }
+
+        if (sprite.getTexture().equals(textureHashMap.get("GWB")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
+                if (!checkOtherSpriteInThatPlace(sprite))
+                    sprite.setTexture(desiredSprite.getTexture());
+            }
 
     }
 
     private boolean isSpriteInTheSamePlace(Sprite spriteA, Sprite spriteB) {
 
-        if (Math.abs(spriteA.getX() - spriteB.getX()) < Constants.spritesMovingSpeed && Math.abs(spriteA.getY() - spriteB.getY()) < Constants.spritesMovingSpeed) {
+        if (Math.abs(spriteA.getX() - spriteB.getX()) < Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime() && Math.abs(spriteA.getY() - spriteB.getY()) < Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime()) {
             spriteA.setPosition(spriteB.getX(), spriteB.getY());
             return true;
         } else
@@ -236,6 +281,7 @@ public class MapView {
 
         sprites = new ArrayList<>();
         spriteStates = new HashMap<>();
+        portalStates = new HashMap<>();
 
         Texture img = textureHashMap.get("EMPTY");
 
@@ -253,6 +299,7 @@ public class MapView {
             sprite.setSize(img.getWidth() * scaleX, img.getWidth() * scaleY);
             sprites.add(sprite);
             spriteStates.put(sprite, 0);
+            portalStates.put(sprite, 0);
         }
 
     }
@@ -281,6 +328,17 @@ public class MapView {
         return spritesList;
     }
 
+    public void checkForPortalMoves(Map map) {
+
+        ArrayList<Object> objects = map.getObjects();
+        help.utils.HelpUtils.sortById(objects);
+        for (int j = 0; j < sprites.size(); j++) {
+            if (objects.get(j).isGoneThroughTele())
+                portalStates.put(sprites.get(j), 1);
+        }
+
+    }
+
     public void cleanEndSprite(Sprite sprite) {
 
         for (Sprite chosenSprite : sprites) {
@@ -290,15 +348,20 @@ public class MapView {
         }
     }
 
+    public boolean checkOtherSpriteInThatPlace(Sprite sprite) {
+        boolean isThere = false;
+        for (Sprite chosenSprite : sprites) {
+            if (isSpriteInTheSamePlace(chosenSprite, sprite)) {
+                if (!chosenSprite.equals(sprite))
+                    isThere = true;
+            }
+        }
+        return isThere;
+    }
+
     private void drawStaticMap(Map map, OrthographicCamera camera) {
 
         batch.begin();
-
-
-        topPanel.draw(batch, 1);
-        bottomPanel.draw(batch, 1);
-        menu.draw(batch, 1);
-        reset.draw(batch, 1);
 
 
         Texture img = textureHashMap.get("EMPTY");
@@ -326,6 +389,17 @@ public class MapView {
             moves = "99";
         counterFont.draw(batch, moves, camera.viewportWidth * 9 / 20, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
+        batch.end();
+    }
+
+    public void drawUI() {
+        batch.begin();
+
+
+        topPanel.draw(batch, 1);
+        bottomPanel.draw(batch, 1);
+        menu.draw(batch, 1);
+        reset.draw(batch, 1);
         batch.end();
     }
 

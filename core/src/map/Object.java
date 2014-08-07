@@ -8,16 +8,18 @@ public class Object {
 
     private ObjectsType objectsType;
     private ArrayList<String> behavior;
+    private boolean goneThroughTele;
     private int id;
     private int x;
     private int y;
 
-    public Object(ObjectsType objectsType, ArrayList<String> behavior, int x, int y, int id) {
+    public Object(ObjectsType objectsType, int x, int y, int id) {
         this.objectsType = objectsType;
-        this.behavior = behavior;
+        this.behavior = help.utils.HelpUtils.readBehaviors(help.utils.HelpUtils.getElementByAttributeValue(help.utils.ObjectsReader.getObjectsList(), "enum", objectsType.toString()));
         this.x = x;
         this.y = y;
         this.id = id;
+        goneThroughTele=false;
     }
 
     public Object(String anEnum, ArrayList<String> behavior, int id) {
@@ -27,7 +29,6 @@ public class Object {
     }
 
     public boolean hasBehavior(String wantedBehavior) {
-
 
         if (this.behavior != null)
             for (String beh : this.behavior) {
@@ -72,5 +73,13 @@ public class Object {
 
     public int getId() {
         return id;
+    }
+
+    public boolean isGoneThroughTele() {
+        return goneThroughTele;
+    }
+
+    public void setGoneThroughTele(boolean goneThroughTele) {
+        this.goneThroughTele = goneThroughTele;
     }
 }

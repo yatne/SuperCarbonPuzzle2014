@@ -9,7 +9,12 @@ public enum ObjectsType {
     FINISHED,
     NOTHING,
     GHOSTLY,
-    CREATED
+    CREATED,
+    GWB,
+    LEFT,
+    RIGHT,
+    UPPER,
+    LOWER,
 
 
 }

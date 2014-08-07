@@ -35,27 +35,27 @@
 
     <map name="nowe" number="4" gold="6" silver="9">
 
-        <row nr="1">OOOOXO</row>
-        <row nr="2">OOOOOO</row>
-        <row nr="3">OSOBXX</row>
-        <row nr="4">XXOOOX</row>
-        <row nr="5">OOOOOE</row>
-        <row nr="6">OOOXXO</row>
-        <row nr="7">OXOXXO</row>
+        <row nr="1">XOOOOXO</row>
+        <row nr="2">XOOOOOO</row>
+        <row nr="3">XOSOBXX</row>
+        <row nr="4">XXXOOOX</row>
+        <row nr="5">XOOOOOE</row>
+        <row nr="6">XOOOXXO</row>
+        <row nr="7">XOXOXXO</row>
 
     </map>
 
 
     <map name="zapchane" number="5" gold="21" silver="25">
 
-        <row nr="1">NXSXOOON</row>
-        <row nr="2">NXOXXXXN</row>
-        <row nr="3">NOOOBXON</row>
-        <row nr="4">NXXXBBXN</row>
-        <row nr="5">NOXXBXON</row>
-        <row nr="6">NOOXBXON</row>
-        <row nr="7">NOXOBXON</row>
-        <row nr="8">NOOXEXON</row>
+        <row nr="1">XXSXOOOX</row>
+        <row nr="2">XXOXXXXX</row>
+        <row nr="3">XOOOBXOX</row>
+        <row nr="4">XXXXBBXX</row>
+        <row nr="5">XOXXBXOX</row>
+        <row nr="6">XOOXBXOX</row>
+        <row nr="7">XOXOBXOX</row>
+        <row nr="8">XOOXEXOX</row>
 
     </map>
 
@@ -130,10 +130,50 @@
         <row nr="5">O+OO+X</row>
         <row nr="6">OXOOOO</row>
 
+    </map>
+
+    <map name="duzy plus" number="12">
+
+        <row nr="1">OOOOXOEO</row>
+        <row nr="2">OOXXOXOO</row>
+        <row nr="3">XSOOB+OE</row>
+        <row nr="4">OXBOXX+X</row>
+        <row nr="5">O+OOOOBO</row>
+        <row nr="6">XX+OOXOO</row>
+        <row nr="7">EOOXOSOO</row>
+        <row nr="8">OOXOOOOS</row>
 
     </map>
 
-    <map name="koniec" number="12">
+    <map name="portale" number="13">
+
+        <row nr="1">OOUUUUOO</row>
+        <row nr="2">OOXOOOXO</row>
+        <row nr="3">XOOOXOOO</row>
+        <row nr="4">LOSXOOOR</row>
+        <row nr="5">LOOOOXOR</row>
+        <row nr="6">LOXOXXOR</row>
+        <row nr="7">OEOOOOOO</row>
+        <row nr="8">OODDDDOO</row>
+
+    </map>
+
+
+    <map name="gora-dol" number="14">
+
+        <row nr="1">UUUUUUUU</row>
+        <row nr="2">OOOOOXOX</row>
+        <row nr="3">XSOXOXOO</row>
+        <row nr="4">XOOXOOOO</row>
+        <row nr="5">OXXOOXOO</row>
+        <row nr="6">XOXOOOXO</row>
+        <row nr="7">OOOXXOEO</row>
+        <row nr="8">DDDDDDDD</row>
+
+    </map>
+
+
+    <map name="koniec" number="15">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>
@@ -144,18 +184,5 @@
         <row nr="7">XOOOOOX</row>
 
     </map>
-
-    <map name="koniec" number="13">
-
-        <row nr="1">XOOOOOX</row>
-        <row nr="2">EXOOOXS</row>
-        <row nr="3">EEXOXSS</row>
-        <row nr="4">EEEXSSS</row>
-        <row nr="5">EEXOXSS</row>
-        <row nr="6">EXOOOXS</row>
-        <row nr="7">XOOOOOX</row>
-
-    </map>
-
 
 </maps>

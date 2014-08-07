@@ -11,6 +11,8 @@ public class GestureController implements GestureDetector.GestureListener {
     private float endY;
     private Controls control;
     private boolean controlTaken;
+    private int horizontal;
+    private int vertical;
 
     public void setGestureField(float startX, float endX, float startY, float endY) {
         this.startX = startX;
@@ -18,6 +20,8 @@ public class GestureController implements GestureDetector.GestureListener {
         this.startY = startY;
         this.endY = endY;
         control = Controls.NONE;
+        horizontal = 0;
+        vertical = 0;
     }
 
     public Controls getControl() {
@@ -55,14 +59,14 @@ public class GestureController implements GestureDetector.GestureListener {
         if (x > startX && x < endX && y > startY && y < endY) {
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (deltaX < 0)
-                    control = Controls.LEFT;
+                    horizontal--;
                 else
-                    control = Controls.RIGHT;
+                    horizontal++;
             } else {
                 if (deltaY < 0)
-                    control = Controls.UP;
+                    vertical++;
                 else
-                    control = Controls.DOWN;
+                    vertical--;
             }
 
         } else
@@ -72,6 +76,21 @@ public class GestureController implements GestureDetector.GestureListener {
 
     @Override
     public boolean panStop(float x, float y, int pointer, int button) {
+
+        if (Math.abs(horizontal) > Math.abs(vertical)) {
+            if (horizontal < 0)
+                control = Controls.LEFT;
+            else
+                control = Controls.RIGHT;
+        } else {
+            if (vertical < 0)
+                control = Controls.DOWN;
+            else
+                control = Controls.UP;
+        }
+
+        vertical=0;
+        horizontal=0;
 
         controlTaken = false;
         return false;

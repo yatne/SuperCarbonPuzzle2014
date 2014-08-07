@@ -27,13 +27,14 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void create() {
 
+
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         map = new Map(1);
         gameState = INTRO;
         menuView = new MenuView();
         mapView = new MapView();
-
+        Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
     }
 
     @Override
@@ -43,6 +44,7 @@ public class Slider extends ApplicationAdapter {
 
             case INTRO: {
                 menuView.prepareMainMenu(camera);
+
                 gameState = MENU;
                 break;
             }
@@ -106,6 +108,7 @@ public class Slider extends ApplicationAdapter {
                         gameState = MENU;
                     } else {
                         map.makeMove(control);
+                        mapView.checkForPortalMoves(map);
                         gameState = LEVEL_ANIMATION;
                     }
                 }
@@ -129,7 +132,7 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void resize(int width, int height) {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
+        Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
 
         switch (gameState) {
             case MENU: {
@@ -146,5 +149,9 @@ public class Slider extends ApplicationAdapter {
                 break;
             }
         }
+    }
+
+    @Override
+    public void pause() {
     }
 }

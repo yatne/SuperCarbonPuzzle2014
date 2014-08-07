@@ -68,16 +68,15 @@ public class MenuView {
         stage.addActor(button2);
 
         button1.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.exit();
-                return true;
             }
         });
 
         button2.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 control = Controls.PLAY;
-                return true;
+
             }
         });
 
@@ -123,9 +122,9 @@ public class MenuView {
 
             final int finalI = i;
             image.addListener(new ClickListener() {
-                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     selectedLevel = finalI + 1;
-                    return true;
+
                 }
             });
         }
@@ -140,9 +139,9 @@ public class MenuView {
 
         stage.addActor(button1);
         button1.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 selectedLevel = Constants.ValueReturnToMainMenu;
-                return true;
+
             }
         });
 

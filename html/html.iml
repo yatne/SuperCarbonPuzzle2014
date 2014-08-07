@@ -14,7 +14,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" exported="" />
     <orderEntry type="library" exported="" name="validation-api-1.0.0.GA" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="gwt-servlet-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-backend-gwt-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gwt-user-2.6.0" level="project" />

@@ -1,6 +1,5 @@
 package map;
 
-import com.badlogic.gdx.maps.MapObject;
 import enums.ObjectsType;
 import help.utils.BlocksReader;
 import help.utils.ObjectsReader;
@@ -128,7 +127,7 @@ public class MapBuilder {
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (object != null) {
-                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), help.utils.HelpUtils.readBehaviors(object), j, i, objects.size()));
+                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")),  j, i, objects.size()));
                 }
 
 
