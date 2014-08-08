@@ -1,0 +1,64 @@
+<maps>
+
+    <map name="blablab" number="1" gold="8" silver="10">
+        <row nr="1">OUOXEO</row>
+        <row nr="2">OSOS+O</row>
+        <row nr="3">OXEOOE</row>
+        <row nr="4">LOOXOR</row>
+        <row nr="5">O+OOXX</row>
+        <row nr="6">ODOSOO</row>
+    </map>
+
+
+    <map name="same kule" number="2" gold="6" silver="12">
+
+        <row nr="1">OOOOOOO</row>
+        <row nr="2">OOEOEOO</row>
+        <row nr="3">OOSOOOO</row>
+        <row nr="4">ESSSOEO</row>
+        <row nr="5">OOSOOOO</row>
+        <row nr="6">OOEOOOO</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+    <map name="z plusikiem" number="3">
+
+        <row nr="1">OOXEXO</row>
+        <row nr="2">O+OOOO</row>
+        <row nr="3">OSO+++</row>
+        <row nr="4">XOOOOO</row>
+        <row nr="5">O+OO+X</row>
+        <row nr="6">OXOOOO</row>
+
+    </map>
+
+    <map name="duzy plus" number="4">
+
+        <row nr="1">OOOOXOEO</row>
+        <row nr="2">OOXXOXOO</row>
+        <row nr="3">XSOOB+OE</row>
+        <row nr="4">OXBOXX+X</row>
+        <row nr="5">O+OOOOBO</row>
+        <row nr="6">XX+OOXOO</row>
+        <row nr="7">EOOXOSOO</row>
+        <row nr="8">OOXOOOOS</row>
+
+    </map>
+
+
+
+    <map name="gora-dol" number="7">
+
+        <row nr="1">UUUUUUUU</row>
+        <row nr="2">OOOOOXOX</row>
+        <row nr="3">XSOXOXOO</row>
+        <row nr="4">XOOXOOOO</row>
+        <row nr="5">OXXOOXOO</row>
+        <row nr="6">XOXOOOXO</row>
+        <row nr="7">OOOXXOEO</row>
+        <row nr="8">DDDDDDDD</row>
+
+    </map>
+
+</maps>

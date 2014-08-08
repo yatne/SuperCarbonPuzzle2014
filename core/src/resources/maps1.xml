@@ -1,6 +1,6 @@
 <maps>
 
-    <map name="blablab" number="1" gold="8" silver="10">
+    <map name="blablab" number="1" silver="8" unlocked="0">
         <row nr="1">OOOXOO</row>
         <row nr="2">XOOOOE</row>
         <row nr="3">OOOOXX</row>
@@ -9,7 +9,7 @@
         <row nr="6">OXOOOO</row>
     </map>
 
-    <map name="nie wylec" number="2" gold="5" silver="7">
+    <map name="nie wylec" number="2" silver="5" unlocked="1">
         <row nr="1">OOOOOOOO</row>
         <row nr="2">OOOOXOOO</row>
         <row nr="3">OXOOOOOO</row>
@@ -60,7 +60,7 @@
     </map>
 
 
-    <map name="proste" number="6" gold="8" silver="10">
+    <map name="proste" number="6" silver="8">
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -95,7 +95,7 @@
 
     </map>
 
-    <map name="koniec" number="9">
+    <map name="trudne" number="9">
 
         <row nr="1">OOXOOXOX</row>
         <row nr="2">BOOOOOOO</row>
@@ -152,7 +152,7 @@
         <row nr="3">XOOOXOOO</row>
         <row nr="4">LOSXOOOR</row>
         <row nr="5">LOOOOXOR</row>
-        <row nr="6">LOXOXXOR</row>
+        <row nr="6">LXXOXXOR</row>
         <row nr="7">OEOOOOOO</row>
         <row nr="8">OODDDDOO</row>
 
@@ -171,9 +171,17 @@
         <row nr="8">DDDDDDDD</row>
 
     </map>
+    <map name="blablab" number="15">
+        <row nr="1">OUOXEO</row>
+        <row nr="2">OSOS+O</row>
+        <row nr="3">XXEOOE</row>
+        <row nr="4">LOXOOR</row>
+        <row nr="5">O+OXXX</row>
+        <row nr="6">ODOSOO</row>
+    </map>
 
 
-    <map name="koniec" number="15">
+    <map name="koniec" number="16">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

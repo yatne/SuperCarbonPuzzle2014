@@ -5,9 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import view.Move;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,9 +21,7 @@ public class HelpUtils {
 
             if (((Element) nodeList.item(i)).getAttribute(attributeName).equals(attributeValue))
                 element = (Element) nodeList.item(i);
-
         }
-
         return element;
     }
 
@@ -65,7 +61,6 @@ public class HelpUtils {
         );
     }
 
-
     public static void sortByXReverse(ArrayList<map.Object> objects) {
 
         Collections.sort(objects, new Comparator<Object>() {
@@ -81,7 +76,6 @@ public class HelpUtils {
         }
         );
     }
-
 
     public static void sortByY(ArrayList<map.Object> objects) {
 
@@ -115,7 +109,6 @@ public class HelpUtils {
         );
     }
 
-
     public static void sortById(ArrayList<map.Object> objects) {
 
         Collections.sort(objects, new Comparator<Object>() {
@@ -131,5 +124,27 @@ public class HelpUtils {
         }
         );
     }
+
+    public static int levelStarsCount(int world, int level) {
+
+        int starsCount = 1;
+        NodeList mapsList = MapsReader.getMapsList("/resources/maps" + world + ".xml");
+        for (int i = 0; i < mapsList.getLength(); i++) {
+            Element mapEle = (Element) mapsList.item(i);
+            if (mapEle.getAttribute("number").equals(Integer.toString(level))) {
+                if (mapEle.hasAttribute("silver")) {
+                    starsCount++;
+                }
+                if (mapEle.hasAttribute("gold")) {
+                    starsCount++;
+                }
+                if (mapEle.hasAttribute("plat")) {
+                    starsCount++;
+                }
+            }
+        }
+        return starsCount;
+    }
+
 
 }

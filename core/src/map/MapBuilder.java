@@ -21,14 +21,14 @@ import static help.utils.HelpUtils.readBehaviors;
 public class MapBuilder {
 
 
-    private Element getMapEle(int mapNumber) {
+    private Element getMapEle(int mapWorld, int mapNumber) {
 
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         Element chosenMap = null;
         try {
 
             DocumentBuilder dBuilder = builderFactory.newDocumentBuilder();
-            Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/maps.xml"));
+            Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/maps" + mapWorld + ".xml"));
             document.normalize();
             NodeList rootNodes = document.getElementsByTagName("maps");
             Node rootNode = rootNodes.item(0);
@@ -46,24 +46,22 @@ public class MapBuilder {
     }
 
     public ArrayList<Integer> getGoals(Map map) {
-        Element mapEle = getMapEle(map.getMapNumber());
+        Element mapEle = getMapEle(map.getMapWorld(), map.getMapNumber());
         ArrayList<Integer> goals = new ArrayList<>();
-        if (mapEle.hasAttribute("gold"))
-            goals.add(Integer.parseInt(mapEle.getAttribute("gold")));
-        else
-            goals.add(100);
         if (mapEle.hasAttribute("silver"))
             goals.add(Integer.parseInt(mapEle.getAttribute("silver")));
-        else
-            goals.add(50);
+
+        if (mapEle.hasAttribute("gold"))
+            goals.add(Integer.parseInt(mapEle.getAttribute("gold")));
+
         if (mapEle.hasAttribute("plat"))
             goals.add(Integer.parseInt(mapEle.getAttribute("plat")));
         return goals;
     }
 
-    public ArrayList<ArrayList<Field>> buildMap(int mapNumber) {
+    public ArrayList<ArrayList<Field>> buildMap(int mapWorld, int mapNumber) {
 
-        Element mapBlueprint = getMapEle(mapNumber);
+        Element mapBlueprint = getMapEle(mapWorld, mapNumber);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
         ArrayList<ArrayList<Field>> map = new ArrayList<>();
@@ -102,11 +100,11 @@ public class MapBuilder {
         return map;
     }
 
-    public ArrayList<Object> loadObjects(int mapNumber) {
+    public ArrayList<Object> loadObjects(int mapWorld, int mapNumber) {
 
         ArrayList<Object> objects = new ArrayList<>();
 
-        Element mapBlueprint = getMapEle(mapNumber);
+        Element mapBlueprint = getMapEle(mapWorld, mapNumber);
         NodeList objectsList = ObjectsReader.getObjectsList();
 
         NodeList rows = mapBlueprint.getElementsByTagName("row");
@@ -127,7 +125,7 @@ public class MapBuilder {
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (object != null) {
-                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")),  j, i, objects.size()));
+                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), j, i, objects.size()));
                 }
 
 

@@ -12,14 +12,15 @@ public class Map {
     private int mapWidth;
     private int mapHeight;
     private int mapNumber;
+    private int mapWorld;
     private int movesTaken;
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
 
 
-    public Map(int mapNumber) {
-        loadMap(mapNumber);
+    public Map(int worldNumber, int mapNumber) {
+        loadMap(worldNumber, mapNumber);
     }
 
     public Map(Map map) {
@@ -48,16 +49,17 @@ public class Map {
         }
     }
 
-    private void loadMap(int mapNumber) {
+    private void loadMap(int worldNumber, int mapNumber) {
 
 
         MapBuilder mapBuilder = new MapBuilder();
 
         fields = new ArrayList<>();
-        fields = mapBuilder.buildMap(mapNumber);
-        objects = mapBuilder.loadObjects(mapNumber);
+        fields = mapBuilder.buildMap(worldNumber, mapNumber);
+        objects = mapBuilder.loadObjects(worldNumber, mapNumber);
         pointToComplete = getAllObjectsByBehavior("objective").size();
         completedPoints = 0;
+        mapWorld = worldNumber;
         this.mapNumber = mapNumber;
         movesTaken = 0;
         goals = mapBuilder.getGoals(this);
@@ -142,13 +144,15 @@ public class Map {
                     objectA.setY(y);
                 }
             } else if (objectA.hasBehavior("objective") && objectB.hasBehavior("objective-end")) {
+                actionOnLeave(objectA);
                 finish(objectA, objectB);
             }
             if (objectB.hasBehavior("portal")) {
+                actionOnLeave(objectA);
                 teleport(objectA, objectB, 0);
 
 
-            } else if (objectB.hasBehavior("empty")) {
+            } else if (objectB.hasBehavior("empty") ) {
                 actionOnEnter(objectB);
                 actionOnLeave(objectA);
                 objectA.setX(x);
@@ -271,25 +275,6 @@ public class Map {
     }
 
     public boolean checkForFinish() {
-        if (completedPoints >= pointToComplete) {
-
-            if (goals.size() == 3) {
-                if (movesTaken <= goals.get(2))
-                    System.out.println("super duper platyna!");
-                else if (movesTaken <= goals.get(0))
-                    System.out.println("złotko!");
-                else if (movesTaken <= goals.get(1))
-                    System.out.println("sreberro!");
-                else System.out.println("brąz");
-
-            } else {
-                if (movesTaken <= goals.get(0))
-                    System.out.println("złotko!");
-                else if (movesTaken <= goals.get(1))
-                    System.out.println("sreberro!");
-                else System.out.println("brąz");
-            }
-        }
 
         return (completedPoints >= pointToComplete);
     }
@@ -375,4 +360,7 @@ public class Map {
         return objects;
     }
 
+    public int getMapWorld() {
+        return mapWorld;
+    }
 }

@@ -26,6 +26,7 @@ import map.Map;
 import map.Object;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import player.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -132,9 +133,9 @@ public class MapView {
 
     }
 
-    public void drawMap(Map map, OrthographicCamera camera) {
+    public void drawMap(Map map, Player player, OrthographicCamera camera) {
 
-        drawStaticMap(map, camera);
+        drawStaticMap(map, player, camera);
         batch.begin();
 
         for (Sprite sprite : sprites) {
@@ -146,12 +147,12 @@ public class MapView {
                 sprite.draw(batch);
         }
         batch.end();
-        drawUI();
+        drawUI(map, player, camera);
     }
 
-    public boolean drawAnimation(Map map, OrthographicCamera camera) {
+    public boolean drawAnimation(Map map, Player player, OrthographicCamera camera) {
 
-        drawStaticMap(map, camera);
+        drawStaticMap(map, player, camera);
 
         batch.begin();
 
@@ -186,7 +187,7 @@ public class MapView {
 
 
         batch.end();
-        drawUI();
+        drawUI(map, player, camera);
         return allSpritesReady;
     }
 
@@ -359,7 +360,7 @@ public class MapView {
         return isThere;
     }
 
-    private void drawStaticMap(Map map, OrthographicCamera camera) {
+    private void drawStaticMap(Map map, Player player, OrthographicCamera camera) {
 
         batch.begin();
 
@@ -382,17 +383,11 @@ public class MapView {
             }
         }
 
-        String moves;
-        if (map.getMovesTaken() <= 99) {
-            moves = Integer.toString(map.getMovesTaken());
-        } else
-            moves = "99";
-        counterFont.draw(batch, moves, camera.viewportWidth * 9 / 20, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
         batch.end();
     }
 
-    public void drawUI() {
+    public void drawUI(Map map, Player player, OrthographicCamera camera) {
         batch.begin();
 
 
@@ -400,6 +395,14 @@ public class MapView {
         bottomPanel.draw(batch, 1);
         menu.draw(batch, 1);
         reset.draw(batch, 1);
+
+        String moves;
+        if (map.getMovesTaken() <= 99) {
+            moves = Integer.toString(map.getMovesTaken());
+        } else
+            moves = "99";
+        counterFont.draw(batch, moves, camera.viewportWidth * 9 / 20, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
+
         batch.end();
     }
 

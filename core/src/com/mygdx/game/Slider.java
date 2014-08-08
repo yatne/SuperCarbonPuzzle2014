@@ -8,6 +8,7 @@ import enums.Controls;
 import enums.GameStates;
 import help.utils.Constants;
 import map.Map;
+import player.Player;
 import view.MapView;
 import view.MenuView;
 
@@ -23,18 +24,22 @@ public class Slider extends ApplicationAdapter {
     private int selectedLevel;
     private int selectedWorld;
     private MenuView menuView;
+    private Player player;
 
     @Override
     public void create() {
 
-
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        map = new Map(1);
+        map = new Map(1, 1);
         gameState = INTRO;
         menuView = new MenuView();
         mapView = new MapView();
         Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
+        player = new Player();
+
+        selectedWorld=1;
+
     }
 
     @Override
@@ -44,33 +49,45 @@ public class Slider extends ApplicationAdapter {
 
             case INTRO: {
                 menuView.prepareMainMenu(camera);
-
                 gameState = MENU;
                 break;
             }
 
             case MENU: {
                 if (menuView.drawMainMenu() == Controls.PLAY) {
-                    menuView.prepareLevelSelection(camera);
+                    menuView.prepareLevelSelection(camera,1,player);
                     gameState = LEVEL_SELECT;
                 }
                 break;
             }
 
-            case LEVEL_SELECT: {
-
-                if (menuView.drawMapSelection(camera) > Constants.ValueLevelSelection) {
-                    selectedLevel = menuView.drawMapSelection(camera);
-                    gameState = PRE_LEVEL;
-                } else if (menuView.drawMapSelection(camera) == Constants.ValueReturnToMainMenu) {
+            case WORLD_SELECT: {
+                if (menuView.drawWorldSelection() > Constants.ValueLevelSelection) {
+                    selectedWorld = menuView.drawWorldSelection();
+                    menuView.prepareLevelSelection(camera, selectedWorld, player);
+                    gameState = LEVEL_SELECT;
+                } else if (menuView.drawWorldSelection() == Constants.ValueReturnToMainMenu) {
                     menuView.prepareMainMenu(camera);
                     gameState = MENU;
                 }
                 break;
             }
 
+
+            case LEVEL_SELECT: {
+
+                if (menuView.drawMapSelection() > Constants.ValueLevelSelection) {
+                    selectedLevel = menuView.drawMapSelection();
+                    gameState = PRE_LEVEL;
+                } else if (menuView.drawMapSelection() == Constants.ValueReturnToMainMenu) {
+                    menuView.prepareWorldSelection(camera);
+                    gameState = WORLD_SELECT;
+                }
+                break;
+            }
+
             case PRE_LEVEL: {
-                map = new Map(selectedLevel);
+                map = new Map(selectedWorld, selectedLevel);
                 mapView.prepareMapUI(camera);
                 mapView.prepareMap(camera, map);
                 gameState = LEVEL;
@@ -79,9 +96,13 @@ public class Slider extends ApplicationAdapter {
 
             case LEVEL: {
                 if (map.checkForFinish()) {
+
+                    player.update(map);
                     selectedLevel++;
-                    map = new Map(selectedLevel);
+                    map = new Map(selectedWorld, selectedLevel);
                     mapView.prepareMap(camera, map);
+
+                    player.savePlayer();
                 }
 
                 Controls control = mapView.getControl();
@@ -90,18 +111,18 @@ public class Slider extends ApplicationAdapter {
                     control = keyboardController.checkForControl();
                 }
                 if (control == Controls.NONE) {
-                    mapView.drawMap(map, camera);
+                    mapView.drawMap(map, player, camera);
                 } else {
                     if (control == Controls.RESET) {
-                        map = new Map(selectedLevel);
+                        map = new Map(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.NEXT) {
                         selectedLevel++;
-                        map = new Map(selectedLevel);
+                        map = new Map(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
                         selectedLevel--;
-                        map = new Map(selectedLevel);
+                        map = new Map(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.MENU) {
                         menuView.prepareMainMenu(camera);
@@ -116,15 +137,12 @@ public class Slider extends ApplicationAdapter {
             }
 
             case LEVEL_ANIMATION: {
-                if (mapView.drawAnimation(map, camera)) {
+                if (mapView.drawAnimation(map, player, camera)) {
                     gameState = LEVEL;
                 }
                 break;
             }
-            case WORLD_SELECT:
-                break;
-            case AFTER_LEVEL:
-                break;
+
         }
 
     }
@@ -140,7 +158,7 @@ public class Slider extends ApplicationAdapter {
                 break;
             }
             case LEVEL_SELECT: {
-                menuView.prepareLevelSelection(camera);
+                menuView.prepareLevelSelection(camera, selectedWorld, player);
                 break;
             }
             case LEVEL: {

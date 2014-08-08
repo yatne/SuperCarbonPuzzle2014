@@ -5,4 +5,5 @@ public class Constants {
     public static int spritesMovingSpeed;
     public static int ValueLevelSelection = 0;
     public static int ValueReturnToMainMenu = -1;
+    public static int howManyWorlds = 2;
 }
