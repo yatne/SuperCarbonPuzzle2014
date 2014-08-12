@@ -20,6 +20,7 @@ import controllers.GestureController;
 import enums.Controls;
 import help.utils.BlocksReader;
 import help.utils.Constants;
+import help.utils.MapsReader;
 import help.utils.ObjectsReader;
 import map.Field;
 import map.Map;
@@ -89,15 +90,16 @@ public class MapView {
         batch.setProjectionMatrix(camera.combined);
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
-        bottomPanel = new Image(new Texture("bottom_pannel.png"));
-        topPanel = new Image(new Texture("bottom_pannel.png"));
+        bottomPanel = new Image(new Texture("bottom_panel.png"));
+        topPanel = new Image(new Texture("upper_panel.png"));
 
         reset = new Image(new Texture("reset.png"));
         menu = new Image(new Texture("menu.png"));
 
-        menu.setPosition(0, panelsHeight / 5);
+        reset.setPosition((1 * camera.viewportWidth) / 10, panelsHeight / 5);
+        menu.setPosition((6 * camera.viewportWidth) / 10, panelsHeight / 5);
+
         menu.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
-        reset.setPosition((7 * camera.viewportWidth) / 10, panelsHeight / 5);
         reset.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
 
         bottomPanel.setPosition(0, 0);
@@ -143,7 +145,7 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("BALL")))
+            if (sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")))
                 sprite.draw(batch);
         }
         batch.end();
@@ -181,7 +183,7 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("BALL")))
+            if (sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")))
                 sprite.draw(batch);
         }
 
@@ -390,7 +392,6 @@ public class MapView {
     public void drawUI(Map map, Player player, OrthographicCamera camera) {
         batch.begin();
 
-
         topPanel.draw(batch, 1);
         bottomPanel.draw(batch, 1);
         menu.draw(batch, 1);
@@ -401,16 +402,22 @@ public class MapView {
             moves = Integer.toString(map.getMovesTaken());
         } else
             moves = "99";
-        counterFont.draw(batch, moves, camera.viewportWidth * 9 / 20, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
+
+        counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
+
+        counterFont.draw(batch,
+                help.utils.MapsReader.getMapName(map),
+                (camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2),
+                camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2);
 
         batch.end();
     }
 
     public void createFonts(OrthographicCamera camera) {
-        FileHandle fontFile = Gdx.files.internal("font.ttf");
+        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4), "1234567890 ", false);
-        counterFont.setColor(Color.RED);
+        counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
+        counterFont.setColor(Color.BLACK);
         generator.dispose();
     }
 

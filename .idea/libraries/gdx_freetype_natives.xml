@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="gdx-freetype-natives">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/core/build/libs/gdx-freetype-natives" />
+      <root url="file://$PROJECT_DIR$/desktop/build/libs/gdx-freetype-natives" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

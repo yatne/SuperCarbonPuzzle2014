@@ -45,12 +45,12 @@ public class Map {
         }
 
         for (Object object : map.getObjects()) {
-            this.objects.add(object);
+            this.objects.add(new Object(object));
         }
+
     }
 
     private void loadMap(int worldNumber, int mapNumber) {
-
 
         MapBuilder mapBuilder = new MapBuilder();
 
@@ -73,6 +73,7 @@ public class Map {
 
 
         if (control != Controls.NONE) {
+
             movesTaken++;
 
             if (control == Controls.RIGHT) {
@@ -129,7 +130,6 @@ public class Map {
 
 
             }
-
         }
     }
 
@@ -152,7 +152,7 @@ public class Map {
                 teleport(objectA, objectB, 0);
 
 
-            } else if (objectB.hasBehavior("empty") ) {
+            } else if (objectB.hasBehavior("empty")) {
                 actionOnEnter(objectB);
                 actionOnLeave(objectA);
                 objectA.setX(x);

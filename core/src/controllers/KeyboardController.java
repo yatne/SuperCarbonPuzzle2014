@@ -15,6 +15,7 @@ public class KeyboardController {
     boolean backspacePressed;
     boolean nextPressed;
     boolean previousPressed;
+    boolean revertPressed;
 
     public KeyboardController() {
         leftPressed = false;
@@ -66,6 +67,14 @@ public class KeyboardController {
             }
         } else
             backspacePressed = false;
+
+        if (Gdx.input.isKeyPressed(Input.Keys.SLASH)) {
+            if (!revertPressed) {
+                revertPressed = true;
+                return REVERT_MOVE;
+            }
+        } else
+            revertPressed = false;
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT_BRACKET)) {
             if (!nextPressed) {

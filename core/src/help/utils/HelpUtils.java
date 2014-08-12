@@ -1,8 +1,6 @@
 package help.utils;
 
 import map.Object;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
@@ -12,8 +10,8 @@ import java.util.Comparator;
 
 public class HelpUtils {
 
-    @Nullable
-    public static Element getElementByAttributeValue(@NotNull NodeList nodeList, @NotNull String attributeName, @NotNull String attributeValue) {
+
+    public static Element getElementByAttributeValue( NodeList nodeList,  String attributeName,  String attributeValue) {
 
         Element element = null;
 

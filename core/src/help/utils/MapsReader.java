@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class MapsReader {
 
-    public static NodeList getMapsList (String xmlPath) {
+    public static NodeList getMapsList(String xmlPath) {
 
         NodeList maps = null;
 
@@ -37,6 +37,36 @@ public class MapsReader {
         }
 
         return maps;
+    }
+
+    public static String getMapName(Map map) {
+
+        NodeList mapsList = MapsReader.getMapsList("/resources/maps" + map.getMapWorld() + ".xml");
+        for (int i = 0; i < mapsList.getLength(); i++) {
+            Element mapEle = (Element) mapsList.item(i);
+            if (mapEle.getAttribute("number").equals(Integer.toString(map.getMapNumber()))) {
+                return mapEle.getAttribute("name");
+            }
+        }
+        return null;
+    }
+
+    public static int starsToUnlock(int world, int level) {
+
+        NodeList mapsList = MapsReader.getMapsList("/resources/maps" + world + ".xml");
+        for (int i = 0; i < mapsList.getLength(); i++) {
+            Element mapEle = (Element) mapsList.item(i);
+            if (mapEle.getAttribute("number").equals(Integer.toString(level))) {
+                try{
+                return Integer.parseInt(mapEle.getAttribute("unlocked"));
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("mapa nie ma pola unlocked");
+                }
+
+            }
+        }
+        return 0;
     }
 
 }

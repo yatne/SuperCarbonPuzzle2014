@@ -1,10 +1,13 @@
 package view;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -25,11 +28,15 @@ public class MenuView {
     private int selectedLevel;
     private ArrayList<Image> levelButtons;
     private ArrayList<Image> stars;
+    private ArrayList<LevelNumber> levelNumbers;
     private Image background;
     private Image bottomPannel;
     private Image logo;
     private Image button1;
     private Image button2;
+    private BitmapFont font;
+    private BitmapFont font2;
+    private LevelNumber starCount;
 
     public MenuView() {
         this.stage = new Stage();
@@ -38,6 +45,7 @@ public class MenuView {
         levelButtons = new ArrayList<>();
         stars = new ArrayList<>();
         selectedLevel = 0;
+        levelNumbers = new ArrayList<>();
     }
 
     public void prepareMainMenu(OrthographicCamera camera) {
@@ -45,7 +53,7 @@ public class MenuView {
         selectedLevel = Constants.ValueLevelSelection;
         control = Controls.NONE;
 
-
+        levelButtons = new ArrayList<>();
         Gdx.input.setInputProcessor(stage);
         stage.clear();
         batch = new SpriteBatch();
@@ -108,6 +116,8 @@ public class MenuView {
         control = Controls.NONE;
         selectedLevel = Constants.ValueLevelSelection;
 
+
+        levelButtons = new ArrayList<>();
         Gdx.input.setInputProcessor(stage);
         stage.clear();
         batch = new SpriteBatch();
@@ -172,6 +182,8 @@ public class MenuView {
 
         control = Controls.NONE;
         selectedLevel = Constants.ValueLevelSelection;
+        levelButtons = new ArrayList<>();
+        levelNumbers = new ArrayList<>();
 
         Gdx.input.setInputProcessor(stage);
         stage.clear();
@@ -180,13 +192,15 @@ public class MenuView {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.setProjectionMatrix(camera.combined);
 
+        createFonts(camera);
+
         NodeList maps = MapsReader.getMapsList("/resources/maps" + world + ".xml");
         levelButtons = new ArrayList<>();
         stars = new ArrayList<>();
 
 
-        double levelButtonWidth = camera.viewportWidth / 5;
-        double starsSize = levelButtonWidth / 4;
+        double levelButtonWidth = camera.viewportWidth / 6;
+        double starsSize = levelButtonWidth / 4.3;
         double levelButtonSpan = (camera.viewportWidth - (4 * levelButtonWidth)) / 5;
         double levelButtonHeight = 30 * levelButtonWidth / 25;
 
@@ -194,25 +208,35 @@ public class MenuView {
 
             double posX = levelButtonSpan + (levelButtonWidth + levelButtonSpan) * (i % 4);
             double posY = camera.viewportHeight - (levelButtonHeight + 2 * levelButtonSpan + Math.floor(i / 4) * (levelButtonHeight + levelButtonSpan));
-            Image image = (new Image(new Texture("menus/level.png")));
+
+
+            final Image image;
+            if (help.utils.MapsReader.starsToUnlock(world, i + 1) <= player.getStars())
+                image = (new Image(new Texture("menus/level.png")));
+            else
+                image = (new Image(new Texture("menus/level_locked.png")));
             image.setSize((int) levelButtonWidth, (int) levelButtonHeight);
             image.setPosition((int) posX, (int) posY);
             levelButtons.add(image);
 
+            int numberPosX = (int) (posX + (image.getWidth() / 2) - (font.getBounds(Integer.toString(i + 1)).width / 2));
+
+            int numberPosY = (int) (posY + levelButtonHeight - ((levelButtonWidth - font.getCapHeight()) / 2.2));
+            if (help.utils.MapsReader.starsToUnlock(world, i + 1) <= player.getStars()){
+                levelNumbers.add(new LevelNumber(numberPosX, numberPosY, i + 1));
+            }
             int levelStars = help.utils.HelpUtils.levelStarsCount(world, i + 1);
-            posY = posY + (levelButtonHeight - levelButtonWidth) / 4;
+            posY = posY + (levelButtonHeight - levelButtonWidth) / 3;
 
             if (levelStars == 1) {
                 posX = posX + (levelButtonWidth / 2) - (starsSize / 2);
             }
-
             if (levelStars == 2) {
                 posX = posX + (levelButtonWidth / 2) - (starsSize);
             }
             if (levelStars == 3) {
                 posX = posX + (levelButtonWidth / 2) - 3 * (starsSize / 2);
             }
-
             if (levelStars == 4) {
                 posX = posX + (levelButtonWidth / 2) - (starsSize * 2);
             }
@@ -233,6 +257,14 @@ public class MenuView {
 
             final int finalI = i;
             image.addListener(new ClickListener() {
+
+                @Override
+                public boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent event, float x, float y, int pointer, int button) {
+                    image.setSize(10, 10);
+                    return true;
+                }
+
+                @Override
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     selectedLevel = finalI + 1;
 
@@ -249,8 +281,17 @@ public class MenuView {
         background.setSize(camera.viewportWidth, camera.viewportHeight);
 
         button1 = new Image(new Texture("menu.png"));
-        button1.setPosition((7 * camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5);
+        button1.setPosition((camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5);
         button1.setSize((3 * camera.viewportWidth) / 10, (3 * ((camera.viewportHeight - camera.viewportWidth) / 2) / 5));
+
+        logo = new Image(new Texture("menus/star_golden.png"));
+        logo.setPosition((7 * camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5);
+        logo.setSize((camera.viewportHeight - camera.viewportWidth) / 3, (camera.viewportHeight - camera.viewportWidth) / 3);
+
+        int starPosX = (int) (((7.4 * camera.viewportWidth) / 10));
+
+        int starPosY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + 1.2 * font2.getCapHeight());
+        starCount = new LevelNumber(starPosX, starPosY, player.getStars());
 
         stage.addActor(button1);
         button1.addListener(new ClickListener() {
@@ -272,11 +313,33 @@ public class MenuView {
         for (Image image : stars) {
             image.draw(batch, 1);
         }
+        for (LevelNumber levelNumber : levelNumbers) {
+            font.draw(batch, levelNumber.getStringNumber(), levelNumber.getPosX(), levelNumber.getPosY());
+        }
         bottomPannel.draw(batch, 1);
+
         button1.draw(batch, 1);
+        logo.draw(batch, 1);
+        font2.draw(batch, starCount.getStringNumber(), starCount.getPosX(), starCount.getPosY());
         batch.end();
         return selectedLevel;
 
     }
 
+    public void createFonts(OrthographicCamera camera) {
+        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+        font = generator.generateFont((int) (camera.viewportWidth / 6.5), "1234567890 ", false);
+        font.setColor(0, 0, 0, 1);
+
+        fontFile = Gdx.files.internal("font.ttf");
+        generator = new FreeTypeFontGenerator(fontFile);
+        font2 = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 3.5), "1234567890 ", false);
+        font2.setColor(0, 0, 0, 1);
+        generator.dispose();
+    }
+
+    public ArrayList<Image> getLevelButtons() {
+        return levelButtons;
+    }
 }

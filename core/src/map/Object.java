@@ -19,13 +19,26 @@ public class Object {
         this.x = x;
         this.y = y;
         this.id = id;
-        goneThroughTele=false;
+        goneThroughTele = false;
     }
 
     public Object(String anEnum, ArrayList<String> behavior, int id) {
         this.objectsType = ObjectsType.valueOf(anEnum);
         this.behavior = behavior;
         this.id = id;
+    }
+
+    public Object(Object object) {
+        this.objectsType = object.getObjectsType();
+        this.behavior = new ArrayList<>();
+        for (String behavior : object.getBehavior()) {
+            this.behavior.add(behavior);
+        }
+        this.goneThroughTele = object.goneThroughTele;
+        this.id = object.getId();
+        this.x = object.getX();
+        this.y = object.getY();
+
     }
 
     public boolean hasBehavior(String wantedBehavior) {
@@ -36,6 +49,18 @@ public class Object {
                     return true;
             }
         return false;
+    }
+
+    public boolean equals(Object object) {
+        boolean areTheSame = true;
+
+
+        if (this.objectsType != object.getObjectsType() || this.id != object.getId()
+                || this.x != object.getX() || this.y != object.getY())
+
+            areTheSame = false;
+        return areTheSame;
+
     }
 
     public ObjectsType getObjectsType() {

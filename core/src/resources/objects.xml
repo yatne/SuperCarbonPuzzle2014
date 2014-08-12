@@ -33,7 +33,7 @@
 
     <object name="ghostlwithball" enum="GWB" texture="gwb.png" placedOn="EMPTY">
 
-        <behavior>empty</behavior>
+        <behavior>solid</behavior>
         <behavior>solid-on-leave</behavior>
 
     </object>

@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact name="desktop:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/desktop_jar2</output-path>
+    <root id="root">
+      <element id="archive" name="desktop.jar">
+        <element id="module-output" name="desktop" />
+        <element id="module-output" name="core" />
+        <element id="dir-copy" path="$PROJECT_DIR$/core/build/libs/gdx-freetype" />
+        <element id="dir-copy" path="$PROJECT_DIR$/core/build/libs/gdx-freetype-natives" />
+      </element>
+      <element id="library" level="project" name="gdx-1.1.0" />
+      <element id="library" level="project" name="lwjgl-platform-2.9.1-natives-windows" />
+      <element id="library" level="project" name="gwt-user-2.6.0" />
+      <element id="library" level="project" name="annotations" />
+      <element id="library" level="project" name="jinput-platform-2.0.5-natives-linux" />
+      <element id="library" level="project" name="lwjgl_util-2.9.1" />
+      <element id="library" level="project" name="gdx-platform-1.1.0-natives-desktop" />
+      <element id="library" level="project" name="jinput-2.0.5" />
+      <element id="library" level="project" name="jinput-platform-2.0.5-natives-windows" />
+      <element id="library" level="project" name="jorbis-0.0.17" />
+      <element id="library" level="project" name="jutils-1.0.0" />
+      <element id="library" level="project" name="lwjgl-platform-2.9.1-natives-linux" />
+      <element id="library" level="project" name="gdx-backend-lwjgl-1.1.0" />
+      <element id="library" level="project" name="jlayer-1.0.1-gdx" />
+      <element id="library" level="project" name="lwjgl-2.9.1" />
+    </root>
+  </artifact>
+</component>

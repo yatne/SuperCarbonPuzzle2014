@@ -20,7 +20,7 @@
         <row nr="8">OOOOOOOO</row>
     </map>
 
-    <map name="klasyk" number="3" gold="9" silver="10">
+    <map name="klasyk" number="3" gold="9" silver="10" unlocked="1">
 
         <row nr="1">OXOXOXOO</row>
         <row nr="2">OOOXOOOX</row>
@@ -33,7 +33,7 @@
 
     </map>
 
-    <map name="nowe" number="4" gold="6" silver="9">
+    <map name="pierwsze z pudelkiem" number="4" gold="6" silver="9" unlocked="1">
 
         <row nr="1">XOOOOXO</row>
         <row nr="2">XOOOOOO</row>
@@ -46,7 +46,7 @@
     </map>
 
 
-    <map name="zapchane" number="5" gold="21" silver="25">
+    <map name="zapchane" number="5" plat="21" gold="19" silver="25" unlocked="1">
 
         <row nr="1">XXSXOOOX</row>
         <row nr="2">XXOXXXXX</row>
@@ -60,7 +60,7 @@
     </map>
 
 
-    <map name="proste" number="6" silver="8">
+    <map name="proste" number="6" silver="8" unlocked="1">
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -71,7 +71,7 @@
 
     </map>
 
-    <map name="trudne z platyna" number="7" gold="16" silver="19" plat="13">
+    <map name="trudne z platyna" number="7" gold="16" silver="19" plat="13" unlocked="1">
 
         <row nr="1">XOOEOOO</row>
         <row nr="2">XOOOXXX</row>
@@ -83,7 +83,7 @@
 
     </map>
 
-    <map name="same kule" number="8" gold="6" silver="12">
+    <map name="same kule" number="8" gold="6" silver="12" unlocked="1">
 
         <row nr="1">OOOOOOO</row>
         <row nr="2">OOEOEOO</row>
@@ -95,7 +95,7 @@
 
     </map>
 
-    <map name="trudne" number="9">
+    <map name="trudne" number="9" plat="17" gold="19" silver="25" unlocked="1">
 
         <row nr="1">OOXOOXOX</row>
         <row nr="2">BOOOOOOO</row>
@@ -109,7 +109,7 @@
     </map>
 
 
-    <map name="paski" number="10">
+    <map name="paski" number="10" gold="11" silver="18" unlocked="1">
 
         <row nr="1">OOOXOOO</row>
         <row nr="2">BXBOOXB</row>
@@ -121,7 +121,7 @@
 
     </map>
 
-    <map name="z plusikiem" number="11">
+    <map name="z plusikiem" number="11" silver="5" unlocked="1">
 
         <row nr="1">OOXEXO</row>
         <row nr="2">O+OOOO</row>
@@ -132,7 +132,7 @@
 
     </map>
 
-    <map name="duzy plus" number="12">
+    <map name="duzy plus" number="12" unlocked="1">
 
         <row nr="1">OOOOXOEO</row>
         <row nr="2">OOXXOXOO</row>
@@ -145,7 +145,7 @@
 
     </map>
 
-    <map name="portale" number="13">
+    <map name="portale" number="13" unlocked="1">
 
         <row nr="1">OOUUUUOO</row>
         <row nr="2">OOXOOOXO</row>
@@ -159,7 +159,7 @@
     </map>
 
 
-    <map name="gora-dol" number="14">
+    <map name="gora-dol" number="14" unlocked="1">
 
         <row nr="1">UUUUUUUU</row>
         <row nr="2">OOOOOXOX</row>
@@ -171,7 +171,7 @@
         <row nr="8">DDDDDDDD</row>
 
     </map>
-    <map name="blablab" number="15">
+    <map name="blablab" number="15" unlocked="1">
         <row nr="1">OUOXEO</row>
         <row nr="2">OSOS+O</row>
         <row nr="3">XXEOOE</row>
@@ -181,7 +181,7 @@
     </map>
 
 
-    <map name="koniec" number="16">
+    <map name="koniec" number="16" unlocked="100">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

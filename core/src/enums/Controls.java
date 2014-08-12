@@ -12,6 +12,7 @@ public enum Controls {
     PLAY,
     QUIT,
     MENU,
+    REVERT_MOVE,
     NONE;
 
 }
