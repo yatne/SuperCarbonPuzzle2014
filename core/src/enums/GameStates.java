@@ -9,6 +9,8 @@ public enum GameStates {
     PRE_LEVEL,
     LEVEL,
     LEVEL_ANIMATION,
-    AFTER_LEVEL
+    AFTER_LEVEL,
+    ALERT
+
 
 }

@@ -1,6 +1,6 @@
 <maps>
 
-    <map name="blablab" number="1" silver="8" unlocked="0">
+    <map name="The very first one" number="1" silver="8" unlocked="0">
         <row nr="1">OOOXOO</row>
         <row nr="2">XOOOOE</row>
         <row nr="3">OOOOXX</row>
@@ -9,7 +9,7 @@
         <row nr="6">OXOOOO</row>
     </map>
 
-    <map name="nie wylec" number="2" silver="5" unlocked="1">
+    <map name="only a few blocks" number="2" silver="5" unlocked="1">
         <row nr="1">OOOOOOOO</row>
         <row nr="2">OOOOXOOO</row>
         <row nr="3">OXOOOOOO</row>
@@ -20,7 +20,7 @@
         <row nr="8">OOOOOOOO</row>
     </map>
 
-    <map name="klasyk" number="3" gold="9" silver="10" unlocked="1">
+    <map name="a little more complicated" number="3" gold="9" silver="10" unlocked="3">
 
         <row nr="1">OXOXOXOO</row>
         <row nr="2">OOOXOOOX</row>
@@ -33,7 +33,7 @@
 
     </map>
 
-    <map name="pierwsze z pudelkiem" number="4" gold="6" silver="9" unlocked="1">
+    <map name="that box moves" number="4" gold="6" silver="9" unlocked="6">
 
         <row nr="1">XOOOOXO</row>
         <row nr="2">XOOOOOO</row>
@@ -46,7 +46,7 @@
     </map>
 
 
-    <map name="zapchane" number="5" plat="21" gold="19" silver="25" unlocked="1">
+    <map name="no place for you" number="5" plat="19" gold="21" silver="25" unlocked="7">
 
         <row nr="1">XXSXOOOX</row>
         <row nr="2">XXOXXXXX</row>
@@ -60,7 +60,7 @@
     </map>
 
 
-    <map name="proste" number="6" silver="8" unlocked="1">
+    <map name="two balls" number="6" silver="8" unlocked="9">
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -71,7 +71,7 @@
 
     </map>
 
-    <map name="trudne z platyna" number="7" gold="16" silver="19" plat="13" unlocked="1">
+    <map name="you can do better" number="7" gold="16" silver="19" plat="13" unlocked="10">
 
         <row nr="1">XOOEOOO</row>
         <row nr="2">XOOOXXX</row>
@@ -83,7 +83,7 @@
 
     </map>
 
-    <map name="same kule" number="8" gold="6" silver="12" unlocked="1">
+    <map name="only balls" number="8" gold="6" silver="12" unlocked="12">
 
         <row nr="1">OOOOOOO</row>
         <row nr="2">OOEOEOO</row>
@@ -95,7 +95,7 @@
 
     </map>
 
-    <map name="trudne" number="9" plat="17" gold="19" silver="25" unlocked="1">
+    <map name="thats a tough one" number="9" plat="17" gold="19" silver="25" unlocked="14">
 
         <row nr="1">OOXOOXOX</row>
         <row nr="2">BOOOOOOO</row>
@@ -109,7 +109,7 @@
     </map>
 
 
-    <map name="paski" number="10" gold="11" silver="18" unlocked="1">
+    <map name="you only live once" number="10" gold="11" silver="18" unlocked="16">
 
         <row nr="1">OOOXOOO</row>
         <row nr="2">BXBOOXB</row>
@@ -121,7 +121,7 @@
 
     </map>
 
-    <map name="z plusikiem" number="11" silver="5" unlocked="1">
+    <map name="those green fields" number="11" silver="5" unlocked="18">
 
         <row nr="1">OOXEXO</row>
         <row nr="2">O+OOOO</row>
@@ -132,7 +132,7 @@
 
     </map>
 
-    <map name="duzy plus" number="12" unlocked="1">
+    <map name="do what you love" number="12" silver="28" gold="25" plat="23" unlocked="20">
 
         <row nr="1">OOOOXOEO</row>
         <row nr="2">OOXXOXOO</row>

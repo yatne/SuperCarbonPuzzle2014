@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="freetype">
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/core/build/libs/gdx-freetype/com/badlogic/gdx/graphics/g2d/freetype" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

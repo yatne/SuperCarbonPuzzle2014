@@ -47,6 +47,7 @@ public class MapView {
     private Image menu;
     private BitmapFont counterFont;
     private Controls control;
+    private Text levelName;
 
     public MapView() {
         stage = new Stage();
@@ -62,21 +63,21 @@ public class MapView {
             Element block = (Element) blocksList.item(i);
             textureHashMap.put(
                     block.getAttribute("enum"),
-                    new Texture(block.getAttribute("texture"))
+                    new Texture(Constants.skin+"/"+block.getAttribute("texture"))
             );
         }
         for (int i = 0; i < objectsList.getLength(); i++) {
             Element object = (Element) objectsList.item(i);
             textureHashMap.put(
                     object.getAttribute("enum"),
-                    new Texture(object.getAttribute("texture"))
+                    new Texture(Constants.skin+"/"+object.getAttribute("texture"))
             );
         }
 
         control = Controls.NONE;
     }
 
-    public void prepareMapUI(OrthographicCamera camera) {
+    public void prepareMapUI(OrthographicCamera camera, Map map) {
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(new GestureDetector(gestureController));
@@ -125,7 +126,12 @@ public class MapView {
         });
 
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
-        createFonts(camera);
+        createFonts(camera, map);
+
+        levelName = new Text((int)((camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2)),
+                (int)(camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2),
+                help.utils.MapsReader.getMapName(map));
+
     }
 
     public void prepareMap(OrthographicCamera camera, Map map) {
@@ -150,6 +156,15 @@ public class MapView {
         }
         batch.end();
         drawUI(map, player, camera);
+    }
+
+    public void prepareAnimation(){
+        gestureController.setGestureField(0,0,0,0);
+    }
+
+    public void afterAnimation(OrthographicCamera camera){
+        float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+        gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
     }
 
     public boolean drawAnimation(Map map, Player player, OrthographicCamera camera) {
@@ -366,7 +381,6 @@ public class MapView {
 
         batch.begin();
 
-
         Texture img = textureHashMap.get("EMPTY");
 
         float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
@@ -405,20 +419,19 @@ public class MapView {
 
         counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
-        counterFont.draw(batch,
-                help.utils.MapsReader.getMapName(map),
-                (camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2),
-                camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2);
+        counterFont.draw(batch,levelName.getText(),levelName.getPosX(),levelName.getPosY());
 
         batch.end();
     }
 
-    public void createFonts(OrthographicCamera camera) {
+    public void createFonts(OrthographicCamera camera, Map map) {
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
         counterFont.setColor(Color.BLACK);
         generator.dispose();
+
+
     }
 
     public Controls getControl() {

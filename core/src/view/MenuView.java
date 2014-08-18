@@ -2,6 +2,7 @@ package view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -28,15 +29,17 @@ public class MenuView {
     private int selectedLevel;
     private ArrayList<Image> levelButtons;
     private ArrayList<Image> stars;
-    private ArrayList<LevelNumber> levelNumbers;
+    private ArrayList<Text> texts;
     private Image background;
-    private Image bottomPannel;
+    private Image bottomPanel;
     private Image logo;
     private Image button1;
     private Image button2;
     private BitmapFont font;
     private BitmapFont font2;
-    private LevelNumber starCount;
+    private Text starCount;
+    private Button button;
+    private Button playBut;
 
     public MenuView() {
         this.stage = new Stage();
@@ -45,13 +48,14 @@ public class MenuView {
         levelButtons = new ArrayList<>();
         stars = new ArrayList<>();
         selectedLevel = 0;
-        levelNumbers = new ArrayList<>();
+        texts = new ArrayList<>();
     }
 
     public void prepareMainMenu(OrthographicCamera camera) {
 
         selectedLevel = Constants.ValueLevelSelection;
         control = Controls.NONE;
+        createFonts(camera);
 
         levelButtons = new ArrayList<>();
         Gdx.input.setInputProcessor(stage);
@@ -65,32 +69,33 @@ public class MenuView {
         background.setSize(camera.viewportWidth, camera.viewportHeight);
         background.setPosition(0, 0);
 
-        bottomPannel = new Image(new Texture("menus/bottom_pannel.png"));
-        bottomPannel.setSize(camera.viewportWidth, (camera.viewportHeight - camera.viewportWidth) / 2);
-        bottomPannel.setPosition(0, 0);
+        bottomPanel = new Image(new Texture("menus/bottom_pannel.png"));
+        bottomPanel.setSize(camera.viewportWidth, (camera.viewportHeight - camera.viewportWidth) / 2);
+        bottomPanel.setPosition(0, 0);
 
         logo = new Image(new Texture("menus/logo.png"));
         logo.setSize(camera.viewportWidth, camera.viewportWidth / 5);
         logo.setPosition(0, camera.viewportHeight - (camera.viewportWidth / 5));
 
-        button1 = new Image(new Texture("menus/quit.png"));
-        button1.setSize(camera.viewportWidth / 2, camera.viewportWidth / 6);
-        button1.setPosition(camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 4));
+        playBut = new Button(new Texture("menus/button.png"), "play",
+                camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 3),
+                camera.viewportWidth / 2, camera.viewportWidth / 6, font2);
 
-        button2 = new Image(new Texture("menus/play.png"));
-        button2.setSize(camera.viewportWidth / 2, camera.viewportWidth / 6);
-        button2.setPosition(camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 3));
+        button = new Button(new Texture("menus/button.png"), "quit",
+                camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 4),
+                camera.viewportWidth / 2, camera.viewportWidth / 6, font2);
 
-        stage.addActor(button1);
-        stage.addActor(button2);
 
-        button1.addListener(new ClickListener() {
+        stage.addActor(button);
+        stage.addActor(playBut);
+
+        button.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 Gdx.app.exit();
             }
         });
 
-        button2.addListener(new ClickListener() {
+        playBut.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 control = Controls.PLAY;
 
@@ -103,10 +108,10 @@ public class MenuView {
 
         batch.begin();
         background.draw(batch, 1);
-        bottomPannel.draw(batch, 1);
+        bottomPanel.draw(batch, 1);
         logo.draw(batch, 1);
-        button1.draw(batch, 1);
-        button2.draw(batch, 1);
+        button.draw(batch, 1, font2);
+        playBut.draw(batch, 1, font2);
         batch.end();
         return control;
     }
@@ -183,7 +188,7 @@ public class MenuView {
         control = Controls.NONE;
         selectedLevel = Constants.ValueLevelSelection;
         levelButtons = new ArrayList<>();
-        levelNumbers = new ArrayList<>();
+        texts = new ArrayList<>();
 
         Gdx.input.setInputProcessor(stage);
         stage.clear();
@@ -222,8 +227,10 @@ public class MenuView {
             int numberPosX = (int) (posX + (image.getWidth() / 2) - (font.getBounds(Integer.toString(i + 1)).width / 2));
 
             int numberPosY = (int) (posY + levelButtonHeight - ((levelButtonWidth - font.getCapHeight()) / 2.2));
-            if (help.utils.MapsReader.starsToUnlock(world, i + 1) <= player.getStars()){
-                levelNumbers.add(new LevelNumber(numberPosX, numberPosY, i + 1));
+            if (help.utils.MapsReader.starsToUnlock(world, i + 1) <= player.getStars()) {
+                texts.add(new Text(numberPosX, numberPosY, i + 1, Color.BLACK));
+            } else {
+                texts.add(new Text(numberPosX, numberPosY, i + 1, Color.WHITE));
             }
             int levelStars = help.utils.HelpUtils.levelStarsCount(world, i + 1);
             posY = posY + (levelButtonHeight - levelButtonWidth) / 3;
@@ -272,9 +279,9 @@ public class MenuView {
             });
         }
 
-        bottomPannel = new Image(new Texture("menus/bottom_pannel.png"));
-        bottomPannel.setSize(camera.viewportWidth, (camera.viewportHeight - camera.viewportWidth) / 2);
-        bottomPannel.setPosition(0, 0);
+        bottomPanel = new Image(new Texture("menus/bottom_pannel.png"));
+        bottomPanel.setSize(camera.viewportWidth, (camera.viewportHeight - camera.viewportWidth) / 2);
+        bottomPanel.setPosition(0, 0);
 
         background = new Image(new Texture("menus/background.png"));
         background.setPosition(0, 0);
@@ -291,7 +298,7 @@ public class MenuView {
         int starPosX = (int) (((7.4 * camera.viewportWidth) / 10));
 
         int starPosY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + 1.2 * font2.getCapHeight());
-        starCount = new LevelNumber(starPosX, starPosY, player.getStars());
+        starCount = new Text(starPosX, starPosY, player.getStars());
 
         stage.addActor(button1);
         button1.addListener(new ClickListener() {
@@ -313,10 +320,11 @@ public class MenuView {
         for (Image image : stars) {
             image.draw(batch, 1);
         }
-        for (LevelNumber levelNumber : levelNumbers) {
-            font.draw(batch, levelNumber.getStringNumber(), levelNumber.getPosX(), levelNumber.getPosY());
+        for (Text text : texts) {
+            font.setColor(text.color);
+            font.draw(batch, text.getStringNumber(), text.getPosX(), text.getPosY());
         }
-        bottomPannel.draw(batch, 1);
+        //bottomPanel.draw(batch, 1);
 
         button1.draw(batch, 1);
         logo.draw(batch, 1);
@@ -329,12 +337,12 @@ public class MenuView {
     public void createFonts(OrthographicCamera camera) {
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) (camera.viewportWidth / 6.5), "1234567890 ", false);
-        font.setColor(0, 0, 0, 1);
+        font = generator.generateFont((int) (camera.viewportWidth / 6.9));
+        font.setColor(Color.BLACK);
 
-        fontFile = Gdx.files.internal("font.ttf");
+        fontFile = Gdx.files.internal("menufont.ttf");
         generator = new FreeTypeFontGenerator(fontFile);
-        font2 = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 3.5), "1234567890 ", false);
+        font2 = generator.generateFont((int) (camera.viewportWidth / 8));
         font2.setColor(0, 0, 0, 1);
         generator.dispose();
     }
