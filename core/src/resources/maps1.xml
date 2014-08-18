@@ -46,7 +46,7 @@
     </map>
 
 
-    <map name="no place for you" number="5" plat="19" gold="21" silver="25" unlocked="7">
+    <map name="no place for you" number="5" gold="21" silver="25" unlocked="7">
 
         <row nr="1">XXSXOOOX</row>
         <row nr="2">XXOXXXXX</row>

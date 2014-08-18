@@ -4,11 +4,11 @@ import com.badlogic.gdx.graphics.Color;
 
 public class Text {
 
-    int posX;
-    int posY;
-    int number;
-    String text;
-    Color color;
+    private int posX;
+    private int posY;
+    private int number;
+    private  String text;
+    private   Color color;
 
     public Text(int posX, int posY, String text) {
         this.posX = posX;
@@ -51,5 +51,7 @@ public class Text {
         return number;
     }
 
-
+    public Color getColor() {
+        return color;
+    }
 }

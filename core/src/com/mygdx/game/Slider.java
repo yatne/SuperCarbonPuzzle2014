@@ -13,6 +13,9 @@ import view.Alert;
 import view.LevelInfoView;
 import view.MapView;
 import view.MenuView;
+import view.menus.LevelSelectionView;
+import view.menus.MainMenuView;
+import view.menus.PanelView;
 
 import static enums.GameStates.*;
 
@@ -30,6 +33,7 @@ public class Slider extends ApplicationAdapter {
     private Alert alert;
     private boolean levelInfoPrepared;
     private LevelInfoView levelInfoView;
+    private PanelView panelView;
 
     @Override
     public void create() {
@@ -48,6 +52,8 @@ public class Slider extends ApplicationAdapter {
 
         selectedWorld = 1;
 
+        panelView = new PanelView(camera);
+
     }
 
     @Override
@@ -59,14 +65,17 @@ public class Slider extends ApplicationAdapter {
 
                 resetStates();
 
-                menuView.prepareMainMenu(camera);
+                //menuView.prepareMainMenu(camera);
+                panelView = new MainMenuView(camera);
                 gameState = MENU;
                 break;
             }
 
             case MENU: {
-                if (menuView.drawMainMenu() == Controls.PLAY) {
-                    menuView.prepareLevelSelection(camera, 1, player);
+                if (panelView.drawMainMenu() == Controls.PLAY) {
+                    //menuView.prepareLevelSelection(camera, 1, player);
+                    selectedWorld=1;
+                    panelView = new LevelSelectionView(selectedWorld,camera,player);
                     gameState = LEVEL_SELECT;
                 }
                 break;
@@ -79,7 +88,7 @@ public class Slider extends ApplicationAdapter {
                     menuView.prepareLevelSelection(camera, selectedWorld, player);
                     gameState = LEVEL_SELECT;
                 } else if (menuView.drawWorldSelection() == Constants.ValueReturnToMainMenu) {
-                    menuView.prepareMainMenu(camera);
+                   // menuView.prepareMainMenu(camera);
                     gameState = MENU;
                 }
                 break;
@@ -88,8 +97,8 @@ public class Slider extends ApplicationAdapter {
 
             case LEVEL_SELECT: {
 
-                if (menuView.drawMapSelection() > Constants.ValueLevelSelection) {
-                    selectedLevel = menuView.drawMapSelection();
+                if(panelView.drawLevelSelection()>0){
+                    selectedLevel = panelView.drawLevelSelection();
                     if (help.utils.MapsReader.starsToUnlock(selectedWorld, selectedLevel) > player.getStars()) {
                         alert = new Alert(camera, selectedLevel, selectedWorld);
                         gameState = ALERT;
@@ -98,10 +107,11 @@ public class Slider extends ApplicationAdapter {
 
                         gameState = PRE_LEVEL;
                     }
-                } else if (menuView.drawMapSelection() == Constants.ValueReturnToMainMenu) {
-                    menuView.prepareWorldSelection(camera);
-                    gameState = WORLD_SELECT;
+                }else if (panelView.drawLevelSelection()==-1){
+                    panelView = new MainMenuView(camera);
+                    gameState = MENU;
                 }
+
                 break;
             }
 
@@ -155,7 +165,7 @@ public class Slider extends ApplicationAdapter {
                         map = new Map(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.MENU) {
-                        menuView.prepareMainMenu(camera);
+                      //  menuView.prepareMainMenu(camera);
                         gameState = MENU;
                     } else {
                         map.makeMove(control);
@@ -211,7 +221,7 @@ public class Slider extends ApplicationAdapter {
 
         switch (gameState) {
             case MENU: {
-                menuView.prepareMainMenu(camera);
+            //    menuView.prepareMainMenu(camera);
                 break;
             }
             case LEVEL_SELECT: {

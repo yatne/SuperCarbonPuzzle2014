@@ -18,6 +18,7 @@ import help.utils.Constants;
 import help.utils.MapsReader;
 import org.w3c.dom.NodeList;
 import player.Player;
+import view.buttons.Button;
 
 import java.util.ArrayList;
 
@@ -51,70 +52,6 @@ public class MenuView {
         texts = new ArrayList<>();
     }
 
-    public void prepareMainMenu(OrthographicCamera camera) {
-
-        selectedLevel = Constants.ValueLevelSelection;
-        control = Controls.NONE;
-        createFonts(camera);
-
-        levelButtons = new ArrayList<>();
-        Gdx.input.setInputProcessor(stage);
-        stage.clear();
-        batch = new SpriteBatch();
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.setProjectionMatrix(camera.combined);
-
-        background = new Image(new Texture("menus/background.png"));
-        background.setSize(camera.viewportWidth, camera.viewportHeight);
-        background.setPosition(0, 0);
-
-        bottomPanel = new Image(new Texture("menus/bottom_pannel.png"));
-        bottomPanel.setSize(camera.viewportWidth, (camera.viewportHeight - camera.viewportWidth) / 2);
-        bottomPanel.setPosition(0, 0);
-
-        logo = new Image(new Texture("menus/logo.png"));
-        logo.setSize(camera.viewportWidth, camera.viewportWidth / 5);
-        logo.setPosition(0, camera.viewportHeight - (camera.viewportWidth / 5));
-
-        playBut = new Button(new Texture("menus/button.png"), "play",
-                camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 3),
-                camera.viewportWidth / 2, camera.viewportWidth / 6, font2);
-
-        button = new Button(new Texture("menus/button.png"), "quit",
-                camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 4),
-                camera.viewportWidth / 2, camera.viewportWidth / 6, font2);
-
-
-        stage.addActor(button);
-        stage.addActor(playBut);
-
-        button.addListener(new ClickListener() {
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                Gdx.app.exit();
-            }
-        });
-
-        playBut.addListener(new ClickListener() {
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                control = Controls.PLAY;
-
-            }
-        });
-
-    }
-
-    public Controls drawMainMenu() {
-
-        batch.begin();
-        background.draw(batch, 1);
-        bottomPanel.draw(batch, 1);
-        logo.draw(batch, 1);
-        button.draw(batch, 1, font2);
-        playBut.draw(batch, 1, font2);
-        batch.end();
-        return control;
-    }
 
     public void prepareWorldSelection(OrthographicCamera camera) {
 
@@ -205,9 +142,10 @@ public class MenuView {
 
 
         double levelButtonWidth = camera.viewportWidth / 6;
+        double levelButtonHeight = 30 * levelButtonWidth / 25;
         double starsSize = levelButtonWidth / 4.3;
         double levelButtonSpan = (camera.viewportWidth - (4 * levelButtonWidth)) / 5;
-        double levelButtonHeight = 30 * levelButtonWidth / 25;
+
 
         for (int i = 0; i < maps.getLength(); i++) {
 
@@ -220,18 +158,24 @@ public class MenuView {
                 image = (new Image(new Texture("menus/level.png")));
             else
                 image = (new Image(new Texture("menus/level_locked.png")));
+
+
             image.setSize((int) levelButtonWidth, (int) levelButtonHeight);
             image.setPosition((int) posX, (int) posY);
             levelButtons.add(image);
 
-            int numberPosX = (int) (posX + (image.getWidth() / 2) - (font.getBounds(Integer.toString(i + 1)).width / 2));
 
+
+            int numberPosX = (int) (posX + (image.getWidth() / 2) - (font.getBounds(Integer.toString(i + 1)).width / 2));
             int numberPosY = (int) (posY + levelButtonHeight - ((levelButtonWidth - font.getCapHeight()) / 2.2));
+
+
             if (help.utils.MapsReader.starsToUnlock(world, i + 1) <= player.getStars()) {
                 texts.add(new Text(numberPosX, numberPosY, i + 1, Color.BLACK));
             } else {
                 texts.add(new Text(numberPosX, numberPosY, i + 1, Color.WHITE));
             }
+
             int levelStars = help.utils.HelpUtils.levelStarsCount(world, i + 1);
             posY = posY + (levelButtonHeight - levelButtonWidth) / 3;
 
@@ -321,10 +265,10 @@ public class MenuView {
             image.draw(batch, 1);
         }
         for (Text text : texts) {
-            font.setColor(text.color);
+            font.setColor(text.getColor());
             font.draw(batch, text.getStringNumber(), text.getPosX(), text.getPosY());
         }
-        //bottomPanel.draw(batch, 1);
+
 
         button1.draw(batch, 1);
         logo.draw(batch, 1);

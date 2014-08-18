@@ -6,5 +6,5 @@ public class Constants {
     public static int ValueLevelSelection = 0;
     public static int ValueReturnToMainMenu = -1;
     public static int howManyWorlds = 2;
-    public static String skin = "mouse";
+    public static String skin = "classic";
 }
