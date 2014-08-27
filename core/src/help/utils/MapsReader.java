@@ -31,13 +31,38 @@ public class MapsReader {
 
             maps = rootElement.getElementsByTagName("map");
 
-
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
 
         return maps;
     }
+
+    public static String getWorldName(int mapWorld) {
+
+        NodeList maps = null;
+
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder;
+        String name = "noname";
+        try {
+            dBuilder = builderFactory.newDocumentBuilder();
+
+            Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/maps" + mapWorld + ".xml"));
+            document.normalize();
+            NodeList rootNodes = document.getElementsByTagName("maps");
+            Node rootNode = rootNodes.item(0);
+            Element rootElement = (Element) rootNode;
+
+            name = rootElement.getAttribute("world");
+
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+        return name;
+    }
+
+
 
     public static String getMapName(Map map) {
 
@@ -57,10 +82,9 @@ public class MapsReader {
         for (int i = 0; i < mapsList.getLength(); i++) {
             Element mapEle = (Element) mapsList.item(i);
             if (mapEle.getAttribute("number").equals(Integer.toString(level))) {
-                try{
-                return Integer.parseInt(mapEle.getAttribute("unlocked"));
-                }
-                catch (NumberFormatException e) {
+                try {
+                    return Integer.parseInt(mapEle.getAttribute("unlocked"));
+                } catch (NumberFormatException e) {
                     System.out.println("mapa nie ma pola unlocked");
                 }
 

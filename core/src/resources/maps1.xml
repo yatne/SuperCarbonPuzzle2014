@@ -1,6 +1,15 @@
-<maps>
+<maps world="the first one">
 
-    <map name="The very first one" number="1" silver="8" unlocked="0">
+    <map name="The first one" number="1" silver="4" unlocked="0"> <!--> 0 <-->
+        <row nr="1">OOXOOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OOOEOO</row>
+        <row nr="4">XOSOOO</row>
+        <row nr="5">OOOOOX</row>
+        <row nr="6">OOXOOO</row>
+    </map>
+
+    <map name="easy easy" number="2" silver="8" unlocked="1"> <!--> 2 <-->
         <row nr="1">OOOXOO</row>
         <row nr="2">XOOOOE</row>
         <row nr="3">OOOOXX</row>
@@ -9,7 +18,7 @@
         <row nr="6">OXOOOO</row>
     </map>
 
-    <map name="only a few blocks" number="2" silver="5" unlocked="1">
+    <map name="only a few blocks" number="3" silver="5" unlocked="2"> <!--> 4 <-->
         <row nr="1">OOOOOOOO</row>
         <row nr="2">OOOOXOOO</row>
         <row nr="3">OXOOOOOO</row>
@@ -20,7 +29,18 @@
         <row nr="8">OOOOOOOO</row>
     </map>
 
-    <map name="a little more complicated" number="3" gold="9" silver="10" unlocked="3">
+    <map name="Hello there children!" number="4" gold="8" silver="10" unlocked="4">   <!--> 6 <-->
+        <row nr="1">XOOOXOXO</row>
+        <row nr="2">EOOOOOOO</row>
+        <row nr="3">XOSOOOOO</row>
+        <row nr="4">OOOOXOOO</row>
+        <row nr="5">OOXOOOOO</row>
+        <row nr="6">OXOOOXOX</row>
+        <row nr="7">OOOXOOOO</row>
+        <row nr="8">OXOOOOOX</row>
+    </map>
+
+    <map name="a little more complicated" number="5" silver="9" unlocked="7">  <!--> 9 <-->
 
         <row nr="1">OXOXOXOO</row>
         <row nr="2">OOOXOOOX</row>
@@ -33,20 +53,42 @@
 
     </map>
 
-    <map name="that box moves" number="4" gold="6" silver="9" unlocked="6">
+    <map name="that box moves" number="6" gold="6" silver="9" unlocked="9">   <!--> 12 <-->
 
-        <row nr="1">XOOOOXO</row>
-        <row nr="2">XOOOOOO</row>
-        <row nr="3">XOSOBXX</row>
-        <row nr="4">XXXOOOX</row>
-        <row nr="5">XOOOOOE</row>
-        <row nr="6">XOOOXXO</row>
-        <row nr="7">XOXOXXO</row>
+        <row nr="1">OOOOOO</row>
+        <row nr="2">OSOBXX</row>
+        <row nr="3">XXOOOX</row>
+        <row nr="4">OOOOOE</row>
+        <row nr="5">OOOXXO</row>
+        <row nr="6">OXOXXO</row>
 
     </map>
 
+    <map name="another box bites the dust" number="7" gold="7" silver="12" unlocked="11">   <!--> 12 <-->
 
-    <map name="no place for you" number="5" gold="21" silver="25" unlocked="7">
+        <row nr="1">OXOOOOO</row>
+        <row nr="2">XOOXOOO</row>
+        <row nr="3">OOBOXOO</row>
+        <row nr="4">SOXOXOO</row>
+        <row nr="5">XOOOOEO</row>
+        <row nr="6">OOOOXOO</row>
+        <row nr="7">OOXXOOO</row>
+
+    </map>
+
+    <map name="live and let die" number="8" plat="10" gold="12" silver="18" unlocked="14">   <!--> 12 <-->
+
+        <row nr="1">OOXBBOO</row>
+        <row nr="2">XEXXXXO</row>
+        <row nr="3">OOOOOOO</row>
+        <row nr="4">OXOXXXO</row>
+        <row nr="5">XSBBOXO</row>
+        <row nr="6">OOXOOOO</row>
+        <row nr="7">OOXOOXO</row>
+
+    </map>
+
+    <map name="no place for you" number="9" gold="21" silver="25" unlocked="16">  <!--> 18 <-->
 
         <row nr="1">XXSXOOOX</row>
         <row nr="2">XXOXXXXX</row>
@@ -60,7 +102,7 @@
     </map>
 
 
-    <map name="two balls" number="6" silver="8" unlocked="9">
+    <map name="two balls" number="10" silver="8" unlocked="18">  <!--> 21 <-->
 
         <row nr="1">OOOSOO</row>
         <row nr="2">OOOXOO</row>
@@ -71,7 +113,33 @@
 
     </map>
 
-    <map name="you can do better" number="7" gold="16" silver="19" plat="13" unlocked="10">
+    <map name="triple baller" number="11" gold="11" silver="16" unlocked="20">  <!--> 23 <-->
+
+        <row nr="1">EOOOOOO</row>
+        <row nr="2">XOOXEXO</row>
+        <row nr="3">OOOOOSO</row>
+        <row nr="4">SOOOOOO</row>
+        <row nr="5">OXOSXOO</row>
+        <row nr="6">OOOEOOX</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+    <map name="use that boxes" number="12" plat="8" gold="11" silver="18" unlocked="22">  <!--> 15 <-->
+
+        <row nr="1">OOOOOOOE</row>
+        <row nr="2">OXBXOOXX</row>
+        <row nr="3">OBSBBOOO</row>
+        <row nr="4">OXOXOXSO</row>
+        <row nr="5">OOOOOOOO</row>
+        <row nr="6">OEOOXOOO</row>
+        <row nr="7">XOOOOOOO</row>
+        <row nr="8">OOOOOOOO</row>
+
+    </map>
+
+
+    <map name="you can do better" number="13" gold="16" silver="19" plat="13" unlocked="25">  <!--> 26 <-->
 
         <row nr="1">XOOEOOO</row>
         <row nr="2">XOOOXXX</row>
@@ -83,7 +151,7 @@
 
     </map>
 
-    <map name="only balls" number="8" gold="6" silver="12" unlocked="12">
+    <map name="only balls" number="14" gold="6" silver="12" unlocked="29">        <!--> 30 <-->
 
         <row nr="1">OOOOOOO</row>
         <row nr="2">OOEOEOO</row>
@@ -95,7 +163,20 @@
 
     </map>
 
-    <map name="thats a tough one" number="9" plat="17" gold="19" silver="25" unlocked="14">
+
+    <map name="you only live once" number="15" gold="11" silver="18" unlocked="34">
+
+        <row nr="1">OOOXOOO</row>
+        <row nr="2">BXBOOXB</row>
+        <row nr="3">BXSXOXE</row>
+        <row nr="4">OOBXOOO</row>
+        <row nr="5">BXSOOXB</row>
+        <row nr="6">BXBXOXE</row>
+        <row nr="7">OOOXOXO</row>
+
+    </map>
+
+    <map name="last one here" number="16" plat="17" gold="19" silver="25" unlocked="38">
 
         <row nr="1">OOXOOXOX</row>
         <row nr="2">BOOOOOOO</row>
@@ -108,89 +189,5 @@
 
     </map>
 
-
-    <map name="you only live once" number="10" gold="11" silver="18" unlocked="16">
-
-        <row nr="1">OOOXOOO</row>
-        <row nr="2">BXBOOXB</row>
-        <row nr="3">BXSXOXE</row>
-        <row nr="4">OOBXOOO</row>
-        <row nr="5">BXSOOXB</row>
-        <row nr="6">BXBXOXE</row>
-        <row nr="7">OOOXOXO</row>
-
-    </map>
-
-    <map name="those green fields" number="11" silver="5" unlocked="18">
-
-        <row nr="1">OOXEXO</row>
-        <row nr="2">O+OOOO</row>
-        <row nr="3">OSO+++</row>
-        <row nr="4">XOOOOO</row>
-        <row nr="5">O+OO+X</row>
-        <row nr="6">OXOOOO</row>
-
-    </map>
-
-    <map name="do what you love" number="12" silver="28" gold="25" plat="23" unlocked="20">
-
-        <row nr="1">OOOOXOEO</row>
-        <row nr="2">OOXXOXOO</row>
-        <row nr="3">XSOOB+OE</row>
-        <row nr="4">OXBOXX+X</row>
-        <row nr="5">O+OOOOBO</row>
-        <row nr="6">XX+OOXOO</row>
-        <row nr="7">EOOXOSOO</row>
-        <row nr="8">OOXOOOOS</row>
-
-    </map>
-
-    <map name="portale" number="13" unlocked="1">
-
-        <row nr="1">OOUUUUOO</row>
-        <row nr="2">OOXOOOXO</row>
-        <row nr="3">XOOOXOOO</row>
-        <row nr="4">LOSXOOOR</row>
-        <row nr="5">LOOOOXOR</row>
-        <row nr="6">LXXOXXOR</row>
-        <row nr="7">OEOOOOOO</row>
-        <row nr="8">OODDDDOO</row>
-
-    </map>
-
-
-    <map name="gora-dol" number="14" unlocked="1">
-
-        <row nr="1">UUUUUUUU</row>
-        <row nr="2">OOOOOXOX</row>
-        <row nr="3">XSOXOXOO</row>
-        <row nr="4">XOOXOOOO</row>
-        <row nr="5">OXXOOXOO</row>
-        <row nr="6">XOXOOOXO</row>
-        <row nr="7">OOOXXOEO</row>
-        <row nr="8">DDDDDDDD</row>
-
-    </map>
-    <map name="blablab" number="15" unlocked="1">
-        <row nr="1">OUOXEO</row>
-        <row nr="2">OSOS+O</row>
-        <row nr="3">XXEOOE</row>
-        <row nr="4">LOXOOR</row>
-        <row nr="5">O+OXXX</row>
-        <row nr="6">ODOSOO</row>
-    </map>
-
-
-    <map name="koniec" number="16" unlocked="100">
-
-        <row nr="1">XOOOOOX</row>
-        <row nr="2">EXOOOXS</row>
-        <row nr="3">EEXOXSS</row>
-        <row nr="4">EEEXSSS</row>
-        <row nr="5">EEXOXSS</row>
-        <row nr="6">EXOOOXS</row>
-        <row nr="7">XOOOOOX</row>
-
-    </map>
-
+                                                                           <!--> MAX STARS - 47    STARS TO FINISH - 39<-->
 </maps>

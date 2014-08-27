@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYSIS_IN_BACKGROUND" value="true" />
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+  </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="desktop:jar" />
     </artifacts-to-build>
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/core/src/view/MenuView.java" line="168" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/buttons/BasicButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/PanelView.java" />
-      <change type="MOVED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\Button.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/Constants.java" afterPath="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/MenuView.java" afterPath="$PROJECT_DIR$/core/src/view/MenuView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/buttons/WorldButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\LevelInfoView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\MenuView.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\Move.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\MovingSprite.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\view\ViewConstants.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/Alert.java" afterPath="$PROJECT_DIR$/core/src/view/Alert.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" afterPath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/buttons/Button.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/MapsReader.java" afterPath="$PROJECT_DIR$/core/src/help/utils/MapsReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/PanelView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/PanelView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/Text.java" afterPath="$PROJECT_DIR$/core/src/view/Text.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps1.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps2.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps2.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="slider.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364544867" ignored="false" />
+    <file path="/Dummy.txt" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409142704379" ignored="false" />
     <file path="/Map.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407763994177" ignored="false" />
     <file path="/HelpUtils.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407489961755" ignored="false" />
-    <file path="/Slider.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408361721281" ignored="false" />
+    <file path="/Slider.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409139342519" ignored="false" />
     <file path="/Animations.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1404741716105" ignored="false" />
     <file path="/Move.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1404742561611" ignored="false" />
     <file path="/MapView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408353270348" ignored="false" />
@@ -44,31 +57,36 @@
     <file path="/Constants.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407851200990" ignored="false" />
     <file path="/objects.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407757397451" ignored="false" />
     <file path="/ObjectsType.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407320526729" ignored="false" />
-    <file path="/fragment.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407944496873" ignored="false" />
+    <file path="/fragment.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409061533174" ignored="false" />
     <file path="/MenuView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364375706" ignored="false" />
-    <file path="/MapsReader.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407829968655" ignored="false" />
+    <file path="/MapsReader.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409141809408" ignored="false" />
     <file path="/gestureController.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407244295209" ignored="false" />
     <file path="/GestureController.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407314805377" ignored="false" />
-    <file path="/AndroidManifest.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407312510087" ignored="false" />
+    <file path="/AndroidManifest.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408542147555" ignored="false" />
     <file path="/player.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407482350791" ignored="false" />
     <file path="/Player.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407491237240" ignored="false" />
-    <file path="/maps2.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407481019709" ignored="false" />
-    <file path="/maps1.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407957783274" ignored="false" />
+    <file path="/maps2.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408379297116" ignored="false" />
+    <file path="/maps1.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408455749301" ignored="false" />
     <file path="/*.regexp" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407514163330" ignored="false" />
-    <file path="/MapTester.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407764360781" ignored="false" />
+    <file path="/MapTester.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408381053606" ignored="false" />
     <file path="/MapSolver.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407764729603" ignored="false" />
     <file path="/LevelNumber.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407775457045" ignored="false" />
     <file path="/Text.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364339001" ignored="false" />
-    <file path="/Alert.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407945122436" ignored="false" />
-    <file path="/PreLevelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407957129005" ignored="false" />
+    <file path="/Alert.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409082587316" ignored="false" />
+    <file path="/PreLevelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409061427244" ignored="false" />
     <file path="/LevelInfoView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407956424257" ignored="false" />
-    <file path="/Button.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408357750955" ignored="false" />
+    <file path="/Button.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409139852563" ignored="false" />
     <file path="/panelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408356782797" ignored="false" />
-    <file path="/MainMenuView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408357498593" ignored="false" />
+    <file path="/MainMenuView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409127700762" ignored="false" />
     <file path="/BasicButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408357299832" ignored="false" />
-    <file path="/LevelSelectionView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364220141" ignored="false" />
-    <file path="/LevelButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364300785" ignored="false" />
-    <file path="/PanelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408360448133" ignored="false" />
+    <file path="/LevelSelectionView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409141007903" ignored="false" />
+    <file path="/LevelButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409142564277" ignored="false" />
+    <file path="/PanelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409060837468" ignored="false" />
+    <file path="/star.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364942002" ignored="false" />
+    <file path="/WorldSelectionView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409134839977" ignored="false" />
+    <file path="/WorldButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408366148620" ignored="false" />
+    <file path="/AfterLevelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409061570037" ignored="false" />
+    <file path="/AndroidLauncher.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408481085119" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +122,8 @@
         <option name="CONDITION_ENABLED" value="true" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -121,27 +139,11 @@
         <option name="CONDITION_ENABLED" value="true" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/core/src/view/LevelInfoView.java" line="63" class="view.LevelInfoView" package="view">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -154,48 +156,44 @@
       <file leaf-file-name="Slider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="17" selection-start="3599" selection-end="3599" vertical-scroll-proportion="0.0">
+            <state line="131" column="0" selection-start="5031" selection-end="5031" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelButton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
+      <file leaf-file-name="PreLevelView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="57" selection-start="3119" selection-end="3119" vertical-scroll-proportion="-25.92">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Button.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/Button.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
+            <state line="27" column="22" selection-start="956" selection-end="956" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Text.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/Text.java">
+      <file leaf-file-name="AfterLevelView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="29" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0">
+            <state line="29" column="22" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PanelView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/PanelView.java">
+      <file leaf-file-name="MapsReader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/help/utils/MapsReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="15" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="36" column="8" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="140" column="22" selection-start="5173" selection-end="5173" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -203,38 +201,34 @@
       <file leaf-file-name="LevelSelectionView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="111" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BasicButton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/BasicButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="90" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maps1.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="43" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.46262342">
+            <state line="72" column="44" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/MenuView.java">
+      <file leaf-file-name="LevelButton.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="41" selection-start="9842" selection-end="9842" vertical-scroll-proportion="0.0">
+            <state line="122" column="9" selection-start="4774" selection-end="4774" vertical-scroll-proportion="0.94290376">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Star.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/Star.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="11" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Button.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/Button.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="0" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -264,22 +258,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/plany.txt" />
-        <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/panelView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/PanelView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/PanelView.java" />
-        <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/Text.java" />
-        <option value="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
-        <option value="$PROJECT_DIR$/core/src/view/MenuView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/buttons/BasicButton.java" />
+        <option value="$PROJECT_DIR$/mapTester/src/MapTester.java" />
         <option value="$PROJECT_DIR$/core/src/resources/maps1.xml" />
+        <option value="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/sources/android-19/android/drm/DrmManagerClient.java" />
+        <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
+        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/core/src/view/Alert.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/PanelView.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
+        <option value="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
+        <option value="$PROJECT_DIR$/core/src/help/utils/MapsReader.java" />
+        <option value="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
       </list>
     </option>
   </component>
@@ -529,6 +523,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -557,7 +562,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapTester" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,7 +576,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapTester" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -579,39 +584,123 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Production">
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="player" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="slider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="229" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="229" />
-    <property name="project.structure.proportion" value="0.148181" />
     <property name="OverrideImplement.combined" value="true" />
+    <property name="project.structure.proportion" value="0.148181" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="229" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="233" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="233" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/core/build/libs/gdx-freetype" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="229" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="908" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="904" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="228" />
+    <property name="DEBUGGABLE_DEVICE" value="BH90E2EX0D" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="222" />
+    <property name="DEBUGGABLE_PROCESS" value="com.mygdx.game.android" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
@@ -620,20 +709,20 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="project.propCompiler" />
-    <property name="project.structure.side.proportion" value="0.31432194" />
+    <property name="options.lastSelected" value="appearance" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="HT41WWL01264" />
+    <property name="project.structure.side.proportion" value="0.31432194" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="BH90E2EX0D" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="gradle.tool.window.active" value="Tasks" />
-    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -679,19 +768,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -717,6 +793,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -976,7 +1065,11 @@
       <created>1408353434747</created>
       <updated>1408353434747</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="może będzie działać szybciej (ale raczej nie)">
+      <created>1408364605364</created>
+      <updated>1408364605364</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1001,25 +1094,25 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.062121212" sideWeight="0.7717206" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07424243" sideWeight="0.52640545" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16095471" sideWeight="0.74223244" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37054086" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29471892" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13969335" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15420023" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.66950595" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24971232" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.64672035" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.72913116" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17931457" sideWeight="0.7468355" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002448" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23255815" sideWeight="0.84579974" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.141542" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002448" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19216646" sideWeight="0.7502877" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.016110472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1028,10 +1121,10 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3003452" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24531516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6354344" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48381603" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1084,7 +1177,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="może będzie działać szybciej (ale raczej nie)" />
+    <option name="LAST_COMMIT_MESSAGE" value="zanim coś spierdole&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1122,154 +1215,124 @@
     <MESSAGE value="costam dziala" />
     <MESSAGE value="bug na androidzie powinien byc juz poprawiony" />
     <MESSAGE value="może będzie działać szybciej (ale raczej nie)" />
+    <MESSAGE value="zanim coś spierdole&#10;" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/map/Map.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.1.0/686f5a609c717eb0769d3b954c501a49bf4fe351/gdx-1.1.0.jar!/com/badlogic/gdx/ApplicationListener.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="17" selection-start="1384" selection-end="1384" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="9" selection-start="267" selection-end="267" vertical-scroll-proportion="0.3961165" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plany.txt">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.1.0/686f5a609c717eb0769d3b954c501a49bf4fe351/gdx-1.1.0.jar!/com/badlogic/gdx/ApplicationAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="168" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/LevelInfoView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="16" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.043701798">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.1.0/686f5a609c717eb0769d3b954c501a49bf4fe351/gdx-1.1.0.jar!/com/badlogic/gdx/scenes/scene2d/ui/Image.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="16" selection-start="1378" selection-end="1378" vertical-scroll-proportion="-10.88">
-          <folding />
-        </state>
+        <state line="15" column="46" selection-start="511" selection-end="511" vertical-scroll-proportion="-9.52" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="33" selection-start="5790" selection-end="5790" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#MapView#0;class#MapView#0" expanded="false" />
-            <element signature="method#prepareMapUI#0;class#MapView#0" expanded="false" />
-            <element signature="method#prepareMap#0;class#MapView#0" expanded="false" />
-            <element signature="method#drawMap#0;class#MapView#0" expanded="false" />
-            <element signature="method#prepareAnimation#0;class#MapView#0" expanded="false" />
-            <element signature="method#afterAnimation#0;class#MapView#0" expanded="false" />
-            <element signature="method#drawAnimation#0;class#MapView#0" expanded="false" />
-            <element signature="method#moveSprite#0;class#MapView#0" expanded="false" />
-            <element signature="method#portalMoveSprite#0;class#MapView#0" expanded="false" />
-            <element signature="method#animateSprite#0;class#MapView#0" expanded="false" />
-            <element signature="method#isSpriteInTheSamePlace#0;class#MapView#0" expanded="false" />
-            <element signature="method#isSpriteTheSame#0;class#MapView#0" expanded="false" />
-            <element signature="method#createSpritesList#0;class#MapView#0" expanded="false" />
-            <element signature="method#loadSpritesList#0;class#MapView#0" expanded="false" />
-            <element signature="method#checkForPortalMoves#0;class#MapView#0" expanded="false" />
-            <element signature="method#cleanEndSprite#0;class#MapView#0" expanded="false" />
-            <element signature="method#checkOtherSpriteInThatPlace#0;class#MapView#0" expanded="false" />
-            <element signature="method#drawUI#0;class#MapView#0" expanded="false" />
-            <element signature="method#createFonts#0;class#MapView#0" expanded="false" />
-            <element signature="method#getControl#0;class#MapView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/MainMenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="32" selection-start="1543" selection-end="1717" vertical-scroll-proportion="0.5346535">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="40" selection-start="315" selection-end="315" vertical-scroll-proportion="0.18888889">
+        <state line="34" column="13" selection-start="1154" selection-end="1154" vertical-scroll-proportion="0.05059524">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="17" selection-start="3599" selection-end="3599" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="376" selection-end="376" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/Text.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="29" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="57" selection-start="3119" selection-end="3119" vertical-scroll-proportion="-25.92">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/MenuView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="41" selection-start="9842" selection-end="9842" vertical-scroll-proportion="0.0">
+        <state line="72" column="102" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.4686747">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/menus/PanelView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="15" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="28" column="0" selection-start="731" selection-end="731" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/MainMenuView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="121" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-0.29616725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/Alert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="84" selection-start="2458" selection-end="2458" vertical-scroll-proportion="0.29616725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="22" selection-start="956" selection-end="956" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="22" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/MapsReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="8" selection-start="1148" selection-end="1148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="22" selection-start="5173" selection-end="5173" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="111" selection-start="1999" selection-end="1999" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="72" column="44" selection-start="2710" selection-end="2710" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/BasicButton.java">
+    <entry file="file://$PROJECT_DIR$/core/src/view/Star.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="90" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="8" column="11" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="43" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.46262342">
+        <state line="131" column="0" selection-start="5031" selection-end="5031" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="9" selection-start="4774" selection-end="4774" vertical-scroll-proportion="0.94290376">
           <folding />
         </state>
       </provider>
@@ -1309,7 +1372,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.43895748" />
+                <option value="0.31432194" />
               </list>
             </option>
           </splitter-proportions>
@@ -1317,11 +1380,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>Android 4.4.2 Platform</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.43895748" />
+                <option value="0.31432194" />
               </list>
             </option>
           </splitter-proportions>
@@ -1329,7 +1392,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>desktop</last-edited>
+          <last-edited>android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1354,7 +1417,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>gdx-1.1.0</last-edited>
+          <last-edited>annotations</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

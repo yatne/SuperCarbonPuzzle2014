@@ -2,25 +2,65 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import controllers.KeyboardController;
 import enums.Controls;
 import enums.GameStates;
 import help.utils.Constants;
 import map.Map;
 import player.Player;
-import view.Alert;
-import view.LevelInfoView;
 import view.MapView;
-import view.MenuView;
 import view.menus.LevelSelectionView;
 import view.menus.MainMenuView;
 import view.menus.PanelView;
+import view.menus.WorldSelectionView;
 
 import static enums.GameStates.*;
 
 public class Slider extends ApplicationAdapter {
 
+    final String VERT =
+            "attribute vec4 " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" +
+                    "attribute vec4 " + ShaderProgram.COLOR_ATTRIBUTE + ";\n" +
+                    "attribute vec2 " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n" +
+
+                    "uniform mat4 u_projTrans;\n" +
+                    " \n" +
+                    "varying vec4 vColor;\n" +
+                    "varying vec2 vTexCoord;\n" +
+
+                    "void main() {\n" +
+                    "       vColor = " + ShaderProgram.COLOR_ATTRIBUTE + ";\n" +
+                    "       vTexCoord = " + ShaderProgram.TEXCOORD_ATTRIBUTE + "0;\n" +
+                    "       gl_Position =  u_projTrans * " + ShaderProgram.POSITION_ATTRIBUTE + ";\n" +
+                    "}";
+    final String FRAG =
+            //GL ES specific stuff
+            "#ifdef GL_ES\n" //
+                    + "#define LOWP lowp\n" //
+                    + "precision mediump float;\n" //
+                    + "#else\n" //
+                    + "#define LOWP \n" //
+                    + "#endif\n" + //
+                    "varying LOWP vec4 vColor;\n" +
+                    "varying vec2 vTexCoord;\n" +
+                    "uniform sampler2D u_texture;\n" +
+                    "uniform float grayscale;\n" +
+                    "void main() {\n" +
+                    "       vec4 texColor = texture2D(u_texture, vTexCoord);\n" +
+                    "       \n" +
+                    "       float gray = dot(texColor.rgb, vec3(0.299, 0.587, 0.114));\n" +
+                    "       texColor.rgb = mix(vec3(gray), texColor.rgb, grayscale);\n" +
+                    "       \n" +
+                    "       gl_FragColor = texColor * vColor;\n" +
+                    "}";
+    private ShaderProgram shader;
     private OrthographicCamera camera;
     private Map map;
     private MapView mapView;
@@ -28,67 +68,96 @@ public class Slider extends ApplicationAdapter {
     private GameStates gameState;
     private int selectedLevel;
     private int selectedWorld;
-    private MenuView menuView;
     private Player player;
-    private Alert alert;
-    private boolean levelInfoPrepared;
-    private LevelInfoView levelInfoView;
     private PanelView panelView;
+    private WorldSelectionView worldSelectionView;
+    private BitmapFont buttonFont;
+    private MainMenuView mainMenuView;
+    private LevelSelectionView levelSelectionView;
+    private SpriteBatch mainBatch;
+    private Stage mainStage;
 
     @Override
     public void create() {
 
-        resetStates();
+        ShaderProgram.pedantic = false;
+        shader = new ShaderProgram(VERT, FRAG);
+        if (!shader.isCompiled()) {
+            System.err.println(shader.getLog());
+            System.exit(0);
+        }
+        if (shader.getLog().length() != 0)
+            System.out.println(shader.getLog());
+
+
+        mainBatch = new SpriteBatch();
+        mainBatch.setShader(shader);
+
+        shader.begin();
+        shader.setUniformf("grayscale", 1f);
+        shader.end();
+
 
         keyboardController = new KeyboardController();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         map = new Map(1, 1);
         gameState = INTRO;
-        menuView = new MenuView();
+
         mapView = new MapView();
-        levelInfoView = new LevelInfoView();
         Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
         player = new Player();
 
         selectedWorld = 1;
 
-        panelView = new PanelView(camera);
+        mainStage = new Stage();
+        panelView = new PanelView(camera, buttonFont);
 
+        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+        FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
+        buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
+        buttonFont.setColor(0, 0, 0, 1);
+        generator.dispose();
+
+        mainMenuView = new MainMenuView(camera, buttonFont);
+        worldSelectionView = new WorldSelectionView(camera, player, buttonFont);
+        levelSelectionView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+        Gdx.input.setInputProcessor(mainStage);
     }
 
     @Override
     public void render() {
 
+
         switch (gameState) {
 
             case INTRO: {
-
-                resetStates();
-
-                //menuView.prepareMainMenu(camera);
-                panelView = new MainMenuView(camera);
                 gameState = MENU;
+                mainMenuView.prepareMainMenu(mainStage);
                 break;
             }
 
             case MENU: {
-                if (panelView.drawMainMenu() == Controls.PLAY) {
-                    //menuView.prepareLevelSelection(camera, 1, player);
-                    selectedWorld=1;
-                    panelView = new LevelSelectionView(selectedWorld,camera,player);
-                    gameState = LEVEL_SELECT;
+                Controls control = mainMenuView.drawMainMenu(mainBatch);
+                if (control == Controls.PLAY) {
+                    worldSelectionView.prepareWorldSelectionView(mainStage);
+                    gameState = WORLD_SELECT;
                 }
                 break;
             }
 
             case WORLD_SELECT: {
-                if (menuView.drawWorldSelection() > Constants.ValueLevelSelection) {
+                int nowSelectedWorld = worldSelectionView.drawWorldSelection(mainBatch, camera, shader);
+                if (nowSelectedWorld > 0) {
 
-                    selectedWorld = menuView.drawWorldSelection();
-                    menuView.prepareLevelSelection(camera, selectedWorld, player);
+                    selectedWorld = nowSelectedWorld;
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage);
+                    levelSelectionView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
                     gameState = LEVEL_SELECT;
-                } else if (menuView.drawWorldSelection() == Constants.ValueReturnToMainMenu) {
-                   // menuView.prepareMainMenu(camera);
+
+                } else if (nowSelectedWorld == -1) {
+                    mainMenuView.prepareMainMenu(mainStage);
                     gameState = MENU;
                 }
                 break;
@@ -97,51 +166,44 @@ public class Slider extends ApplicationAdapter {
 
             case LEVEL_SELECT: {
 
-                if(panelView.drawLevelSelection()>0){
-                    selectedLevel = panelView.drawLevelSelection();
-                    if (help.utils.MapsReader.starsToUnlock(selectedWorld, selectedLevel) > player.getStars()) {
-                        alert = new Alert(camera, selectedLevel, selectedWorld);
-                        gameState = ALERT;
-                    } else {
-                        map = new Map(selectedWorld, selectedLevel);
+                if (levelSelectionView.drawLevelSelection(camera,shader,mainBatch) > 0) {
 
-                        gameState = PRE_LEVEL;
-                    }
-                }else if (panelView.drawLevelSelection()==-1){
-                    panelView = new MainMenuView(camera);
-                    gameState = MENU;
+                    //   map = new Map(selectedWorld, selectedLevel);
+                    // panelView.closePanel();
+                    //   panelView = new PreLevelView(camera, shader, map, player, buttonFont);
+                    //    gameState = PRE_LEVEL;
+                } else if (levelSelectionView.drawLevelSelection(camera,shader,mainBatch) == -1) {
+                    //      panelView.closePanel();
+                    //       panelView = new WorldSelectionView(camera, player, shader, buttonFont);
+                    //      gameState = WORLD_SELECT;
                 }
 
                 break;
             }
-
+                        /*
             case PRE_LEVEL: {
 
-                if (levelInfoPrepared) {
-
-                    if (levelInfoView.drawPreLevel(camera) == Controls.NEXT) {
-
-                        mapView.prepareMapUI(camera, map);
-                        mapView.prepareMap(camera, map);
-
-                        gameState = LEVEL;
-                    }
-                } else {
-                    levelInfoView.preparePreLevel(camera, map);
-                    levelInfoPrepared = true;
+                if (panelView.drawPreLevel(camera) == Controls.PLAY) {
+                    mapView.prepareMapUI(camera, map);
+                    mapView.prepareMap(camera, map);
+                    gameState = LEVEL;
+                } else if (panelView.drawPreLevel(camera) == Controls.MENU) {
+                    panelView.closePanel();
+                    panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                    gameState = LEVEL_SELECT;
                 }
+
                 break;
             }
 
             case LEVEL: {
-                resetStates();
+
                 if (map.checkForFinish()) {
 
                     player.update(map);
-                    selectedLevel++;
-                    levelInfoView.preparePostLevel(camera, map, player);
+                    panelView.closePanel();
+                    panelView = new AfterLevelView(camera, shader, map, player, buttonFont);
                     gameState = AFTER_LEVEL;
-
                     player.savePlayer();
                 }
 
@@ -165,8 +227,9 @@ public class Slider extends ApplicationAdapter {
                         map = new Map(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.MENU) {
-                      //  menuView.prepareMainMenu(camera);
-                        gameState = MENU;
+                        panelView.closePanel();
+                        panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                        gameState = LEVEL_SELECT;
                     } else {
                         map.makeMove(control);
                         mapView.checkForPortalMoves(map);
@@ -187,29 +250,34 @@ public class Slider extends ApplicationAdapter {
 
             case AFTER_LEVEL: {
 
-                if (levelInfoView.drawPreLevel(camera) == Controls.NEXT) {
+                if (panelView.drawAfterLevel(camera) == Controls.NEXT) {
 
+                    selectedLevel++;
 
                     map = new Map(selectedWorld, selectedLevel);
                     mapView.prepareMapUI(camera, map);
                     mapView.prepareMap(camera, map);
 
+                    panelView.closePanel();
+                    panelView = new PreLevelView(camera, shader, map, player, buttonFont);
+                    gameState = PRE_LEVEL;
+
+                } else if (panelView.drawAfterLevel(camera) == Controls.RESET) {
+                    map = new Map(selectedWorld, selectedLevel);
+                    mapView.prepareMapUI(camera, map);
+                    mapView.prepareMap(camera, map);
+
+                    panelView.closePanel();
+                    panelView = new PreLevelView(camera, shader, map, player, buttonFont);
+
                     gameState = LEVEL;
-                }
-                break;
-            }
+                } else if (panelView.drawAfterLevel(camera) == Controls.MENU) {
 
-            case ALERT: {
-
-                if (alert.drawAlert(camera) == Controls.MENU) {
-                    menuView.prepareLevelSelection(camera, selectedWorld, player);
+                    panelView.closePanel();
+                    panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
                     gameState = LEVEL_SELECT;
-                    selectedLevel = 0;
                 }
-
-                break;
-            }
-
+                break;    */
         }
 
     }
@@ -221,11 +289,12 @@ public class Slider extends ApplicationAdapter {
 
         switch (gameState) {
             case MENU: {
-            //    menuView.prepareMainMenu(camera);
+                //    menuView.prepareMainMenu(camera);
                 break;
             }
             case LEVEL_SELECT: {
-                menuView.prepareLevelSelection(camera, selectedWorld, player);
+
+                panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
                 break;
             }
             case LEVEL: {
@@ -234,10 +303,9 @@ public class Slider extends ApplicationAdapter {
                 break;
             }
             case ALERT: {
-                menuView.prepareLevelSelection(camera, selectedWorld, player);
-                menuView.drawMapSelection();
-                Alert alert = new Alert(camera, selectedLevel, selectedWorld);
-                alert.drawAlert(camera);
+
+                panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                gameState = LEVEL_SELECT;
                 break;
             }
         }
@@ -245,9 +313,7 @@ public class Slider extends ApplicationAdapter {
 
     @Override
     public void pause() {
+
     }
 
-    private void resetStates() {
-        levelInfoPrepared = false;
-    }
 }
