@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import player.Player;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import view.Star;
 import view.Text;
 
@@ -14,16 +14,20 @@ import java.util.ArrayList;
 
 public class LevelButton extends Button {
 
-    Texture goldenStar;
-    Texture grayStar;
+    private Texture goldenStar;
+    private Texture grayStar;
     private ArrayList<Star> stars;
     private float starSize;
+    private boolean locked;
 
-    public LevelButton(Texture texture, int worldNumber, int levelNumber, Player player, OrthographicCamera camera, BitmapFont font, Color color, Texture goldenStar, Texture grayStar) {
+    private int level;
 
-        super(texture);
+    public LevelButton(TextureRegion region, int levelNumber, OrthographicCamera camera, BitmapFont font, Color color, Texture goldenStar, Texture grayStar, int level) {
+        super(region);
+
         this.goldenStar = goldenStar;
         this.grayStar = grayStar;
+        this.level = level;
 
         float levelButtonWidth = camera.viewportWidth / 6;
         float levelButtonHeight = 30 * levelButtonWidth / 25;
@@ -42,17 +46,8 @@ public class LevelButton extends Button {
         text = new Text((int) textPosX, (int) textPosY, levelNumber + 1, color);
 
 
-        int levelStars = help.utils.HelpUtils.levelStarsCount(worldNumber, levelNumber + 1);
-
         stars = new ArrayList<>();
-        for (int j = 1; j <= levelStars; j++) {
-            if (player.getStarsFromLevel(worldNumber, levelNumber + 1) >= j)
-                stars.add(new Star(posX, posY, true));
-            else
-                stars.add(new Star(posX, posY, false));
 
-            posX = posX + starSize;
-        }
 
     }
 
@@ -87,43 +82,6 @@ public class LevelButton extends Button {
 
     }
 
-    public LevelButton(TextureRegion region, int worldNumber, int levelNumber, Player player, OrthographicCamera camera, BitmapFont font, Color color, Texture goldenStar, Texture grayStar) {
-        super(region);
-
-        this.goldenStar = goldenStar;
-        this.grayStar = grayStar;
-
-        float levelButtonWidth = camera.viewportWidth / 6;
-        float levelButtonHeight = 30 * levelButtonWidth / 25;
-        float levelButtonSpan = (camera.viewportWidth - (4 * levelButtonWidth)) / 5;
-        starSize = (float) (levelButtonWidth / 4.3);
-
-        float posX = levelButtonSpan + (levelButtonWidth + levelButtonSpan) * (levelNumber % 4);
-        float posY = (float) (camera.viewportHeight - (levelButtonHeight + 2 * levelButtonSpan + Math.floor(levelNumber / 4) * (levelButtonHeight + levelButtonSpan)));
-
-        this.setSize(levelButtonWidth, levelButtonHeight);
-        float textPosY = (float) (posY + levelButtonHeight - ((levelButtonWidth - font.getCapHeight()) / 2.2));
-
-        this.setPosition(posX, posY);
-
-        float textPosX = posX + (levelButtonWidth / 2) - (font.getBounds(Integer.toString(levelNumber + 1)).width / 2);
-        text = new Text((int) textPosX, (int) textPosY, levelNumber + 1, color);
-
-
-        int levelStars = help.utils.HelpUtils.levelStarsCount(worldNumber, levelNumber + 1);
-
-        stars = new ArrayList<>();
-        for (int j = 1; j <= levelStars; j++) {
-            if (player.getStarsFromLevel(worldNumber, levelNumber + 1) >= j)
-                stars.add(new Star(posX, posY, true));
-            else
-                stars.add(new Star(posX, posY, false));
-
-            posX = posX + starSize;
-        }
-
-    }
-
     @Override
     public void draw(Batch batch, float parentAlpha, BitmapFont font) {
         super.draw(batch, parentAlpha);    //To change body of overridden methods use File | Settings | File Templates.
@@ -135,10 +93,35 @@ public class LevelButton extends Button {
             } else {
                 batch.draw(grayStar, star.getPosX(), star.getPosY(), starSize, starSize);
             }
-
         }
-
     }
 
+    public void drawLocked(Batch batch, float parentAlpha, BitmapFont font, TextureRegionDrawable lockedTexture) {
+
+        this.setDrawable(lockedTexture);
+
+        super.draw(batch, parentAlpha);
+        font.setColor(text.getColor());
+        font.draw(batch, text.getStringNumber(), text.getPosX(), text.getPosY());
+        for (Star star : this.stars) {
+            if (star.isGold()) {
+                batch.draw(goldenStar, star.getPosX(), star.getPosY(), starSize, starSize);
+            } else {
+                batch.draw(grayStar, star.getPosX(), star.getPosY(), starSize, starSize);
+            }
+        }
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public int getLevel() {
+        return level;
+    }
 
 }

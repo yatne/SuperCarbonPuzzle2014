@@ -8,10 +8,16 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import view.Text;
 
 public class WorldButton extends Button {
+
+    private boolean isLocked;
+    private int worldNumber;
+
+
     public WorldButton(Texture texture, int worldNumber, String worldName, OrthographicCamera camera, BitmapFont font) {
 
         super(texture);
 
+        this.worldNumber=worldNumber;
         float width = camera.viewportWidth * 9 / 10;
         float height = camera.viewportWidth / 7;
 
@@ -25,6 +31,7 @@ public class WorldButton extends Button {
         float textPosY = posY + height - ((height - font.getBounds(worldName).height) / 3);
 
         text = new Text((int) textPosX, (int) textPosY, worldName);
+
     }
 
     @Override
@@ -36,5 +43,22 @@ public class WorldButton extends Button {
     public void draw(Batch batch, float parentAlpha, BitmapFont font) {
         super.draw(batch, parentAlpha);    //To change body of overridden methods use File | Settings | File Templates.
         font.draw(batch, text.getText(), text.getPosX(), text.getPosY());
+    }
+    public void drawWithAltText(Batch batch, float parentAlpha, BitmapFont font, String string) {
+        super.draw(batch, parentAlpha);    //To change body of overridden methods use File | Settings | File Templates.
+        font.draw(batch, string, text.getPosX(), text.getPosY());
+    }
+
+
+    public boolean isLocked() {
+        return isLocked;
+    }
+
+    public int getWorldNumber() {
+        return worldNumber;
+    }
+
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
 }

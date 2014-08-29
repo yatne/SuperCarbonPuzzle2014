@@ -7,8 +7,8 @@ public class Text {
     private int posX;
     private int posY;
     private int number;
-    private  String text;
-    private   Color color;
+    private String text;
+    private Color color;
 
     public Text(int posX, int posY, String text) {
         this.posX = posX;
@@ -31,6 +31,8 @@ public class Text {
         this.color = color;
     }
 
+
+
     public String getStringNumber() {
         return Integer.toString(number);
     }
@@ -43,8 +45,16 @@ public class Text {
         return posY;
     }
 
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
     public String getText() {
         return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getNumber() {

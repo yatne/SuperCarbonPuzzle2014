@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import mapSystem.MapsInfo;
 import player.Player;
 import view.Alert;
 import view.buttons.BasicButton;
@@ -28,12 +29,12 @@ public class WorldSelectionView extends PanelView {
     private int selectedWorld;
     private Alert alert;
 
-    public WorldSelectionView(final OrthographicCamera camera, Player player, BitmapFont buttonFont) {
+    public WorldSelectionView(final OrthographicCamera camera, BitmapFont buttonFont, final MapsInfo mapsInfo) {
         super(camera, buttonFont);
 
         this.worldButtons = new ArrayList<>();
-        alert = new Alert();
 
+         alert=new Alert(camera);
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         worldFont = generator.generateFont((int) (camera.viewportWidth / 9));
@@ -44,32 +45,23 @@ public class WorldSelectionView extends PanelView {
 
         for (int i = 1; i <= 2; i++) {
             final WorldButton worldButton;
-            int starsToUnlock = help.utils.MapsReader.starsToUnlock(i, 1);
-            boolean locked = false;
-            if (starsToUnlock <= player.getStars())
-                worldButton = new WorldButton(new Texture("menus/button.png"), i, help.utils.MapsReader.getWorldName(i), camera, worldFont);
-            else {
-                worldButton = new WorldButton(new Texture("menus/button.png"), i, "LOCKED: need " + starsToUnlock + " stars", camera, worldFont);
-                locked = true;
-            }
+
+
+            worldButton = new WorldButton(new Texture("menus/button.png"), i, help.utils.MapsReader.getWorldName(i), camera, worldFont);
 
             final int finalI = i;
-            if (!locked) {
-                worldButton.addListener(new ClickListener() {
-                    public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                        super.touchUp(event, x, y, pointer, button);
-                        selectedWorld = finalI;
-                    }
-                });
-            } else {
-                worldButton.addListener(new ClickListener() {
-                    public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                        super.touchUp(event, x, y, pointer, button);
-                        alert = new Alert(camera, 1, finalI, true);                    // @TODO:     pobawic sie z alertem!
 
-                    }
-                });
-            }
+            worldButton.addListener(new ClickListener() {
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    super.touchUp(event, x, y, pointer, button);
+                    if (worldButton.isLocked()) {
+                        alert.setActive(true);
+                        alert.prepareAlert("You need "+mapsInfo.getStarsToUnlockWorld(finalI)+" stars to unlock this world");
+
+                    } else
+                        selectedWorld = finalI;
+                }
+            });
 
             worldButtons.add(worldButton);
         }
@@ -81,22 +73,23 @@ public class WorldSelectionView extends PanelView {
                 selectedWorld = -1;
             }
         });
-
-
     }
 
-    public void prepareWorldSelectionView(Stage stage) {
+    public void prepareWorldSelectionView(Stage stage, Player player, MapsInfo mapsInfo) {
 
         selectedWorld = 0;
         stage.clear();
         stage.addActor(backButton);
         for (WorldButton worldButton : worldButtons) {
+            worldButton.setLocked(false);
+            if (mapsInfo.getStarsToUnlockWorld(worldButton.getWorldNumber()) > player.getStars())
+                worldButton.setLocked(true);
             stage.addActor(worldButton);
         }
 
     }
 
-    public int drawWorldSelection(SpriteBatch batch, OrthographicCamera camera, ShaderProgram shader) {
+    public int drawWorldSelection(SpriteBatch batch, OrthographicCamera camera, ShaderProgram shader, Stage stage) {
 
 
         if (alert.isActive()) {
@@ -112,7 +105,11 @@ public class WorldSelectionView extends PanelView {
         batch.begin();
         background.draw(batch, 1);
         for (WorldButton worldButton : worldButtons) {
-            worldButton.draw(batch, 1, worldFont);
+            if (worldButton.isLocked()) {
+                worldButton.drawWithAltText(batch, 1, worldFont, "LOCKED!");
+            } else {
+                worldButton.draw(batch, 1, worldFont);
+            }
         }
         backButton.draw(batch, 1, worldFont);
         batch.end();
@@ -120,10 +117,12 @@ public class WorldSelectionView extends PanelView {
         if (alert.isActive()) {
             if (alert.drawAlert(camera) == Controls.MENU) {
                 alert.setActive(false);
+                Gdx.input.setInputProcessor(stage);
             }
+
         }
+
         return selectedWorld;
     }
-
 
 }

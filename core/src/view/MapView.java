@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -27,19 +26,18 @@ import map.Map;
 import map.Object;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import player.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MapView {
 
-    private SpriteBatch batch;
+    private InputMultiplexer inputMultiplexer;
+    private GestureDetector gestureDetector;
     private HashMap<String, Texture> textureHashMap;
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
     private HashMap<Sprite, Integer> portalStates;
-    private Stage stage;
     private GestureController gestureController;
     private Image topPanel;
     private Image bottomPanel;
@@ -49,12 +47,12 @@ public class MapView {
     private Controls control;
     private Text levelName;
 
-    public MapView() {
-        stage = new Stage();
+    public MapView(OrthographicCamera camera) {
+
         gestureController = new GestureController();
+        gestureDetector = new GestureDetector(gestureController);
 
-
-        batch = new SpriteBatch();
+        createFonts(camera);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
 
@@ -63,32 +61,18 @@ public class MapView {
             Element block = (Element) blocksList.item(i);
             textureHashMap.put(
                     block.getAttribute("enum"),
-                    new Texture(Constants.skin+"/"+block.getAttribute("texture"))
+                    new Texture(Constants.skin + "/" + block.getAttribute("texture"))
             );
         }
         for (int i = 0; i < objectsList.getLength(); i++) {
             Element object = (Element) objectsList.item(i);
             textureHashMap.put(
                     object.getAttribute("enum"),
-                    new Texture(Constants.skin+"/"+object.getAttribute("texture"))
+                    new Texture(Constants.skin + "/" + object.getAttribute("texture"))
             );
         }
 
-        control = Controls.NONE;
-    }
-
-    public void prepareMapUI(OrthographicCamera camera, Map map) {
-
-        InputMultiplexer inputMultiplexer = new InputMultiplexer();
-        inputMultiplexer.addProcessor(new GestureDetector(gestureController));
-        inputMultiplexer.addProcessor(stage);
-        Gdx.input.setInputProcessor(inputMultiplexer);
-        stage.clear();
-
-        Gdx.gl.glClearColor(1, 1, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.setProjectionMatrix(camera.combined);
+        inputMultiplexer = new InputMultiplexer();
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
         bottomPanel = new Image(new Texture("bottom_panel.png"));
@@ -108,29 +92,48 @@ public class MapView {
         topPanel.setPosition(0, camera.viewportHeight - panelsHeight);
         topPanel.setSize(camera.viewportWidth, panelsHeight);
 
-        stage.addActor(reset);
-        stage.addActor(menu);
-
         reset.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
                 control = Controls.RESET;
-                return true;
             }
         });
 
         menu.addListener(new ClickListener() {
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
                 control = Controls.MENU;
-                return true;
             }
         });
 
-        gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
-        createFonts(camera, map);
+        levelName = new Text(0,
+                (int) (camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2),
+                "");
 
-        levelName = new Text((int)((camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2)),
-                (int)(camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2),
-                help.utils.MapsReader.getMapName(map));
+        sprites = new ArrayList<>();
+        spriteStates = new HashMap<>();
+        portalStates = new HashMap<>();
+
+        control = Controls.NONE;
+    }
+
+    public void prepareMapUI(OrthographicCamera camera, Map map, Stage stage) {
+
+        control = Controls.NONE;
+        inputMultiplexer.clear();
+        inputMultiplexer.addProcessor(gestureDetector);
+        inputMultiplexer.addProcessor(stage);
+        Gdx.input.setInputProcessor(inputMultiplexer);
+        stage.clear();
+
+        stage.addActor(reset);
+        stage.addActor(menu);
+
+        float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+        gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
+        levelName.setText(help.utils.MapsReader.getMapName(map));
+        levelName.setPosX((int) ((camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2)));
+
 
     }
 
@@ -141,9 +144,9 @@ public class MapView {
 
     }
 
-    public void drawMap(Map map, Player player, OrthographicCamera camera) {
+    public void drawMap(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
-        drawStaticMap(map, player, camera);
+        drawStaticMap(map, camera, batch);
         batch.begin();
 
         for (Sprite sprite : sprites) {
@@ -155,21 +158,21 @@ public class MapView {
                 sprite.draw(batch);
         }
         batch.end();
-        drawUI(map, player, camera);
+        drawUI(map,  camera, batch);
     }
 
-    public void prepareAnimation(){
-        gestureController.setGestureField(0,0,0,0);
+    public void prepareAnimation() {
+        gestureController.setGestureField(0, 0, 0, 0);
     }
 
-    public void afterAnimation(OrthographicCamera camera){
+    public void afterAnimation(OrthographicCamera camera) {
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
     }
 
-    public boolean drawAnimation(Map map, Player player, OrthographicCamera camera) {
+    public boolean drawAnimation(Map map,  OrthographicCamera camera, SpriteBatch batch) {
 
-        drawStaticMap(map, player, camera);
+        drawStaticMap(map, camera, batch);
 
         batch.begin();
 
@@ -204,7 +207,7 @@ public class MapView {
 
 
         batch.end();
-        drawUI(map, player, camera);
+        drawUI(map,camera, batch);
         return allSpritesReady;
     }
 
@@ -297,14 +300,14 @@ public class MapView {
 
     public void createSpritesList(Map map, OrthographicCamera camera) {
 
-        sprites = new ArrayList<>();
-        spriteStates = new HashMap<>();
-        portalStates = new HashMap<>();
+        sprites.clear();
+        spriteStates.clear();
+        portalStates.clear();
 
-        Texture img = textureHashMap.get("EMPTY");
+        int width =textureHashMap.get("EMPTY").getWidth();
 
-        float scaleX = camera.viewportWidth / (map.getMapWidth() * img.getWidth());
-        float scaleY = camera.viewportWidth / (map.getMapHeight() * img.getHeight());
+        float scaleX = camera.viewportWidth / (map.getMapWidth() * width);
+        float scaleY = camera.viewportWidth / (map.getMapHeight() * width);
         float offset = camera.viewportHeight - camera.viewportWidth;
 
         ArrayList<Object> objects = map.getObjects();
@@ -313,8 +316,8 @@ public class MapView {
         for (Object object : objects) {
             Texture texture = textureHashMap.get(object.getObjectsType().toString());
             Sprite sprite = new Sprite(texture);
-            sprite.setPosition(object.getX() * img.getWidth() * scaleX, object.getY() * img.getWidth() * scaleY + (offset / 2));
-            sprite.setSize(img.getWidth() * scaleX, img.getWidth() * scaleY);
+            sprite.setPosition(object.getX() * width * scaleX, object.getY() * width * scaleY + (offset / 2));
+            sprite.setSize(width * scaleX, width * scaleY);
             sprites.add(sprite);
             spriteStates.put(sprite, 0);
             portalStates.put(sprite, 0);
@@ -377,7 +380,7 @@ public class MapView {
         return isThere;
     }
 
-    private void drawStaticMap(Map map, Player player, OrthographicCamera camera) {
+    private void drawStaticMap(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
         batch.begin();
 
@@ -403,7 +406,7 @@ public class MapView {
         batch.end();
     }
 
-    public void drawUI(Map map, Player player, OrthographicCamera camera) {
+    public void drawUI(Map map, OrthographicCamera camera, SpriteBatch batch) {
         batch.begin();
 
         topPanel.draw(batch, 1);
@@ -419,12 +422,12 @@ public class MapView {
 
         counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
-        counterFont.draw(batch,levelName.getText(),levelName.getPosX(),levelName.getPosY());
+        counterFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
 
         batch.end();
     }
 
-    public void createFonts(OrthographicCamera camera, Map map) {
+    public void createFonts(OrthographicCamera camera) {
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));

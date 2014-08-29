@@ -6,9 +6,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
 import map.Map;
@@ -21,10 +22,11 @@ public class PreLevelView extends PanelView {
     private Controls control;
     private BitmapFont font;
     private Text text;
+    private String textString;
     private Button backButton;
     private Button playButton;
 
-    public PreLevelView(OrthographicCamera camera, ShaderProgram shader, Map map, Player player, BitmapFont buttonFont) {
+    public PreLevelView(OrthographicCamera camera, BitmapFont buttonFont) {
         super(camera, buttonFont);
 
         control = Controls.NONE;
@@ -35,7 +37,37 @@ public class PreLevelView extends PanelView {
         font.setColor(Color.BLACK);
         generator.dispose();
 
-        String textString = new String();
+        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
+
+        Texture buttonText = new Texture("menus/button.png");
+
+        float width = camera.viewportWidth / 3;
+        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) / 2);
+        float posY = height / 2;
+
+        backButton = new Button(buttonText, "back", 0, posY, width, height, buttonFont);
+        playButton = new Button(buttonText, "play", 2 * width, posY, width, height, buttonFont);
+
+
+        backButton.addListener(new ClickListener() {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event,x,y,pointer,button);
+                control = Controls.MENU;
+            }
+        });
+        playButton.addListener(new ClickListener() {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event,x,y,pointer,button);
+                control = Controls.PLAY;
+            }
+        });
+
+    }
+
+    public void preparePreLevel(Stage stage, Map map, Player player) {
+
+        control=Controls.NONE;
+
         if (map.getGoals().size() == 0) {
             textString = "you only need to beat this level.";
         } else if (map.getGoals().size() == 1) {
@@ -55,35 +87,15 @@ public class PreLevelView extends PanelView {
                     "   4 stars: " + map.getGoals().get(2) + "moves";
         }
 
-        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), textString);
+        text.setText(textString);
 
-        Texture buttonText = new Texture("menus/button.png");
-
-        float width = camera.viewportWidth / 3;
-        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) / 2);
-        float posY = height / 2;
-
-        backButton = new Button(buttonText, "back", 0, posY, width, height, buttonFont);
-        playButton = new Button(buttonText, "play", 2 * width, posY, width, height, buttonFont);
-        //stage.addActor(backButton);
-        //stage.addActor(playButton);
-
-
-        backButton.addListener(new ClickListener() {
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                control = Controls.MENU;
-            }
-        });
-        playButton.addListener(new ClickListener() {
-            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                control = Controls.PLAY;
-            }
-        });
-
+        stage.clear();
+        stage.addActor(backButton);
+        stage.addActor(playButton);
 
     }
-                        /*
-    public Controls drawPreLevel(OrthographicCamera camera){
+
+    public Controls drawPreLevel(OrthographicCamera camera, SpriteBatch batch) {
         batch.begin();
         background.draw(batch, 1);
         font.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
@@ -91,5 +103,5 @@ public class PreLevelView extends PanelView {
         playButton.draw(batch, 1, buttonFont);
         batch.end();
         return control;
-    }                     */
+    }
 }

@@ -14,12 +14,10 @@ import enums.Controls;
 import enums.GameStates;
 import help.utils.Constants;
 import map.Map;
+import mapSystem.MapsInfo;
 import player.Player;
 import view.MapView;
-import view.menus.LevelSelectionView;
-import view.menus.MainMenuView;
-import view.menus.PanelView;
-import view.menus.WorldSelectionView;
+import view.menus.*;
 
 import static enums.GameStates.*;
 
@@ -62,20 +60,22 @@ public class Slider extends ApplicationAdapter {
                     "}";
     private ShaderProgram shader;
     private OrthographicCamera camera;
+    private Stage mainStage;
+    private SpriteBatch mainBatch;
+    private Player player;
+    private MapsInfo mapsInfo;
+    private int selectedLevel;
+    private int selectedWorld;
+    private GameStates gameState;
     private Map map;
     private MapView mapView;
     private KeyboardController keyboardController;
-    private GameStates gameState;
-    private int selectedLevel;
-    private int selectedWorld;
-    private Player player;
-    private PanelView panelView;
     private WorldSelectionView worldSelectionView;
-    private BitmapFont buttonFont;
     private MainMenuView mainMenuView;
     private LevelSelectionView levelSelectionView;
-    private SpriteBatch mainBatch;
-    private Stage mainStage;
+    private PreLevelView preLevelView;
+    private AfterLevelView afterLevelView;
+    private BitmapFont buttonFont;
 
     @Override
     public void create() {
@@ -96,21 +96,24 @@ public class Slider extends ApplicationAdapter {
         shader.begin();
         shader.setUniformf("grayscale", 1f);
         shader.end();
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
 
         keyboardController = new KeyboardController();
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
         map = new Map(1, 1);
         gameState = INTRO;
 
-        mapView = new MapView();
+        mapView = new MapView(camera);
         Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
+
         player = new Player();
+        mapsInfo = new MapsInfo();
 
         selectedWorld = 1;
 
         mainStage = new Stage();
-        panelView = new PanelView(camera, buttonFont);
+
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
@@ -121,14 +124,15 @@ public class Slider extends ApplicationAdapter {
         generator.dispose();
 
         mainMenuView = new MainMenuView(camera, buttonFont);
-        worldSelectionView = new WorldSelectionView(camera, player, buttonFont);
-        levelSelectionView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+        worldSelectionView = new WorldSelectionView(camera, buttonFont, mapsInfo);
+        levelSelectionView = new LevelSelectionView(camera, player, buttonFont, mapsInfo);
+        preLevelView = new PreLevelView(camera, buttonFont);
+        afterLevelView = new AfterLevelView(camera, buttonFont, mapsInfo, player);
         Gdx.input.setInputProcessor(mainStage);
     }
 
     @Override
     public void render() {
-
 
         switch (gameState) {
 
@@ -141,19 +145,18 @@ public class Slider extends ApplicationAdapter {
             case MENU: {
                 Controls control = mainMenuView.drawMainMenu(mainBatch);
                 if (control == Controls.PLAY) {
-                    worldSelectionView.prepareWorldSelectionView(mainStage);
+                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo);
                     gameState = WORLD_SELECT;
                 }
                 break;
             }
 
             case WORLD_SELECT: {
-                int nowSelectedWorld = worldSelectionView.drawWorldSelection(mainBatch, camera, shader);
+                int nowSelectedWorld = worldSelectionView.drawWorldSelection(mainBatch, camera, shader, mainStage);
                 if (nowSelectedWorld > 0) {
 
                     selectedWorld = nowSelectedWorld;
-                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage);
-                    levelSelectionView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
                     gameState = LEVEL_SELECT;
 
                 } else if (nowSelectedWorld == -1) {
@@ -165,31 +168,29 @@ public class Slider extends ApplicationAdapter {
 
 
             case LEVEL_SELECT: {
-
-                if (levelSelectionView.drawLevelSelection(camera,shader,mainBatch) > 0) {
-
-                    //   map = new Map(selectedWorld, selectedLevel);
-                    // panelView.closePanel();
-                    //   panelView = new PreLevelView(camera, shader, map, player, buttonFont);
-                    //    gameState = PRE_LEVEL;
-                } else if (levelSelectionView.drawLevelSelection(camera,shader,mainBatch) == -1) {
-                    //      panelView.closePanel();
-                    //       panelView = new WorldSelectionView(camera, player, shader, buttonFont);
-                    //      gameState = WORLD_SELECT;
+                int nowSelectedLevel = levelSelectionView.drawLevelSelection(camera, shader, mainBatch, mainStage);
+                if (nowSelectedLevel > 0) {
+                    selectedLevel = nowSelectedLevel;
+                    map.loadMap(selectedWorld, selectedLevel);
+                    preLevelView.preparePreLevel(mainStage, map, player);
+                    gameState = PRE_LEVEL;
+                } else if (nowSelectedLevel == -1) {
+                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo);
+                    gameState = WORLD_SELECT;
                 }
 
                 break;
             }
-                        /*
+
             case PRE_LEVEL: {
 
-                if (panelView.drawPreLevel(camera) == Controls.PLAY) {
-                    mapView.prepareMapUI(camera, map);
+                Controls control = preLevelView.drawPreLevel(camera, mainBatch);
+                if (control == Controls.PLAY) {
+                    mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
-                } else if (panelView.drawPreLevel(camera) == Controls.MENU) {
-                    panelView.closePanel();
-                    panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                } else if (control == Controls.MENU) {
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
                     gameState = LEVEL_SELECT;
                 }
 
@@ -201,8 +202,8 @@ public class Slider extends ApplicationAdapter {
                 if (map.checkForFinish()) {
 
                     player.update(map);
-                    panelView.closePanel();
-                    panelView = new AfterLevelView(camera, shader, map, player, buttonFont);
+                    Gdx.input.setInputProcessor(mainStage);
+                    afterLevelView.prepareAfterLevelView(mainStage, map, player, mapsInfo);
                     gameState = AFTER_LEVEL;
                     player.savePlayer();
                 }
@@ -213,22 +214,22 @@ public class Slider extends ApplicationAdapter {
                     control = keyboardController.checkForControl();
                 }
                 if (control == Controls.NONE) {
-                    mapView.drawMap(map, player, camera);
+                    mapView.drawMap(map, camera, mainBatch);
                 } else {
                     if (control == Controls.RESET) {
-                        map = new Map(selectedWorld, selectedLevel);
+                        map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.NEXT) {
                         selectedLevel++;
-                        map = new Map(selectedWorld, selectedLevel);
+                        map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
                         selectedLevel--;
-                        map = new Map(selectedWorld, selectedLevel);
+                        map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.MENU) {
-                        panelView.closePanel();
-                        panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                        Gdx.input.setInputProcessor(mainStage);
+                        levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
                         gameState = LEVEL_SELECT;
                     } else {
                         map.makeMove(control);
@@ -241,7 +242,7 @@ public class Slider extends ApplicationAdapter {
             }
 
             case LEVEL_ANIMATION: {
-                if (mapView.drawAnimation(map, player, camera)) {
+                if (mapView.drawAnimation(map, camera, mainBatch)) {
                     mapView.afterAnimation(camera);
                     gameState = LEVEL;
                 }
@@ -250,42 +251,34 @@ public class Slider extends ApplicationAdapter {
 
             case AFTER_LEVEL: {
 
-                if (panelView.drawAfterLevel(camera) == Controls.NEXT) {
-
+                Controls controls = afterLevelView.drawAfterLevel(camera, shader, mainBatch, mainStage);
+                if (controls == Controls.NEXT) {
                     selectedLevel++;
-
-                    map = new Map(selectedWorld, selectedLevel);
-                    mapView.prepareMapUI(camera, map);
-                    mapView.prepareMap(camera, map);
-
-                    panelView.closePanel();
-                    panelView = new PreLevelView(camera, shader, map, player, buttonFont);
+                    map.loadMap(selectedWorld, selectedLevel);
+                    preLevelView.preparePreLevel(mainStage, map, player);
                     gameState = PRE_LEVEL;
 
-                } else if (panelView.drawAfterLevel(camera) == Controls.RESET) {
-                    map = new Map(selectedWorld, selectedLevel);
-                    mapView.prepareMapUI(camera, map);
+                } else if (controls == Controls.RESET) {
+                    map.loadMap(selectedWorld, selectedLevel);
+                    mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
-
-                    panelView.closePanel();
-                    panelView = new PreLevelView(camera, shader, map, player, buttonFont);
-
                     gameState = LEVEL;
-                } else if (panelView.drawAfterLevel(camera) == Controls.MENU) {
-
-                    panelView.closePanel();
-                    panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+                } else if (controls == Controls.MENU) {
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
                     gameState = LEVEL_SELECT;
-                }
-                break;    */
-        }
 
+                }
+                break;
+            }
+
+        }
     }
 
     @Override
     public void resize(int width, int height) {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
+
 
         switch (gameState) {
             case MENU: {
@@ -294,17 +287,17 @@ public class Slider extends ApplicationAdapter {
             }
             case LEVEL_SELECT: {
 
-                panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+
                 break;
             }
             case LEVEL: {
                 mapView.prepareMap(camera, map);
-                mapView.prepareMapUI(camera, map);
+                mapView.prepareMapUI(camera, map, mainStage);
                 break;
             }
             case ALERT: {
 
-                panelView = new LevelSelectionView(selectedWorld, camera, player, shader, buttonFont);
+
                 gameState = LEVEL_SELECT;
                 break;
             }

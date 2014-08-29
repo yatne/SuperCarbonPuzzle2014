@@ -20,34 +20,43 @@ import static help.utils.HelpUtils.readBehaviors;
 
 public class MapBuilder {
 
+    DocumentBuilder dBuilder;
+    ArrayList<Integer> goals;
+    ArrayList<ArrayList<Field>> map;
+    public MapBuilder() {
+
+        map = new ArrayList<>();
+        goals = new ArrayList<>();
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+
+        try {
+            dBuilder = builderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
 
     private Element getMapEle(int mapWorld, int mapNumber) {
 
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-        Element chosenMap = null;
+        Document document = null;
         try {
-
-            DocumentBuilder dBuilder = builderFactory.newDocumentBuilder();
-            Document document = dBuilder.parse(Map.class.getResourceAsStream("/resources/maps" + mapWorld + ".xml"));
-            document.normalize();
-            NodeList rootNodes = document.getElementsByTagName("maps");
-            Node rootNode = rootNodes.item(0);
-            Element rootElement = (Element) rootNode;
-            NodeList mapList = rootElement.getElementsByTagName("map");
-            Node mapNode = help.utils.HelpUtils.getElementByAttributeValue(mapList, "number", Integer.toString(mapNumber));
-            chosenMap = (Element) mapNode;
-
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
+            document = dBuilder.parse(Map.class.getResourceAsStream("/resources/maps" + mapWorld + ".xml"));
+        } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
+        document.normalize();
+        NodeList rootNodes = document.getElementsByTagName("maps");
+        Node rootNode = rootNodes.item(0);
+        Element rootElement = (Element) rootNode;
+        NodeList mapList = rootElement.getElementsByTagName("map");
+        Node mapNode = help.utils.HelpUtils.getElementByAttributeValue(mapList, "number", Integer.toString(mapNumber));
 
-        return chosenMap;
+        return (Element) mapNode;
     }
 
     public ArrayList<Integer> getGoals(Map map) {
         Element mapEle = getMapEle(map.getMapWorld(), map.getMapNumber());
-        ArrayList<Integer> goals = new ArrayList<>();
+        goals.clear();
         if (mapEle.hasAttribute("silver"))
             goals.add(Integer.parseInt(mapEle.getAttribute("silver")));
 
@@ -64,7 +73,7 @@ public class MapBuilder {
         Element mapBlueprint = getMapEle(mapWorld, mapNumber);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
-        ArrayList<ArrayList<Field>> map = new ArrayList<>();
+        map.clear();
 
         NodeList rows = mapBlueprint.getElementsByTagName("row");
         String rowBlueprint = null;

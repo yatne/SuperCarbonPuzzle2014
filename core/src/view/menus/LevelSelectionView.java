@@ -15,8 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import enums.Controls;
-import help.utils.MapsReader;
-import org.w3c.dom.NodeList;
+import mapSystem.MapsInfo;
 import player.Player;
 import view.Alert;
 import view.Text;
@@ -24,34 +23,38 @@ import view.buttons.BasicButton;
 import view.buttons.LevelButton;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class LevelSelectionView extends PanelView {
 
     private BitmapFont levelFont;
     private ArrayList<LevelButton> levelButtons;
-    private ArrayList<LevelButton> lockedLevelButtons;
-    private HashMap<Integer, Texture> worldButtonTexture;
     private BasicButton backButton;
-    private int selectedWorld;
     private int selectedLevel;
+    private int levelsInWorld;
     private Alert alert;
     private Text starsCount;
     private TextureRegion region;
     private TextureRegionDrawable regionDrawable;
+    private TextureRegion touchedRegion;
+    private TextureRegionDrawable touchRegionDrawable;
+    private TextureRegionDrawable lockedLevel;
+    private int world;
 
-    public LevelSelectionView(final int selectedWorld, final OrthographicCamera camera, Player player, ShaderProgram shader, BitmapFont buttonFont) {
+    public LevelSelectionView(final OrthographicCamera camera, Player player, BitmapFont buttonFont, final MapsInfo mapsInfo) {
         super(camera, buttonFont);
 
         selectedLevel = 0;
 
-        alert = new Alert();
-        Texture level = new Texture("menus/levelbuttons.png");
+        alert = new Alert(camera);
 
+        TextureRegion lockedLevelTexture = new TextureRegion(new Texture("menus/level_locked.png"), 0, 0, 139, 190);
+        lockedLevel = new TextureRegionDrawable(lockedLevelTexture);
+        Texture level = new Texture("menus/levelbuttons.png");
         region = new TextureRegion(level, 139, 0, 139, 190);
         regionDrawable = new TextureRegionDrawable(region);
 
-        Texture levelLocked = new Texture("menus/level_locked.png");
+        touchedRegion = new TextureRegion(level, 139, 190, 139, 190);
+        touchRegionDrawable = new TextureRegionDrawable(region);
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
@@ -59,49 +62,51 @@ public class LevelSelectionView extends PanelView {
         levelFont.setColor(Color.BLACK);
         generator.dispose();
 
-        NodeList maps = MapsReader.getMapsList("/resources/maps" + selectedWorld + ".xml");
+
         levelButtons = new ArrayList<>();
 
         Texture goldenStar = new Texture("menus/star_golden.png");
         Texture grayStar = new Texture("menus/star_gray.png");
 
-        for (int i = 0; i < maps.getLength(); i++) {
+        for (int i = 0; i < 16; i++) {
 
-            LevelButton levelButton;
+            final LevelButton levelButton = new LevelButton(region, i, camera, levelFont, Color.BLACK, goldenStar, grayStar, i + 1);
 
-            boolean locked = false;
-            if (help.utils.MapsReader.starsToUnlock(selectedWorld, i + 1) <= player.getStars()) {
-                levelButton = new LevelButton(region, selectedWorld, i, player, camera, levelFont, Color.BLACK, goldenStar, grayStar);
-
-            } else {
-                levelButton = new LevelButton(levelLocked, selectedWorld, i, player, camera, levelFont, Color.WHITE, goldenStar, grayStar);
-                locked = true;
-            }
-
-            levelButtons.add(levelButton);
-
+            levelButton.setLocked(false);
             final int finalI = i + 1;
 
-            if (!locked) {
-                levelButton.addListener(new ClickListener() {
-                    public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                        selectedLevel = finalI;
+            levelButton.addListener(new ClickListener() {
+                public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                    super.touchUp(event, x, y, pointer, button);
+                    if (finalI <= levelsInWorld) {
+                        if (!levelButton.isLocked()) {
+                            selectedLevel = finalI;
+                        } else {
+                            alert.setActive(true);
+                            alert.prepareAlert("you need "+mapsInfo.getStarsToUnlock(world,finalI)+" stars to unlock this level");
+                        }
                     }
-                });
-            } else {
-                levelButton.addListener(new ClickListener() {
-                    public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                        //          alert = new Alert(camera, finalI, selectedWorld, stage, false);
-                        return true;
-                    }
-                });
-            }
+                }
+            });
 
+            levelButton.addListener(new ClickListener() {
+                public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                    super.touchDown(event, x, y, pointer, button);
+                    if (!levelButton.isLocked()) {
+                        levelButton.setDrawable(touchRegionDrawable);
+                    }
+                    return true;
+                }
+            });
+
+
+            levelButtons.add(levelButton);
         }
 
         backButton = new BasicButton(new Texture("menus/button.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
                 selectedLevel = -1;
             }
         });
@@ -110,15 +115,37 @@ public class LevelSelectionView extends PanelView {
 
     }
 
-    public void prepareLevelSelection(int selectedWorld, Stage stage) {
+    public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo) {
 
-        this.selectedWorld = selectedWorld;
         this.selectedLevel = 0;
 
+        region.setRegion((selectedWorld - 1) * 139, 0, 139, 190);
+        regionDrawable.setRegion(region);
+
+        world=selectedWorld;
+
+        touchedRegion.setRegion((selectedWorld - 1) * 139, 190, 139, 190);
+        touchRegionDrawable.setRegion(touchedRegion);
+
+        stage.clear();
+        stage.addActor(backButton);
+        for (LevelButton levelButton : levelButtons) {
+
+            levelButton.setDrawable(regionDrawable);
+            levelButton.setLocked(false);
+
+            levelButton.setStars(mapsInfo.getStarsToObtain(selectedWorld, levelButton.getLevel()), player.getStarsFromLevel(selectedWorld, levelButton.getLevel()));
+            if (mapsInfo.getStarsToUnlock(selectedWorld, levelButton.getLevel()) > player.getStars()) {
+                levelButton.setLocked(true);
+            }
+            stage.addActor(levelButton);
+        }
+        starsCount.setText(Integer.toString(player.getStars()));
+        levelsInWorld = mapsInfo.getMapsCountInWorld(selectedWorld);
 
     }
 
-    public int drawLevelSelection(OrthographicCamera camera, ShaderProgram shader, SpriteBatch batch) {
+    public int drawLevelSelection(OrthographicCamera camera, ShaderProgram shader, SpriteBatch batch, Stage stage) {
 
         if (alert.isActive()) {
             shader.begin();
@@ -132,22 +159,26 @@ public class LevelSelectionView extends PanelView {
 
         batch.begin();
         background.draw(batch, 1);
-        for (LevelButton levelButton : levelButtons) {
-            levelButton.draw(batch, 1, levelFont);
+
+        for (int i = 0; i < levelsInWorld; i++) {
+            if (levelButtons.get(i).isLocked()) {
+                levelButtons.get(i).drawLocked(batch, 1, levelFont, lockedLevel);
+            } else {
+                levelButtons.get(i).draw(batch, 1, levelFont);
+            }
         }
+
         backButton.draw(batch, 1, buttonFont);
-        buttonFont.draw(batch, starsCount.getStringNumber(), starsCount.getPosX(), starsCount.getPosY());
+        buttonFont.draw(batch, starsCount.getText(), starsCount.getPosX(), starsCount.getPosY());
         batch.end();
 
         if (alert.isActive()) {
 
             if (alert.drawAlert(camera) == Controls.MENU) {
                 alert.setActive(false);
-
+                Gdx.input.setInputProcessor(stage);
             }
         }
-
-
         return selectedLevel;
     }
 }

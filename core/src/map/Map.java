@@ -17,10 +17,14 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
+    MapBuilder mapBuilder;
 
 
     public Map(int worldNumber, int mapNumber) {
+        fields = new ArrayList<>();
+        mapBuilder = new MapBuilder();
         loadMap(worldNumber, mapNumber);
+
     }
 
     public Map(Map map) {
@@ -50,11 +54,10 @@ public class Map {
 
     }
 
-    private void loadMap(int worldNumber, int mapNumber) {
+    public void loadMap(int worldNumber, int mapNumber) {
 
-        MapBuilder mapBuilder = new MapBuilder();
 
-        fields = new ArrayList<>();
+        fields.clear();
         fields = mapBuilder.buildMap(worldNumber, mapNumber);
         objects = mapBuilder.loadObjects(worldNumber, mapNumber);
         pointToComplete = getAllObjectsByBehavior("objective").size();

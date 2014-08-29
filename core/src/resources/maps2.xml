@@ -60,7 +60,53 @@
     </map>
 
 
-    <map name="koniec" number="6" unlocked="100">
+    <map name="love letters" number="6" unlocked="1">
+        <row nr="1">OOXOEX</row>
+        <row nr="2">XSOOOO</row>
+        <row nr="3">OOO+OO</row>
+        <row nr="4">O+OBBB</row>
+        <row nr="5">XOOOOX</row>
+        <row nr="6">OOOOOO</row>
+    </map>
+
+    <map name="whole lotta love" number="7" unlocked="1">
+
+        <row nr="1">XOOOOXO</row>
+        <row nr="2">OOO+XOE</row>
+        <row nr="3">OOOOO+O</row>
+        <row nr="4">XOXO+SX</row>
+        <row nr="5">+OOOS+O</row>
+        <row nr="6">OOOO+S+</row>
+        <row nr="7">EXOOXOE</row>
+
+    </map>
+
+    <map name="this is the end" number="8" unlocked="1">
+
+        <row nr="1">OOOXEXOX</row>
+        <row nr="2">+EOO+OOO</row>
+        <row nr="3">OOOOSXOO</row>
+        <row nr="4">OOXXSXOO</row>
+        <row nr="5">OOOXSXOO</row>
+        <row nr="6">+OOXOOOO</row>
+        <row nr="7">OOOO+XO+</row>
+        <row nr="8">OOOXOEXO</row>
+
+    </map>
+
+    <map name="perfect housekeeper" number="9" unlocked="1">
+
+        <row nr="1">OOOOOOX</row>
+        <row nr="2">OOXOOSO</row>
+        <row nr="3">OOO+OXO</row>
+        <row nr="4">OOEEEOO</row>
+        <row nr="5">OO+E+OX</row>
+        <row nr="6">+SO++OS</row>
+        <row nr="7">S+OOXOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="10" unlocked="100">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>
