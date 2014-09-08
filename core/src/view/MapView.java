@@ -158,7 +158,7 @@ public class MapView {
                 sprite.draw(batch);
         }
         batch.end();
-        drawUI(map,  camera, batch);
+        drawUI(map, camera, batch);
     }
 
     public void prepareAnimation() {
@@ -170,7 +170,7 @@ public class MapView {
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
     }
 
-    public boolean drawAnimation(Map map,  OrthographicCamera camera, SpriteBatch batch) {
+    public boolean drawAnimation(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
         drawStaticMap(map, camera, batch);
 
@@ -207,7 +207,7 @@ public class MapView {
 
 
         batch.end();
-        drawUI(map,camera, batch);
+        drawUI(map, camera, batch);
         return allSpritesReady;
     }
 
@@ -280,6 +280,11 @@ public class MapView {
                     sprite.setTexture(desiredSprite.getTexture());
             }
 
+        if (sprite.getTexture().equals(textureHashMap.get("GWRB")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
+                if (!checkOtherSpriteInThatPlace(sprite))
+                    sprite.setTexture(desiredSprite.getTexture());
+            }
     }
 
     private boolean isSpriteInTheSamePlace(Sprite spriteA, Sprite spriteB) {
@@ -304,7 +309,7 @@ public class MapView {
         spriteStates.clear();
         portalStates.clear();
 
-        int width =textureHashMap.get("EMPTY").getWidth();
+        int width = textureHashMap.get("EMPTY").getWidth();
 
         float scaleX = camera.viewportWidth / (map.getMapWidth() * width);
         float scaleY = camera.viewportWidth / (map.getMapHeight() * width);

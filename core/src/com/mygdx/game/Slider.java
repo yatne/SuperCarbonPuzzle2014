@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -75,7 +76,6 @@ public class Slider extends ApplicationAdapter {
     private LevelSelectionView levelSelectionView;
     private PreLevelView preLevelView;
     private AfterLevelView afterLevelView;
-    private BitmapFont buttonFont;
 
     @Override
     public void create() {
@@ -98,37 +98,11 @@ public class Slider extends ApplicationAdapter {
         shader.end();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
+        gameState = BEFORE_GAME;
 
         keyboardController = new KeyboardController();
 
-        map = new Map(1, 1);
-        gameState = INTRO;
 
-        mapView = new MapView(camera);
-        Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
-
-        player = new Player();
-        mapsInfo = new MapsInfo();
-
-        selectedWorld = 1;
-
-        mainStage = new Stage();
-
-
-        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
-        buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
-        buttonFont.setColor(0, 0, 0, 1);
-        generator.dispose();
-
-        mainMenuView = new MainMenuView(camera, buttonFont);
-        worldSelectionView = new WorldSelectionView(camera, buttonFont, mapsInfo);
-        levelSelectionView = new LevelSelectionView(camera, player, buttonFont, mapsInfo);
-        preLevelView = new PreLevelView(camera, buttonFont);
-        afterLevelView = new AfterLevelView(camera, buttonFont, mapsInfo, player);
-        Gdx.input.setInputProcessor(mainStage);
     }
 
     @Override
@@ -136,7 +110,41 @@ public class Slider extends ApplicationAdapter {
 
         switch (gameState) {
 
+            case BEFORE_GAME:{
+                mainBatch.begin();
+                                mainBatch.draw(new Texture("menus/carbon.png"),0,0,camera.viewportWidth,camera.viewportHeight);
+                mainBatch.end();
+                gameState=INTRO;
+                break;
+            }
+
             case INTRO: {
+
+                map = new Map(1, 1);
+                mapView = new MapView(camera);
+                Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
+
+                player = new Player();
+                mapsInfo = new MapsInfo();
+
+                selectedWorld = 1;
+
+                mainStage = new Stage();
+                FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+                FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+                FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+                freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
+                BitmapFont buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
+                buttonFont.setColor(0, 0, 0, 1);
+                generator.dispose();
+
+                mainMenuView = new MainMenuView(camera, buttonFont);
+                worldSelectionView = new WorldSelectionView(camera, buttonFont, mapsInfo);
+                levelSelectionView = new LevelSelectionView(camera, player, buttonFont, mapsInfo);
+                preLevelView = new PreLevelView(camera, buttonFont);
+                afterLevelView = new AfterLevelView(camera, buttonFont, mapsInfo, player);
+                Gdx.input.setInputProcessor(mainStage);
+
                 gameState = MENU;
                 mainMenuView.prepareMainMenu(mainStage);
                 break;

@@ -23,6 +23,7 @@ public class MapBuilder {
     DocumentBuilder dBuilder;
     ArrayList<Integer> goals;
     ArrayList<ArrayList<Field>> map;
+
     public MapBuilder() {
 
         map = new ArrayList<>();
@@ -134,7 +135,12 @@ public class MapBuilder {
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (object != null) {
-                    objects.add(new Object(ObjectsType.valueOf(object.getAttribute("enum")), j, i, objects.size()));
+                    Object objToAdd = new Object(ObjectsType.valueOf(object.getAttribute("enum")), j, i, objects.size());
+                    objects.add(objToAdd);
+                    if (objToAdd.hasBehavior("has-ball")) {
+                        objects.add(new Object(ObjectsType.BALL, j, i, objects.size()));
+                    }
+
                 }
 
 

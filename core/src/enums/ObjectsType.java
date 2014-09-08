@@ -11,6 +11,7 @@ public enum ObjectsType {
     GHOSTLY,
     CREATED,
     GWB,
+    GWRB,
     LEFT,
     RIGHT,
     UPPER,

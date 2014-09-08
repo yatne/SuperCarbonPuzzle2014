@@ -38,6 +38,14 @@
 
     </object>
 
+    <object name="ghostlwithrealball" enum="GWRB" texture="gwb.png" placedOn="EMPTY" representation="b">
+
+        <behavior>solid</behavior>
+        <behavior>has-ball</behavior>
+        <behavior>solid-on-leave</behavior>
+
+    </object>
+
     <object name="left" enum="LEFT" texture="left.png" representation="L" placedOn="EMPTY">
 
         <behavior>empty</behavior>

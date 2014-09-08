@@ -2,6 +2,7 @@ package enums;
 
 public enum GameStates {
 
+    BEFORE_GAME,
     INTRO,
     MENU,
     WORLD_SELECT,
