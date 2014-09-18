@@ -31,34 +31,41 @@ public class PreLevelView extends PanelView {
 
         control = Controls.NONE;
 
-        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
-        font.setColor(Color.BLACK);
-        generator.dispose();
-
-        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
 
         Texture buttonText = new Texture("menus/button.png");
 
         float width = camera.viewportWidth / 3;
-        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) / 2);
+        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) *3 / 5);
         float posY = height / 2;
 
-        backButton = new Button(buttonText, "back", 0, posY, width, height, buttonFont);
-        playButton = new Button(buttonText, "play", 2 * width, posY, width, height, buttonFont);
+
+        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
+        font.setColor(Color.BLACK);
+        this.buttonFont = generator.generateFont((int) (height*3/4));
+        this.buttonFont.setColor(Color.BLACK);
+        generator.dispose();
+
+        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
+
+        backButton = new Button(buttonText, "back", 0, posY, width, height, this.buttonFont);
+        playButton = new Button(buttonText, "play", 2 * width, posY, width, height, this.buttonFont);
 
 
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event,x,y,pointer,button);
+                super.touchUp(event, x, y, pointer, button);
                 control = Controls.MENU;
+                backButton.setDrawable(backButton.getTextureRegionDrawable());
             }
         });
         playButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event,x,y,pointer,button);
+                super.touchUp(event, x, y, pointer, button);
                 control = Controls.PLAY;
+                playButton.setDrawable(playButton.getTextureRegionDrawable());
+
             }
         });
 
@@ -66,7 +73,7 @@ public class PreLevelView extends PanelView {
 
     public void preparePreLevel(Stage stage, Map map, Player player) {
 
-        control=Controls.NONE;
+        control = Controls.NONE;
 
         if (map.getGoals().size() == 0) {
             textString = "you only need to beat this level.";

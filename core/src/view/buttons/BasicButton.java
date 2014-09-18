@@ -10,7 +10,7 @@ import view.Text;
 public class BasicButton extends Button {
 
     public BasicButton(Texture texture, String textString, float posX, float posY, BitmapFont font, OrthographicCamera camera) {
-        super(texture, textString, posX, posY, font, camera);
+        super(posX,posY,texture);
 
         float width = camera.viewportWidth / 2;
         float height = camera.viewportWidth / 6;

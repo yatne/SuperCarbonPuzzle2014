@@ -16,6 +16,12 @@ public enum ObjectsType {
     RIGHT,
     UPPER,
     LOWER,
+    SWITCH,
+    DOORC,
+    DOORO,
+    DWB,
+    TRAP,
+    TRAPA
 
 
 }

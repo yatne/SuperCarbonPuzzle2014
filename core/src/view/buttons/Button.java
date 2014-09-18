@@ -6,15 +6,63 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import view.Text;
 
 public class Button extends Image {
 
     Text text;
+    TextureRegionDrawable textureRegionDrawable;
+    TextureRegionDrawable textureRegionDrawablePressed;
+
+
+    public Button(float posX, float posY, Texture texture) {
+        super(texture);
+        this.setPosition(posX, posY);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawable = new TextureRegionDrawable(textureRegion);
+
+        textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, (textureRegion.getRegionHeight() / 2), textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawablePressed = new TextureRegionDrawable(textureRegion);
+
+        setDrawable(textureRegionDrawable);
+
+        addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+                setDrawable(textureRegionDrawablePressed);
+
+                return true;
+            }
+        });
+    }
+
+
 
     public Button(Texture texture) {
         super(texture);
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawable = new TextureRegionDrawable(textureRegion);
+
+        textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, (textureRegion.getRegionHeight() / 2), textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawablePressed = new TextureRegionDrawable(textureRegion);
+
+        setDrawable(textureRegionDrawable);
+
+        addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+                setDrawable(textureRegionDrawablePressed);
+                return true;
+            }
+        });
     }
 
     public Button(Texture texture, String textString, float posX, float posY, BitmapFont font, OrthographicCamera camera) {
@@ -30,6 +78,24 @@ public class Button extends Image {
         float textPosY = posY + height - ((height - font.getBounds(textString).height) / 4);
 
         text = new Text((int) textPosX, (int) textPosY, textString);
+
+        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawable = new TextureRegionDrawable(textureRegion);
+
+        textureRegion = new TextureRegion(texture);
+        textureRegion.setRegion(0, (textureRegion.getRegionHeight() / 2), textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
+        textureRegionDrawablePressed = new TextureRegionDrawable(textureRegion);
+
+        setDrawable(textureRegionDrawable);
+
+        addListener(new ClickListener() {
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchDown(event, x, y, pointer, button);
+                setDrawable(textureRegionDrawablePressed);
+                return true;
+            }
+        });
     }
 
     public Button(TextureRegion region) {
@@ -46,5 +112,7 @@ public class Button extends Image {
         font.draw(batch, text.getText(), text.getPosX(), text.getPosY());
     }
 
-
+    public TextureRegionDrawable getTextureRegionDrawable() {
+        return textureRegionDrawable;
+    }
 }

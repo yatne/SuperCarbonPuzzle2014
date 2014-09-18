@@ -110,11 +110,11 @@ public class Slider extends ApplicationAdapter {
 
         switch (gameState) {
 
-            case BEFORE_GAME:{
+            case BEFORE_GAME: {
                 mainBatch.begin();
-                                mainBatch.draw(new Texture("menus/carbon.png"),0,0,camera.viewportWidth,camera.viewportHeight);
+                mainBatch.draw(new Texture("menus/carbon.png"), 0, 0, camera.viewportWidth, camera.viewportHeight);
                 mainBatch.end();
-                gameState=INTRO;
+                gameState = INTRO;
                 break;
             }
 
@@ -278,7 +278,6 @@ public class Slider extends ApplicationAdapter {
                 }
                 break;
             }
-
         }
     }
 

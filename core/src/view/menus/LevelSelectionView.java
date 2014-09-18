@@ -108,6 +108,7 @@ public class LevelSelectionView extends PanelView {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 selectedLevel = -1;
+                backButton.setDrawable(backButton.getTextureRegionDrawable());
             }
         });
 

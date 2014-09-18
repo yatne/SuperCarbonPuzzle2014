@@ -26,6 +26,7 @@ import map.Map;
 import map.Object;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import view.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,14 +42,19 @@ public class MapView {
     private GestureController gestureController;
     private Image topPanel;
     private Image bottomPanel;
-    private Image reset;
-    private Image menu;
+    private Button reset;
+    private Button menu;
     private BitmapFont counterFont;
+    private BitmapFont buttonFont;
     private Controls control;
     private Text levelName;
+    private int watchDog;
+    private int switchTimer;
 
     public MapView(OrthographicCamera camera) {
 
+        switchTimer = 0;
+        watchDog = 0;
         gestureController = new GestureController();
         gestureDetector = new GestureDetector(gestureController);
 
@@ -78,14 +84,9 @@ public class MapView {
         bottomPanel = new Image(new Texture("bottom_panel.png"));
         topPanel = new Image(new Texture("upper_panel.png"));
 
-        reset = new Image(new Texture("reset.png"));
-        menu = new Image(new Texture("menu.png"));
+        reset = new Button(new Texture("menus/button.png"), "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
+        menu = new Button(new Texture("menus/button.png"), "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
 
-        reset.setPosition((1 * camera.viewportWidth) / 10, panelsHeight / 5);
-        menu.setPosition((6 * camera.viewportWidth) / 10, panelsHeight / 5);
-
-        menu.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
-        reset.setSize((3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5);
 
         bottomPanel.setPosition(0, 0);
         bottomPanel.setSize(camera.viewportWidth, panelsHeight);
@@ -96,6 +97,7 @@ public class MapView {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 control = Controls.RESET;
+                reset.setDrawable(reset.getTextureRegionDrawable());
             }
         });
 
@@ -103,6 +105,7 @@ public class MapView {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 control = Controls.MENU;
+                menu.setDrawable(menu.getTextureRegionDrawable());
             }
         });
 
@@ -172,11 +175,14 @@ public class MapView {
 
     public boolean drawAnimation(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
+        watchDog++;
+
         drawStaticMap(map, camera, batch);
 
         batch.begin();
 
         ArrayList<Sprite> wantedSprites = loadSpritesList(map, camera);
+
         boolean allSpritesReady = true;
 
         for (int i = 0; i < sprites.size(); i++) {
@@ -190,8 +196,12 @@ public class MapView {
                 animateSprite(sprites.get(i), wantedSprites.get(i));
                 allSpritesReady = false;
             }
-
+            if (sprites.get(i).getTexture().equals(textureHashMap.get("SWITCH"))) {
+                if (checkOtherSpriteInThatPlace(sprites.get(i)))
+                    switchDoors();
+            }
         }
+
 
         if (allSpritesReady)
             createSpritesList(map, camera);
@@ -208,6 +218,16 @@ public class MapView {
 
         batch.end();
         drawUI(map, camera, batch);
+
+        if (watchDog > 50) {
+            createSpritesList(map, camera);
+            allSpritesReady = true;
+        }
+
+        if (allSpritesReady) {
+            watchDog = 0;
+        }
+
         return allSpritesReady;
     }
 
@@ -221,6 +241,7 @@ public class MapView {
             sprite.translateY(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
         else if (sprite.getY() < desiredSprite.getY())
             sprite.translateY(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
+
 
     }
 
@@ -260,8 +281,19 @@ public class MapView {
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
                 cleanEndSprite(desiredSprite);
                 sprite.setTexture(textureHashMap.get("FINISHED"));
-
             }
+
+
+        if (desiredSprite.getTexture().equals(textureHashMap.get("NOTHING"))) {
+            if (checkOtherSpriteInThatPlace(sprite))
+                sprite.setTexture(textureHashMap.get("NOTHING"));
+        }
+
+        if (desiredSprite.getTexture().equals(textureHashMap.get("TRAPA"))) {
+            if (checkOtherSpriteInThatPlace(sprite))
+                sprite.setTexture(textureHashMap.get("TRAPA"));
+        }
+
         if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
                 if (checkOtherSpriteInThatPlace(sprite))
@@ -385,6 +417,39 @@ public class MapView {
         return isThere;
     }
 
+    public int getIndexOfOtherSpriteInThatPlace(Sprite sprite) {
+        boolean isThere = false;
+        for (int i = 0; i < sprites.size(); i++) {
+            if (isSpriteInTheSamePlace(sprites.get(i), sprite)) {
+                if (!sprites.get(i).equals(sprite)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public void switchDoors() {
+
+        for (Sprite sprite : sprites) {
+            if (sprite.getTexture().equals(textureHashMap.get("DOORO"))) {
+                sprite.setTexture(textureHashMap.get("DOORC"));
+            } else if (sprite.getTexture().equals(textureHashMap.get("DOORC"))) {
+                sprite.setTexture(textureHashMap.get("DOORO"));
+            }
+        }
+
+    }
+
+    private ArrayList<Sprite> loadSwitches(ArrayList<Sprite> spritesList) {
+        ArrayList<Sprite> switches = new ArrayList<>();
+        for (Sprite sprite : spritesList) {
+            if (sprite.getTexture().equals(textureHashMap.get("SWITCH")))
+                switches.add(sprite);
+        }
+        return switches;
+    }
+
     private void drawStaticMap(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
         batch.begin();
@@ -416,8 +481,8 @@ public class MapView {
 
         topPanel.draw(batch, 1);
         bottomPanel.draw(batch, 1);
-        menu.draw(batch, 1);
-        reset.draw(batch, 1);
+        menu.draw(batch, 1, buttonFont);
+        reset.draw(batch, 1, buttonFont);
 
         String moves;
         if (map.getMovesTaken() <= 99) {
@@ -436,7 +501,9 @@ public class MapView {
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
+        buttonFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 5));
         counterFont.setColor(Color.BLACK);
+        buttonFont.setColor(Color.BLACK);
         generator.dispose();
 
 

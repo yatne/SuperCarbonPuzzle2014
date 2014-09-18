@@ -108,7 +108,63 @@
 
 
 
-    <map name="whole lotta love" number="10" unlocked="100">
+    <map name="whole lotta love" number="10" unlocked="1">
+
+    <row nr="1">XOOOOOX</row>
+    <row nr="2">OOOOXOO</row>
+    <row nr="3">OXOOOOO</row>
+    <row nr="4">XXXOXBO</row>
+    <row nr="5">OOOOXXX</row>
+    <row nr="6">OEOOOXS</row>
+    <row nr="7">OXOOOOO</row>
+
+</map>
+
+    <map name="whole lotta love" number="11" unlocked="1">
+
+        <row nr="1">OOBOOX</row>
+        <row nr="2">OOSOOX</row>
+        <row nr="3">XOOOOE</row>
+        <row nr="4">OOBXOX</row>
+        <row nr="5">OOOOOX</row>
+        <row nr="6">OOOOOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="12" unlocked="1">
+
+        <row nr="1">XOEOOEO</row>
+        <row nr="2">OSOOOOX</row>
+        <row nr="3">OOOOOOO</row>
+        <row nr="4">OXO+XOO</row>
+        <row nr="5">OEOOSOO</row>
+        <row nr="6">XOOOSOX</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+
+    <map name="trap test" number="13" unlocked="1">
+
+        <row nr="1">OSOT</row>
+        <row nr="2">OBOO</row>
+        <row nr="3">OTOO</row>
+        <row nr="4">OOOE</row>
+
+
+    </map>
+
+    <map name="door test" number="14" unlocked="1">
+
+        <row nr="1">SOBo</row>
+        <row nr="2">OOOd</row>
+        <row nr="3">ObOd</row>
+        <row nr="4">bOXE</row>
+
+
+    </map>
+
+    <map name="whole lotta love" number="15" unlocked="100">
 
         <row nr="1">XOOOOOX</row>
         <row nr="2">EXOOOXS</row>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Map {
 
+    MapBuilder mapBuilder;
     private ArrayList<ArrayList<Field>> fields;
     private ArrayList<Object> objects;
     private int mapWidth;
@@ -17,7 +18,6 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
-    MapBuilder mapBuilder;
 
 
     public Map(int worldNumber, int mapNumber) {
@@ -155,9 +155,10 @@ public class Map {
                 teleport(objectA, objectB, 0);
 
 
-            } else if (objectB.hasBehavior("empty")) {
+            } else if (objectB.hasBehavior("empty") && !isThereSolidBlock(x, y)) {
                 actionOnEnter(objectB);
                 actionOnLeave(objectA);
+                actionOnCombine(objectA, objectB);
                 objectA.setX(x);
                 objectA.setY(y);
 
@@ -166,10 +167,29 @@ public class Map {
 
     }
 
+    private void actionOnCombine(Object objectA, Object objectB) {
+        if (objectB.hasBehavior("trap")) {
+            objectB.setObjectsType(ObjectsType.NOTHING);
+            objectA.setObjectsType(ObjectsType.TRAPA);
+        }
+
+    }
+
     private void actionOnEnter(Object objectB) {
 
         if (objectB.hasBehavior("gwb-on-enter")) {
             objectB.setObjectsType(ObjectsType.GWB);
+        }
+        if (objectB.hasBehavior("switch")) {
+            for (Object object : getAllObjectsByBehavior("switch-door")) {
+                if (object.getObjectsType().equals(ObjectsType.DOORC)) {
+
+                    object.setObjectsType(ObjectsType.DOORO);
+                } else {
+                    object.setObjectsType(ObjectsType.DOORC);
+ //                   destroyObjectsInPlaceOf(object);
+                }
+            }
         }
     }
 
@@ -254,6 +274,15 @@ public class Map {
 
     }
 
+    private void destroyObjectsInPlaceOf(Object destroyObj) {
+        for (Object object : objects) {
+            if (object.getX() == destroyObj.getX() && object.getY() == destroyObj.getY()) {
+                if (!object.equals(destroyObj))
+                object.setObjectsType(ObjectsType.NOTHING);
+            }
+        }
+    }
+
     private Object findObject(int x, int y) {
 
         for (Object object : objects) {
@@ -264,6 +293,18 @@ public class Map {
 
         Object object = new Object("NONE", null, -1);
         return object;
+    }
+
+    private boolean isThereSolidBlock(int x, int y) {
+        boolean isThereSolid = false;
+        for (Object object : objects) {
+            if (object.getX() == x && object.getY() == y) {
+                if (object.hasBehavior("solid")) {
+                    isThereSolid = true;
+                }
+            }
+        }
+        return isThereSolid;
     }
 
     private void finish(Object objectA, Object objectB) {

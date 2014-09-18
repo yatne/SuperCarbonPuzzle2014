@@ -42,30 +42,32 @@ public class AfterLevelView extends PanelView {
 
         alert = new Alert(camera);
 
-        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
-        font.setColor(Color.BLACK);
-        generator.dispose();
-
-
-        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
 
         Texture buttonText = new Texture("menus/button.png");
 
         float width = camera.viewportWidth / 3;
-        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) / 2);
+        float height = (((camera.viewportHeight - camera.viewportWidth) / 2) * 3 / 5);
         float posY = height / 2;
 
-        retryButton = new Button(buttonText, "retry", 0, posY, width, height, buttonFont);
-        levelSelectButton = new Button(buttonText, "menu", width, posY, width, height, buttonFont);
-        nextLevelButton = new Button(buttonText, "next", 2 * width, posY, width, height, buttonFont);
 
+        FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
+        font.setColor(Color.BLACK);
+        this.buttonFont = generator.generateFont((int) (height * 3 / 4));
+        this.buttonFont.setColor(Color.BLACK);
+        generator.dispose();
 
+        retryButton = new Button(buttonText, "retry", 0, posY, width, height, this.buttonFont);
+        levelSelectButton = new Button(buttonText, "menu", width, posY, width, height, this.buttonFont);
+        nextLevelButton = new Button(buttonText, "next", 2 * width, posY, width, height, this.buttonFont);
+
+        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
         retryButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 control = Controls.RESET;
+                retryButton.setDrawable(retryButton.getTextureRegionDrawable());
             }
         });
 
@@ -73,6 +75,8 @@ public class AfterLevelView extends PanelView {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 control = Controls.MENU;
+                levelSelectButton.setDrawable(levelSelectButton.getTextureRegionDrawable());
+
             }
         });
         if (drawNextLevelButton) {
@@ -85,6 +89,7 @@ public class AfterLevelView extends PanelView {
                     } else {
                         control = Controls.NEXT;
                     }
+                    nextLevelButton.setDrawable(nextLevelButton.getTextureRegionDrawable());
                 }
             });
         }
@@ -136,10 +141,10 @@ public class AfterLevelView extends PanelView {
         batch.begin();
         background.draw(batch, 1);
         font.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
-        retryButton.draw(batch, 1, buttonFont);
-        levelSelectButton.draw(batch, 1, buttonFont);
+        retryButton.draw(batch, 1, this.buttonFont);
+        levelSelectButton.draw(batch, 1, this.buttonFont);
         if (drawNextLevelButton)
-            nextLevelButton.draw(batch, 1, buttonFont);
+            nextLevelButton.draw(batch, 1, this.buttonFont);
         batch.end();
 
         if (alert.isActive()) {

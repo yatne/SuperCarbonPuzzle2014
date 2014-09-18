@@ -1,0 +1,13 @@
+<maps world="the third">
+
+    <map name="those green fields" number="1" silver="5" unlocked="100">        <!-->40<-->
+
+        <row nr="1">OOXEXO</row>
+        <row nr="2">O+OOOO</row>
+        <row nr="3">OSO+++</row>
+        <row nr="4">XOOOOO</row>
+        <row nr="5">O+OO+X</row>
+        <row nr="6">OXOOOO</row>
+
+    </map>
+</maps>

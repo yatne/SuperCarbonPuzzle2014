@@ -34,7 +34,7 @@ public class WorldSelectionView extends PanelView {
 
         this.worldButtons = new ArrayList<>();
 
-         alert=new Alert(camera);
+        alert = new Alert(camera);
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         worldFont = generator.generateFont((int) (camera.viewportWidth / 9));
@@ -43,7 +43,7 @@ public class WorldSelectionView extends PanelView {
 
         backButton = new BasicButton(new Texture("menus/button.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
 
-        for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 3; i++) {
             final WorldButton worldButton;
 
 
@@ -56,10 +56,10 @@ public class WorldSelectionView extends PanelView {
                     super.touchUp(event, x, y, pointer, button);
                     if (worldButton.isLocked()) {
                         alert.setActive(true);
-                        alert.prepareAlert("You need "+mapsInfo.getStarsToUnlockWorld(finalI)+" stars to unlock this world");
-
+                        alert.prepareAlert("You need " + mapsInfo.getStarsToUnlockWorld(finalI) + " stars to unlock this world");
                     } else
                         selectedWorld = finalI;
+                    worldButton.setDrawable(worldButton.getTextureRegionDrawable());
                 }
             });
 
@@ -69,7 +69,7 @@ public class WorldSelectionView extends PanelView {
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-
+                backButton.setDrawable(backButton.getTextureRegionDrawable());
                 selectedWorld = -1;
             }
         });
@@ -111,7 +111,7 @@ public class WorldSelectionView extends PanelView {
                 worldButton.draw(batch, 1, worldFont);
             }
         }
-        backButton.draw(batch, 1, worldFont);
+        backButton.draw(batch, 1, buttonFont);
         batch.end();
 
         if (alert.isActive()) {
