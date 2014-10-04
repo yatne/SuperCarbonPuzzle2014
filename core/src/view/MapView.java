@@ -2,6 +2,7 @@ package view;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -9,12 +10,14 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import controllers.GestureController;
 import enums.Controls;
 import help.utils.BlocksReader;
@@ -30,6 +33,7 @@ import view.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class MapView {
 
@@ -40,6 +44,9 @@ public class MapView {
     private HashMap<Sprite, Integer> spriteStates;
     private HashMap<Sprite, Integer> portalStates;
     private GestureController gestureController;
+    private Image background;
+    private TextureRegionDrawable topPanelRegion;
+    private TextureRegionDrawable bottomPanelRegion;
     private Image topPanel;
     private Image bottomPanel;
     private Button reset;
@@ -49,11 +56,17 @@ public class MapView {
     private Controls control;
     private Text levelName;
     private int watchDog;
-    private int switchTimer;
+    private ArrayList<TextureRegion> backgrounds;
+    //----------------------------------
+    private float siatiCountDown;
+    private Image siati;
+    private Sound toasty;
 
     public MapView(OrthographicCamera camera) {
 
-        switchTimer = 0;
+        siatiCountDown = 0;
+
+
         watchDog = 0;
         gestureController = new GestureController();
         gestureDetector = new GestureDetector(gestureController);
@@ -61,6 +74,12 @@ public class MapView {
         createFonts(camera);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
+
+        backgrounds = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            backgrounds.add(new TextureRegion(new Texture("menus/background" + (i + 1) + ".png")));
+
+        }
 
         textureHashMap = new HashMap<>();
         for (int i = 0; i < blocksList.getLength(); i++) {
@@ -84,8 +103,8 @@ public class MapView {
         bottomPanel = new Image(new Texture("bottom_panel.png"));
         topPanel = new Image(new Texture("upper_panel.png"));
 
-        reset = new Button(new Texture("menus/button.png"), "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
-        menu = new Button(new Texture("menus/button.png"), "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
+        reset = new Button(new Texture("menus/buttons.png"), "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
+        menu = new Button(new Texture("menus/buttons.png"), "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
 
 
         bottomPanel.setPosition(0, 0);
@@ -100,6 +119,7 @@ public class MapView {
                 reset.setDrawable(reset.getTextureRegionDrawable());
             }
         });
+
 
         menu.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -117,7 +137,20 @@ public class MapView {
         spriteStates = new HashMap<>();
         portalStates = new HashMap<>();
 
+        topPanelRegion = new TextureRegionDrawable();
+        bottomPanelRegion = new TextureRegionDrawable();
+
         control = Controls.NONE;
+
+
+        //---------------------------------
+
+        siati = new Image(new Texture("siati.png"));
+        siati.setSize(camera.viewportWidth, camera.viewportHeight);
+        toasty = Gdx.audio.newSound(Gdx.files.internal("toasty.mp3"));
+
+        //---------------------------------
+
     }
 
     public void prepareMapUI(OrthographicCamera camera, Map map, Stage stage) {
@@ -132,10 +165,23 @@ public class MapView {
         stage.addActor(reset);
         stage.addActor(menu);
 
+        menu.setButtonWorld(map.getMapWorld());
+        reset.setButtonWorld(map.getMapWorld());
+
+
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+
+        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 0, 500, 200);
+        topPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
+
+        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 300, 500, 200);
+        bottomPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
+
+
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
         levelName.setText(help.utils.MapsReader.getMapName(map));
         levelName.setPosX((int) ((camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2)));
+        this.background = background;
 
 
     }
@@ -148,6 +194,9 @@ public class MapView {
     }
 
     public void drawMap(Map map, OrthographicCamera camera, SpriteBatch batch) {
+
+        if (siatiCountDown > 0)
+            siatiCountDown = siatiCountDown - (Gdx.graphics.getDeltaTime());
 
         drawStaticMap(map, camera, batch);
         batch.begin();
@@ -162,6 +211,12 @@ public class MapView {
         }
         batch.end();
         drawUI(map, camera, batch);
+
+        batch.begin();
+        if (siatiCountDown > 0) {
+            siati.draw(batch, 1);
+        }
+        batch.end();
     }
 
     public void prepareAnimation() {
@@ -175,11 +230,20 @@ public class MapView {
 
     public boolean drawAnimation(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
+        if (siatiCountDown > 0)
+            siatiCountDown = siatiCountDown - (Gdx.graphics.getDeltaTime());
+
         watchDog++;
 
         drawStaticMap(map, camera, batch);
 
         batch.begin();
+        Random random = new Random();
+        int rand = random.nextInt(10000);
+        if (rand == 5) {
+            toasty.play();
+            siatiCountDown = 1;
+        }
 
         ArrayList<Sprite> wantedSprites = loadSpritesList(map, camera);
 
@@ -218,6 +282,11 @@ public class MapView {
 
         batch.end();
         drawUI(map, camera, batch);
+        batch.begin();
+        if (siatiCountDown > 0) {
+            siati.draw(batch, 1);
+        }
+        batch.end();
 
         if (watchDog > 50) {
             createSpritesList(map, camera);
@@ -481,6 +550,9 @@ public class MapView {
 
         topPanel.draw(batch, 1);
         bottomPanel.draw(batch, 1);
+        float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
+        topPanelRegion.draw(batch, 0, camera.viewportHeight - panelsHeight, camera.viewportWidth, panelsHeight);
+        bottomPanelRegion.draw(batch, 0, 0, camera.viewportWidth, panelsHeight);
         menu.draw(batch, 1, buttonFont);
         reset.draw(batch, 1, buttonFont);
 

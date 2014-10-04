@@ -154,25 +154,40 @@
 
     </map>
 
-    <map name="door test" number="14" unlocked="1">
+    <map name="I remember that one" number="14" silver="28" gold="25" plat="23" unlocked="32">
 
-        <row nr="1">SOBo</row>
-        <row nr="2">OOOd</row>
-        <row nr="3">ObOd</row>
-        <row nr="4">bOXE</row>
+        <row nr="1">OOOSXEX</row>
+        <row nr="2">OOOXE+O</row>
+        <row nr="3">OOOOTTO</row>
+        <row nr="4">OOOOO+O</row>
+        <row nr="5">OOXOOTO</row>
+        <row nr="6">OBSBOOX</row>
+        <row nr="7">OOOOOOX</row>
+
+    </map>
+
+    <map name="very very very easy" number="15" unlocked="1">
+
+        <row nr="1">OOXOOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OXSOXO</row>
+        <row nr="4">OOOOEO</row>
+        <row nr="5">OOOOXO</row>
+        <row nr="6">OOXOOO</row>
 
 
     </map>
 
-    <map name="whole lotta love" number="15" unlocked="100">
+    <map name="whole lotta love" number="16" unlocked="1">
 
-        <row nr="1">XOOOOOX</row>
-        <row nr="2">EXOOOXS</row>
-        <row nr="3">EEXOXSS</row>
-        <row nr="4">EEEXSSS</row>
-        <row nr="5">EEXOXSS</row>
-        <row nr="6">EXOOOXS</row>
-        <row nr="7">XOOOOOX</row>
+        <row nr="1">OXOOSXOO</row>
+        <row nr="2">OOXOXEXX</row>
+        <row nr="3">OOOOOOOO</row>
+        <row nr="4">OOOOXOOO</row>
+        <row nr="5">XOOOXOOO</row>
+        <row nr="6">OOOOOOOO</row>
+        <row nr="7">OOXOXOOO</row>
+        <row nr="8">OOBXBOOX</row>
 
     </map>
 

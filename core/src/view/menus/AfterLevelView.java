@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
 import map.Map;
@@ -43,7 +44,7 @@ public class AfterLevelView extends PanelView {
         alert = new Alert(camera);
 
 
-        Texture buttonText = new Texture("menus/button.png");
+        Texture buttonText = new Texture("menus/buttons.png");
 
         float width = camera.viewportWidth / 3;
         float height = (((camera.viewportHeight - camera.viewportWidth) / 2) * 3 / 5);
@@ -95,7 +96,7 @@ public class AfterLevelView extends PanelView {
         }
     }
 
-    public void prepareAfterLevelView(Stage stage, Map map, Player player, MapsInfo mapsInfo) {
+    public void prepareAfterLevelView(Stage stage, Map map, Player player, MapsInfo mapsInfo, Image background) {
 
         control = Controls.NONE;
         drawNextLevelButton = true;
@@ -119,11 +120,17 @@ public class AfterLevelView extends PanelView {
             drawNextLevelButton = false;
         }
 
+        levelSelectButton.setButtonWorld(map.getMapWorld());
+        nextLevelButton.setButtonWorld(map.getMapWorld());
+        retryButton.setButtonWorld(map.getMapWorld());
 
         stage.addActor(retryButton);
         stage.addActor(levelSelectButton);
         if (drawNextLevelButton)
             stage.addActor(nextLevelButton);
+
+
+        this.background = background;
     }
 
     public Controls drawAfterLevel(OrthographicCamera camera, ShaderProgram shader, SpriteBatch batch, Stage stage) {

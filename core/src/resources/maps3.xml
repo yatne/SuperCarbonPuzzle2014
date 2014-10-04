@@ -1,13 +1,92 @@
 <maps world="the third">
 
-    <map name="those green fields" number="1" silver="5" unlocked="100">        <!-->40<-->
 
-        <row nr="1">OOXEXO</row>
-        <row nr="2">O+OOOO</row>
-        <row nr="3">OSO+++</row>
-        <row nr="4">XOOOOO</row>
-        <row nr="5">O+OO+X</row>
-        <row nr="6">OXOOOO</row>
+    <map name="those green fields" number="1" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">OOUUOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">BOXBOO</row>
+        <row nr="4">OOBXOO</row>
+        <row nr="5">OEOOOO</row>
+        <row nr="6">SODDOO</row>
 
     </map>
+
+
+    <map name="those green fields" number="2" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">OOOXEOO</row>
+        <row nr="2">TSOXTOO</row>
+        <row nr="3">OOEXOSO</row>
+        <row nr="4">XXXXXXX</row>
+        <row nr="5">OOOXOOO</row>
+        <row nr="6">OSOXOOE</row>
+        <row nr="7">ETOXOST</row>
+
+    </map>
+
+    <map name="those green fields" number="3" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">BOXOEXBS</row>
+        <row nr="2">XOO+XOOX</row>
+        <row nr="3">E+OSOOXE</row>
+        <row nr="4">XOOBSS+O</row>
+        <row nr="5">OOXXBOOX</row>
+        <row nr="6">OOS+OOOO</row>
+        <row nr="7">XX+X+XX+</row>
+        <row nr="8">EOOOOOOE</row>
+
+
+    </map>
+
+    <map name="those green fields" number="4" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">OOOOXE</row>
+        <row nr="2">OXBO+O</row>
+        <row nr="3">OOSOOX</row>
+        <row nr="4">OOOSOO</row>
+        <row nr="5">X+OBOO</row>
+        <row nr="6">EOXBXO</row>
+
+
+    </map>
+
+    <map name="those green fields" number="5" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">OOOOXE</row>
+        <row nr="2">OXBOTO</row>
+        <row nr="3">OOSOOX</row>
+        <row nr="4">OOOSOO</row>
+        <row nr="5">XTOBOO</row>
+        <row nr="6">EOXBXO</row>
+
+
+    </map>
+
+    <map name="those green fields" number="6" silver="5" unlocked="0">        <!-->40<-->
+
+        <row nr="1">OXOXOOOX</row>
+        <row nr="2">OSOOOXXO</row>
+        <row nr="3">OXOOOOOX</row>
+        <row nr="4">OXOXOOOO</row>
+        <row nr="5">XOBOOOXO</row>
+        <row nr="6">OOOXOOOO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OEOXOOOO</row>
+
+    </map>
+
+
+    <map name="those green fields" number="7" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">XOOOOO</row>
+        <row nr="2">XOXOOX</row>
+        <row nr="3">OTOBBO</row>
+        <row nr="4">OTOSBO</row>
+        <row nr="5">OTOOOO</row>
+        <row nr="6">XEXXOO</row>
+
+
+    </map>
+
 </maps>

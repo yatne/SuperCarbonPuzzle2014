@@ -26,9 +26,10 @@ public class MainMenuView extends PanelView {
         logo.setSize(camera.viewportWidth *4/5, camera.viewportWidth *2/5);
         logo.setPosition(camera.viewportWidth *1/10, camera.viewportHeight - (camera.viewportWidth *3/5));
 
-        playButton = new BasicButton(new Texture("menus/button.png"), "Play", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 5), buttonFont, camera);
-        quitButton = new BasicButton(new Texture("menus/button.png"), "Quit", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 6), buttonFont, camera);
-
+        playButton = new BasicButton(new Texture("menus/buttons.png"), "Play", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 5), buttonFont, camera);
+        quitButton = new BasicButton(new Texture("menus/buttons.png"), "Quit", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 6), buttonFont, camera);
+        playButton.setButtonWorld(1);
+        quitButton.setButtonWorld(1);
 
         playButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -50,14 +51,14 @@ public class MainMenuView extends PanelView {
 
     }
 
-    public void prepareMainMenu(Stage stage) {
+    public void prepareMainMenu(Stage stage, Image background) {
 
         stage.clear();
-        control = Controls.NONE;
+                control = Controls.NONE;
         stage.addActor(playButton);
         stage.addActor(quitButton);
 
-
+        this.background=background;
     }
 
     public Controls drawMainMenu(SpriteBatch batch) {

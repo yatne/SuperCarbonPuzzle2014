@@ -9,6 +9,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="gdx-freetype" level="project" />
+    <orderEntry type="library" name="google-play-services" level="project" />
   </component>
 </module>
 

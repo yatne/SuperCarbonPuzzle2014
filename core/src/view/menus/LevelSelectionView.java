@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import enums.Controls;
@@ -83,7 +84,7 @@ public class LevelSelectionView extends PanelView {
                             selectedLevel = finalI;
                         } else {
                             alert.setActive(true);
-                            alert.prepareAlert("you need "+mapsInfo.getStarsToUnlock(world,finalI)+" stars to unlock this level");
+                            alert.prepareAlert("you need " + mapsInfo.getStarsToUnlock(world, finalI) + " stars to unlock this level");
                         }
                     }
                 }
@@ -99,11 +100,10 @@ public class LevelSelectionView extends PanelView {
                 }
             });
 
-
             levelButtons.add(levelButton);
         }
 
-        backButton = new BasicButton(new Texture("menus/button.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
+        backButton = new BasicButton(new Texture("menus/buttons.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
@@ -116,14 +116,14 @@ public class LevelSelectionView extends PanelView {
 
     }
 
-    public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo) {
+    public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo, Image background) {
 
         this.selectedLevel = 0;
 
         region.setRegion((selectedWorld - 1) * 139, 0, 139, 190);
         regionDrawable.setRegion(region);
 
-        world=selectedWorld;
+        world = selectedWorld;
 
         touchedRegion.setRegion((selectedWorld - 1) * 139, 190, 139, 190);
         touchRegionDrawable.setRegion(touchedRegion);
@@ -143,6 +143,8 @@ public class LevelSelectionView extends PanelView {
         }
         starsCount.setText(Integer.toString(player.getStars()));
         levelsInWorld = mapsInfo.getMapsCountInWorld(selectedWorld);
+        backButton.setButtonWorld(selectedWorld);
+        this.background = background;
 
     }
 

@@ -20,6 +20,7 @@ public class Map {
     private int completedPoints;
 
 
+
     public Map(int worldNumber, int mapNumber) {
         fields = new ArrayList<>();
         mapBuilder = new MapBuilder();
@@ -37,6 +38,7 @@ public class Map {
         this.movesTaken = map.getMovesTaken();
         this.goals = map.getGoals();
         this.objects = new ArrayList<>();
+
 
 
         for (ArrayList<Field> row : map.getFields()) {
@@ -73,7 +75,6 @@ public class Map {
     }
 
     public void makeMove(Controls control) {
-
 
         if (control != Controls.NONE) {
 

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
       <module fileurl="file://$PROJECT_DIR$/mapTester/mapTester.iml" filepath="$PROJECT_DIR$/mapTester/mapTester.iml" />
       <module fileurl="file://$PROJECT_DIR$/slider.iml" filepath="$PROJECT_DIR$/slider.iml" />

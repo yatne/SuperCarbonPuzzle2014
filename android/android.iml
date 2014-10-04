@@ -21,6 +21,8 @@
     <orderEntry type="library" name="gdx-backend-android-1.1.0" level="project" />
     <orderEntry type="library" name="annotations" level="project" />
     <orderEntry type="library" name="gdx-freetype" level="project" />
+    <orderEntry type="library" name="google-play-services" level="project" />
+    <orderEntry type="module" module-name="google-play-services_lib" />
   </component>
 </module>
 

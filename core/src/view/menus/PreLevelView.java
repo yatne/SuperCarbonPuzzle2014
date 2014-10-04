@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
 import map.Map;
@@ -32,7 +33,7 @@ public class PreLevelView extends PanelView {
         control = Controls.NONE;
 
 
-        Texture buttonText = new Texture("menus/button.png");
+        Texture buttonText = new Texture("menus/buttons.png");
 
         float width = camera.viewportWidth / 3;
         float height = (((camera.viewportHeight - camera.viewportWidth) / 2) *3 / 5);
@@ -71,7 +72,7 @@ public class PreLevelView extends PanelView {
 
     }
 
-    public void preparePreLevel(Stage stage, Map map, Player player) {
+    public void preparePreLevel(Stage stage, Map map, Player player, Image background) {
 
         control = Controls.NONE;
 
@@ -99,6 +100,10 @@ public class PreLevelView extends PanelView {
         stage.clear();
         stage.addActor(backButton);
         stage.addActor(playButton);
+        this.background=background;
+
+        playButton.setButtonWorld(map.getMapWorld());
+        backButton.setButtonWorld(map.getMapWorld());
 
     }
 

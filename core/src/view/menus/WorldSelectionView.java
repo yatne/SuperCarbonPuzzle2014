@@ -11,8 +11,10 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
 import view.Alert;
@@ -41,14 +43,12 @@ public class WorldSelectionView extends PanelView {
         worldFont.setColor(Color.BLACK);
         generator.dispose();
 
-        backButton = new BasicButton(new Texture("menus/button.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
+        backButton = new BasicButton(new Texture("menus/buttons.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= Constants.howManyWorlds; i++) {
             final WorldButton worldButton;
-
-
-            worldButton = new WorldButton(new Texture("menus/button.png"), i, help.utils.MapsReader.getWorldName(i), camera, worldFont);
-
+            worldButton = new WorldButton(new Texture("menus/buttons.png"), i, help.utils.MapsReader.getWorldName(i), camera, worldFont);
+            worldButton.setButtonWorld(i);
             final int finalI = i;
 
             worldButton.addListener(new ClickListener() {
@@ -73,9 +73,10 @@ public class WorldSelectionView extends PanelView {
                 selectedWorld = -1;
             }
         });
+        backButton.setButtonWorld(1);
     }
 
-    public void prepareWorldSelectionView(Stage stage, Player player, MapsInfo mapsInfo) {
+    public void prepareWorldSelectionView(Stage stage, Player player, MapsInfo mapsInfo, Image background) {
 
         selectedWorld = 0;
         stage.clear();
@@ -87,6 +88,7 @@ public class WorldSelectionView extends PanelView {
             stage.addActor(worldButton);
         }
 
+        this.background = background;
     }
 
     public int drawWorldSelection(SpriteBatch batch, OrthographicCamera camera, ShaderProgram shader, Stage stage) {

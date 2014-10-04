@@ -28,6 +28,7 @@
     <orderEntry type="library" name="annotations" level="project" />
     <orderEntry type="library" name="gdx-freetype" level="project" />
     <orderEntry type="library" name="gdx-freetype-natives" level="project" />
+    <orderEntry type="library" name="google-play-services" level="project" />
   </component>
 </module>
 

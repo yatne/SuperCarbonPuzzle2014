@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import controllers.KeyboardController;
 import enums.Controls;
 import enums.GameStates;
@@ -19,6 +20,8 @@ import mapSystem.MapsInfo;
 import player.Player;
 import view.MapView;
 import view.menus.*;
+
+import java.util.ArrayList;
 
 import static enums.GameStates.*;
 
@@ -59,6 +62,8 @@ public class Slider extends ApplicationAdapter {
                     "       \n" +
                     "       gl_FragColor = texColor * vColor;\n" +
                     "}";
+    ArrayList<Image> backgrounds;
+    private IActivityRequestHandler myRequestHandler;
     private ShaderProgram shader;
     private OrthographicCamera camera;
     private Stage mainStage;
@@ -76,6 +81,10 @@ public class Slider extends ApplicationAdapter {
     private LevelSelectionView levelSelectionView;
     private PreLevelView preLevelView;
     private AfterLevelView afterLevelView;
+
+    public Slider(IActivityRequestHandler myRequestHandler) {
+        this.myRequestHandler = myRequestHandler;
+    }
 
     @Override
     public void create() {
@@ -101,7 +110,7 @@ public class Slider extends ApplicationAdapter {
         gameState = BEFORE_GAME;
 
         keyboardController = new KeyboardController();
-
+        myRequestHandler.showAds(false);
 
     }
 
@@ -129,6 +138,12 @@ public class Slider extends ApplicationAdapter {
 
                 selectedWorld = 1;
 
+                backgrounds = new ArrayList<>();
+                for (int i = 0; i < 3; i++) {
+                    backgrounds.add(new Image(new Texture("menus/background" + (i + 1) + ".png")));
+                    backgrounds.get(i).setSize(camera.viewportWidth, camera.viewportHeight);
+                }
+
                 mainStage = new Stage();
                 FileHandle fontFile = Gdx.files.internal("menufont.ttf");
                 FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
@@ -146,14 +161,14 @@ public class Slider extends ApplicationAdapter {
                 Gdx.input.setInputProcessor(mainStage);
 
                 gameState = MENU;
-                mainMenuView.prepareMainMenu(mainStage);
+                mainMenuView.prepareMainMenu(mainStage, backgrounds.get(selectedWorld - 1));
                 break;
             }
 
             case MENU: {
                 Controls control = mainMenuView.drawMainMenu(mainBatch);
                 if (control == Controls.PLAY) {
-                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo);
+                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1));
                     gameState = WORLD_SELECT;
                 }
                 break;
@@ -164,11 +179,11 @@ public class Slider extends ApplicationAdapter {
                 if (nowSelectedWorld > 0) {
 
                     selectedWorld = nowSelectedWorld;
-                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo,backgrounds.get(selectedWorld - 1));
                     gameState = LEVEL_SELECT;
 
                 } else if (nowSelectedWorld == -1) {
-                    mainMenuView.prepareMainMenu(mainStage);
+                    mainMenuView.prepareMainMenu(mainStage, backgrounds.get(0));
                     gameState = MENU;
                 }
                 break;
@@ -180,10 +195,10 @@ public class Slider extends ApplicationAdapter {
                 if (nowSelectedLevel > 0) {
                     selectedLevel = nowSelectedLevel;
                     map.loadMap(selectedWorld, selectedLevel);
-                    preLevelView.preparePreLevel(mainStage, map, player);
+                    preLevelView.preparePreLevel(mainStage, map, player, backgrounds.get(selectedWorld - 1));
                     gameState = PRE_LEVEL;
                 } else if (nowSelectedLevel == -1) {
-                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo);
+                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo, backgrounds.get(0));
                     gameState = WORLD_SELECT;
                 }
 
@@ -198,7 +213,7 @@ public class Slider extends ApplicationAdapter {
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
                 } else if (control == Controls.MENU) {
-                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(0    ));
                     gameState = LEVEL_SELECT;
                 }
 
@@ -207,13 +222,16 @@ public class Slider extends ApplicationAdapter {
 
             case LEVEL: {
 
+                myRequestHandler.showAds(true);
+
                 if (map.checkForFinish()) {
 
                     player.update(map);
                     Gdx.input.setInputProcessor(mainStage);
-                    afterLevelView.prepareAfterLevelView(mainStage, map, player, mapsInfo);
+                    afterLevelView.prepareAfterLevelView(mainStage, map, player, mapsInfo, backgrounds.get(selectedWorld - 1));
                     gameState = AFTER_LEVEL;
                     player.savePlayer();
+                    myRequestHandler.showAds(false);
                 }
 
                 Controls control = mapView.getControl();
@@ -237,7 +255,8 @@ public class Slider extends ApplicationAdapter {
                         mapView.prepareMap(camera, map);
                     } else if (control == Controls.MENU) {
                         Gdx.input.setInputProcessor(mainStage);
-                        levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
+                        levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1));
+                        myRequestHandler.showAds(false);
                         gameState = LEVEL_SELECT;
                     } else {
                         map.makeMove(control);
@@ -263,7 +282,7 @@ public class Slider extends ApplicationAdapter {
                 if (controls == Controls.NEXT) {
                     selectedLevel++;
                     map.loadMap(selectedWorld, selectedLevel);
-                    preLevelView.preparePreLevel(mainStage, map, player);
+                    preLevelView.preparePreLevel(mainStage, map, player, backgrounds.get(selectedWorld - 1));
                     gameState = PRE_LEVEL;
 
                 } else if (controls == Controls.RESET) {
@@ -272,7 +291,7 @@ public class Slider extends ApplicationAdapter {
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
                 } else if (controls == Controls.MENU) {
-                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo);
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1));
                     gameState = LEVEL_SELECT;
 
                 }

@@ -6,10 +6,43 @@ import map.Map;
 public class MapSolver {
 
     Map map;
-
+    boolean solved;
+    int moves;
 
     public MapSolver(Map map) {
         this.map = new Map(map);
+        solved = false;
+        moves=99;
+    }
+
+    public void findBestSolution(Map map, int iteration, int maxIterations) {
+
+        if (map.checkForFinish()) {
+
+            if(iteration<moves){
+                System.out.println(iteration);
+                moves=iteration;
+            }
+        }
+
+        if (!solved && iteration <= maxIterations) {
+
+            iteration++;
+
+            Map mapL = new Map(map);
+            Map mapR = new Map(map);
+            Map mapU = new Map(map);
+
+            mapL.makeMove(Controls.LEFT);
+            mapR.makeMove(Controls.RIGHT);
+            mapU.makeMove(Controls.UP);
+            map.makeMove(Controls.DOWN);
+
+            findBestSolution(mapL, iteration, maxIterations);
+            findBestSolution(mapR, iteration, maxIterations);
+            findBestSolution(mapU, iteration, maxIterations);
+            findBestSolution(map, iteration, maxIterations);
+        }
     }
 
     public void solveMap(int maxIterations) {

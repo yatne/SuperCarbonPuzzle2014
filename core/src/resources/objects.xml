@@ -31,7 +31,7 @@
         <behavior>gwb-on-enter</behavior>
     </object>
 
-    <object name="ghostlwithball" enum="GWB" texture="gwb.png" placedOn="EMPTY">
+    <object name="ghostlwithball" enum="GWB" texture="ghostly.png" placedOn="EMPTY">
 
         <behavior>solid</behavior>
         <behavior>solid-on-leave</behavior>

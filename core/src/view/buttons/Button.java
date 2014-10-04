@@ -10,19 +10,25 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import help.utils.Constants;
 import view.Text;
 
 public class Button extends Image {
 
     Text text;
+    Texture texture;
     TextureRegionDrawable textureRegionDrawable;
     TextureRegionDrawable textureRegionDrawablePressed;
+    TextureRegion textureRegion;
+    TextureRegion textureRegionPressed;
 
 
     public Button(float posX, float posY, Texture texture) {
         super(texture);
+        this.texture = texture;
         this.setPosition(posX, posY);
-        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion = new TextureRegion(texture);
+        textureRegionPressed = new TextureRegion(texture);
         textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
         textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 
@@ -41,12 +47,13 @@ public class Button extends Image {
             }
         });
     }
-
-
 
     public Button(Texture texture) {
+
         super(texture);
-        TextureRegion textureRegion = new TextureRegion(texture);
+        this.texture = texture;
+        textureRegion = new TextureRegion(texture);
+        textureRegionPressed = new TextureRegion(texture);
         textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
         textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 
@@ -64,14 +71,19 @@ public class Button extends Image {
             }
         });
     }
+
 
     public Button(Texture texture, String textString, float posX, float posY, BitmapFont font, OrthographicCamera camera) {
         super(texture);
+        this.texture = texture;
         this.setPosition(posX, posY);
+        textureRegion = new TextureRegion(texture);
+        textureRegionPressed = new TextureRegion(texture);
     }
 
     public Button(Texture texture, String textString, float posX, float posY, float width, float height, BitmapFont font) {
         super(texture);
+        this.texture = texture;
         this.setPosition(posX, posY);
         this.setSize(width, height);
         float textPosX = ((2 * posX) + width) / 2 - font.getBounds(textString).width / 2;
@@ -79,11 +91,12 @@ public class Button extends Image {
 
         text = new Text((int) textPosX, (int) textPosY, textString);
 
-        TextureRegion textureRegion = new TextureRegion(texture);
+        textureRegion = new TextureRegion(texture);
+        textureRegionPressed = new TextureRegion(texture);
+
         textureRegion.setRegion(0, 0, textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
         textureRegionDrawable = new TextureRegionDrawable(textureRegion);
 
-        textureRegion = new TextureRegion(texture);
         textureRegion.setRegion(0, (textureRegion.getRegionHeight() / 2), textureRegion.getRegionWidth(), (textureRegion.getRegionHeight() / 2));
         textureRegionDrawablePressed = new TextureRegionDrawable(textureRegion);
 
@@ -100,6 +113,20 @@ public class Button extends Image {
 
     public Button(TextureRegion region) {
         super(region);
+    }
+
+    public void setButtonWorld(int buttonWorld) {
+
+
+        textureRegion.setRegion(0, 0, texture.getWidth(), texture.getHeight());
+        textureRegionPressed.setRegion(0, 0, texture.getWidth(), texture.getHeight());
+        int buttonWidth = (textureRegion.getRegionWidth() / Constants.howManyWorlds);
+        textureRegion.setRegion((buttonWorld - 1) * buttonWidth, 0, buttonWidth, textureRegion.getRegionHeight() / 2);
+        textureRegionDrawable.setRegion(textureRegion);
+        setDrawable(textureRegionDrawable);
+        textureRegionPressed.setRegion((buttonWorld - 1) * buttonWidth, textureRegionPressed.getRegionHeight() / 2, buttonWidth, textureRegionPressed.getRegionHeight() / 2);
+        textureRegionDrawablePressed.setRegion(textureRegionPressed);
+
     }
 
     @Override
