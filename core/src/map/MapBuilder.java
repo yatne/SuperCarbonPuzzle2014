@@ -88,6 +88,7 @@ public class MapBuilder {
             }
 
             ArrayList<Field> fieldsInARow = new ArrayList<>();
+            int fieldX = 0;
             for (int j = 0; j < rowBlueprint.length(); j++) {
                 String symbol = rowBlueprint.substring(j, j + 1);
 
@@ -95,14 +96,22 @@ public class MapBuilder {
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (block != null) {
-                    fieldsInARow.add(new Field(block.getAttribute("enum"), readBehaviors(block), j, i));
+                    fieldsInARow.add(new Field(block.getAttribute("enum"), readBehaviors(block), fieldX, i));
+                } else if (symbol.equals("[")) {
+                    Element underBlock = getElementByAttributeValue(blocksList, "enum", "EMPTY");
+                    fieldsInARow.add(new Field("EMPTY", readBehaviors(underBlock), fieldX, i));
+                    while (!symbol.equals("]")) {
+                        j++;
+                        symbol = rowBlueprint.substring(j, j + 1);
+
+                    }
                 } else {
                     Element underBlock = getElementByAttributeValue(blocksList, "enum", object.getAttribute("placedOn"));
                     fieldsInARow.add(new Field(underBlock.getAttribute("enum"), readBehaviors(underBlock),
-                            object.getAttribute("enum"), readBehaviors(object), j, i));
+                            object.getAttribute("enum"), readBehaviors(object), fieldX, i));
 
                 }
-
+                fieldX++;
 
             }
             map.add(fieldsInARow);
@@ -128,21 +137,40 @@ public class MapBuilder {
                     rowBlueprint = row.getTextContent();
             }
 
+            int objX = 0;
             for (int j = 0; j < rowBlueprint.length(); j++) {
                 String symbol = rowBlueprint.substring(j, j + 1);
 
+                if (symbol.equals("[")) {
+                    while (!symbol.equals("]")) {
+                        j++;
+                        symbol = rowBlueprint.substring(j, j + 1);
+
+                        Element object = getElementByAttributeValue(objectsList, "representation", symbol);
+
+                        if (object != null) {
+                            Object objToAdd = new Object(ObjectsType.valueOf(object.getAttribute("enum")), objX, i, objects.size());
+                            objects.add(objToAdd);
+                            if (objToAdd.hasBehavior("has-ball")) {
+                                objects.add(new Object(ObjectsType.BALL, j, i, objects.size()));
+                            }
+
+                        }
+
+                    }
+                }
 
                 Element object = getElementByAttributeValue(objectsList, "representation", symbol);
 
                 if (object != null) {
-                    Object objToAdd = new Object(ObjectsType.valueOf(object.getAttribute("enum")), j, i, objects.size());
+                    Object objToAdd = new Object(ObjectsType.valueOf(object.getAttribute("enum")), objX, i, objects.size());
                     objects.add(objToAdd);
                     if (objToAdd.hasBehavior("has-ball")) {
                         objects.add(new Object(ObjectsType.BALL, j, i, objects.size()));
                     }
 
                 }
-
+                objX++;
 
             }
         }

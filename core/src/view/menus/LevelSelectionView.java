@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -16,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import enums.Controls;
+import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
 import view.Alert;
@@ -34,12 +36,14 @@ public class LevelSelectionView extends PanelView {
     private int levelsInWorld;
     private Alert alert;
     private Text starsCount;
+    private Sprite starImage;
     private TextureRegion region;
     private TextureRegionDrawable regionDrawable;
     private TextureRegion touchedRegion;
     private TextureRegionDrawable touchRegionDrawable;
     private TextureRegionDrawable lockedLevel;
     private int world;
+    private Texture level;
 
     public LevelSelectionView(final OrthographicCamera camera, Player player, BitmapFont buttonFont, final MapsInfo mapsInfo) {
         super(camera, buttonFont);
@@ -50,8 +54,8 @@ public class LevelSelectionView extends PanelView {
 
         TextureRegion lockedLevelTexture = new TextureRegion(new Texture("menus/level_locked.png"), 0, 0, 139, 190);
         lockedLevel = new TextureRegionDrawable(lockedLevelTexture);
-        Texture level = new Texture("menus/levelbuttons.png");
-        region = new TextureRegion(level, 139, 0, 139, 190);
+        level = new Texture("menus/levelbuttons.png");
+        region = new TextureRegion(level, 0, 0, 139, 190);
         regionDrawable = new TextureRegionDrawable(region);
 
         touchedRegion = new TextureRegion(level, 139, 190, 139, 190);
@@ -69,9 +73,12 @@ public class LevelSelectionView extends PanelView {
         Texture goldenStar = new Texture("menus/star_golden.png");
         Texture grayStar = new Texture("menus/star_gray.png");
 
-        for (int i = 0; i < 16; i++) {
+        float levelSelectionWidth = camera.viewportWidth;
+        float levelSelectionHeight = camera.viewportWidth + ((camera.viewportHeight - camera.viewportWidth) / 2);
 
-            final LevelButton levelButton = new LevelButton(region, i, camera, levelFont, Color.BLACK, goldenStar, grayStar, i + 1);
+        for (int i = 0; i < 25; i++) {
+
+            final LevelButton levelButton = new LevelButton(region, i, levelSelectionWidth, levelSelectionHeight, levelFont, Color.BLACK, goldenStar, grayStar, i + 1);
 
             levelButton.setLocked(false);
             final int finalI = i + 1;
@@ -103,6 +110,7 @@ public class LevelSelectionView extends PanelView {
             levelButtons.add(levelButton);
         }
 
+
         backButton = new BasicButton(new Texture("menus/buttons.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -112,20 +120,29 @@ public class LevelSelectionView extends PanelView {
             }
         });
 
-        starsCount = new Text((int) (camera.viewportWidth * 4 / 5), (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2), player.getStars());
+        int posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2));
+        int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
 
+        starsCount = new Text(posX, posY, player.getStars());
+        starImage = new Sprite(new Texture("menus/star_golden.png"));
+
+        posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
+        posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
+
+        starImage.setPosition(posX, posY);
+        starImage.setSize(2 * buttonFont.getBounds("999").width, 2 * buttonFont.getBounds("999").width);
     }
 
-    public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo, Image background) {
+    public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo, Image background, float cameraViewPortWidth) {
 
         this.selectedLevel = 0;
 
-        region.setRegion((selectedWorld - 1) * 139, 0, 139, 190);
+        region.setRegion((selectedWorld - 1) * (level.getWidth() / Constants.howManyWorlds), 0, (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2);
         regionDrawable.setRegion(region);
 
         world = selectedWorld;
 
-        touchedRegion.setRegion((selectedWorld - 1) * 139, 190, 139, 190);
+        touchedRegion.setRegion((selectedWorld - 1) * (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2, (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2);
         touchRegionDrawable.setRegion(touchedRegion);
 
         stage.clear();
@@ -141,10 +158,12 @@ public class LevelSelectionView extends PanelView {
             }
             stage.addActor(levelButton);
         }
+        starsCount.setPosX((int) ((cameraViewPortWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2)));
         starsCount.setText(Integer.toString(player.getStars()));
         levelsInWorld = mapsInfo.getMapsCountInWorld(selectedWorld);
         backButton.setButtonWorld(selectedWorld);
         this.background = background;
+
 
     }
 
@@ -172,6 +191,7 @@ public class LevelSelectionView extends PanelView {
         }
 
         backButton.draw(batch, 1, buttonFont);
+        starImage.draw(batch);
         buttonFont.draw(batch, starsCount.getText(), starsCount.getPosX(), starsCount.getPosY());
         batch.end();
 

@@ -142,4 +142,16 @@ public class Button extends Image {
     public TextureRegionDrawable getTextureRegionDrawable() {
         return textureRegionDrawable;
     }
+
+    public void setTextureRegionDrawable(TextureRegionDrawable textureRegionDrawable) {
+        this.textureRegionDrawable = textureRegionDrawable;
+    }
+
+    public TextureRegionDrawable getTextureRegionDrawablePressed() {
+        return textureRegionDrawablePressed;
+    }
+
+    public void setTextureRegionDrawablePressed(TextureRegionDrawable textureRegionDrawablePressed) {
+        this.textureRegionDrawablePressed = textureRegionDrawablePressed;
+    }
 }

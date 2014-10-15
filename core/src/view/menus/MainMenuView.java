@@ -11,11 +11,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
 import view.buttons.BasicButton;
+import view.buttons.SoundButton;
 
 public class MainMenuView extends PanelView {
 
     private BasicButton playButton;
     private BasicButton quitButton;
+    private SoundButton soundButton;
     private Image logo;
     private Controls control;
 
@@ -23,13 +25,17 @@ public class MainMenuView extends PanelView {
         super(camera, buttonFont);
 
         this.logo = new Image(new Texture("menus/logo.png"));
-        logo.setSize(camera.viewportWidth *4/5, camera.viewportWidth *2/5);
-        logo.setPosition(camera.viewportWidth *1/10, camera.viewportHeight - (camera.viewportWidth *3/5));
+        logo.setSize(camera.viewportWidth * 4 / 5, camera.viewportWidth * 2 / 5);
+        logo.setPosition(camera.viewportWidth * 1 / 10, camera.viewportHeight - (camera.viewportWidth * 3 / 5));
 
         playButton = new BasicButton(new Texture("menus/buttons.png"), "Play", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 5), buttonFont, camera);
         quitButton = new BasicButton(new Texture("menus/buttons.png"), "Quit", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 6), buttonFont, camera);
         playButton.setButtonWorld(1);
         quitButton.setButtonWorld(1);
+
+        soundButton = new SoundButton(new Texture("menus/soundon.png"), new Texture("menus/soundoff.png"));
+        soundButton.setSize(camera.viewportWidth / 10, camera.viewportWidth / 10);
+        soundButton.setPosition(camera.viewportWidth - (2 * soundButton.getWidth()), camera.viewportHeight - ((camera.viewportWidth / 5) * 7));
 
         playButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -43,6 +49,7 @@ public class MainMenuView extends PanelView {
         quitButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
+
                 Gdx.app.exit();
 
             }
@@ -54,11 +61,12 @@ public class MainMenuView extends PanelView {
     public void prepareMainMenu(Stage stage, Image background) {
 
         stage.clear();
-                control = Controls.NONE;
+        control = Controls.NONE;
         stage.addActor(playButton);
         stage.addActor(quitButton);
+        stage.addActor(soundButton);
+        this.background = background;
 
-        this.background=background;
     }
 
     public Controls drawMainMenu(SpriteBatch batch) {
@@ -68,6 +76,7 @@ public class MainMenuView extends PanelView {
         logo.draw(batch, 1);
         playButton.draw(batch, 1, buttonFont);
         quitButton.draw(batch, 1, buttonFont);
+        soundButton.draw(batch, 1);
 
         batch.end();
         return this.control;

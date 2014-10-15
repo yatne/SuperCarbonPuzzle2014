@@ -14,6 +14,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.mygdx.game.IActivityRequestHandler;
 import com.mygdx.game.Slider;
+import help.utils.Constants;
 
 import static com.google.android.gms.ads.AdSize.SMART_BANNER;
 
@@ -67,6 +68,7 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
         layout.addView(gameView);
 
 
+
         RelativeLayout.LayoutParams adParams =
                 new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                         RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -75,7 +77,7 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
 
         layout.addView(adView, adParams);
 
-
+        Constants.adHeight=layout.getHeight();
         setContentView(layout);
     }
 

@@ -45,34 +45,15 @@ public class Player {
             oldScore = mapScore.get(map.getMapWorld()).get(map.getMapNumber());
         else
             oldScore = 100;
-        if (mapScore.get(map.getMapWorld()).get(map.getMapNumber()) != null)
+        if (mapStars.get(map.getMapWorld()).get(map.getMapNumber()) != null)
             oldStars = mapStars.get(map.getMapWorld()).get(map.getMapNumber());
         else
             oldStars = 0;
+
         int newScore = map.getMovesTaken();
         int newStars = 0;
 
-        if (map.getGoals().size() == 3) {
-            if (map.getMovesTaken() <= map.getGoals().get(2))
-                newStars = 4;
-            else if (map.getMovesTaken() <= map.getGoals().get(1))
-                newStars = 3;
-            else if (map.getMovesTaken() <= map.getGoals().get(0))
-                newStars = 2;
-            else newStars = 1;
-        } else if (map.getGoals().size() == 2) {
-            if (map.getMovesTaken() <= map.getGoals().get(1))
-                newStars = 3;
-            else if (map.getMovesTaken() <= map.getGoals().get(0))
-                newStars = 2;
-            else newStars = 1;
-        } else if (map.getGoals().size() == 1) {
-            if (map.getMovesTaken() <= map.getGoals().get(0))
-                newStars = 2;
-            else newStars = 1;
-        } else if (map.getGoals().size() == 0) {
-            newStars = 1;
-        }
+        newStars = map.getObtainedStars();
 
         if (newScore < oldScore) {
             mapScore.get(map.getMapWorld()).put(map.getMapNumber(), newScore);
@@ -86,11 +67,9 @@ public class Player {
 
     public void loadPlayer() {
 
-
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
         try {
-
 
             dBuilder = builderFactory.newDocumentBuilder();
             Document document;
@@ -203,7 +182,38 @@ public class Player {
         }
         return stars;
 
+    }
 
+    public int getBestFromLevel(int world, int level) {
+        int best;
+
+        if (mapScore.get(world) == null) {
+            best = 0;
+        } else if (mapScore.get(world).get(level) == null) {
+            best = 0;
+        } else {
+            best = mapScore.get(world).get(level);
+        }
+        return best;
+
+    }
+
+    public int getStarsFromWorld(int world) {
+        int stars = 0;
+
+
+        if (mapStars.get(world) == null) {
+            return 0;
+        } else {
+            int size = mapStars.get(world).size();
+            for (int i = 1; i <= size; i++) {
+                if (mapStars.get(world).get(i) == null) {
+                    size++;
+                } else
+                    stars = stars + mapStars.get(world).get(i);
+            }
+        }
+        return stars;
     }
 
     public int getStars() {

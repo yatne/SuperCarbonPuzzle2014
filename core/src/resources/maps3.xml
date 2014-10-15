@@ -77,16 +77,132 @@
     </map>
 
 
-    <map name="those green fields" number="7" silver="5" unlocked="1">        <!-->40<-->
 
-        <row nr="1">XOOOOO</row>
-        <row nr="2">XOXOOX</row>
-        <row nr="3">OTOBBO</row>
-        <row nr="4">OTOSBO</row>
-        <row nr="5">OTOOOO</row>
-        <row nr="6">XEXXOO</row>
+    <map name="I remember that one" number="7" silver="28" gold="25" plat="23" unlocked="32">
 
+        <row nr="1">OOOSXEX</row>
+        <row nr="2">OOOXE+O</row>
+        <row nr="3">OOOOTTO</row>
+        <row nr="4">OOOOO+O</row>
+        <row nr="5">OOXOOTO</row>
+        <row nr="6">OBSBOOX</row>
+        <row nr="7">OOOOOOX</row>
 
     </map>
+
+    <map name="those green fields" number="8" silver="5" unlocked="0">        <!-->40<-->
+
+        <row nr="1">XXBOOOOO</row>
+        <row nr="2">OOOOOXOB</row>
+        <row nr="3">OOOXOTTX</row>
+        <row nr="4">OXOSTTTE</row>
+        <row nr="5">OBOOXTTX</row>
+        <row nr="6">OXOOOOXB</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OOXOOOOO</row>
+
+    </map>
+
+    <map name="those green fields" number="9" silver="5" unlocked="0">        <!-->40<-->
+
+        <row nr="1">OTOOOOO</row>
+        <row nr="2">OSBOTOX</row>
+        <row nr="3">EOOOOOO</row>
+        <row nr="4">TOSOOXO</row>
+        <row nr="5">OOBOOXO</row>
+               <row nr="6">OOTOTOO</row>
+        <row nr="7">OETOXOO</row>
+
+    </map>
+
+    <map name="those green fields" number="10" silver="5" unlocked="0">        <!-->40<-->
+
+        <row nr="1">OBOXOTXX</row>
+        <row nr="2">BSBXTTOB</row>
+        <row nr="3">OBOXTTXO</row>
+        <row nr="4">TXOXOOXO</row>
+        <row nr="5">TOOXBOXO</row>
+        <row nr="6">TOTOOOXO</row>
+        <row nr="7">XOOXBBXO</row>
+        <row nr="8">OOTXBBXE</row>
+
+    </map>
+
+    <map name="a little more complicated" number="11" silver="9" unlocked="7">  <!--> 9 <-->
+
+        <row nr="1">TXTXOOXO</row>
+        <row nr="2">SOOOOOTO</row>
+        <row nr="3">OOXTEOOX</row>
+        <row nr="4">EXTOXOOT</row>
+        <row nr="5">TOOOOOSX</row>
+        <row nr="6">TOSOTOOO</row>
+        <row nr="7">XOOTEOOX</row>
+        <row nr="8">OTXOXTXT</row>
+
+    </map>
+
+    <map name="a little more complicated" number="12" silver="9" unlocked="7">  <!--> 9 <-->
+
+        <row nr="1">sOOOE</row>
+        <row nr="2">SOOOe</row>
+        <row nr="3">OOOOO</row>
+        <row nr="4">SOOOE</row>
+        <row nr="5">sOOOe</row>
+
+    </map>
+
+    <map name="destroyer test" number="13" unlocked="0">
+        <row nr="1">XSOXE</row>
+        <row nr="2">OOOXO</row>
+        <row nr="3">*OOXO</row>
+        <row nr="4">OXO@O</row>
+        <row nr="5">OOO@O</row>
+
+    </map>
+
+
+    <map name="destroyer test" number="14" unlocked="0">
+        <row nr="1">SOE</row>
+        <row nr="2">O[+B]O</row>
+        <row nr="3">*OO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="15" silver="9" unlocked="7">  <!--> 9 <-->
+
+        <row nr="1">XOOXOO</row>
+        <row nr="2">[l#]---rO</row>
+        <row nr="3">OOOOSO</row>
+        <row nr="4">OOOEOO</row>
+        <row nr="5">OXOOOO</row>
+        <row nr="6">XOOOOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="16" silver="9" unlocked="7">  <!--> 9 <-->
+
+        <row nr="1">XOXSOXO</row>
+        <row nr="2">OO@OOXO</row>
+        <row nr="3">OOOX@OO</row>
+        <row nr="4">OOOOOOE</row>
+        <row nr="5">OOOO*OX</row>
+        <row nr="6">OOOOOXO</row>
+        <row nr="7">O@OOOOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="17" silver="9" unlocked="7">  <!--> 9 <-->
+
+        <row nr="1">[l#]--rOOS</row>
+        <row nr="2">OOl-[-#]-3</row>
+        <row nr="3">Ol-3OO|</row>
+        <row nr="4">123|OO[|#]</row>
+        <row nr="5">4[5#]6|OO|</row>
+        <row nr="6">789|OXd</row>
+        <row nr="7">l[-#]-9XEX</row>
+
+    </map>
+
 
 </maps>

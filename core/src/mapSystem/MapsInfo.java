@@ -55,11 +55,29 @@ public class MapsInfo {
         }
     }
 
-    public int getMapsCountInWorld(int world){
+    public int getMapsCountInWorld(int world) {
         if (mapsInfo.get(world) == null) {
             return -1;
         } else {
             return mapsInfo.get(world).size();
         }
+    }
+
+    public int getStarsToObtainInWorld(int world) {
+
+        int stars = 0;
+        int size = mapsInfo.get(world).size();
+
+        if (mapsInfo.get(world) == null) {
+            return 0;
+        } else {
+            for (int i = 1; i <= size; i++) {
+                if (mapsInfo.get(world).get(i) == null) {
+                    size++;
+                } else
+                    stars = stars + mapsInfo.get(world).get(i).getStarsToObtain();
+            }
+        }
+        return stars;
     }
 }

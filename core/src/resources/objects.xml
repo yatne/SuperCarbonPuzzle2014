@@ -4,11 +4,32 @@
         <behavior>moving</behavior>
         <behavior>solid</behavior>
         <behavior>objective</behavior>
+        <behavior>obj1</behavior>
     </object>
 
     <object name="end" enum="END" texture="end.png" representation="E" placedOn="EMPTY">
         <behavior>solid</behavior>
         <behavior>objective-end</behavior>
+        <behavior>obj1</behavior>
+    </object>
+
+
+    <object name="start2" enum="BALL2" texture="ball2.png" representation="s" placedOn="EMPTY">
+        <behavior>moving</behavior>
+        <behavior>solid</behavior>
+        <behavior>objective</behavior>
+        <behavior>obj2</behavior>
+    </object>
+
+
+    <object name="finished2" enum="FINISHED2" texture="fin2.png">
+        <behavior>solid</behavior>
+    </object>
+
+    <object name="end2" enum="END2" texture="end2.png" representation="e" placedOn="EMPTY">
+        <behavior>solid</behavior>
+        <behavior>objective-end</behavior>
+        <behavior>obj2</behavior>
     </object>
 
     <object name="box" enum="BOX" texture="box.png" representation="B" placedOn="EMPTY">
@@ -74,21 +95,6 @@
         <behavior>portal-lower</behavior>
     </object>
 
-    <object name="Switch" enum="SWITCH" texture="button.png" representation="b" placedOn="EMPTY">
-        <behavior>switch</behavior>
-        <behavior>empty</behavior>
-    </object>
-
-    <object name="door-closed" enum="DOORC" texture="door.png" representation="d" placedOn="EMPTY">
-        <behavior>switch-door</behavior>
-        <behavior>solid</behavior>
-    </object>
-
-    <object name="door-open" enum="DOORO" texture="door-open.png" representation="o" placedOn="EMPTY">
-        <behavior>switch-door</behavior>
-        <behavior>empty</behavior>
-    </object>
-
     <object name="trap" enum="TRAP" texture="trap.png" representation="T" placedOn="EMPTY">
         <behavior>trap</behavior>
         <behavior>empty</behavior>
@@ -106,6 +112,140 @@
     <object name="nothing" enum="NOTHING" texture="nothing.png">
 
         <behavior>empty</behavior>
+    </object>
+
+    <object name="destroyer" enum="DESTROYER" texture="destroyer.png" representation="*" placedOn="EMPTY">
+        <behavior>moving</behavior>
+        <behavior>destroy</behavior>
+    </object>
+
+    <object name="tobedestoyed" enum="TBD" texture="to_destroy.png" representation="@" placedOn="EMPTY">
+        <behavior>solid</behavior>
+        <behavior>todestroy</behavior>
+    </object>
+
+    <object name="destroyed" enum="DESTROYED" texture="destroyed.png" placedOn="EMPTY">
+        <behavior>empty</behavior>
+    </object>
+
+    <object name="onRailes" enum="RAILED" texture="gwb.png" placedOn="EMPTY" representation="#">
+        <behavior>solid</behavior>
+        <behavior>railed</behavior>
+    </object>
+
+    <object name="crossRail" enum="CROSS_R" texture="rails/x.png" placedOn="EMPTY" representation="5">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-u</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+    <object name="horizontal" enum="HORIZONTAL_R" texture="rails/h.png" placedOn="EMPTY" representation="-">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-r</behavior>
+    </object>
+
+
+    <object name="vertical" enum="VERTICAL_R" texture="rails/v.png" placedOn="EMPTY" representation="|">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-u</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+
+    <object name="lowerEnd" enum="VERT_END_DOWN" texture="rails/u.png" placedOn="EMPTY" representation="d">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+
+    <object name="upperEnd" enum="VERT_END_UP" texture="rails/d.png" placedOn="EMPTY" representation="u">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-u</behavior>
+    </object>
+
+
+    <object name="rightEnd" enum="HOR_END_RIGHT" texture="rails/l.png" placedOn="EMPTY" representation="r">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-r</behavior>
+    </object>
+
+
+    <object name="leftEnd" enum="HOR_END_LEFT" texture="rails/r.png" placedOn="EMPTY" representation="l">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+    </object>
+
+    <object name="up-right-turn" enum="UP_RIGHT" texture="rails/dr.png" placedOn="EMPTY" representation="1">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-u</behavior>
+    </object>
+
+    <object name="up-left-turn" enum="UP_LEFT" texture="rails/dl.png" placedOn="EMPTY" representation="3">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-u</behavior>
+    </object>
+
+    <object name="down-left-turn" enum="DOWN_LEFT" texture="rails/ul.png" placedOn="EMPTY" representation="9">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+    <object name="down-right-turn" enum="DOWN_RIGHT" texture="rails/ur.png" placedOn="EMPTY" representation="7">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+    <object name="T-cross-no-up" enum="T_NO_UP" texture="rails/nu.png" placedOn="EMPTY" representation="2">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-u</behavior>
+    </object>
+
+
+    <object name="T-cross-no-down" enum="T_NO_DOWN" texture="rails/nd.png" placedOn="EMPTY" representation="8">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+
+    <object name="T-cross-no-right" enum="T_NO_RIGHT" texture="rails/nr.png" placedOn="EMPTY" representation="6">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-r</behavior>
+        <behavior>rail-u</behavior>
+        <behavior>rail-d</behavior>
+    </object>
+
+
+    <object name="T-cross-no-left" enum="T_NO_LEFT" texture="rails/nl.png" placedOn="EMPTY" representation="4">
+        <behavior>empty</behavior>
+        <behavior>rail</behavior>
+        <behavior>rail-l</behavior>
+        <behavior>rail-u</behavior>
+        <behavior>rail-d</behavior>
     </object>
 
 </objects>

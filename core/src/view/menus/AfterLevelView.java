@@ -18,20 +18,32 @@ import map.Map;
 import mapSystem.MapsInfo;
 import player.Player;
 import view.Alert;
+import view.Star;
 import view.Text;
 import view.buttons.Button;
+
+import java.util.ArrayList;
 
 public class AfterLevelView extends PanelView {
 
     Controls control;
-    BitmapFont font;
-    String textString;
+    BitmapFont bigFont;
+    BitmapFont smallFont;
     Text text;
+    Text movesTakenText;
+    int starsToObtain;
+    int starsObtained;
+    Texture goldenStar;
+    Texture grayStar;
+    ArrayList<Star> starsList;
+    float starPosY;
+    float starSize;
     Button levelSelectButton;
     Button retryButton;
     Button nextLevelButton;
     boolean drawNextLevelButton;
     Alert alert;
+    boolean allStarsObtained;
     int mapNumber;
     int mapWorld;
 
@@ -40,30 +52,47 @@ public class AfterLevelView extends PanelView {
 
         drawNextLevelButton = true;
         control = Controls.NONE;
-
+        starsList = new ArrayList<>();
         alert = new Alert(camera);
 
-
         Texture buttonText = new Texture("menus/buttons.png");
+        goldenStar = new Texture("menus/star_golden.png");
+        grayStar = new Texture("menus/star_gray.png");
 
         float width = camera.viewportWidth / 3;
         float height = (((camera.viewportHeight - camera.viewportWidth) / 2) * 3 / 5);
         float posY = height / 2;
 
+        float textPanelHeight = camera.viewportWidth + ((camera.viewportHeight - camera.viewportWidth) / 2);
+        float maxBigFontSize = textPanelHeight / 9;
+
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
-        font.setColor(Color.BLACK);
+
+        bigFont = generator.generateFont((int) maxBigFontSize);
+        while (bigFont.getBounds("Level 25 Completed").width > camera.viewportWidth) {
+            maxBigFontSize--;
+            bigFont = generator.generateFont((int) maxBigFontSize);
+        }
+        smallFont = generator.generateFont((int) (textPanelHeight) / 12);
+
+
         this.buttonFont = generator.generateFont((int) (height * 3 / 4));
         this.buttonFont.setColor(Color.BLACK);
         generator.dispose();
+
+        text = new Text(0, (int) (camera.viewportHeight - textPanelHeight / 35 - textPanelHeight / 25), "");
+        movesTakenText = new Text(0, (int) (camera.viewportHeight - (textPanelHeight / 3) - (textPanelHeight / 100) - textPanelHeight / 25), "moves taken:\n30");
+
+        starSize = textPanelHeight / 7;
+        starPosY = (camera.viewportHeight - textPanelHeight / 30 - textPanelHeight / 25 - 3 * bigFont.getCapHeight() / 2 - starSize);
 
         retryButton = new Button(buttonText, "retry", 0, posY, width, height, this.buttonFont);
         levelSelectButton = new Button(buttonText, "menu", width, posY, width, height, this.buttonFont);
         nextLevelButton = new Button(buttonText, "next", 2 * width, posY, width, height, this.buttonFont);
 
-        text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
+
         retryButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
@@ -96,25 +125,66 @@ public class AfterLevelView extends PanelView {
         }
     }
 
-    public void prepareAfterLevelView(Stage stage, Map map, Player player, MapsInfo mapsInfo, Image background) {
+    public void prepareAfterLevelView(Stage stage, Map map, Player player, MapsInfo mapsInfo, Image background, OrthographicCamera camera) {
 
         control = Controls.NONE;
         drawNextLevelButton = true;
-        int starsObtained = player.getStarsFromLevel(map.getMapWorld(), map.getMapNumber());               // TODO: zrobić dobrze!
+
+        starsList.clear();
+        starsToObtain = mapsInfo.getStarsToObtain(map.getMapWorld(), map.getMapNumber());
+        starsObtained = map.getObtainedStars();
+        float theMiddle = camera.viewportWidth / 2;
+        float starsSpan = starSize / 10;
+        if (starsToObtain == 2) {
+            starsList.add(new Star(theMiddle - starSize - (starsSpan / 2), starPosY, (starsObtained >= 1)));
+            starsList.add(new Star(theMiddle + (starsSpan / 2), starPosY, (starsObtained >= 2)));
+        } else if (starsToObtain == 3) {
+            starsList.add(new Star(theMiddle - 3 * starSize / 2 - starsSpan, starPosY, (starsObtained >= 1)));
+            starsList.add(new Star(theMiddle - starSize / 2, starPosY, (starsObtained >= 2)));
+            starsList.add(new Star(theMiddle + starSize / 2 + starsSpan, starPosY, (starsObtained >= 3)));
+        } else if (starsToObtain == 4) {
+            starsList.add(new Star(theMiddle - 2 * starSize - 3 * starsSpan / 2, starPosY, (starsObtained >= 1)));
+            starsList.add(new Star(theMiddle - starSize - starsSpan / 2, starPosY, (starsObtained >= 2)));
+            starsList.add(new Star(theMiddle + starsSpan / 2, starPosY, (starsObtained >= 3)));
+            starsList.add(new Star(theMiddle + starSize + 3 * starsSpan / 2, starPosY, (starsObtained >= 4)));
+        } else if (starsToObtain == 1) {
+            starsList.add(new Star(theMiddle - starSize / 2, starPosY, (starsObtained >= 1)));
+        }
+
+
+        int movesTaken = map.getMovesTaken();
+        int yourBest = player.getBestFromLevel(map.getMapWorld(), map.getMapNumber());
+        int nextStar = 0;
+        allStarsObtained = true;
+
+        if (map.getMapWorld() == 1 || map.getMapWorld() == 2) {
+            bigFont.setColor(Color.BLACK);
+            smallFont.setColor(Color.BLACK);
+        } else if (map.getMapWorld() == 3) {
+            bigFont.setColor(Color.ORANGE);
+            smallFont.setColor(Color.ORANGE);
+        }
+
+        for (Integer goal : map.getGoals()) {
+            if (yourBest > goal) {
+                allStarsObtained = false;
+                if (goal > nextStar) {
+                    nextStar = goal;
+                }
+            }
+        }
+
+
+        movesTakenText.setText("moves t\baken:\n" + movesTaken + "\nyour best:\n" + yourBest);
+        if (!allStarsObtained) {
+
+            movesTakenText.setText(movesTakenText.getText() + "\nnext star:\n" + nextStar);
+        }
 
         mapNumber = map.getMapNumber();
         mapWorld = map.getMapWorld();
-        textString = "Congratulations!\n " +
-                "\n" +
-                "You've made " + map.getMovesTaken() + " moves\n and obtained " + starsObtained + "stars.\n";
 
-        if (starsObtained == map.getGoals().size() + 1) {
-            textString = textString + "Thats all you can get for this level";
-        } else {
-            textString = textString + "You will get next star if you make " + map.getGoals().get(starsObtained - 1) + " or less moves";
-        }
-
-        text.setText(textString);
+        text.setText("Level " + mapNumber + " complete");
 
         if (mapNumber >= mapsInfo.getMapsCountInWorld(mapWorld)) {
             drawNextLevelButton = false;
@@ -146,12 +216,28 @@ public class AfterLevelView extends PanelView {
         }
 
         batch.begin();
+
+
         background.draw(batch, 1);
-        font.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+        bigFont.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+        if (allStarsObtained)
+            smallFont.drawWrapped(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY() - 2 * smallFont.getCapHeight(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+        else
+            smallFont.drawWrapped(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
         retryButton.draw(batch, 1, this.buttonFont);
         levelSelectButton.draw(batch, 1, this.buttonFont);
         if (drawNextLevelButton)
             nextLevelButton.draw(batch, 1, this.buttonFont);
+
+        for (Star star : starsList) {
+            if (star.isGold()) {
+                batch.draw(goldenStar, star.getPosX(), starPosY, starSize, starSize);
+            } else {
+                batch.draw(grayStar, star.getPosX(), starPosY, starSize, starSize);
+            }
+
+        }
+
         batch.end();
 
         if (alert.isActive()) {

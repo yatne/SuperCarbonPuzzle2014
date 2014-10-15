@@ -47,12 +47,11 @@ public class MapView {
     private Image background;
     private TextureRegionDrawable topPanelRegion;
     private TextureRegionDrawable bottomPanelRegion;
-    private Image topPanel;
-    private Image bottomPanel;
     private Button reset;
     private Button menu;
     private BitmapFont counterFont;
     private BitmapFont buttonFont;
+    private BitmapFont levelNameFont;
     private Controls control;
     private Text levelName;
     private int watchDog;
@@ -100,17 +99,11 @@ public class MapView {
         inputMultiplexer = new InputMultiplexer();
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
-        bottomPanel = new Image(new Texture("bottom_panel.png"));
-        topPanel = new Image(new Texture("upper_panel.png"));
 
         reset = new Button(new Texture("menus/buttons.png"), "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
         menu = new Button(new Texture("menus/buttons.png"), "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
 
 
-        bottomPanel.setPosition(0, 0);
-        bottomPanel.setSize(camera.viewportWidth, panelsHeight);
-        topPanel.setPosition(0, camera.viewportHeight - panelsHeight);
-        topPanel.setSize(camera.viewportWidth, panelsHeight);
 
         reset.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
@@ -130,7 +123,7 @@ public class MapView {
         });
 
         levelName = new Text(0,
-                (int) (camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) + counterFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - counterFont.getCapHeight()) / 2),
+                (int) (camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) - Constants.adHeight + levelNameFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - levelNameFont.getCapHeight()) / 2),
                 "");
 
         sprites = new ArrayList<>();
@@ -180,7 +173,7 @@ public class MapView {
 
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
         levelName.setText(help.utils.MapsReader.getMapName(map));
-        levelName.setPosX((int) ((camera.viewportWidth / 2) - (counterFont.getBounds(MapsReader.getMapName(map)).width / 2)));
+        levelName.setPosX((int) ((camera.viewportWidth / 2) - (levelNameFont.getBounds(MapsReader.getMapName(map)).width / 2)));
         this.background = background;
 
 
@@ -206,7 +199,8 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")))
+            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")) || sprite.getTexture().equals(textureHashMap.get("RAILED")))
+
                 sprite.draw(batch);
         }
         batch.end();
@@ -275,7 +269,7 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")))
+            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")) || sprite.getTexture().equals(textureHashMap.get("RAILED")))
                 sprite.draw(batch);
         }
 
@@ -351,7 +345,11 @@ public class MapView {
                 cleanEndSprite(desiredSprite);
                 sprite.setTexture(textureHashMap.get("FINISHED"));
             }
-
+        if (sprite.getTexture().equals(textureHashMap.get("BALL2")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED2"))) {
+                cleanEndSprite(desiredSprite);
+                sprite.setTexture(textureHashMap.get("FINISHED2"));
+            }
 
         if (desiredSprite.getTexture().equals(textureHashMap.get("NOTHING"))) {
             if (checkOtherSpriteInThatPlace(sprite))
@@ -548,8 +546,6 @@ public class MapView {
     public void drawUI(Map map, OrthographicCamera camera, SpriteBatch batch) {
         batch.begin();
 
-        topPanel.draw(batch, 1);
-        bottomPanel.draw(batch, 1);
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
         topPanelRegion.draw(batch, 0, camera.viewportHeight - panelsHeight, camera.viewportWidth, panelsHeight);
         bottomPanelRegion.draw(batch, 0, 0, camera.viewportWidth, panelsHeight);
@@ -564,7 +560,7 @@ public class MapView {
 
         counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
-        counterFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
+        levelNameFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
 
         batch.end();
     }
@@ -574,8 +570,10 @@ public class MapView {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
         buttonFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 5));
+        levelNameFont = generator.generateFont((int) (((camera.viewportHeight - camera.viewportWidth) / 2)-Constants.adHeight)*2/3);
         counterFont.setColor(Color.BLACK);
         buttonFont.setColor(Color.BLACK);
+        levelNameFont.setColor(Color.BLACK);
         generator.dispose();
 
 

@@ -64,4 +64,8 @@ public class Text {
     public Color getColor() {
         return color;
     }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
 }
