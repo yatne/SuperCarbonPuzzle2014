@@ -1,7 +1,9 @@
 package sound;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
+import enums.Sounds;
 import help.utils.Constants;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -19,6 +21,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class SoundActivator {
 
@@ -94,6 +97,17 @@ public class SoundActivator {
         }
 
     }
+
+    public static HashMap<Sounds, Sound> soundHashMap() {
+        HashMap<Sounds, Sound> soundHashMap = new HashMap<>();
+        soundHashMap.put(Sounds.SLIDE, Gdx.audio.newSound(Gdx.files.internal("sounds/slide.wav")));
+        soundHashMap.put(Sounds.END, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
+        soundHashMap.put(Sounds.RED, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
+        soundHashMap.put(Sounds.GREEN, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
+        soundHashMap.put(Sounds.DESTROY, Gdx.audio.newSound(Gdx.files.internal("sounds/gray.wav")));
+        return soundHashMap;
+    }
+
 }
 
 

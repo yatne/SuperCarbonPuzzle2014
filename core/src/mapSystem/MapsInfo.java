@@ -1,5 +1,6 @@
 package mapSystem;
 
+import help.utils.Constants;
 import help.utils.MapsReader;
 import org.w3c.dom.NodeList;
 
@@ -12,7 +13,7 @@ public class MapsInfo {
     public MapsInfo() {
         mapsInfo = new HashMap<>();
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= Constants.howManyWorlds; i++) {
             HashMap<Integer, MapInfo> levels = new HashMap<>();
             NodeList maps = MapsReader.getMapsList("/resources/maps" + i + ".xml");
             for (int j = 1; j <= maps.getLength(); j++) {

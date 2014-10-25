@@ -18,7 +18,8 @@ import help.utils.Constants;
 import map.Map;
 import mapSystem.MapsInfo;
 import player.Player;
-import sound.SoundActivator;
+import sound.ClickSound;
+import textures.TextureHolder;
 import view.MapView;
 import view.menus.*;
 
@@ -94,6 +95,9 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void create() {
 
+        ClickSound.loadSound();
+        TextureHolder.loadTextures();
+
         worldSelectWasMade = false;
         levelSelectWasMade = false;
         mapViewWasMade = false;
@@ -107,7 +111,6 @@ public class Slider extends ApplicationAdapter {
         if (shader.getLog().length() != 0)
             System.out.println(shader.getLog());
 
-
         mainBatch = new SpriteBatch();
         mainBatch.setShader(shader);
 
@@ -117,11 +120,8 @@ public class Slider extends ApplicationAdapter {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         gameState = BEFORE_GAME;
-
         keyboardController = new KeyboardController();
         myRequestHandler.showAds(false);
-
-        SoundActivator.loadSettings();
 
     }
 
@@ -150,7 +150,7 @@ public class Slider extends ApplicationAdapter {
                 selectedWorld = 1;
 
                 backgrounds = new ArrayList<>();
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < Constants.howManyWorlds; i++) {
                     backgrounds.add(new Image(new Texture("menus/background" + (i + 1) + ".png")));
                     backgrounds.get(i).setSize(camera.viewportWidth, camera.viewportHeight);
                 }
@@ -185,7 +185,6 @@ public class Slider extends ApplicationAdapter {
 
                     worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo, backgrounds.get(0), camera.viewportWidth);
                     gameState = WORLD_SELECT;
-                    System.out.println(Constants.soundOn);
                 }
                 break;
             }

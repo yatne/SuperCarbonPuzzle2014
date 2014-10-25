@@ -15,11 +15,11 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import controllers.GestureController;
 import enums.Controls;
+import enums.Sounds;
 import help.utils.BlocksReader;
 import help.utils.Constants;
 import help.utils.MapsReader;
@@ -29,22 +29,23 @@ import map.Map;
 import map.Object;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import sound.SoundActivator;
+import textures.TextureHolder;
 import view.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 public class MapView {
 
     private InputMultiplexer inputMultiplexer;
     private GestureDetector gestureDetector;
     private HashMap<String, Texture> textureHashMap;
+    private HashMap<Sounds, Sound> soundHashMap;
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
     private HashMap<Sprite, Integer> portalStates;
     private GestureController gestureController;
-    private Image background;
     private TextureRegionDrawable topPanelRegion;
     private TextureRegionDrawable bottomPanelRegion;
     private Button reset;
@@ -57,13 +58,8 @@ public class MapView {
     private int watchDog;
     private ArrayList<TextureRegion> backgrounds;
     //----------------------------------
-    private float siatiCountDown;
-    private Image siati;
-    private Sound toasty;
 
     public MapView(OrthographicCamera camera) {
-
-        siatiCountDown = 0;
 
 
         watchDog = 0;
@@ -75,7 +71,7 @@ public class MapView {
         NodeList objectsList = ObjectsReader.getObjectsList();
 
         backgrounds = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < Constants.howManyWorlds; i++) {
             backgrounds.add(new TextureRegion(new Texture("menus/background" + (i + 1) + ".png")));
 
         }
@@ -85,7 +81,7 @@ public class MapView {
             Element block = (Element) blocksList.item(i);
             textureHashMap.put(
                     block.getAttribute("enum"),
-                    new Texture(Constants.skin + "/" + block.getAttribute("texture"))
+                    new Texture("classic/" + block.getAttribute("texture"))
             );
         }
         for (int i = 0; i < objectsList.getLength(); i++) {
@@ -96,13 +92,15 @@ public class MapView {
             );
         }
 
+
+        soundHashMap = SoundActivator.soundHashMap();
+
         inputMultiplexer = new InputMultiplexer();
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
 
-        reset = new Button(new Texture("menus/buttons.png"), "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
-        menu = new Button(new Texture("menus/buttons.png"), "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
-
+        reset = new Button(TextureHolder.buttonsTexture, "Reset", (1 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
+        menu = new Button(TextureHolder.buttonsTexture, "Menu", (6 * camera.viewportWidth) / 10, panelsHeight / 5, (3 * camera.viewportWidth) / 10, (3 * panelsHeight) / 5, buttonFont);
 
 
         reset.addListener(new ClickListener() {
@@ -136,14 +134,6 @@ public class MapView {
         control = Controls.NONE;
 
 
-        //---------------------------------
-
-        siati = new Image(new Texture("siati.png"));
-        siati.setSize(camera.viewportWidth, camera.viewportHeight);
-        toasty = Gdx.audio.newSound(Gdx.files.internal("toasty.mp3"));
-
-        //---------------------------------
-
     }
 
     public void prepareMapUI(OrthographicCamera camera, Map map, Stage stage) {
@@ -155,6 +145,14 @@ public class MapView {
         Gdx.input.setInputProcessor(inputMultiplexer);
         stage.clear();
 
+        if (map.getMapWorld() == 1 || map.getMapWorld() == 2 || map.getMapWorld() == 5) {
+            counterFont.setColor(Color.BLACK);
+        } else if (map.getMapWorld() == 3) {
+            counterFont.setColor(Constants.thirdWorldTextColor);
+        } else if (map.getMapWorld() == 4) {
+            counterFont.setColor(Constants.fourthWorldTextColor);
+        }
+
         stage.addActor(reset);
         stage.addActor(menu);
 
@@ -164,17 +162,16 @@ public class MapView {
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
 
-        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 0, 500, 200);
+        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 0, 450, 200);
         topPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
 
-        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 300, 500, 200);
+        backgrounds.get(map.getMapWorld() - 1).setRegion(0, 300, 450, 200);
         bottomPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
 
 
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
         levelName.setText(help.utils.MapsReader.getMapName(map));
         levelName.setPosX((int) ((camera.viewportWidth / 2) - (levelNameFont.getBounds(MapsReader.getMapName(map)).width / 2)));
-        this.background = background;
 
 
     }
@@ -188,9 +185,6 @@ public class MapView {
 
     public void drawMap(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
-        if (siatiCountDown > 0)
-            siatiCountDown = siatiCountDown - (Gdx.graphics.getDeltaTime());
-
         drawStaticMap(map, camera, batch);
         batch.begin();
 
@@ -199,22 +193,21 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")) || sprite.getTexture().equals(textureHashMap.get("RAILED")))
+            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL"))
+                    || sprite.getTexture().equals(textureHashMap.get("BALL2")) || sprite.getTexture().equals(textureHashMap.get("BOX"))
+                    || sprite.getTexture().equals(textureHashMap.get("RAILED")))
 
                 sprite.draw(batch);
         }
         batch.end();
         drawUI(map, camera, batch);
 
-        batch.begin();
-        if (siatiCountDown > 0) {
-            siati.draw(batch, 1);
-        }
-        batch.end();
     }
 
     public void prepareAnimation() {
         gestureController.setGestureField(0, 0, 0, 0);
+        if (Constants.soundOn)
+            soundHashMap.get(Sounds.SLIDE).play();
     }
 
     public void afterAnimation(OrthographicCamera camera) {
@@ -224,20 +217,11 @@ public class MapView {
 
     public boolean drawAnimation(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
-        if (siatiCountDown > 0)
-            siatiCountDown = siatiCountDown - (Gdx.graphics.getDeltaTime());
-
         watchDog++;
 
         drawStaticMap(map, camera, batch);
 
         batch.begin();
-        Random random = new Random();
-        int rand = random.nextInt(10000);
-        if (rand == 5) {
-            toasty.play();
-            siatiCountDown = 1;
-        }
 
         ArrayList<Sprite> wantedSprites = loadSpritesList(map, camera);
 
@@ -269,18 +253,15 @@ public class MapView {
         }
 
         for (Sprite sprite : sprites) {
-            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL")) || sprite.getTexture().equals(textureHashMap.get("BOX")) || sprite.getTexture().equals(textureHashMap.get("RAILED")))
+            if (sprite.getTexture().equals(textureHashMap.get("DESTROYER")) || sprite.getTexture().equals(textureHashMap.get("BALL"))
+                    || sprite.getTexture().equals(textureHashMap.get("BALL2")) || sprite.getTexture().equals(textureHashMap.get("BOX"))
+                    || sprite.getTexture().equals(textureHashMap.get("RAILED")))
                 sprite.draw(batch);
         }
 
 
         batch.end();
         drawUI(map, camera, batch);
-        batch.begin();
-        if (siatiCountDown > 0) {
-            siati.draw(batch, 1);
-        }
-        batch.end();
 
         if (watchDog > 50) {
             createSpritesList(map, camera);
@@ -344,11 +325,21 @@ public class MapView {
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
                 cleanEndSprite(desiredSprite);
                 sprite.setTexture(textureHashMap.get("FINISHED"));
+
+                if (Constants.soundOn) {
+                    Gdx.input.vibrate(100);
+                    soundHashMap.get(Sounds.END).play();
+                }
             }
         if (sprite.getTexture().equals(textureHashMap.get("BALL2")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED2"))) {
                 cleanEndSprite(desiredSprite);
                 sprite.setTexture(textureHashMap.get("FINISHED2"));
+
+                if (Constants.soundOn) {
+                    Gdx.input.vibrate(100);
+                    soundHashMap.get(Sounds.END).play();
+                }
             }
 
         if (desiredSprite.getTexture().equals(textureHashMap.get("NOTHING"))) {
@@ -357,14 +348,29 @@ public class MapView {
         }
 
         if (desiredSprite.getTexture().equals(textureHashMap.get("TRAPA"))) {
-            if (checkOtherSpriteInThatPlace(sprite))
+            if (checkOtherSpriteInThatPlace(sprite)) {
                 sprite.setTexture(textureHashMap.get("TRAPA"));
+                if (Constants.soundOn)
+                    soundHashMap.get(Sounds.RED).play();
+            }
         }
 
         if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
-                if (checkOtherSpriteInThatPlace(sprite))
+                if (checkOtherSpriteInThatPlace(sprite)) {
                     sprite.setTexture(desiredSprite.getTexture());
+                    if (Constants.soundOn)
+                        soundHashMap.get(Sounds.GREEN).play();
+                }
+            }
+
+        if (sprite.getTexture().equals(textureHashMap.get("TBD")) || spriteStates.get(sprite) != 0)
+            if (desiredSprite.getTexture().equals(textureHashMap.get("DESTROYED"))) {
+                if (checkOtherSpriteInThatPlace(sprite)) {
+                    sprite.setTexture(desiredSprite.getTexture());
+                    if (Constants.soundOn)
+                        soundHashMap.get(Sounds.DESTROY).play();
+                }
             }
 
         if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
@@ -375,8 +381,11 @@ public class MapView {
 
         if (sprite.getTexture().equals(textureHashMap.get("GWB")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("CREATED"))) {
-                if (!checkOtherSpriteInThatPlace(sprite))
+                if (!checkOtherSpriteInThatPlace(sprite)) {
                     sprite.setTexture(desiredSprite.getTexture());
+                    if (Constants.soundOn)
+                        soundHashMap.get(Sounds.GREEN).play();
+                }
             }
 
         if (sprite.getTexture().equals(textureHashMap.get("GWRB")) || spriteStates.get(sprite) != 0)
@@ -418,13 +427,18 @@ public class MapView {
         help.utils.HelpUtils.sortById(objects);
 
         for (Object object : objects) {
-            Texture texture = textureHashMap.get(object.getObjectsType().toString());
+
+            String objectEnum = object.getObjectsType().toString();
+
+            Texture texture = textureHashMap.get(objectEnum);
             Sprite sprite = new Sprite(texture);
             sprite.setPosition(object.getX() * width * scaleX, object.getY() * width * scaleY + (offset / 2));
             sprite.setSize(width * scaleX, width * scaleY);
             sprites.add(sprite);
             spriteStates.put(sprite, 0);
             portalStates.put(sprite, 0);
+
+
         }
 
     }
@@ -485,7 +499,7 @@ public class MapView {
     }
 
     public int getIndexOfOtherSpriteInThatPlace(Sprite sprite) {
-        boolean isThere = false;
+
         for (int i = 0; i < sprites.size(); i++) {
             if (isSpriteInTheSamePlace(sprites.get(i), sprite)) {
                 if (!sprites.get(i).equals(sprite)) {
@@ -545,6 +559,9 @@ public class MapView {
 
     public void drawUI(Map map, OrthographicCamera camera, SpriteBatch batch) {
         batch.begin();
+        if (map.getMapWorld() == 5) {
+            buttonFont.setColor(Constants.fifthWorldButtonColor);
+        }
 
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
         topPanelRegion.draw(batch, 0, camera.viewportHeight - panelsHeight, camera.viewportWidth, panelsHeight);
@@ -560,8 +577,9 @@ public class MapView {
 
         counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
-        levelNameFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
+        //levelNameFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
 
+        buttonFont.setColor(Color.BLACK);
         batch.end();
     }
 
@@ -570,7 +588,7 @@ public class MapView {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
         buttonFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 5));
-        levelNameFont = generator.generateFont((int) (((camera.viewportHeight - camera.viewportWidth) / 2)-Constants.adHeight)*2/3);
+        levelNameFont = generator.generateFont((int) (((camera.viewportHeight - camera.viewportWidth) / 2) - Constants.adHeight) * 2 / 3);
         counterFont.setColor(Color.BLACK);
         buttonFont.setColor(Color.BLACK);
         levelNameFont.setColor(Color.BLACK);

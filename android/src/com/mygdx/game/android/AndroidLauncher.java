@@ -1,5 +1,6 @@
 package com.mygdx.game.android;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -43,6 +44,8 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+        AppRater.app_launched(this);
         RelativeLayout layout = new RelativeLayout(this);
 
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
@@ -57,7 +60,7 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
 
         adView = new AdView(this); // Put in your secret key here
         adView.setAdSize(SMART_BANNER);
-        adView.setAdUnitId("to_dostane_jak_zaplace");
+        adView.setAdUnitId("ca-app-pub-5922776279277926/4680432899");
 
         AdRequest adRequest = new AdRequest.Builder()
                 .addKeyword("game")
@@ -68,7 +71,6 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
         layout.addView(gameView);
 
 
-
         RelativeLayout.LayoutParams adParams =
                 new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
                         RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -77,8 +79,15 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
 
         layout.addView(adView, adParams);
 
-        Constants.adHeight=layout.getHeight();
+        Constants.adHeight = layout.getHeight();
         setContentView(layout);
+
+        try {
+            Constants.version = this.getPackageManager().getPackageInfo(this.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+
     }
 
     @Override

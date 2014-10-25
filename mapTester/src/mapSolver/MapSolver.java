@@ -187,9 +187,9 @@ public class MapSolver {
 
     }
 
-    public void solveSimpleMap(String moves, Map map, int iterator, int maxIterations, int obtainedPoints) {
+    public void solveSimpleMap(String moves, Map map, int iterator, int maxIterations) {
 
-        int obtP = map.getCompletedPoints();
+
         Map mapL = new Map(map);
         Map mapR = new Map(map);
         Map mapD = new Map(map);
@@ -200,54 +200,95 @@ public class MapSolver {
         if (iterator <= maxIterations) {
 
             mapD.makeMove(Controls.DOWN);
-            solveNext(moves + "D", mapD, iterator, maxIterations, Controls.DOWN, obtP);
+            solveNext(moves + "D", mapD, iterator, maxIterations, Controls.DOWN);
             mapL.makeMove(Controls.LEFT);
-            solveNext(moves + "L", mapL, iterator, maxIterations, Controls.LEFT, obtP);
+            solveNext(moves + "L", mapL, iterator, maxIterations, Controls.LEFT);
             mapR.makeMove(Controls.RIGHT);
-            solveNext(moves + "R", mapR, iterator, maxIterations, Controls.RIGHT, obtP);
+            solveNext(moves + "R", mapR, iterator, maxIterations, Controls.RIGHT);
             map.makeMove(Controls.UP);
-            solveNext(moves + "U", map, iterator, maxIterations, Controls.UP, obtP);
+            solveNext(moves + "U", map, iterator, maxIterations, Controls.UP);
         }
 
     }
 
-    public void solveNext(String moves, Map map, int iterator, int maxIterations, Controls controls, int obtainedPoints) {
+    public void solveNext(String moves, Map map, int iterator, int maxIterations, Controls controls) {
 
         Map map1 = new Map(map);
-        int obtP = map.getCompletedPoints();
-
 
         if (map.getCompletedPoints() >= map.getPointToComplete())
             System.out.println(moves + " moves: " + map.getMovesTaken());
         else if (iterator <= maxIterations)
-            if (obtP > obtainedPoints) {
-                solveSimpleMap(moves, map, iterator, maxIterations, obtP);
+            if (map.isSomethingHappened()) {
+                solveSimpleMap(moves, map, iterator, maxIterations);
             } else if (controls == Controls.LEFT) {
                 iterator++;
                 map1.makeMove(Controls.UP);
-                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP, obtP);
+                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP);
                 map.makeMove(Controls.DOWN);
-                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN, obtP);
+                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN);
             } else if (controls == Controls.RIGHT) {
                 iterator++;
                 map1.makeMove(Controls.UP);
-                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP, obtP);
+                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP);
                 map.makeMove(Controls.DOWN);
-                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN, obtP);
+                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN);
             } else if (controls == Controls.UP) {
                 iterator++;
                 map1.makeMove(Controls.LEFT);
-                solveNext(moves + "L", map1, iterator, maxIterations, Controls.LEFT, obtP);
+                solveNext(moves + "L", map1, iterator, maxIterations, Controls.LEFT);
                 map.makeMove(Controls.RIGHT);
-                solveNext(moves + "R", map, iterator, maxIterations, Controls.RIGHT, obtP);
+                solveNext(moves + "R", map, iterator, maxIterations, Controls.RIGHT);
             } else if (controls == Controls.DOWN) {
                 iterator++;
                 map.makeMove(Controls.RIGHT);
-                solveNext(moves + "R", map, iterator, maxIterations, Controls.RIGHT, obtP);
+                solveNext(moves + "R", map, iterator, maxIterations, Controls.RIGHT);
                 map1.makeMove(Controls.LEFT);
-                solveNext(moves + "L", map1, iterator, maxIterations, Controls.RIGHT, obtP);
+                solveNext(moves + "L", map1, iterator, maxIterations, Controls.RIGHT);
             }
 
+    }
+
+    public void solveNextThreeWays(String moves, Map map, int iterator, int maxIterations, Controls controls) {
+
+        Map map1 = new Map(map);
+        Map map2 = new Map(map);
+        iterator++;
+        if (iterator <= maxIterations) {
+            if (map.getCompletedPoints() >= map.getPointToComplete())
+                System.out.println(moves + " moves: " + map.getMovesTaken());
+            if (controls == Controls.LEFT) {
+                map1.makeMove(Controls.UP);
+                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP);
+                map.makeMove(Controls.DOWN);
+                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN);
+                map2.makeMove(Controls.RIGHT);
+                solveNext(moves + "R", map2, iterator, maxIterations, Controls.RIGHT);
+
+            } else if (controls == Controls.RIGHT) {
+                map1.makeMove(Controls.UP);
+                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP);
+                map.makeMove(Controls.DOWN);
+                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN);
+                map2.makeMove(Controls.LEFT);
+                solveNext(moves + "L", map2, iterator, maxIterations, Controls.LEFT);
+
+            } else if (controls == Controls.UP) {
+                map1.makeMove(Controls.LEFT);
+                solveNext(moves + "L", map1, iterator, maxIterations, Controls.LEFT);
+                map.makeMove(Controls.DOWN);
+                solveNext(moves + "D", map, iterator, maxIterations, Controls.DOWN);
+                map2.makeMove(Controls.RIGHT);
+                solveNext(moves + "R", map2, iterator, maxIterations, Controls.RIGHT);
+
+            } else if (controls == Controls.DOWN) {
+                map1.makeMove(Controls.UP);
+                solveNext(moves + "U", map1, iterator, maxIterations, Controls.UP);
+                map.makeMove(Controls.LEFT);
+                solveNext(moves + "L", map, iterator, maxIterations, Controls.LEFT);
+                map2.makeMove(Controls.RIGHT);
+                solveNext(moves + "R", map2, iterator, maxIterations, Controls.RIGHT);
+            }
+        }
     }
 
 }

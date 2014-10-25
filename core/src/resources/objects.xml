@@ -95,6 +95,42 @@
         <behavior>portal-lower</behavior>
     </object>
 
+
+    <object name="up-right" enum="UPRIGHT" texture="right.png" representation="Y" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-right</behavior>
+        <behavior>portal-upper</behavior>
+    </object>
+
+
+    <object name="up-left" enum="UPLEFT" texture="right.png" representation="T" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-left</behavior>
+        <behavior>portal-upper</behavior>
+    </object>
+
+
+    <object name="down-right" enum="DOWNRIGHT" texture="right.png" representation="H" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-right</behavior>
+        <behavior>portal-lower</behavior>
+    </object>
+
+
+    <object name="down-left" enum="DOWNLEFT" texture="right.png" representation="G" placedOn="EMPTY">
+
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>portal-left</behavior>
+        <behavior>portal-lower</behavior>
+    </object>
+
     <object name="trap" enum="TRAP" texture="trap.png" representation="T" placedOn="EMPTY">
         <behavior>trap</behavior>
         <behavior>empty</behavior>

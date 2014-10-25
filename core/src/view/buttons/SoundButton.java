@@ -15,7 +15,9 @@ public class SoundButton extends Image {
     TextureRegionDrawable offTextureRegion;
 
     public SoundButton(Texture onTexture, Texture offTexture) {
+
         super(onTexture);
+        SoundActivator.loadSettings();
         this.onTextureRegion = new TextureRegionDrawable(new TextureRegion(onTexture));
         this.offTextureRegion = new TextureRegionDrawable(new TextureRegion(offTexture));
 

@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -13,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import textures.TextureHolder;
+import view.buttons.BasicButton;
 import view.buttons.Button;
 
 public class Alert {
@@ -44,23 +45,22 @@ public class Alert {
         font.setColor(Color.BLACK);
         generator.dispose();
 
-        image = new Image(new Texture("menus/alert.png"));
+        image = new Image(TextureHolder.alertTexture);
         image.setSize(camera.viewportWidth * 4 / 5, 3 * camera.viewportHeight / 5);
         image.setPosition(camera.viewportWidth / 10, camera.viewportHeight / 5);
 
         text = new Text((int) (2 * camera.viewportWidth / 15), (int) ((4 * camera.viewportHeight / 5) - (2 * font.getCapHeight() / 3))
                 , "");
 
-        button = new Button(new Texture("menus/button.png"), "OK",
-                camera.viewportWidth / 2 - (camera.viewportWidth / 8), camera.viewportHeight / 5 + (font.getCapHeight() / 2),
-                camera.viewportWidth / 4, (float) (font.getCapHeight() * 2), font);
+        button = new BasicButton(TextureHolder.lockedButton, "OK",
+                camera.viewportWidth / 2 - (camera.viewportWidth / 4), camera.viewportHeight / 5 + (font.getCapHeight() / 2),
+                font, camera);
 
         button.addListener(
-
                 new ClickListener() {
                     @Override
                     public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-                        super.touchUp(event,x,y,pointer,button);
+                        super.touchUp(event, x, y, pointer, button);
                         control = Controls.MENU;
                     }
                 });
@@ -68,7 +68,7 @@ public class Alert {
 
     public void prepareAlert(String alertString) {
 
-        control=Controls.NONE;
+        control = Controls.NONE;
         text.setText(alertString);
         Gdx.input.setInputProcessor(alertStage);
         alertStage.clear();

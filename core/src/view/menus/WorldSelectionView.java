@@ -20,6 +20,7 @@ import enums.Controls;
 import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
+import textures.TextureHolder;
 import view.Alert;
 import view.Text;
 import view.buttons.BasicButton;
@@ -51,7 +52,7 @@ public class WorldSelectionView extends PanelView {
         worldFont.setColor(Color.BLACK);
         generator.dispose();
 
-        backButton = new BasicButton(new Texture("menus/buttons.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
+        backButton = new BasicButton(TextureHolder.buttonsTexture, "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
 
         Texture lockedButtons = new Texture("menus/locked.png");
         lockedWorld = new TextureRegionDrawable(new TextureRegion(lockedButtons, 0, 0, lockedButtons.getWidth(), lockedButtons.getHeight() / 2));
@@ -63,7 +64,7 @@ public class WorldSelectionView extends PanelView {
         for (int i = 1; i <= Constants.howManyWorlds; i++) {
             final WorldButton worldButton;
             String s = player.getStarsFromWorld(i) + " / " + mapsInfo.getStarsToObtainInWorld(i);
-            worldButton = new WorldButton(new Texture("menus/buttons.png"), i, s, levelSelectionWidth, levelSelectionHeight, worldFont);
+            worldButton = new WorldButton(TextureHolder.buttonsTexture, i, s, levelSelectionWidth, levelSelectionHeight, worldFont);
             worldButton.setButtonWorld(i);
             final int finalI = i;
 
@@ -92,10 +93,10 @@ public class WorldSelectionView extends PanelView {
         backButton.setButtonWorld(1);
 
         int posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2));
-        int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
+        int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 7 / 4);
 
         starsCount = new Text(posX, posY, player.getStars());
-        starImage = new Sprite(new Texture("menus/star_golden.png"));
+        starImage = new Sprite(new Texture("menus/score.png"));
 
         posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
         posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
@@ -112,6 +113,10 @@ public class WorldSelectionView extends PanelView {
         for (WorldButton worldButton : worldButtons) {
             worldButton.setLocked(false);
             if (mapsInfo.getStarsToUnlockWorld(worldButton.getWorldNumber()) > player.getStars()) {
+
+
+                lockedWorld = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, 0, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));
+                lockedClicked = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, TextureHolder.lockedButton.getHeight() / 2, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));
                 worldButton.setLocked(true);
                 worldButton.setTextureRegionDrawable(lockedWorld);
                 worldButton.setDrawable(lockedWorld);
@@ -156,7 +161,13 @@ public class WorldSelectionView extends PanelView {
             if (worldButton.isLocked()) {
                 worldButton.drawWithAltText(batch, 1, worldFont, "LOCKED!", camera.viewportWidth);
             } else {
-                worldButton.draw(batch, 1, worldFont);
+                if (worldButton.getWorldNumber() == 5) {
+                    worldFont.setColor(Constants.fifthWorldButtonColor);
+                    worldButton.draw(batch, 1, worldFont);
+                    worldFont.setColor(Color.BLACK);
+                } else {
+                    worldButton.draw(batch, 1, worldFont);
+                }
             }
         }
         backButton.draw(batch, 1, buttonFont);

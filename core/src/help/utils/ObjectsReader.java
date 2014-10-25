@@ -37,4 +37,16 @@ public class ObjectsReader {
     return objectTypes;
   }
 
+    public static Element getObjectElement(String enumName) {
+
+        NodeList blocks = getObjectsList();
+        for (int i = 0; i < blocks.getLength(); i++) {
+            Element block = (Element) blocks.item(i);
+            if (block.getAttribute("enum").equals(enumName)) {
+                return block;
+            }
+        }
+        return (Element) blocks.item(1);
+    }
+
 }

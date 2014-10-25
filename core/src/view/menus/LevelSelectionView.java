@@ -20,6 +20,8 @@ import enums.Controls;
 import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
+import sound.ClickSound;
+import textures.TextureHolder;
 import view.Alert;
 import view.Text;
 import view.buttons.BasicButton;
@@ -43,7 +45,7 @@ public class LevelSelectionView extends PanelView {
     private TextureRegionDrawable touchRegionDrawable;
     private TextureRegionDrawable lockedLevel;
     private int world;
-    private Texture level;
+
 
     public LevelSelectionView(final OrthographicCamera camera, Player player, BitmapFont buttonFont, final MapsInfo mapsInfo) {
         super(camera, buttonFont);
@@ -54,11 +56,10 @@ public class LevelSelectionView extends PanelView {
 
         TextureRegion lockedLevelTexture = new TextureRegion(new Texture("menus/level_locked.png"), 0, 0, 139, 190);
         lockedLevel = new TextureRegionDrawable(lockedLevelTexture);
-        level = new Texture("menus/levelbuttons.png");
-        region = new TextureRegion(level, 0, 0, 139, 190);
+        region = new TextureRegion(TextureHolder.levelButtonsTexture, 0, 0, 139, 190);
         regionDrawable = new TextureRegionDrawable(region);
 
-        touchedRegion = new TextureRegion(level, 139, 190, 139, 190);
+        touchedRegion = new TextureRegion(TextureHolder.levelButtonsTexture, 139, 190, 139, 190);
         touchRegionDrawable = new TextureRegionDrawable(region);
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
@@ -70,15 +71,13 @@ public class LevelSelectionView extends PanelView {
 
         levelButtons = new ArrayList<>();
 
-        Texture goldenStar = new Texture("menus/star_golden.png");
-        Texture grayStar = new Texture("menus/star_gray.png");
 
         float levelSelectionWidth = camera.viewportWidth;
         float levelSelectionHeight = camera.viewportWidth + ((camera.viewportHeight - camera.viewportWidth) / 2);
 
         for (int i = 0; i < 25; i++) {
 
-            final LevelButton levelButton = new LevelButton(region, i, levelSelectionWidth, levelSelectionHeight, levelFont, Color.BLACK, goldenStar, grayStar, i + 1);
+            final LevelButton levelButton = new LevelButton(region, i, levelSelectionWidth, levelSelectionHeight, levelFont, Color.BLACK, TextureHolder.goldenStar, TextureHolder.grayStar, i + 1);
 
             levelButton.setLocked(false);
             final int finalI = i + 1;
@@ -102,6 +101,8 @@ public class LevelSelectionView extends PanelView {
                     super.touchDown(event, x, y, pointer, button);
                     if (!levelButton.isLocked()) {
                         levelButton.setDrawable(touchRegionDrawable);
+                        if (Constants.soundOn)
+                            ClickSound.clickSound.play();
                     }
                     return true;
                 }
@@ -111,7 +112,7 @@ public class LevelSelectionView extends PanelView {
         }
 
 
-        backButton = new BasicButton(new Texture("menus/buttons.png"), "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
+        backButton = new BasicButton(TextureHolder.buttonsTexture, "Back", (camera.viewportWidth) / 10, ((camera.viewportHeight - camera.viewportWidth) / 2) / 5, buttonFont, camera);
         backButton.addListener(new ClickListener() {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
@@ -124,7 +125,7 @@ public class LevelSelectionView extends PanelView {
         int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
 
         starsCount = new Text(posX, posY, player.getStars());
-        starImage = new Sprite(new Texture("menus/star_golden.png"));
+        starImage = new Sprite(TextureHolder.goldenStar);
 
         posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
         posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
@@ -137,12 +138,12 @@ public class LevelSelectionView extends PanelView {
 
         this.selectedLevel = 0;
 
-        region.setRegion((selectedWorld - 1) * (level.getWidth() / Constants.howManyWorlds), 0, (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2);
+        region.setRegion((selectedWorld - 1) * (TextureHolder.levelButtonsTexture.getWidth() / Constants.howManyWorlds), 0, (TextureHolder.levelButtonsTexture.getWidth() / Constants.howManyWorlds), TextureHolder.levelButtonsTexture.getHeight() / 2);
         regionDrawable.setRegion(region);
 
         world = selectedWorld;
 
-        touchedRegion.setRegion((selectedWorld - 1) * (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2, (level.getWidth() / Constants.howManyWorlds), level.getHeight() / 2);
+        touchedRegion.setRegion((selectedWorld - 1) * (TextureHolder.levelButtonsTexture.getWidth() / Constants.howManyWorlds), TextureHolder.levelButtonsTexture.getHeight() / 2, (TextureHolder.levelButtonsTexture.getWidth() / Constants.howManyWorlds), TextureHolder.levelButtonsTexture.getHeight() / 2);
         touchRegionDrawable.setRegion(touchedRegion);
 
         stage.clear();
@@ -158,12 +159,20 @@ public class LevelSelectionView extends PanelView {
             }
             stage.addActor(levelButton);
         }
+
+        if (world == 5) {
+            buttonFont.setColor(Constants.fifthWorldButtonColor);
+            levelFont.setColor(Constants.fifthWorldButtonColor);
+        } else {
+            buttonFont.setColor(Color.BLACK);
+            levelFont.setColor(Color.BLACK);
+        }
+
         starsCount.setPosX((int) ((cameraViewPortWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2)));
         starsCount.setText(Integer.toString(player.getStars()));
         levelsInWorld = mapsInfo.getMapsCountInWorld(selectedWorld);
         backButton.setButtonWorld(selectedWorld);
         this.background = background;
-
 
     }
 
@@ -186,13 +195,22 @@ public class LevelSelectionView extends PanelView {
             if (levelButtons.get(i).isLocked()) {
                 levelButtons.get(i).drawLocked(batch, 1, levelFont, lockedLevel);
             } else {
+                if (world == 5) {
+                    levelFont.setColor(Constants.fifthWorldButtonColor);
+                }
                 levelButtons.get(i).draw(batch, 1, levelFont);
             }
         }
+        levelFont.setColor(Color.BLACK);
 
+        if (world == 5) {
+            buttonFont.setColor(Constants.fifthWorldButtonColor);
+        }
         backButton.draw(batch, 1, buttonFont);
         starImage.draw(batch);
+        buttonFont.setColor(Color.BLACK);
         buttonFont.draw(batch, starsCount.getText(), starsCount.getPosX(), starsCount.getPosY());
+
         batch.end();
 
         if (alert.isActive()) {

@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import help.utils.Constants;
+import textures.TextureHolder;
 import view.buttons.BasicButton;
 import view.buttons.SoundButton;
 
@@ -25,11 +27,11 @@ public class MainMenuView extends PanelView {
         super(camera, buttonFont);
 
         this.logo = new Image(new Texture("menus/logo.png"));
-        logo.setSize(camera.viewportWidth * 4 / 5, camera.viewportWidth * 2 / 5);
-        logo.setPosition(camera.viewportWidth * 1 / 10, camera.viewportHeight - (camera.viewportWidth * 3 / 5));
+        logo.setSize(camera.viewportWidth * 9 / 10, camera.viewportWidth * 9 * (logo.getHeight() / logo.getWidth()) / 10);
+        logo.setPosition(camera.viewportWidth * 1 / 20, camera.viewportHeight - (camera.viewportWidth * 7 / 10));
 
-        playButton = new BasicButton(new Texture("menus/buttons.png"), "Play", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 5), buttonFont, camera);
-        quitButton = new BasicButton(new Texture("menus/buttons.png"), "Quit", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 6), buttonFont, camera);
+        playButton = new BasicButton(TextureHolder.buttonsTexture, "Play", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 5), buttonFont, camera);
+        quitButton = new BasicButton(TextureHolder.buttonsTexture, "Quit", camera.viewportWidth / 4, camera.viewportHeight - ((camera.viewportWidth / 5) * 6), buttonFont, camera);
         playButton.setButtonWorld(1);
         quitButton.setButtonWorld(1);
 
@@ -56,6 +58,7 @@ public class MainMenuView extends PanelView {
         });
 
 
+
     }
 
     public void prepareMainMenu(Stage stage, Image background) {
@@ -76,6 +79,7 @@ public class MainMenuView extends PanelView {
         logo.draw(batch, 1);
         playButton.draw(batch, 1, buttonFont);
         quitButton.draw(batch, 1, buttonFont);
+        buttonFont.draw(batch, Constants.version, 0,buttonFont.getCapHeight()+5);
         soundButton.draw(batch, 1);
 
         batch.end();

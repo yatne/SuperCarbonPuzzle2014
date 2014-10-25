@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import help.utils.Constants;
+import sound.ClickSound;
 import view.Text;
 
 public class Button extends Image {
@@ -42,7 +43,8 @@ public class Button extends Image {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
                 setDrawable(textureRegionDrawablePressed);
-
+                if (Constants.soundOn)
+                    ClickSound.clickSound.play();
                 return true;
             }
         });
@@ -67,6 +69,8 @@ public class Button extends Image {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
                 setDrawable(textureRegionDrawablePressed);
+                if (Constants.soundOn)
+                    ClickSound.clickSound.play();
                 return true;
             }
         });
@@ -106,6 +110,8 @@ public class Button extends Image {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchDown(event, x, y, pointer, button);
                 setDrawable(textureRegionDrawablePressed);
+                if (Constants.soundOn)
+                    ClickSound.clickSound.play();
                 return true;
             }
         });
@@ -126,6 +132,7 @@ public class Button extends Image {
         setDrawable(textureRegionDrawable);
         textureRegionPressed.setRegion((buttonWorld - 1) * buttonWidth, textureRegionPressed.getRegionHeight() / 2, buttonWidth, textureRegionPressed.getRegionHeight() / 2);
         textureRegionDrawablePressed.setRegion(textureRegionPressed);
+
 
     }
 

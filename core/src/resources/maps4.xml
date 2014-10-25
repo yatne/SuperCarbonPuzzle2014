@@ -1,0 +1,25 @@
+<maps world="gray one">
+
+
+    <map name="those green fields" number="1" silver="5" unlocked="1">        <!-->40<-->
+
+        <row nr="1">LXBOOY</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OOOOOB</row>
+        <row nr="4">OOSOOX</row>
+        <row nr="5">OSOOOO</row>
+        <row nr="6">OOOOOD</row>
+
+    </map>
+
+    <map name="those green fields" number="2" silver="5" unlocked="150">        <!-->40<-->
+
+        <row nr="1">OOUUOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">BOXBOO</row>
+        <row nr="4">OOBXOO</row>
+        <row nr="5">OEOOOO</row>
+        <row nr="6">SODDOO</row>
+
+    </map>
+    </maps>

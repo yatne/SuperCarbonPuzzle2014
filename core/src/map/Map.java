@@ -18,14 +18,14 @@ public class Map {
     private ArrayList<Integer> goals;
     private int pointToComplete;
     private int completedPoints;
-    private ArrayList<Object> objectsToRetry;
+    private boolean somethingHappened;
 
 
     public Map(int worldNumber, int mapNumber) {
         fields = new ArrayList<>();
         mapBuilder = new MapBuilder();
         loadMap(worldNumber, mapNumber);
-        objectsToRetry = new ArrayList<>();
+        somethingHappened = false;
 
     }
 
@@ -43,7 +43,7 @@ public class Map {
         for (Object object : map.getObjects()) {
             this.objects.add(new Object(object));
         }
-
+        somethingHappened = false;
     }
 
     public void loadMap(int worldNumber, int mapNumber) {
@@ -67,6 +67,7 @@ public class Map {
     public void makeMove(Controls control) {
 
         boolean portalWasUsed = false;
+        somethingHappened = false;
 
         if (control != Controls.NONE) {
 
@@ -81,8 +82,18 @@ public class Map {
                         combine(object, object.getX() + 1, object.getY());
                     }
                     if (isOnPortal(object, "portal-right")) {
-                        teleport(object, getPortal(object), 1);
+                        teleportHorizontal(object, getPortal(object), 1);
                         portalWasUsed = true;
+                    }
+                }
+                if (portalWasUsed) {
+                    for (Object object : objects) {
+                        for (int x = object.getX(); x < mapWidth - 1; x++) {
+                            combine(object, object.getX() + 1, object.getY());
+                        }
+                        if (isOnPortal(object, "portal-right")) {
+                            teleportHorizontal(object, getPortal(object), 1);
+                        }
                     }
                 }
 
@@ -95,7 +106,20 @@ public class Map {
                         combine(object, object.getX() - 1, object.getY());
                     }
                     if (isOnPortal(object, "portal-left")) {
-                        teleport(object, getPortal(object), 1);
+                        teleportHorizontal(object, getPortal(object), 1);
+                        portalWasUsed = true;
+                    }
+                }
+                if (portalWasUsed) {
+                    for (Object object : objects) {
+
+                        for (int x = object.getX(); x > 0; x--) {
+                            combine(object, object.getX() - 1, object.getY());
+                        }
+                        if (isOnPortal(object, "portal-left")) {
+                            teleportHorizontal(object, getPortal(object), 1);
+
+                        }
                     }
                 }
             } else if (control == Controls.UP) {
@@ -107,7 +131,7 @@ public class Map {
                         combine(object, object.getX(), object.getY() + 1);
                     }
                     if (isOnPortal(object, "portal-upper")) {
-                        teleport(object, getPortal(object), 1);
+                        teleportVertical(object, getPortal(object), 1);
                         portalWasUsed = true;
                     }
                 }
@@ -119,7 +143,7 @@ public class Map {
                             combine(object, object.getX(), object.getY() + 1);
                         }
                         if (isOnPortal(object, "portal-upper")) {
-                            teleport(object, getPortal(object), 1);
+                            teleportVertical(object, getPortal(object), 1);
                         }
                     }
             } else if (control == Controls.DOWN) {
@@ -131,13 +155,23 @@ public class Map {
                         combine(object, object.getX(), object.getY() - 1);
                     }
                     if (isOnPortal(object, "portal-lower")) {
-                        teleport(object, getPortal(object), 1);
+                        teleportVertical(object, getPortal(object), 1);
+                        portalWasUsed = true;
                     }
                 }
+                if (portalWasUsed)
+                    for (Object object : objects) {
 
+                        for (int y = object.getY(); y > 0; y--) {
+                            combine(object, object.getX(), object.getY() - 1);
+                        }
+                        if (isOnPortal(object, "portal-lower")) {
+                            teleportVertical(object, getPortal(object), 1);
+                        }
+                    }
             }
         }
-        objectsToRetry.clear();
+
     }
 
     public void combine(Object objectA, int x, int y) {
@@ -152,17 +186,23 @@ public class Map {
                 }
             } else if (objectA.hasBehavior("objective") && objectB.hasBehavior("objective-end")) {
                 actionOnLeave(objectA);
-                if (objectA.hasBehavior("obj1") && objectB.hasBehavior("obj1"))
+                if (objectA.hasBehavior("obj1") && objectB.hasBehavior("obj1")) {
+                    somethingHappened = true;
                     finish(objectA, objectB, 1);
-                else if (objectA.hasBehavior("obj2") && objectB.hasBehavior("obj2"))
+                } else if (objectA.hasBehavior("obj2") && objectB.hasBehavior("obj2")) {
+                    somethingHappened = true;
                     finish(objectA, objectB, 2);
+                }
             } else if (objectA.hasBehavior("destroy") && objectB.hasBehavior("todestroy")) {
-                objectB.setObjectsType(ObjectsType.NOTHING);
+                somethingHappened = true;
+                objectB.setObjectsType(ObjectsType.DESTROYED);
             }
             if (objectB.hasBehavior("portal") && !isThereSolidBlock(x, y)) {
                 actionOnLeave(objectA);
-                teleport(objectA, objectB, 0);
-
+                if (objectB.getX() == objectA.getX())
+                    teleportVertical(objectA, objectB, 0);
+                else if (objectA.getY() == objectB.getY())
+                    teleportHorizontal(objectA, objectB, 0);
 
             } else if (objectB.hasBehavior("empty") && !isThereSolidBlock(x, y)) {
                 actionOnEnter(objectB);
@@ -177,7 +217,9 @@ public class Map {
     }
 
     private void actionOnCombine(Object objectA, Object objectB) {
+
         if (objectB.hasBehavior("trap")) {
+            somethingHappened = true;
             objectB.setObjectsType(ObjectsType.NOTHING);
             objectA.setObjectsType(ObjectsType.TRAPA);
         }
@@ -186,22 +228,27 @@ public class Map {
 
     private void actionOnEnter(Object objectB) {
 
+
         if (objectB.hasBehavior("gwb-on-enter")) {
+            somethingHappened = true;
             objectB.setObjectsType(ObjectsType.GWB);
         }
 
     }
 
     private void actionOnLeave(Object objectA) {
+
         for (Object object : objects) {
             if (object.getX() == objectA.getX() && object.getY() == objectA.getY()) {
-                if (object.hasBehavior("solid-on-leave"))
+                if (object.hasBehavior("solid-on-leave")) {
+                    somethingHappened = true;
                     object.setObjectsType(ObjectsType.CREATED);
+                }
             }
         }
     }
 
-    private void teleport(Object objectA, Object objectB, int type) {
+    private void teleportHorizontal(Object objectA, Object objectB, int type) {
 
         boolean portalFound = false;
         if ((objectA.getX() < objectB.getX() && objectB.hasBehavior("portal-right") && type == 0)
@@ -212,17 +259,17 @@ public class Map {
                     objectA.setX(portal.getX());
                     objectA.setY(portal.getY());
                     portalFound = true;
-                } else {
-                    objectsToRetry.add(objectA);
-                    objectsToRetry.add(objectB);
                 }
-
             }
             if (portalFound)
 
                 for (int newX = objectA.getX(); newX < mapWidth - 1; newX++) {
                     combine(objectA, objectA.getX() + 1, objectA.getY());
                 }
+            if (!portalFound) {
+                objectA.setX(objectB.getX());
+                objectA.setY(objectB.getY());
+            }
         } else if ((objectA.getX() > objectB.getX() && objectB.hasBehavior("portal-left") && type == 0)
                 || (objectB.hasBehavior("portal-left") && type == 1)) {
 
@@ -232,16 +279,27 @@ public class Map {
                     objectA.setX(portal.getX());
                     objectA.setY(portal.getY());
                     portalFound = true;
-                } else {
-                    objectsToRetry.add(objectA);
-                    objectsToRetry.add(objectB);
                 }
             }
             if (portalFound)
                 for (int x = objectA.getX(); x > 0; x--) {
                     combine(objectA, objectA.getX() - 1, objectA.getY());
                 }
-        } else if ((objectA.getY() < objectB.getY() && objectB.hasBehavior("portal-upper") && type == 0)
+            if (!portalFound) {
+                objectA.setX(objectB.getX());
+                objectA.setY(objectB.getY());
+            }
+
+
+        } else if ((objectB.hasBehavior("portal-upper") || objectB.hasBehavior("portal-lower")) && !isThereSolidBlock(objectB.getX(), objectB.getY())) {
+            objectA.setX(objectB.getX());
+            objectA.setY(objectB.getY());
+        }
+    }
+
+    private void teleportVertical(Object objectA, Object objectB, int type) {
+        boolean portalFound = false;
+        if ((objectA.getY() < objectB.getY() && objectB.hasBehavior("portal-upper") && type == 0)
                 || (objectB.hasBehavior("portal-upper") && type == 1)) {
 
             for (Object portal : getAllObjectsByBehavior("portal")) {
@@ -250,9 +308,6 @@ public class Map {
                     objectA.setX(portal.getX());
                     objectA.setY(portal.getY());
                     portalFound = true;
-                } else {
-                    objectsToRetry.add(objectA);
-                    objectsToRetry.add(objectB);
                 }
             }
             if (portalFound)
@@ -261,6 +316,10 @@ public class Map {
                     combine(objectA, objectA.getX(), objectA.getY() + 1);
 
                 }
+            if (!portalFound) {
+                objectA.setX(objectB.getX());
+                objectA.setY(objectB.getY());
+            }
         } else if ((objectA.getY() > objectB.getY() && objectB.hasBehavior("portal-lower") && type == 0)
                 || (objectB.hasBehavior("portal-lower") && type == 1)) {
 
@@ -270,9 +329,6 @@ public class Map {
                     objectA.setX(portal.getX());
                     objectA.setY(portal.getY());
                     portalFound = true;
-                } else {
-                    objectsToRetry.add(objectA);
-                    objectsToRetry.add(objectB);
                 }
             }
             if (portalFound)
@@ -280,12 +336,15 @@ public class Map {
                 for (int y = objectA.getY(); y > 0; y--) {
                     combine(objectA, objectA.getX(), objectA.getY() - 1);
                 }
-        }
-        if (!portalFound) {
+
+            if (!portalFound) {
+                objectA.setX(objectB.getX());
+                objectA.setY(objectB.getY());
+            }
+        } else if ((objectB.hasBehavior("portal-left") || objectB.hasBehavior("portal-right")) && !isThereSolidBlock(objectB.getX(), objectB.getY())) {
             objectA.setX(objectB.getX());
             objectA.setY(objectB.getY());
         }
-
 
     }
 
@@ -402,7 +461,7 @@ public class Map {
     }
 
     public int getObtainedStars() {
-        int newStars=0;
+        int newStars = 0;
         if (goals.size() == 3) {
             if (movesTaken <= goals.get(2))
                 newStars = 4;
@@ -465,5 +524,9 @@ public class Map {
 
     public int getMapWorld() {
         return mapWorld;
+    }
+
+    public boolean isSomethingHappened() {
+        return somethingHappened;
     }
 }

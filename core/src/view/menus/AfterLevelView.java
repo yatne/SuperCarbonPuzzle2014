@@ -14,9 +14,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
+import enums.Sounds;
+import help.utils.Constants;
 import map.Map;
 import mapSystem.MapsInfo;
 import player.Player;
+import sound.SoundActivator;
+import textures.TextureHolder;
 import view.Alert;
 import view.Star;
 import view.Text;
@@ -26,26 +30,26 @@ import java.util.ArrayList;
 
 public class AfterLevelView extends PanelView {
 
-    Controls control;
-    BitmapFont bigFont;
-    BitmapFont smallFont;
-    Text text;
-    Text movesTakenText;
-    int starsToObtain;
-    int starsObtained;
-    Texture goldenStar;
-    Texture grayStar;
-    ArrayList<Star> starsList;
-    float starPosY;
-    float starSize;
-    Button levelSelectButton;
-    Button retryButton;
-    Button nextLevelButton;
-    boolean drawNextLevelButton;
-    Alert alert;
-    boolean allStarsObtained;
-    int mapNumber;
-    int mapWorld;
+    private Controls control;
+    private BitmapFont bigFont;
+    private BitmapFont smallFont;
+    private Text text;
+    private Text movesTakenText;
+    private int starsObtained;
+    private int starsToObtain;
+    private Texture goldenStar;
+    private Texture grayStar;
+    private ArrayList<Star> starsList;
+    private float starPosY;
+    private float starSize;
+    private Button levelSelectButton;
+    private Button retryButton;
+    private Button nextLevelButton;
+    private boolean drawNextLevelButton;
+    private Alert alert;
+    private boolean allStarsObtained;
+    private int mapNumber;
+    private int mapWorld;
 
     public AfterLevelView(OrthographicCamera camera, BitmapFont buttonFont, final MapsInfo mapsInfo, final Player player) {
         super(camera, buttonFont);
@@ -55,7 +59,7 @@ public class AfterLevelView extends PanelView {
         starsList = new ArrayList<>();
         alert = new Alert(camera);
 
-        Texture buttonText = new Texture("menus/buttons.png");
+
         goldenStar = new Texture("menus/star_golden.png");
         grayStar = new Texture("menus/star_gray.png");
 
@@ -88,9 +92,9 @@ public class AfterLevelView extends PanelView {
         starSize = textPanelHeight / 7;
         starPosY = (camera.viewportHeight - textPanelHeight / 30 - textPanelHeight / 25 - 3 * bigFont.getCapHeight() / 2 - starSize);
 
-        retryButton = new Button(buttonText, "retry", 0, posY, width, height, this.buttonFont);
-        levelSelectButton = new Button(buttonText, "menu", width, posY, width, height, this.buttonFont);
-        nextLevelButton = new Button(buttonText, "next", 2 * width, posY, width, height, this.buttonFont);
+        retryButton = new Button(TextureHolder.buttonsTexture, "retry", 0, posY, width, height, this.buttonFont);
+        levelSelectButton = new Button(TextureHolder.buttonsTexture, "menu", width, posY, width, height, this.buttonFont);
+        nextLevelButton = new Button(TextureHolder.buttonsTexture, "next", 2 * width, posY, width, height, this.buttonFont);
 
 
         retryButton.addListener(new ClickListener() {
@@ -157,12 +161,15 @@ public class AfterLevelView extends PanelView {
         int nextStar = 0;
         allStarsObtained = true;
 
-        if (map.getMapWorld() == 1 || map.getMapWorld() == 2) {
+        if (map.getMapWorld() == 1 || map.getMapWorld() == 2 || map.getMapWorld() == 5) {
             bigFont.setColor(Color.BLACK);
             smallFont.setColor(Color.BLACK);
         } else if (map.getMapWorld() == 3) {
-            bigFont.setColor(Color.ORANGE);
-            smallFont.setColor(Color.ORANGE);
+            bigFont.setColor(Constants.thirdWorldTextColor);
+            smallFont.setColor(Constants.thirdWorldTextColor);
+        } else if (map.getMapWorld() == 4) {
+            bigFont.setColor(Constants.fourthWorldTextColor);
+            smallFont.setColor(Constants.fourthWorldTextColor);
         }
 
         for (Integer goal : map.getGoals()) {
@@ -199,6 +206,10 @@ public class AfterLevelView extends PanelView {
         if (drawNextLevelButton)
             stage.addActor(nextLevelButton);
 
+        if (Constants.soundOn) {
+            Gdx.input.vibrate(100);
+            SoundActivator.soundHashMap().get(Sounds.DESTROY).play();
+        }
 
         this.background = background;
     }
@@ -217,6 +228,9 @@ public class AfterLevelView extends PanelView {
 
         batch.begin();
 
+        if (mapWorld == 5) {
+            buttonFont.setColor(Constants.fifthWorldButtonColor);
+        }
 
         background.draw(batch, 1);
         bigFont.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
@@ -238,7 +252,9 @@ public class AfterLevelView extends PanelView {
 
         }
 
+        buttonFont.setColor(Color.BLACK);
         batch.end();
+
 
         if (alert.isActive()) {
             if (alert.drawAlert(camera) == Controls.MENU) {

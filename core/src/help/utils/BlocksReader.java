@@ -36,6 +36,8 @@ public class BlocksReader {
             e.printStackTrace();
         }
 
-      return blockTypes;
+        return blockTypes;
     }
+
+
 }

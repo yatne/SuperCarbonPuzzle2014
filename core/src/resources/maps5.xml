@@ -1,0 +1,51 @@
+<maps world="purple">
+
+
+    <map name="those green fields" number="1" silver="5" unlocked="10">        <!-->40<-->
+
+        <row nr="1">OOUUOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">BOXBOO</row>
+        <row nr="4">OOBXOO</row>
+        <row nr="5">OEOOOO</row>
+        <row nr="6">SODDOO</row>
+
+    </map>
+
+    <map name="portale" number="2" unlocked="1">
+
+        <row nr="1">OOUUUUOO</row>
+        <row nr="2">OOXOOOXO</row>
+        <row nr="3">XOOOXOOO</row>
+        <row nr="4">LOSXOOOR</row>
+        <row nr="5">LOOOOXOR</row>
+        <row nr="6">LXXOXXOR</row>
+        <row nr="7">OEOOOOOO</row>
+        <row nr="8">OODDDDOO</row>
+
+    </map>
+
+
+    <map name="gora-dol" number="3" unlocked="1">
+
+        <row nr="1">UUUUUUUU</row>
+        <row nr="2">OOOOOXOX</row>
+        <row nr="3">XSOXOXOO</row>
+        <row nr="4">XOOXOOOO</row>
+        <row nr="5">OXXOOXOO</row>
+        <row nr="6">XOXOOOXO</row>
+        <row nr="7">OOOXXOEO</row>
+        <row nr="8">DDDDDDDD</row>
+
+    </map>
+    <map name="blablab" number="4" unlocked="1">
+        <row nr="1">OUOXEO</row>
+        <row nr="2">OSOS+O</row>
+        <row nr="3">XXEOOE</row>
+        <row nr="4">LOXOOR</row>
+        <row nr="5">O+OXXX</row>
+        <row nr="6">ODOSOO</row>
+    </map>
+
+
+</maps>
