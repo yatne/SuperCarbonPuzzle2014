@@ -11,6 +11,8 @@ public class TextureHolder {
     public static Texture goldenStar;
     public static Texture grayStar;
     public static Texture alertTexture;
+    public static Texture goldMenuStar;
+    public static Texture grayMenuStar;
 
     public static void loadTextures() {
         buttonsTexture = new Texture("menus/mainbuttons.png");
@@ -19,6 +21,9 @@ public class TextureHolder {
         goldenStar = new Texture("menus/star_golden.png");
         grayStar = new Texture("menus/star_gray.png");
         alertTexture = new Texture("menus/alert.png");
+        lockedLevelTexture = new Texture("menus/locked_level.png");
+        goldMenuStar = new Texture("menus/menustargold.png");
+        grayMenuStar = new Texture("menus/menustargray.png");
     }
 }
 

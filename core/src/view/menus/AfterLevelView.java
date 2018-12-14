@@ -14,12 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
-import enums.Sounds;
 import help.utils.Constants;
 import map.Map;
 import mapSystem.MapsInfo;
 import player.Player;
-import sound.SoundActivator;
 import textures.TextureHolder;
 import view.Alert;
 import view.Star;
@@ -60,8 +58,8 @@ public class AfterLevelView extends PanelView {
         alert = new Alert(camera);
 
 
-        goldenStar = new Texture("menus/star_golden.png");
-        grayStar = new Texture("menus/star_gray.png");
+        goldenStar = TextureHolder.goldMenuStar;
+        grayStar = TextureHolder.grayMenuStar;
 
         float width = camera.viewportWidth / 3;
         float height = (((camera.viewportHeight - camera.viewportWidth) / 2) * 3 / 5);
@@ -117,7 +115,7 @@ public class AfterLevelView extends PanelView {
             nextLevelButton.addListener(new ClickListener() {
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     super.touchUp(event, x, y, pointer, button);
-                    if (player.getStars() < mapsInfo.getStarsToUnlock(mapWorld, mapNumber + 1)) {
+                    if (player.getStars() < mapsInfo.getStarsToUnlock(mapWorld, mapNumber + 1) && !Constants.cheatMode) {
                         alert.setActive(true);
                         alert.prepareAlert("you need " + mapsInfo.getStarsToUnlock(mapWorld, mapNumber + 1) + " stars to unlock next level");
                     } else {
@@ -157,6 +155,9 @@ public class AfterLevelView extends PanelView {
 
 
         int movesTaken = map.getMovesTaken();
+        if (movesTaken > 99) {
+            movesTaken = 99;
+        }
         int yourBest = player.getBestFromLevel(map.getMapWorld(), map.getMapNumber());
         int nextStar = 0;
         allStarsObtained = true;
@@ -207,8 +208,8 @@ public class AfterLevelView extends PanelView {
             stage.addActor(nextLevelButton);
 
         if (Constants.soundOn) {
-            Gdx.input.vibrate(100);
-            SoundActivator.soundHashMap().get(Sounds.DESTROY).play();
+            Gdx.input.vibrate(170);
+
         }
 
         this.background = background;

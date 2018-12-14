@@ -15,181 +15,112 @@ public class MapSolver {
         moves = 99;
     }
 
-    public void findBestSolution(Map map, int iteration, int maxIterations) {
+    public void solveMap(Map map, int maxIterations) {
+        solve(map, 0, maxIterations, Integer.toString(map.getMapNumber()) + ": ", Controls.PLAY);
+    }
 
-        if (map.checkForFinish()) {
+    public void solve(Map map, int iterator, int maxIterator, String string, Controls control) {
+        if (iterator <= maxIterator) {
 
-            if (iteration < moves) {
-                System.out.println(iteration);
-                moves = iteration;
+            if (map.checkForFinish()) {
+                System.out.println(string + " moves: " + iterator);
+            }
+
+            iterator++;
+            if (control == Controls.PLAY) {
+                solveFourWays(map, iterator, maxIterator, string);
+            } else if (!map.isMapFailed()) {
+                if (map.isSomethingHappened()) {
+                    solveThreeWays(map, iterator, maxIterator, control, string);
+                } else {
+                    solveTwoWays(map, iterator, maxIterator, control, string);
+                }
             }
         }
-
-        if (!solved && iteration <= maxIterations) {
-
-            iteration++;
-
-            Map mapL = new Map(map);
-            Map mapR = new Map(map);
-            Map mapU = new Map(map);
-
-            mapL.makeMove(Controls.LEFT);
-            mapR.makeMove(Controls.RIGHT);
-            mapU.makeMove(Controls.UP);
-            map.makeMove(Controls.DOWN);
-
-            findBestSolution(mapL, iteration, maxIterations);
-            findBestSolution(mapR, iteration, maxIterations);
-            findBestSolution(mapU, iteration, maxIterations);
-            findBestSolution(map, iteration, maxIterations);
-        }
     }
 
-    public void solveMap(int maxIterations) {
+    public void solveTwoWays(Map map, int iterator, int maxIterations, Controls controls, String string) {
 
-        String moves = "start: ";
-        int iterator = 0;
 
-        Map mapL = new Map(map);
-        Map mapR = new Map(map);
-        Map mapU = new Map(map);
-        Map mapD = new Map(map);
 
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
-
-        if (iterator <= maxIterations) {
-            mapL.makeMove(Controls.LEFT);
-            solveMap(moves + "L", mapL, 0, maxIterations);
-            mapR.makeMove(Controls.RIGHT);
-            solveMap(moves + "R", mapR, 0, maxIterations);
-            mapU.makeMove(Controls.UP);
-            solveMap(moves + "U", mapU, 0, maxIterations);
-            mapD.makeMove(Controls.DOWN);
-            solveMap(moves + "D", mapD, 0, maxIterations);
-
+        if (controls == Controls.LEFT || controls == Controls.RIGHT) {
+            Map map2 = new Map(map);
+            map.makeMove(Controls.UP);
+            solve(map, iterator, maxIterations, string + "U", Controls.UP);
+            map2.makeMove(Controls.DOWN);
+            solve(map2, iterator, maxIterations, string + "D", Controls.DOWN);
+        } else if (controls == Controls.UP || controls == Controls.DOWN) {
+            Map map2 = new Map(map);
+            map.makeMove(Controls.LEFT);
+            solve(map, iterator, maxIterations, string + "L", Controls.LEFT);
+            map2.makeMove(Controls.RIGHT);
+            solve(map2, iterator, maxIterations, string + "R", Controls.RIGHT);
         }
 
 
     }
 
-    public void solveMap(String moves, Map map, int iterator, int maxIterations) {
+    public void solveThreeWays(Map map, int iterator, int maxIterations, Controls controls, String string) {
 
-        Map mapL = new Map(map);
-        Map mapR = new Map(map);
-        Map mapU = new Map(map);
-        Map mapD = new Map(map);
 
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
 
-        if (iterator <= maxIterations) {
-            mapL.makeMove(Controls.LEFT);
-            solveMap(moves + "L", mapL, iterator, maxIterations);
-            mapR.makeMove(Controls.RIGHT);
-            solveMap(moves + "R", mapR, iterator, maxIterations);
-            mapU.makeMove(Controls.UP);
-            solveMap(moves + "U", mapU, iterator, maxIterations);
-            mapD.makeMove(Controls.DOWN);
-            solveMap(moves + "D", mapD, iterator, maxIterations);
+        Map map1 = new Map(map);
+        Map map2 = new Map(map);
 
-        }
+        if (controls == Controls.LEFT || controls == Controls.RIGHT) {
+            map1.makeMove(Controls.UP);
+            solve(map1, iterator, maxIterations, string + "U", Controls.UP);
+            map2.makeMove(Controls.DOWN);
+            solve(map2, iterator, maxIterations, string + "D", Controls.DOWN);
+            if (controls == Controls.LEFT) {
+                map.makeMove(Controls.RIGHT);
+                solve(map, iterator, maxIterations, string + "R", Controls.RIGHT);
+            } else {
+                map.makeMove(Controls.LEFT);
+                solve(map, iterator, maxIterations, string + "L", Controls.LEFT);
+            }
+        } else if (controls == Controls.UP || controls == Controls.DOWN) {
 
-    }
-
-    public void tryMap(String moves, Map map, int iterator, int maxIterations) {
-
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
-
-        if (iterator <= maxIterations) {
-
-            tryMapL(moves + "L", new Map(map), iterator, maxIterations);
-            tryMapR(moves + "R", new Map(map), iterator, maxIterations);
-            tryMapU(moves + "U", new Map(map), iterator, maxIterations);
-            tryMapD(moves + "D", new Map(map), iterator, maxIterations);
+            map1.makeMove(Controls.LEFT);
+            solve(map1, iterator, maxIterations, string + "L", Controls.LEFT);
+            map2.makeMove(Controls.RIGHT);
+            solve(map2, iterator, maxIterations, string + "R", Controls.RIGHT);
+            if (controls == Controls.UP) {
+                map.makeMove(Controls.DOWN);
+                solve(map, iterator, maxIterations, string + "D", Controls.DOWN);
+            } else {
+                map.makeMove(Controls.UP);
+                solve(map, iterator, maxIterations, string + "U", Controls.UP);
+            }
 
         }
 
     }
 
-    public void tryMapL(String moves, Map map, int iterator, int maxIterations) {
-        map.makeMove(Controls.LEFT);
+    public void solveFourWays(Map map, int iterator, int maxIterations, String string) {
 
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
+        Map map1 = new Map(map);
+        Map map2 = new Map(map);
+        Map map3 = new Map(map);
 
-        if (iterator <= maxIterations) {
-
-            tryMapR(moves + "R", new Map(map), iterator, maxIterations);
-            tryMapU(moves + "U", new Map(map), iterator, maxIterations);
-            tryMapD(moves + "D", new Map(map), iterator, maxIterations);
-
-        }
-
-    }
-
-    public void tryMapR(String moves, Map map, int iterator, int maxIterations) {
 
         map.makeMove(Controls.RIGHT);
-
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
-
-        if (iterator <= maxIterations) {
-
-            tryMapL(moves + "L", new Map(map), iterator, maxIterations);
-            tryMapU(moves + "U", new Map(map), iterator, maxIterations);
-            tryMapD(moves + "D", new Map(map), iterator, maxIterations);
-
-        }
-
-    }
-
-    public void tryMapU(String moves, Map map, int iterator, int maxIterations) {
-
-        map.makeMove(Controls.UP);
-
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
-
-        if (iterator <= maxIterations) {
-
-            tryMapL(moves + "L", new Map(map), iterator, maxIterations);
-            tryMapR(moves + "R", new Map(map), iterator, maxIterations);
-            tryMapD(moves + "D", new Map(map), iterator, maxIterations);
-
-        }
-
-    }
-
-    public void tryMapD(String moves, Map map, int iterator, int maxIterations) {
-
-        map.makeMove(Controls.DOWN);
-
-        iterator++;
-        if (map.getCompletedPoints() >= map.getPointToComplete())
-            System.out.println(moves + " moves: " + map.getMovesTaken());
-
-        if (iterator <= maxIterations) {
-
-            tryMapL(moves + "L", new Map(map), iterator, maxIterations);
-            tryMapR(moves + "R", new Map(map), iterator, maxIterations);
-            tryMapU(moves + "U", new Map(map), iterator, maxIterations);
-
-
-        }
+        solve(map, iterator, maxIterations, string + "R", Controls.RIGHT);
+        System.out.println("25% - R done");
+        map2.makeMove(Controls.DOWN);
+        solve(map2, iterator, maxIterations, string + "D", Controls.DOWN);
+        System.out.println("50% - D done");
+        map1.makeMove(Controls.UP);
+        solve(map1, iterator, maxIterations, string + "U", Controls.UP);
+        System.out.println("75% - U done");
+        map3.makeMove(Controls.LEFT);
+        solve(map3, iterator, maxIterations, string + "L", Controls.LEFT);
+        System.out.println("100% - L done");
 
     }
 
     public void solveSimpleMap(String moves, Map map, int iterator, int maxIterations) {
 
-
         Map mapL = new Map(map);
         Map mapR = new Map(map);
         Map mapD = new Map(map);
@@ -197,7 +128,7 @@ public class MapSolver {
         if (map.getCompletedPoints() >= map.getPointToComplete())
             System.out.println(moves + " moves: " + map.getMovesTaken());
 
-        if (iterator <= maxIterations) {
+        if (iterator <= maxIterations && !map.isMapFailed()) {
 
             mapD.makeMove(Controls.DOWN);
             solveNext(moves + "D", mapD, iterator, maxIterations, Controls.DOWN);

@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -21,6 +20,7 @@ import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
 import sound.ClickSound;
+import sound.SlideSound;
 import textures.TextureHolder;
 import view.Alert;
 import view.Text;
@@ -38,12 +38,13 @@ public class LevelSelectionView extends PanelView {
     private int levelsInWorld;
     private Alert alert;
     private Text starsCount;
-    private Sprite starImage;
+    private Image starImage;
     private TextureRegion region;
     private TextureRegionDrawable regionDrawable;
     private TextureRegion touchedRegion;
     private TextureRegionDrawable touchRegionDrawable;
     private TextureRegionDrawable lockedLevel;
+    private TextureRegionDrawable lockedTouched;
     private int world;
 
 
@@ -54,8 +55,10 @@ public class LevelSelectionView extends PanelView {
 
         alert = new Alert(camera);
 
-        TextureRegion lockedLevelTexture = new TextureRegion(new Texture("menus/level_locked.png"), 0, 0, 139, 190);
+        TextureRegion lockedLevelTexture = new TextureRegion(TextureHolder.lockedLevelTexture, 0, 0, TextureHolder.lockedLevelTexture.getWidth(), TextureHolder.lockedLevelTexture.getHeight() / 2);
+        TextureRegion lockedTouchedLevelTexture = new TextureRegion(TextureHolder.lockedLevelTexture, 0, TextureHolder.lockedLevelTexture.getHeight() / 2, TextureHolder.lockedLevelTexture.getWidth(), TextureHolder.lockedLevelTexture.getHeight() / 2);
         lockedLevel = new TextureRegionDrawable(lockedLevelTexture);
+        lockedTouched = new TextureRegionDrawable(lockedTouchedLevelTexture);
         region = new TextureRegion(TextureHolder.levelButtonsTexture, 0, 0, 139, 190);
         regionDrawable = new TextureRegionDrawable(region);
 
@@ -86,11 +89,12 @@ public class LevelSelectionView extends PanelView {
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     super.touchUp(event, x, y, pointer, button);
                     if (finalI <= levelsInWorld) {
-                        if (!levelButton.isLocked()) {
+                        if (!levelButton.isLocked() || Constants.cheatMode) {
                             selectedLevel = finalI;
                         } else {
                             alert.setActive(true);
                             alert.prepareAlert("you need " + mapsInfo.getStarsToUnlock(world, finalI) + " stars to unlock this level");
+                            levelButton.setDrawable(lockedLevel);
                         }
                     }
                 }
@@ -99,8 +103,12 @@ public class LevelSelectionView extends PanelView {
             levelButton.addListener(new ClickListener() {
                 public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                     super.touchDown(event, x, y, pointer, button);
-                    if (!levelButton.isLocked()) {
+                    if (!levelButton.isLocked() || Constants.cheatMode) {
                         levelButton.setDrawable(touchRegionDrawable);
+                        if (Constants.soundOn)
+                            ClickSound.clickSound.play();
+                    } else {
+                        levelButton.setDrawable(lockedTouched);
                         if (Constants.soundOn)
                             ClickSound.clickSound.play();
                     }
@@ -125,7 +133,36 @@ public class LevelSelectionView extends PanelView {
         int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
 
         starsCount = new Text(posX, posY, player.getStars());
-        starImage = new Sprite(TextureHolder.goldenStar);
+        starImage = new Image(new Texture("menus/score_star.png"));
+
+        starImage.addListener(new ClickListener() {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                if (Constants.soundOn) {
+                    if (Constants.cheatActivation < 9) {
+
+                        ClickSound.clickSound.play(0.1f);
+                    } else {
+                        SlideSound.slideSound.play(0.1f);
+
+                    }
+                }
+                if (Constants.cheatActivation >= 5) {
+
+                    Constants.cheatActivation++;
+                    if (Constants.cheatActivation == 10) {
+                        Constants.cheatActivation = 0;
+                        Constants.cheatMode = true;
+                        for (LevelButton levelButton : levelButtons) {
+                            levelButton.setDrawable(regionDrawable);
+                            levelButton.setLocked(false);
+                        }
+                    }
+                } else {
+                    Constants.cheatActivation = 0;
+                }
+            }
+        });
 
         posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
         posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
@@ -148,13 +185,15 @@ public class LevelSelectionView extends PanelView {
 
         stage.clear();
         stage.addActor(backButton);
+        stage.addActor(starImage);
         for (LevelButton levelButton : levelButtons) {
 
             levelButton.setDrawable(regionDrawable);
             levelButton.setLocked(false);
 
             levelButton.setStars(mapsInfo.getStarsToObtain(selectedWorld, levelButton.getLevel()), player.getStarsFromLevel(selectedWorld, levelButton.getLevel()));
-            if (mapsInfo.getStarsToUnlock(selectedWorld, levelButton.getLevel()) > player.getStars()) {
+            if (mapsInfo.getStarsToUnlock(selectedWorld, levelButton.getLevel()) > player.getStars() && !Constants.cheatMode) {
+                levelButton.setDrawable(lockedLevel);
                 levelButton.setLocked(true);
             }
             stage.addActor(levelButton);
@@ -192,8 +231,8 @@ public class LevelSelectionView extends PanelView {
         background.draw(batch, 1);
 
         for (int i = 0; i < levelsInWorld; i++) {
-            if (levelButtons.get(i).isLocked()) {
-                levelButtons.get(i).drawLocked(batch, 1, levelFont, lockedLevel);
+            if (levelButtons.get(i).isLocked() && !Constants.cheatMode) {
+                levelButtons.get(i).draw(batch, 1, levelFont);
             } else {
                 if (world == 5) {
                     levelFont.setColor(Constants.fifthWorldButtonColor);
@@ -207,7 +246,7 @@ public class LevelSelectionView extends PanelView {
             buttonFont.setColor(Constants.fifthWorldButtonColor);
         }
         backButton.draw(batch, 1, buttonFont);
-        starImage.draw(batch);
+        starImage.draw(batch, 1);
         buttonFont.setColor(Color.BLACK);
         buttonFont.draw(batch, starsCount.getText(), starsCount.getPosX(), starsCount.getPosY());
 

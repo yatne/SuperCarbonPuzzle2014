@@ -1,6 +1,6 @@
 <maps world="the second">
 
-    <map name="those green fields" number="1" silver="5" unlocked="55">        <!-->40<-->
+    <map name="those green fields" number="1" silver="5" unlocked="45">        <!-->40<-->
 
         <row nr="1">OOXEXO</row>
         <row nr="2">O+OOOO</row>
@@ -11,7 +11,7 @@
 
     </map>
 
-    <map name="those green fields" number="2" silver="9" unlocked="57">        <!-->40<-->
+    <map name="those green fields" number="2" silver="9" unlocked="47">        <!-->40<-->
 
         <row nr="1">OOOOXE</row>
         <row nr="2">OXBO+O</row>
@@ -22,7 +22,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="3" silver="5" unlocked="59">
+    <map name="perfect housekeeper" number="3" silver="5" unlocked="49">
 
         <row nr="1">XOOXOBX</row>
         <row nr="2">OXBXOXO</row>
@@ -34,7 +34,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="4" silver="7" unlocked="61">
+    <map name="perfect housekeeper" number="4" silver="7" unlocked="51">
 
         <row nr="1">OOOXOOS</row>
         <row nr="2">OB+OOOO</row>
@@ -46,7 +46,7 @@
 
     </map>
 
-    <map name="those green fields" number="5" gold="8" silver="10" unlocked="63">        <!-->40<-->
+    <map name="those green fields" number="5" gold="8" silver="10" unlocked="53">        <!-->40<-->
 
         <row nr="1">OXOOO+O</row>
         <row nr="2">OSXXOO+</row>
@@ -58,7 +58,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="6" gold="14" silver="16" unlocked="66">
+    <map name="perfect housekeeper" number="6" gold="14" silver="16" unlocked="56">
 
         <row nr="1">SOOOeX</row>
         <row nr="2">sOXXXO</row>
@@ -70,7 +70,7 @@
     </map>
 
 
-    <map name="perfect housekeeper" number="7" gold="19" silver="25" unlocked="69">
+    <map name="perfect housekeeper" number="7" gold="19" silver="25" unlocked="59">
 
         <row nr="1">XOOOXOO</row>
         <row nr="2">OOXOOOO</row>
@@ -82,7 +82,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="8" gold="8" silver="10" unlocked="72">
+    <map name="perfect housekeeper" number="8" gold="8" silver="10" unlocked="62">
 
         <row nr="1">OOOXOXO</row>
         <row nr="2">XOOOOOO</row>
@@ -95,7 +95,7 @@
     </map>
 
 
-    <map name="triple baller" number="9" gold="18" silver="23" unlocked="75">
+    <map name="triple baller" number="9" gold="18" silver="23" unlocked="65">
 
         <row nr="1">EOOOOOO</row>
         <row nr="2">XOOXeXO</row>
@@ -107,7 +107,7 @@
 
     </map>
 
-    <map name="those green fields" number="10" gold="8" silver="10" unlocked="78">        <!-->40<-->
+    <map name="those green fields" number="10" gold="8" silver="10" unlocked="67">        <!-->40<-->
 
         <row nr="1">OOOBEBOO</row>
         <row nr="2">O++XXX+O</row>
@@ -122,7 +122,7 @@
 
 
 
-    <map name="perfect housekeeper" number="11" gold="15" silver="21" unlocked="82">
+    <map name="perfect housekeeper" number="11" gold="15" silver="21" unlocked="71">
 
         <row nr="1">OO+OXXOO</row>
         <row nr="2">XXOOOEOO</row>
@@ -135,7 +135,7 @@
 
     </map>
 
-    <map name="those green fields" number="12" gold="9" silver="15" unlocked="86">        <!-->40<-->
+    <map name="those green fields" number="12" gold="9" silver="15" unlocked="74">        <!-->40<-->
 
         <row nr="1">XOOOXOOO</row>
         <row nr="2">SXEOOOOO</row>
@@ -150,7 +150,7 @@
 
 
 
-    <map name="perfect housekeeper" number="13" gold="8" silver="12" unlocked="90">
+    <map name="perfect housekeeper" number="13" gold="8" silver="12" unlocked="78">
 
         <row nr="1">OOOOOOX</row>
         <row nr="2">OOXOOSO</row>
@@ -162,7 +162,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="14" gold="8" silver="11" unlocked="92">
+    <map name="perfect housekeeper" number="14" gold="8" silver="11" unlocked="80">
 
         <row nr="1">O+OOOOO</row>
         <row nr="2">OOO+EXO</row>
@@ -175,7 +175,7 @@
     </map>
 
 
-    <map name="perfect housekeeper" number="15" gold="16" silver="20" unlocked="95">
+    <map name="perfect housekeeper" number="15" gold="16" silver="20" unlocked="82">
 
         <row nr="1">OBXSXOO+</row>
         <row nr="2">OBXOXOEO</row>
@@ -188,7 +188,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="16" plat="9" gold="15" silver="23" unlocked="98">
+    <map name="perfect housekeeper" number="16" plat="9" gold="15" silver="23" unlocked="85">
 
         <row nr="1">OsOOOOOO</row>
         <row nr="2">O+OSO+OO</row>
@@ -202,7 +202,7 @@
     </map>
 
 
-    <map name="whole lotta love" number="17" gold="9" silver="15" unlocked="101">
+    <map name="whole lotta love" number="17" gold="9" silver="15" unlocked="88">
 
         <row nr="1">XOOOOXO</row>
         <row nr="2">OOO+XOE</row>
@@ -214,7 +214,7 @@
 
     </map>
 
-    <map name="those green fields" number="18" gold="14" silver="18" unlocked="104">        <!-->40<-->
+    <map name="those green fields" number="18" gold="14" silver="18" unlocked="91">        <!-->40<-->
 
         <row nr="1">OEXOOOSX</row>
         <row nr="2">OOOOOOXe</row>
@@ -230,7 +230,7 @@
 
 
 
-    <map name="those green fields" number="19" gold="9" silver="15"  unlocked="106">        <!-->40<-->
+    <map name="those green fields" number="19" gold="9" silver="15"  unlocked="93">        <!-->40<-->
 
         <row nr="1">O+OOO+BO</row>
         <row nr="2">OO+BOXOO</row>
@@ -244,7 +244,7 @@
     </map>
 
 
-    <map name="this is the end" number="20" plat="14" gold="15" silver="20" unlocked="108">
+    <map name="this is the end" number="20" plat="14" gold="15" silver="20" unlocked="95">
 
         <row nr="1">OOOXOOEX</row>
         <row nr="2">+EOO+O+O</row>
@@ -258,7 +258,7 @@
     </map>
 
 
-    <map name="do what you love" number="21" silver="28" gold="25" plat="22" unlocked="111">
+    <map name="do what you love" number="21" silver="28" gold="25" plat="22" unlocked="98">
 
         <row nr="1">OOOOXOEO</row>
         <row nr="2">OOXXOXOO</row>
@@ -271,7 +271,7 @@
 
     </map>
 
-    <map name="those green fields" number="22" plat="13" gold="19" silver="25" unlocked="115">        <!-->40<-->
+    <map name="those green fields" number="22" plat="13" gold="19" silver="25" unlocked="101">        <!-->40<-->
 
         <row nr="1">BOXOEXBS</row>
         <row nr="2">XOO+XOOX</row>
@@ -284,7 +284,7 @@
 
     </map>
 
-    <map name="perfect housekeeper" number="23" plat="12" gold="15" silver="20" unlocked="119">
+    <map name="perfect housekeeper" number="23" plat="12" gold="15" silver="20" unlocked="105">
 
         <row nr="1">OOEXOOO</row>
         <row nr="2">XO+OOOO</row>
@@ -298,7 +298,7 @@
 
 
 
-    <map name="those green fields" number="24" plat="14" gold="19" silver="28" unlocked="123">        <!-->40<-->
+    <map name="those green fields" number="24" plat="14" gold="20" silver="28" unlocked="110">        <!-->40<-->
 
         <row nr="1">sOOOOOOS</row>
         <row nr="2">OOOOOSOX</row>
@@ -313,7 +313,7 @@
 
 
 
-    <map name="those green fields" number="25" plat="13" gold="16" silver="25" unlocked="130">        <!-->40<-->
+    <map name="those green fields" number="25" plat="13" gold="16" silver="25" unlocked="115">        <!-->40<-->
 
         <row nr="1">eXOXEXOOO</row>
         <row nr="2">OXOO+OOs+</row>

@@ -67,6 +67,67 @@
 
     </object>
 
+    <object name="kill-left" enum="KILLLEFT" texture="leftkill.png" representation="Q" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-left</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-right" enum="KILLRIGTH" texture="rightkill.png" representation="W" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-right</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-up" enum="KILLUP" texture="upkill.png" representation="A" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-up</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-down" enum="KILLDOWN" texture="downkill.png" representation="Z" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-down</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-up-left" enum="KILLUPLEFT" texture="leftupkill.png" representation=";" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-left</behavior>
+        <behavior>kill-up</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-up-right" enum="KILLUPRIGHT" texture="rightupkill.png" representation="'" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-right</behavior>
+        <behavior>kill-up</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+    <object name="kill-down-left" enum="KILLDOWNLEFT" texture="leftdownkill.png" representation="." placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-left</behavior>
+        <behavior>kill-down</behavior>
+        <behavior>kill</behavior>
+    </object>
+
+
+    <object name="kill-down-right" enum="KILLDOWNRIGHT" texture="rightdownkill.png" representation="/" placedOn="EMPTY">
+        <behavior>empty</behavior>
+        <behavior>portal</behavior>
+        <behavior>kill-right</behavior>
+        <behavior>kill-down</behavior>
+        <behavior>kill</behavior>
+    </object>
+
     <object name="left" enum="LEFT" texture="left.png" representation="L" placedOn="EMPTY">
 
         <behavior>empty</behavior>
@@ -96,7 +157,7 @@
     </object>
 
 
-    <object name="up-right" enum="UPRIGHT" texture="right.png" representation="Y" placedOn="EMPTY">
+    <object name="up-right" enum="UPRIGHT" texture="right-up.png" representation="y" placedOn="EMPTY">
 
         <behavior>empty</behavior>
         <behavior>portal</behavior>
@@ -105,7 +166,7 @@
     </object>
 
 
-    <object name="up-left" enum="UPLEFT" texture="right.png" representation="T" placedOn="EMPTY">
+    <object name="up-left" enum="UPLEFT" texture="left-up.png" representation="t" placedOn="EMPTY">
 
         <behavior>empty</behavior>
         <behavior>portal</behavior>
@@ -114,7 +175,7 @@
     </object>
 
 
-    <object name="down-right" enum="DOWNRIGHT" texture="right.png" representation="H" placedOn="EMPTY">
+    <object name="down-right" enum="DOWNRIGHT" texture="right-down.png" representation="h" placedOn="EMPTY">
 
         <behavior>empty</behavior>
         <behavior>portal</behavior>
@@ -123,7 +184,7 @@
     </object>
 
 
-    <object name="down-left" enum="DOWNLEFT" texture="right.png" representation="G" placedOn="EMPTY">
+    <object name="down-left" enum="DOWNLEFT" texture="left-down.png" representation="g" placedOn="EMPTY">
 
         <behavior>empty</behavior>
         <behavior>portal</behavior>
@@ -150,7 +211,18 @@
         <behavior>empty</behavior>
     </object>
 
+    <object name="ended-ball" enum="ENDBALL" texture="nothing.png">
+
+        <behavior>empty</behavior>
+    </object>
+
+    <object name="killed-by-portal" enum="KILLED" texture="nothing.png">
+
+        <behavior>empty</behavior>
+    </object>
+
     <object name="destroyer" enum="DESTROYER" texture="destroyer.png" representation="*" placedOn="EMPTY">
+        <behavior>solid</behavior>
         <behavior>moving</behavior>
         <behavior>destroy</behavior>
     </object>
@@ -164,7 +236,7 @@
         <behavior>empty</behavior>
     </object>
 
-    <object name="onRailes" enum="RAILED" texture="gwb.png" placedOn="EMPTY" representation="#">
+    <object name="onRailes" enum="RAILED" texture="rails/gwb.png" placedOn="EMPTY" representation="#">
         <behavior>solid</behavior>
         <behavior>railed</behavior>
     </object>

@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -20,6 +19,8 @@ import enums.Controls;
 import help.utils.Constants;
 import mapSystem.MapsInfo;
 import player.Player;
+import sound.ClickSound;
+import sound.SlideSound;
 import textures.TextureHolder;
 import view.Alert;
 import view.Text;
@@ -36,7 +37,7 @@ public class WorldSelectionView extends PanelView {
     private int selectedWorld;
     private Alert alert;
     private Text starsCount;
-    private Sprite starImage;
+    private Image starImage;
     private TextureRegionDrawable lockedWorld;
     private TextureRegionDrawable lockedClicked;
 
@@ -71,7 +72,7 @@ public class WorldSelectionView extends PanelView {
             worldButton.addListener(new ClickListener() {
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     super.touchUp(event, x, y, pointer, button);
-                    if (worldButton.isLocked()) {
+                    if (worldButton.isLocked() && !Constants.cheatMode) {
                         alert.setActive(true);
                         alert.prepareAlert("You need " + mapsInfo.getStarsToUnlockWorld(finalI) + " stars to unlock this world");
                     } else
@@ -93,10 +94,28 @@ public class WorldSelectionView extends PanelView {
         backButton.setButtonWorld(1);
 
         int posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2));
-        int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 7 / 4);
-
+        int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
         starsCount = new Text(posX, posY, player.getStars());
-        starImage = new Sprite(new Texture("menus/score.png"));
+        starImage = new Image(new Texture("menus/score_star.png"));
+
+        starImage.addListener(new ClickListener() {
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                if (Constants.cheatActivation < 5) {
+                    if (Constants.soundOn) {
+                        if (Constants.cheatActivation < 4) {
+                            ClickSound.clickSound.play(0.1f);
+                        } else {
+                            SlideSound.slideSound.play(0.1f);
+
+                        }
+                    }
+                    Constants.cheatActivation++;
+                } else {
+                    Constants.cheatActivation = 0;
+                }
+            }
+        });
 
         posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
         posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
@@ -110,10 +129,10 @@ public class WorldSelectionView extends PanelView {
         selectedWorld = 0;
         stage.clear();
         stage.addActor(backButton);
+        stage.addActor(starImage);
         for (WorldButton worldButton : worldButtons) {
             worldButton.setLocked(false);
-            if (mapsInfo.getStarsToUnlockWorld(worldButton.getWorldNumber()) > player.getStars()) {
-
+            if (mapsInfo.getStarsToUnlockWorld(worldButton.getWorldNumber()) > player.getStars() && !Constants.cheatMode) {
 
                 lockedWorld = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, 0, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));
                 lockedClicked = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, TextureHolder.lockedButton.getHeight() / 2, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));
@@ -131,7 +150,6 @@ public class WorldSelectionView extends PanelView {
             String s = player.getStarsFromWorld(i) + " / " + mapsInfo.getStarsToObtainInWorld(i);
             worldButtons.get(i - 1).setText(s);
         }
-
         starsCount.setPosX((int) ((cameraViewPortWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2)));
         starsCount.setText(Integer.toString(player.getStars()));
         for (WorldButton wb : worldButtons) {

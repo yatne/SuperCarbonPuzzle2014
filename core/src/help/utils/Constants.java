@@ -10,8 +10,11 @@ public class Constants {
     public static int howManyWorlds = 5;
     public static String skin = "classic";
     public static String version;
-    public static Color fifthWorldButtonColor = Color.ORANGE;
+    public static Color fifthWorldButtonColor = Color.WHITE;
     public static Color thirdWorldTextColor = Color.ORANGE;
     public static Color fourthWorldTextColor = Color.WHITE;
+    public static boolean cheatMode;
+    public static int cheatActivation;
+    public static int addFrequency = 50;
 
 }

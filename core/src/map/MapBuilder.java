@@ -106,9 +106,14 @@ public class MapBuilder {
 
                     }
                 } else {
-                    Element underBlock = getElementByAttributeValue(blocksList, "enum", object.getAttribute("placedOn"));
-                    fieldsInARow.add(new Field(underBlock.getAttribute("enum"), readBehaviors(underBlock),
-                            object.getAttribute("enum"), readBehaviors(object), fieldX, i));
+                    try {
+                        Element underBlock = getElementByAttributeValue(blocksList, "enum", object.getAttribute("placedOn"));
+                        fieldsInARow.add(new Field(underBlock.getAttribute("enum"), readBehaviors(underBlock),
+                                object.getAttribute("enum"), readBehaviors(object), fieldX, i));
+                    } catch (NullPointerException e) {
+                        System.out.println("symbol not known: " + symbol);
+                    }
+
 
                 }
                 fieldX++;

@@ -98,12 +98,12 @@ public class SoundActivator {
 
     }
 
-    public static HashMap<Sounds, Sound> soundHashMap() {
+    public static HashMap<Sounds, Sound> makeSoundHashMap() {
         HashMap<Sounds, Sound> soundHashMap = new HashMap<>();
         soundHashMap.put(Sounds.SLIDE, Gdx.audio.newSound(Gdx.files.internal("sounds/slide.wav")));
-        soundHashMap.put(Sounds.END, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
-        soundHashMap.put(Sounds.RED, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
-        soundHashMap.put(Sounds.GREEN, Gdx.audio.newSound(Gdx.files.internal("sounds/button.wav")));
+        soundHashMap.put(Sounds.END, Gdx.audio.newSound(Gdx.files.internal("sounds/end.wav")));
+        soundHashMap.put(Sounds.RED, Gdx.audio.newSound(Gdx.files.internal("sounds/1.wav")));
+        soundHashMap.put(Sounds.GREEN, Gdx.audio.newSound(Gdx.files.internal("sounds/pop.wav")));
         soundHashMap.put(Sounds.DESTROY, Gdx.audio.newSound(Gdx.files.internal("sounds/gray.wav")));
         return soundHashMap;
     }

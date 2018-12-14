@@ -1,6 +1,5 @@
 package view.buttons;
 
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -77,21 +76,13 @@ public class Button extends Image {
     }
 
 
-    public Button(Texture texture, String textString, float posX, float posY, BitmapFont font, OrthographicCamera camera) {
-        super(texture);
-        this.texture = texture;
-        this.setPosition(posX, posY);
-        textureRegion = new TextureRegion(texture);
-        textureRegionPressed = new TextureRegion(texture);
-    }
-
     public Button(Texture texture, String textString, float posX, float posY, float width, float height, BitmapFont font) {
         super(texture);
         this.texture = texture;
         this.setPosition(posX, posY);
         this.setSize(width, height);
         float textPosX = ((2 * posX) + width) / 2 - font.getBounds(textString).width / 2;
-        float textPosY = posY + height - ((height - font.getBounds(textString).height) / 4);
+        float textPosY = posY + font.getCapHeight() + (5*(height-font.getCapHeight())/8);
 
         text = new Text((int) textPosX, (int) textPosY, textString);
 

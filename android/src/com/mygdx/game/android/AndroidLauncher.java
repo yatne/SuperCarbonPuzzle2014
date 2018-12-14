@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.mygdx.game.ActionResolver;
 import com.mygdx.game.IActivityRequestHandler;
 import com.mygdx.game.Slider;
 import help.utils.Constants;
@@ -20,9 +24,10 @@ import help.utils.Constants;
 import static com.google.android.gms.ads.AdSize.SMART_BANNER;
 
 
-public class AndroidLauncher extends AndroidApplication implements IActivityRequestHandler {
+public class AndroidLauncher extends AndroidApplication implements IActivityRequestHandler, ActionResolver {
     private final int SHOW_ADS = 1;
     private final int HIDE_ADS = 0;
+    private final int SHOW_INTER = 2;
     protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -35,9 +40,14 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
                     adView.setVisibility(View.GONE);
                     break;
                 }
+                case SHOW_INTER: {
+                    showInterstitialAd();
+                    break;
+                }
             }
         }
     };
+    private InterstitialAd interstitial;
     private AdView adView;
 
     @Override
@@ -58,16 +68,37 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
 
         View gameView = initializeForView(new Slider(this), config);
 
+
+        // Create the interstitial.
+        interstitial = new InterstitialAd(this);
+        interstitial.setAdUnitId("ca-app-pub-5922776279277926/9272619292");
+
+        // Create ad request.
+        AdRequest adRequest = new AdRequest.Builder().build();
+        interstitial.loadAd(adRequest);
+
+        interstitial.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+               // Toast.makeText(getApplicationContext(), "Finished Loading Interstitial", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdClosed() {
+               // Toast.makeText(getApplicationContext(), "Closed Interstitial", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //--------------------------------
+
         adView = new AdView(this); // Put in your secret key here
         adView.setAdSize(SMART_BANNER);
         adView.setAdUnitId("ca-app-pub-5922776279277926/4680432899");
-
-        AdRequest adRequest = new AdRequest.Builder()
+        AdRequest banerAdRequest = new AdRequest.Builder()
                 .addKeyword("game")
                 .build();
-
-        adView.loadAd(adRequest);
-
+        adView.loadAd(banerAdRequest);
         layout.addView(gameView);
 
 
@@ -87,11 +118,44 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
         } catch (PackageManager.NameNotFoundException e) {
 
         }
+        Constants.adHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
 
     }
 
     @Override
     public void showAds(boolean show) {
         handler.sendEmptyMessage(show ? SHOW_ADS : HIDE_ADS);
+    }
+
+    @Override
+    public void showIntAd() {
+        try {
+            runOnUiThread(new Runnable() {
+                public void run() {
+
+                    if (interstitial.isLoaded()) {
+                        interstitial.show();
+                        AdRequest interstitialRequest = new AdRequest.Builder().build();
+
+                    } else {
+                        AdRequest interstitialRequest = new AdRequest.Builder().build();
+                        interstitial.loadAd(interstitialRequest);
+
+                    }
+                }
+            });
+        } catch (Exception e) {
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
+
+    @Override
+    public void showInterstitialAd() {
+        if (interstitial.isLoaded()) {
+            interstitial.show();
+        }
     }
 }

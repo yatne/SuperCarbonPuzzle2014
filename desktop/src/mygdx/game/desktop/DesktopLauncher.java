@@ -27,4 +27,9 @@ public class DesktopLauncher implements IActivityRequestHandler {
     public void showAds(boolean show) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public void showIntAd() {
+        System.out.println("reklama");
+    }
 }

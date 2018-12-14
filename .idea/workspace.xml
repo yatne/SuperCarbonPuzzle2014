@@ -27,6 +27,11 @@
       </GlobalState>
     </option>
   </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
@@ -37,215 +42,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AppRater.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/sound/ClickSound.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/enums/Sounds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/TextureHashMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/textures/TextureHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/resources/maps4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/resources/maps5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/src.xml" />
-      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\core\src\enums\Animations.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/enums/Coordinates.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mapTester/src/MapTester.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/ObjectiveStripe.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/sound/SlideSound.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/menus/SplashScreen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/view/Star.java" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\android\assets\box.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\android\assets\fin.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\android\assets\none.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Anti\Desktop\Slider\slider\android\assets\obstacle.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/Alert.java" afterPath="$PROJECT_DIR$/core/src/view/Alert.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" afterPath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/AndroidManifest.xml" afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/BlocksReader.java" afterPath="$PROJECT_DIR$/core/src/help/utils/BlocksReader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/buttons/Button.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/Constants.java" afterPath="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/HelpUtils.java" afterPath="$PROJECT_DIR$/core/src/help/utils/HelpUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/MainMenuView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/map/Map.java" afterPath="$PROJECT_DIR$/core/src/map/Map.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/map/MapBuilder.java" afterPath="$PROJECT_DIR$/core/src/map/MapBuilder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapTester/src/mapSolver/MapSolver.java" afterPath="$PROJECT_DIR$/mapTester/src/mapSolver/MapSolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/MapView.java" afterPath="$PROJECT_DIR$/core/src/view/MapView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/mapSystem/MapsInfo.java" afterPath="$PROJECT_DIR$/core/src/mapSystem/MapsInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/help/utils/ObjectsReader.java" afterPath="$PROJECT_DIR$/core/src/help/utils/ObjectsReader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/map/Object.java" afterPath="$PROJECT_DIR$/core/src/map/Object.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/enums/ObjectsType.java" afterPath="$PROJECT_DIR$/core/src/enums/ObjectsType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/sound/SoundActivator.java" afterPath="$PROJECT_DIR$/core/src/sound/SoundActivator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/buttons/SoundButton.java" afterPath="$PROJECT_DIR$/core/src/view/buttons/SoundButton.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/textures/TextureHolder.java" afterPath="$PROJECT_DIR$/core/src/textures/TextureHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" afterPath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps1.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps2.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps3.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps3.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps4.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/maps5.xml" afterPath="$PROJECT_DIR$/core/src/resources/maps5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/resources/objects.xml" afterPath="$PROJECT_DIR$/core/src/resources/objects.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slider.iml" afterPath="$PROJECT_DIR$/slider.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/values/strings.xml" afterPath="$PROJECT_DIR$/android/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/superSlideMe.iml" afterPath="$PROJECT_DIR$/android/superSlideMe.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="slider.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414241312309" ignored="false" />
-    <file path="/Map.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414003465419" ignored="false" />
-    <file path="/HelpUtils.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1411050893272" ignored="false" />
-    <file path="/Slider.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413973919875" ignored="false" />
-    <file path="/Animations.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1404741716105" ignored="false" />
-    <file path="/Move.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1404742561611" ignored="false" />
-    <file path="/MapView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414241250685" ignored="false" />
-    <file path="/Controls.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407762422622" ignored="false" />
-    <file path="/KeyboardController.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407762845975" ignored="false" />
-    <file path="/plany.txt" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414236598192" ignored="false" />
-    <file path="/MovingSprite.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1405598518530" ignored="false" />
-    <file path="/ViewConstants.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1405597148692" ignored="false" />
-    <file path="/maps.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407401749082" ignored="false" />
-    <file path="/Object.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407763952868" ignored="false" />
-    <file path="/MapBuilder.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1412937711170" ignored="false" />
-    <file path="/GameStates.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409328159697" ignored="false" />
-    <file path="/Constants.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414235057834" ignored="false" />
-    <file path="/objects.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413475669799" ignored="false" />
-    <file path="/ObjectsType.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413461785167" ignored="false" />
-    <file path="/fragment.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413202285794" ignored="false" />
-    <file path="/MenuView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364375706" ignored="false" />
-    <file path="/MapsReader.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409141809408" ignored="false" />
-    <file path="/gestureController.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407244295209" ignored="false" />
-    <file path="/GestureController.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407314805377" ignored="false" />
-    <file path="/AndroidManifest.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413736013167" ignored="false" />
-    <file path="/player.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407482350791" ignored="false" />
-    <file path="/Player.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413217619242" ignored="false" />
-    <file path="/maps2.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414097744821" ignored="false" />
-    <file path="/maps1.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1412774798374" ignored="false" />
-    <file path="/*.regexp" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407514163330" ignored="false" />
-    <file path="/MapTester.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1412592743235" ignored="false" />
-    <file path="/MapSolver.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414099301950" ignored="false" />
-    <file path="/LevelNumber.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407775457045" ignored="false" />
-    <file path="/Text.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409249861826" ignored="false" />
-    <file path="/Alert.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413976240994" ignored="false" />
-    <file path="/PreLevelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414236382203" ignored="false" />
-    <file path="/LevelInfoView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1407956424257" ignored="false" />
-    <file path="/Button.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414096364233" ignored="false" />
-    <file path="/panelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408356782797" ignored="false" />
-    <file path="/MainMenuView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413973965441" ignored="false" />
-    <file path="/BasicButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1410526721542" ignored="false" />
-    <file path="/LevelSelectionView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414236185179" ignored="false" />
-    <file path="/LevelButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1412437589903" ignored="false" />
-    <file path="/PanelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409060837468" ignored="false" />
-    <file path="/star.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1408364942002" ignored="false" />
-    <file path="/WorldSelectionView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414096618403" ignored="false" />
-    <file path="/WorldButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413220150483" ignored="false" />
-    <file path="/AfterLevelView.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414240408518" ignored="false" />
-    <file path="/AndroidLauncher.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413894314525" ignored="false" />
-    <file path="/AllMapsInfo.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409247783604" ignored="false" />
-    <file path="/MapInfo.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1409248009805" ignored="false" />
-    <file path="/ButtonWitchPress.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1410525828015" ignored="false" />
-    <file path="/maps3.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413196938634" ignored="false" />
-    <file path="/SwitchChecker.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1411052363639" ignored="false" />
-    <file path="/Banner.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1411676188155" ignored="false" />
-    <file path="/DesktopLauncher.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413895183786" ignored="false" />
-    <file path="/MapsInfo.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413379989448" ignored="false" />
-    <file path="/main.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413200072684" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/gen/com/google/android/gms/BuildConfig.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413200733673" ignored="false" />
-    <file path="$PROJECT_DIR$/superSlideMe/gen/com/mygdx/game/android/Manifest.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413201682416" ignored="false" />
-    <file path="$PROJECT_DIR$/superSlideMe/gen/com/mygdx/game/android/R.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413201682416" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-en-rGB/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612832" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-en-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612832" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-es-rUS/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612832" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-et-rEE/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612832" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-fr-rCA/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-hy-rAM/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ka-rGE/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-km-rKH/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-lo-rLA/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-mn-rMN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612833" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ms-rMY/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-pt-rBR/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-pt-rPT/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-zh-rCN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-zh-rHK/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/color/wallet_primary_text_holo_light.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612834" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-zh-rTW/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/color/common_signin_btn_text_dark.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/color/common_signin_btn_text_light.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/color/wallet_secondary_text_holo_dark.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/wallet_styles.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/wallet_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612835" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/admob_ads_attrs.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/wallet_attrs.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ur-rPK/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/admob_iap_style.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-uz-rUZ/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values/maps_attrs.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612836" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-kk-rKZ/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ne-rNP/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/drawable/common_signin_btn_icon_light.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-my-rMM/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/drawable/common_signin_btn_text_dark.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-eu-rES/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612837" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/drawable/common_signin_btn_icon_dark.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ky-rKG/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/drawable/common_signin_btn_text_light.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-mk-rMK/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-af/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-mr-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612838" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-am/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612839" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-kn-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612839" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ar/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-be/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-bg/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ca/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-cs/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-te-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-da/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612840" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-gl-rES/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-de/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-bn-rBD/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-el/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-is-rIS/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-es/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-es/wallet_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-si-rLK/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612841" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-fa/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ta-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-fi/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ml-rIN/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-fr/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-hi/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-hr/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-hu/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612842" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-in/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-it/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-iw/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ja/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ko/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-lt/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-lv/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-nb/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612843" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-nl/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-pl/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-pt/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ro/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-ru/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-sk/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-sl/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-sr/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612844" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-sv/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-sw/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/src/android/UnusedStub.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-th/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-tl/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-tr/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-uk/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-vi/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612845" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/res/values-zu/common_strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612846" ignored="false" />
-    <file path="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/AndroidManifest.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413291612846" ignored="false" />
-    <file path="/SoundActivator.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413364512945" ignored="false" />
-    <file path="/SoundButton.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413363902959" ignored="false" />
-    <file path="/Sounds.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413364073779" ignored="false" />
-    <file path="/ClickSound.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413366658321" ignored="false" />
-    <file path="/maps4.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413718257047" ignored="false" />
-    <file path="/maps5.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413379559691" ignored="false" />
-    <file path="/strings.xml" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413565497661" ignored="false" />
-    <file path="/RateThisApp.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413795790637" ignored="false" />
-    <file path="/ButtonTextureHolder.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413976111593" ignored="false" />
-    <file path="/TextureHolder.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413976112075" ignored="false" />
-    <file path="/BlocksReader.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1413999614509" ignored="false" />
-    <file path="/ObjectsReader.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414000135650" ignored="false" />
-    <file path="/TextureHashMap.java" changelist="ca3bcd41-9e4b-454c-a610-f9a847d4233a" time="1414001159733" ignored="false" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/core/.gradle/" />
+    <ignored path="$PROJECT_DIR$/desktop/.gradle/" />
+    <ignored path="$PROJECT_DIR$/html/.gradle/" />
+    <ignored path="$PROJECT_DIR$/html/build/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/android/.gradle/" />
+    <ignored path="$PROJECT_DIR$/android/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,8 +118,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+    <ui_properties converted="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -302,9 +155,8 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <breakpoint_rules />
-    <ui_properties />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true" />
+    <breakpoint_rules converted="true" />
   </component>
   <component name="DevPartner.ProjectWorkspace">
     <option name="runtimeAnalysisType" value="-1" />
@@ -315,87 +167,104 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MapView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <file leaf-file-name="maps1.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="63" selection-start="5857" selection-end="5857" vertical-scroll-proportion="1.2428116">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maps2.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/resources/maps2.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="315" column="92" selection-start="8719" selection-end="8719" vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4429" max-vertical-offset="5270">
+              <caret line="275" column="10" selection-start-line="275" selection-start-column="10" selection-end-line="275" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldSelectionView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
+      <file leaf-file-name="MapBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/map/MapBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="120" selection-start="4508" selection-end="4508" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AfterLevelView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="210" column="60" selection-start="8977" selection-end="8977" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelSelectionView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="200" column="38" selection-start="8720" selection-end="8720" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LevelButton.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="3167" selection-end="3167" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PreLevelView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="8" selection-start="5730" selection-end="5823" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="59" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MapSolver.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mapTester/src/mapSolver/MapSolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="128" selection-start="8415" selection-end="8415" vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2992">
+              <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maps2.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/resources/maps2.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4820" max-vertical-offset="5729">
+              <caret line="315" column="92" selection-start-line="315" selection-start-column="92" selection-end-line="315" selection-end-column="92" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maps3.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/resources/maps3.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="5831" max-vertical-offset="5933">
+              <caret line="343" column="7" selection-start-line="343" selection-start-column="7" selection-end-line="343" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maps4.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/resources/maps4.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4803" max-vertical-offset="5644">
+              <caret line="311" column="71" selection-start-line="311" selection-start-column="71" selection-end-line="311" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maps5.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/resources/maps5.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.527943" vertical-offset="1530" max-vertical-offset="5814">
+              <caret line="314" column="35" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DesktopLauncher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+              <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="697">
+              <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1768" max-vertical-offset="10251">
+              <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ObjectiveStripe.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+              <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -420,7 +289,6 @@
     </option>
     <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
     <option name="UPDATE_TYPE" value="REBASE" />
-    <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -429,24 +297,14 @@
     </option>
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/help/utils/BlocksReader.java" />
-        <option value="$PROJECT_DIR$/core/src/view/TextureHashMap.java" />
-        <option value="$PROJECT_DIR$/core/src/map/Map.java" />
-        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
-        <option value="$PROJECT_DIR$/mapTester/src/MapTester.java" />
-        <option value="$PROJECT_DIR$/mapTester/src/mapSolver/MapSolver.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/resources/maps2.xml" />
-        <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
-        <option value="$PROJECT_DIR$/plany.txt" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
+        <option value="$PROJECT_DIR$/core/src/resources/maps3.xml" />
+        <option value="$PROJECT_DIR$/core/src/resources/maps4.xml" />
+        <option value="$PROJECT_DIR$/core/src/resources/maps5.xml" />
+        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/core/src/resources/maps1.xml" />
       </list>
     </option>
   </component>
@@ -454,11 +312,11 @@
     <option name="showIgnored" value="false" />
     <treeState />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -691,7 +549,7 @@
     </ignored-problems>
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -703,6 +561,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -731,323 +599,70 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapTester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapTester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buttons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="textures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="map" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="slider" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="176" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="project.structure.proportion" value="0.148181" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="177" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="188" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Galaxy_Nexus" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="BH90E2EX0D" />
+    <property name="AndroidLayoutSelectedEditor" value="text-editor" />
+    <property name="AndroidRunProguardForReleaseBuild" value="false" />
+    <property name="DEBUGGABLE_DEVICE" value="BH90E2EX0D" />
+    <property name="DEBUGGABLE_PROCESS" value="com.mygdx.game.android" />
     <property name="ExportedApkPath" value="C:\Users\Anti\Desktop\Slider\slider\android\superSlideMe.apk" />
     <property name="ExportedModule" value="superSlideMe" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/rater" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="176" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="726" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="748" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="184" />
-    <property name="DEBUGGABLE_DEVICE" value="BH90E2EX0D" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="179" />
-    <property name="DEBUGGABLE_PROCESS" value="com.mygdx.game.android" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Galaxy_Nexus" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FullScreen" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/desktop/src" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="176" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="177" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="176" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="748" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="reference.settings.project.maven.importing" />
-    <property name="AndroidLayoutSelectedEditor" value="text-editor" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="188" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="179" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="184" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="726" />
+    <property name="FullScreen" value="false" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="project.structure.side.proportion" value="0.31432194" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="BH90E2EX0D" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="AndroidRunProguardForReleaseBuild" value="false" />
-    <property name="restartRequiresConfirmation" value="true" />
-    <property name="gradle.tool.window.active" value="Tasks" />
-    <property name="options.searchVisible" value="true" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="gradle.tool.window.active" value="Tasks" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/desktop/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.importing" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.148181" />
+    <property name="project.structure.side.proportion" value="0.31432194" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.mygdx.game.android" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Anti\Desktop\Slider\slider\mapTester\src" />
     </key>
@@ -1059,20 +674,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Desktop">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+    <configuration default="false" name="Android" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="superSlideMe" />
+      <option name="ACTIVITY_CLASS" value="com.mygdx.game.android.AndroidLauncher" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1081,18 +690,61 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="Desktop" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mygdx.game.desktop.DesktopLauncher" />
+      <module name="desktop" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/android/assets" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+    </configuration>
+    <configuration name="MapTester" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MapTester" />
+      <module name="mapTester" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <patterns />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -1105,72 +757,29 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
-      <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
+      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1179,14 +788,19 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="Android" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="superSlideMe" />
-      <option name="ACTIVITY_CLASS" value="com.mygdx.game.android.AndroidLauncher" />
-      <option name="MODE" value="specific_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1195,65 +809,19 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
-      <RunnerSettings RunnerId="AndroidDebugRunner" />
-      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="Desktop" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mygdx.game.desktop.DesktopLauncher" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/android/assets" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="desktop" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="MapTester" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="MapTester" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="mapTester" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Android Application.Android" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Desktop" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MapTester" />
-    </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <list>
+      <item itemvalue="Application.Desktop" />
+      <item itemvalue="Application.MapTester" />
+    </list>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="StatisticProjectComponent">
     <option name="excludeCompilerOutput" value="true" />
     <option name="excludeIdea9ArtifactDirectory" value="true" />
@@ -1266,159 +834,215 @@
     </option>
     <option name="fileTypes" value="class;svn-base;svn-work;Extra;gif;png;jpg;jpeg;bmp;tga;tiff;ear;war;zip;jar;iml;iws;ipr;bz2;gz;" />
   </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
+  <component name="SvnConfiguration" myUseAcceleration="nothing">
     <configuration useDefault="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="" />
       <created>1402230614791</created>
+      <option name="number" value="Default" />
       <updated>1402230614791</updated>
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1403451005863</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
       <updated>1403451005863</updated>
     </task>
     <task id="LOCAL-00002" summary="poprawione">
       <created>1403451348503</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
       <updated>1403451348503</updated>
     </task>
     <task id="LOCAL-00003" summary="rozrzucenie kodu po nowych paczkach: mapView i enums">
       <created>1403459083351</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
       <updated>1403459083351</updated>
     </task>
     <task id="LOCAL-00004" summary="rozrzucenie kodu po nowych paczkach: mapView i enums">
       <created>1403460273748</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
       <updated>1403460273748</updated>
     </task>
     <task id="LOCAL-00005" summary="rozrzucenie kodu po nowych paczkach: mapView i enums">
       <created>1403527129077</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
       <updated>1403527129077</updated>
     </task>
     <task id="LOCAL-00006" summary="gierka prawie skonczona">
       <created>1403723375645</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
       <updated>1403723375645</updated>
     </task>
     <task id="LOCAL-00007" summary="new obstacle texture">
       <created>1403723760862</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
       <updated>1403723760862</updated>
     </task>
     <task id="LOCAL-00008" summary="new obstacle texture">
       <created>1403723811910</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
       <updated>1403723811910</updated>
     </task>
     <task id="LOCAL-00009" summary="map.makemove() rozbite na mniejsze części">
       <created>1403729038239</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
       <updated>1403729038239</updated>
     </task>
     <task id="LOCAL-00010" summary="Zmieniona zasada przesuwania obiektów (działa teraz trochę szybciej z nadzieją na działanie jeszcze szybsze) + będzie można zrobić tablicę przesunięć wykorzystaną potem to animacji!">
       <created>1403865541913</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
       <updated>1403865541913</updated>
     </task>
     <task id="LOCAL-00011" summary="poprawki + dodana klasa move odpowiadająca za wszelkie przesunięcia po wykonaniu ruchu">
       <created>1404748846336</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
       <updated>1404748846336</updated>
     </task>
     <task id="LOCAL-00012" summary="dodane rzeczy do animacji + dodane przyciski [ ] (poprzednia/następna mapa)">
       <created>1405160574238</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
       <updated>1405160574238</updated>
     </task>
     <task id="LOCAL-00013" summary="zmiana sposobu rysowania mapy">
       <created>1405289092108</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
       <updated>1405289092108</updated>
     </task>
     <task id="LOCAL-00014" summary="komit przed większymi zmianami - na wszelki wszelki">
       <created>1405596366241</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
       <updated>1405596366241</updated>
     </task>
     <task id="LOCAL-00015" summary="Duże zmiany w kodzie - żadne w działaniu - obiekty są teraz w liście w klasie map a nie przypisane do poszczególnych pól - powinno to ułatwić tworzenie animacji">
       <created>1406207147462</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
       <updated>1406207147462</updated>
     </task>
     <task id="LOCAL-00016" summary="dodane animacje - bez mozliwosci zmiany levelu">
       <created>1406285914730</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
       <updated>1406285914730</updated>
     </task>
     <task id="LOCAL-00017" summary="Zrobione animacje ruchu">
       <created>1406292207960</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
       <updated>1406292207960</updated>
     </task>
     <task id="LOCAL-00018" summary="zmiany w MapView">
       <created>1406374524244</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
       <updated>1406374524244</updated>
     </task>
     <task id="LOCAL-00019" summary="poglądowe guziki&#10;">
       <created>1406644398579</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
       <updated>1406644398579</updated>
     </task>
     <task id="LOCAL-00020" summary="dodany rodzaj klocka">
       <created>1406659839788</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
       <updated>1406659839788</updated>
     </task>
     <task id="LOCAL-00021" summary="poprawione menuView">
       <created>1407235162165</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
       <updated>1407235162165</updated>
     </task>
     <task id="LOCAL-00022" summary="push bezpieczenstwa">
       <created>1407258483986</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
       <updated>1407258483986</updated>
     </task>
     <task id="LOCAL-00023" summary="nowa wersja - dodane portale i działająca na androidzie">
       <created>1407404567334</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
       <updated>1407404567334</updated>
     </task>
     <task id="LOCAL-00024" summary="dodane w chuj!">
       <created>1407497456416</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
       <updated>1407497456416</updated>
     </task>
     <task id="LOCAL-00025" summary="costam dziala">
       <created>1407850602019</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
       <updated>1407850602019</updated>
     </task>
     <task id="LOCAL-00026" summary="bug na androidzie powinien byc juz poprawiony">
       <created>1408353434747</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
       <updated>1408353434747</updated>
     </task>
     <task id="LOCAL-00027" summary="może będzie działać szybciej (ale raczej nie)">
       <created>1408364605364</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
       <updated>1408364605364</updated>
     </task>
     <task id="LOCAL-00028" summary="zanim coś spierdole&#10;">
       <created>1409142746082</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
       <updated>1409142746082</updated>
     </task>
     <task id="LOCAL-00029" summary="Chyba w reszcie poprawione (uff)">
       <created>1409323958666</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
       <updated>1409323958666</updated>
     </task>
     <task id="LOCAL-00030" summary="stabilna wersja">
       <created>1411056838705</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
       <updated>1411056838705</updated>
     </task>
     <task id="LOCAL-00031" summary="stabilna wersja">
       <created>1412435410883</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
       <updated>1412435410883</updated>
     </task>
     <task id="LOCAL-00032" summary="stabilna wersja kolejna. wszystko super + prawie są dźwięki">
       <created>1413362479152</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
       <updated>1413362479152</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="v 1.15">
+      <created>1414241380289</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1414241380289</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1442,39 +1066,42 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07405141" sideWeight="0.8423475" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16095471" sideWeight="0.71576524" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38089758" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21058688" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3407155" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32197616" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38434982" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32796317" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6720368" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17747858" sideWeight="0.7502877" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4002448" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30454546" sideWeight="0.6780239" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0834753" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21058688" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.80437285" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17747858" sideWeight="0.7502877" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3407155" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38434982" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2732274" sideWeight="0.8711162" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6720368" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16060606" sideWeight="0.6882453" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34637514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42347527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Notes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2566168" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48381603" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32986537" sideWeight="0.80437285" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18057922" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.225058" sideWeight="0.64652014" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30390492" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1489,58 +1116,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="v 1.15" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="new obstacle texture" />
     <MESSAGE value="map.makemove() rozbite na mniejsze części" />
     <MESSAGE value="Zmieniona zasada przesuwania obiektów (działa teraz trochę szybciej z nadzieją na działanie jeszcze szybsze) + będzie można zrobić tablicę przesunięć wykorzystaną potem to animacji!" />
@@ -1566,132 +1144,416 @@
     <MESSAGE value="stabilna wersja" />
     <MESSAGE value="stabilna wersja kolejna. wszystko super + prawie są dźwięki" />
     <MESSAGE value="v 1.15" />
+    <option name="LAST_COMMIT_MESSAGE" value="v 1.15" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="java-exception">
+          <log-expression disabled="true" expression="&#13;&#13;JAVA" />
+          <properties />
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="4" selection-start="5308" selection-end="5633" vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="35" selection-start="225" selection-end="225" vertical-scroll-proportion="0.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/WorldButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/Button.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="0" selection-start="5863" selection-end="5863" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapTester/src/MapTester.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="59" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/map/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="0" selection-start="8824" selection-end="8824" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapTester/src/mapSolver/MapSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="128" selection-start="8415" selection-end="8415" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="59" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/resources/maps2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="315" column="92" selection-start="8719" selection-end="8719" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="200" column="38" selection-start="8720" selection-end="8720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="3167" selection-end="3167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plany.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="23" selection-start="1093" selection-end="1102" vertical-scroll-proportion="1.4912281">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="8" selection-start="5730" selection-end="5823" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="120" selection-start="4508" selection-end="4508" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="60" selection-start="8977" selection-end="8977" vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="63" selection-start="5857" selection-end="5857" vertical-scroll-proportion="1.2428116">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="10319">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3009" max-vertical-offset="6664">
+          <caret line="205" column="41" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4446" max-vertical-offset="5287">
+          <caret line="292" column="79" selection-start-line="292" selection-start-column="79" selection-end-line="292" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4820" max-vertical-offset="5729">
+          <caret line="315" column="92" selection-start-line="315" selection-start-column="92" selection-end-line="315" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5024" max-vertical-offset="5933">
+          <caret line="343" column="7" selection-start-line="343" selection-start-column="7" selection-end-line="343" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps4.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4803" max-vertical-offset="5644">
+          <caret line="311" column="71" selection-start-line="311" selection-start-column="71" selection-end-line="311" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps5.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4930" max-vertical-offset="5814">
+          <caret line="314" column="35" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="697">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="10319">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7106">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="442">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1292" max-vertical-offset="2363">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="697">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps5.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5508" max-vertical-offset="5814">
+          <caret line="324" column="29" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1768" max-vertical-offset="10251">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7106">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="442">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="2448">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="697">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps5.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5508" max-vertical-offset="5814">
+          <caret line="324" column="29" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="10319">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapTester/src/MapTester.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="41" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/map/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.28" vertical-offset="0" max-vertical-offset="0">
+          <caret line="303" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/MainMenuView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="79" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/sources/android-19/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3327032" vertical-offset="0" max-vertical-offset="0">
+          <caret line="112" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.1.0/fb44c77894319e626d0d61615f1319272e16cc44/gdx-backend-android-1.1.0-sources.jar!/com/badlogic/gdx/backends/android/AndroidApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.7161862" vertical-offset="0" max-vertical-offset="0">
+          <caret line="56" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14020619" vertical-offset="0" max-vertical-offset="0">
+          <caret line="4" column="37" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14020619" vertical-offset="0" max-vertical-offset="0">
+          <caret line="4" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/objects.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="442">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1343" max-vertical-offset="2448">
+          <caret line="100" column="36" selection-start-line="100" selection-start-column="36" selection-end-line="100" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="7106">
+          <caret line="205" column="41" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps2.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4820" max-vertical-offset="5729">
+          <caret line="315" column="92" selection-start-line="315" selection-start-column="92" selection-end-line="315" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps4.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4803" max-vertical-offset="5644">
+          <caret line="311" column="71" selection-start-line="311" selection-start-column="71" selection-end-line="311" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="595">
+          <caret line="17" column="7" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1836" max-vertical-offset="10319">
+          <caret line="142" column="8" selection-start-line="142" selection-start-column="8" selection-end-line="142" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/ObjectiveStripe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1496" max-vertical-offset="1836">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4429" max-vertical-offset="5270">
+          <caret line="275" column="10" selection-start-line="275" selection-start-column="10" selection-end-line="275" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/map/MapBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2178" max-vertical-offset="2992">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps3.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5024" max-vertical-offset="5933">
+          <caret line="343" column="7" selection-start-line="343" selection-start-column="7" selection-end-line="343" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/maps5.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.527943" vertical-offset="1530" max-vertical-offset="5814">
+          <caret line="314" column="35" selection-start-line="314" selection-start-column="35" selection-end-line="314" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1750,11 +1612,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>mapTester</last-edited>
+          <last-edited>desktop</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.31432194" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1798,4 +1661,3 @@
     </states>
   </component>
 </project>
-

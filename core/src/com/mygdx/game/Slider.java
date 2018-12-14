@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import controllers.KeyboardController;
 import enums.Controls;
 import enums.GameStates;
 import help.utils.Constants;
@@ -19,6 +19,7 @@ import map.Map;
 import mapSystem.MapsInfo;
 import player.Player;
 import sound.ClickSound;
+import sound.SlideSound;
 import textures.TextureHolder;
 import view.MapView;
 import view.menus.*;
@@ -77,16 +78,16 @@ public class Slider extends ApplicationAdapter {
     private GameStates gameState;
     private Map map;
     private MapView mapView;
-    private KeyboardController keyboardController;
     private WorldSelectionView worldSelectionView;
     private MainMenuView mainMenuView;
     private LevelSelectionView levelSelectionView;
-    private PreLevelView preLevelView;
     private AfterLevelView afterLevelView;
     private BitmapFont buttonFont;
     private boolean worldSelectWasMade;
     private boolean levelSelectWasMade;
     private boolean mapViewWasMade;
+    private int splashState;
+    private int adCounter;
 
     public Slider(IActivityRequestHandler myRequestHandler) {
         this.myRequestHandler = myRequestHandler;
@@ -95,34 +96,11 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void create() {
 
-        ClickSound.loadSound();
-        TextureHolder.loadTextures();
-
-        worldSelectWasMade = false;
-        levelSelectWasMade = false;
-        mapViewWasMade = false;
-
-        ShaderProgram.pedantic = false;
-        shader = new ShaderProgram(VERT, FRAG);
-        if (!shader.isCompiled()) {
-            System.err.println(shader.getLog());
-            System.exit(0);
-        }
-        if (shader.getLog().length() != 0)
-            System.out.println(shader.getLog());
 
         mainBatch = new SpriteBatch();
-        mainBatch.setShader(shader);
-
-        shader.begin();
-        shader.setUniformf("grayscale", 1f);
-        shader.end();
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
         gameState = BEFORE_GAME;
-        keyboardController = new KeyboardController();
-        myRequestHandler.showAds(false);
-
+        splashState = 0;
     }
 
     @Override
@@ -131,47 +109,81 @@ public class Slider extends ApplicationAdapter {
         switch (gameState) {
 
             case BEFORE_GAME: {
-                mainBatch.begin();
-                mainBatch.draw(new Texture("menus/carbon.png"), 0, 0, camera.viewportWidth, camera.viewportHeight);
-                mainBatch.end();
-                gameState = INTRO;
-                break;
-            }
 
-            case INTRO: {
+                SplashScreen splashScreen = new SplashScreen();
 
-                map = new Map(1, 1);
-
-                Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
-
-                player = new Player();
-                mapsInfo = new MapsInfo();
-
-                selectedWorld = 1;
-
-                backgrounds = new ArrayList<>();
-                for (int i = 0; i < Constants.howManyWorlds; i++) {
-                    backgrounds.add(new Image(new Texture("menus/background" + (i + 1) + ".png")));
-                    backgrounds.get(i).setSize(camera.viewportWidth, camera.viewportHeight);
+                //-----------------------------------------------------------
+                if (splashState == 0) {
+                    splashScreen.draw(mainBatch, camera, splashState);
+                    ClickSound.loadSound();
+                    SlideSound.loadSound();
+                    splashScreen.draw(mainBatch, camera, splashState);
+                    TextureHolder.loadTextures();
+                    worldSelectWasMade = false;
+                    levelSelectWasMade = false;
+                    mapViewWasMade = false;
+                    adCounter = 0;
+                    Constants.cheatMode = false;
+                    Constants.cheatActivation = 0;
+                    ShaderProgram.pedantic = false;
                 }
 
-                mainStage = new Stage();
-                FileHandle fontFile = Gdx.files.internal("menufont.ttf");
-                FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-                FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-                freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
-                buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
-                buttonFont.setColor(0, 0, 0, 1);
-                generator.dispose();
+                //-----------------------------------------------------------------------------
+                if (splashState == 1) {
+                    splashScreen.draw(mainBatch, camera, splashState);
+                    shader = new ShaderProgram(VERT, FRAG);
+                }
+                //---------------------------------------------------------------------------
+                if (splashState == 2) {
 
-                mainMenuView = new MainMenuView(camera, buttonFont);
-                preLevelView = new PreLevelView(camera, buttonFont);
-                afterLevelView = new AfterLevelView(camera, buttonFont, mapsInfo, player);
-                Gdx.input.setInputProcessor(mainStage);
+                    if (!shader.isCompiled()) {
+                        System.err.println(shader.getLog());
+                        System.exit(0);
+                    }
+                    if (shader.getLog().length() != 0)
+                        System.out.println(shader.getLog());
 
-                gameState = MENU;
+                    splashScreen.draw(mainBatch, camera, splashState);
 
-                mainMenuView.prepareMainMenu(mainStage, backgrounds.get(selectedWorld - 1));
+                    mainBatch.setShader(shader);
+                    shader.begin();
+                    shader.setUniformf("grayscale", 1f);
+                    shader.end();
+
+                    //keyboardController = new KeyboardController();
+                    myRequestHandler.showAds(false);
+                    map = new Map(1, 1);
+                    Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
+                    player = new Player();
+                    mapsInfo = new MapsInfo();
+                    selectedWorld = 1;
+                    backgrounds = new ArrayList<>();
+                    for (int i = 0; i < Constants.howManyWorlds; i++) {
+                        backgrounds.add(new Image(new Texture("menus/background" + (i + 1) + ".png")));
+                        backgrounds.get(i).setSize(camera.viewportWidth, camera.viewportHeight);
+                    }
+                }
+                //--------------------------------------------------------------------
+                if (splashState == 3) {
+                    splashScreen.draw(mainBatch, camera, splashState);
+                    FileHandle fontFile = Gdx.files.internal("menufont.ttf");
+                    FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
+                    FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+                    freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
+                    buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
+                    buttonFont.setColor(0, 0, 0, 1);
+                    generator.dispose();
+
+                    afterLevelView = new AfterLevelView(camera, buttonFont, mapsInfo, player);
+                    mainMenuView = new MainMenuView(camera, buttonFont);
+                    mainStage = new Stage();
+                    mapView = new MapView(camera);
+
+                    mainMenuView.prepareMainMenu(mainStage, backgrounds.get(selectedWorld - 1));
+                    Gdx.input.setInputProcessor(mainStage);
+                    gameState = MENU;
+                }
+                splashState++;
                 break;
             }
 
@@ -190,9 +202,9 @@ public class Slider extends ApplicationAdapter {
             }
 
             case WORLD_SELECT: {
+
                 int nowSelectedWorld = worldSelectionView.drawWorldSelection(mainBatch, camera, shader, mainStage);
                 if (nowSelectedWorld > 0) {
-
 
                     if (!levelSelectWasMade) {
                         levelSelectionView = new LevelSelectionView(camera, player, buttonFont, mapsInfo);
@@ -207,6 +219,14 @@ public class Slider extends ApplicationAdapter {
                     mainMenuView.prepareMainMenu(mainStage, backgrounds.get(0));
                     gameState = MENU;
                 }
+
+                if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
+                    while (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+
+                    }
+                    mainMenuView.prepareMainMenu(mainStage, backgrounds.get(0));
+                    gameState = MENU;
+                }
                 break;
             }
 
@@ -216,9 +236,18 @@ public class Slider extends ApplicationAdapter {
                 if (nowSelectedLevel > 0) {
                     selectedLevel = nowSelectedLevel;
                     map.loadMap(selectedWorld, selectedLevel);
-                    preLevelView.preparePreLevel(mainStage, map, player, backgrounds.get(selectedWorld - 1));
-                    gameState = PRE_LEVEL;
+                    mapView.prepareMapUI(camera, map, mainStage);
+                    mapView.prepareMap(camera, map);
+                    gameState = LEVEL;
                 } else if (nowSelectedLevel == -1) {
+                    worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo, backgrounds.get(0), camera.viewportWidth);
+                    gameState = WORLD_SELECT;
+                }
+
+                if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
+                    while (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+
+                    }
                     worldSelectionView.prepareWorldSelectionView(mainStage, player, mapsInfo, backgrounds.get(0), camera.viewportWidth);
                     gameState = WORLD_SELECT;
                 }
@@ -226,26 +255,6 @@ public class Slider extends ApplicationAdapter {
                 break;
             }
 
-            case PRE_LEVEL: {
-
-                Controls control = preLevelView.drawPreLevel(camera, mainBatch);
-                if (control == Controls.PLAY) {
-                    if (!mapViewWasMade) {
-                        mapView = new MapView(camera);
-                        mapViewWasMade = true;
-                    }
-
-
-                    mapView.prepareMapUI(camera, map, mainStage);
-                    mapView.prepareMap(camera, map);
-                    gameState = LEVEL;
-                } else if (control == Controls.MENU) {
-                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
-                    gameState = LEVEL_SELECT;
-                }
-
-                break;
-            }
 
             case LEVEL: {
 
@@ -264,33 +273,40 @@ public class Slider extends ApplicationAdapter {
                 Controls control = mapView.getControl();
 
                 if (control == Controls.NONE) {
-                    control = keyboardController.checkForControl();
-                }
-                if (control == Controls.NONE) {
                     mapView.drawMap(map, camera, mainBatch);
                 } else {
                     if (control == Controls.RESET) {
                         map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
-                    } else if (control == Controls.NEXT) {
-                        selectedLevel++;
-                        map.loadMap(selectedWorld, selectedLevel);
-                        mapView.prepareMap(camera, map);
-                    } else if (control == Controls.PREVIOUS && selectedLevel != 1) {
-                        selectedLevel--;
-                        map.loadMap(selectedWorld, selectedLevel);
-                        mapView.prepareMap(camera, map);
+                        adCounter++;
+                        checkIntAdd();
+
                     } else if (control == Controls.MENU) {
                         Gdx.input.setInputProcessor(mainStage);
                         levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                         myRequestHandler.showAds(false);
                         gameState = LEVEL_SELECT;
+                        adCounter = adCounter + 5;
+                        checkIntAdd();
                     } else {
                         map.makeMove(control);
                         mapView.checkForPortalMoves(map);
-                        mapView.prepareAnimation();
+                        mapView.prepareAnimation(map);
                         gameState = LEVEL_ANIMATION;
                     }
+                }
+
+                if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
+                    while (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+
+                    }
+                    Gdx.input.setInputProcessor(mainStage);
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
+                    myRequestHandler.showAds(false);
+                    gameState = LEVEL_SELECT;
+
+                    adCounter = adCounter + 5;
+                    checkIntAdd();
                 }
                 break;
             }
@@ -309,21 +325,47 @@ public class Slider extends ApplicationAdapter {
                 if (controls == Controls.NEXT) {
                     selectedLevel++;
                     map.loadMap(selectedWorld, selectedLevel);
-                    preLevelView.preparePreLevel(mainStage, map, player, backgrounds.get(selectedWorld - 1));
-                    gameState = PRE_LEVEL;
-
+                    if (!mapViewWasMade) {
+                        mapView = new MapView(camera);
+                        mapViewWasMade = true;
+                    }
+                    mapView.prepareMapUI(camera, map, mainStage);
+                    mapView.prepareMap(camera, map);
+                    gameState = LEVEL;
+                    adCounter = adCounter + 10;
+                    checkIntAdd();
                 } else if (controls == Controls.RESET) {
                     map.loadMap(selectedWorld, selectedLevel);
                     mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
+                    adCounter = adCounter + 5;
+                    checkIntAdd();
                 } else if (controls == Controls.MENU) {
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
 
+                    adCounter = adCounter + 5;
+                    checkIntAdd();
+                }
+
+                if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
+                    while (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+
+                    }
+                    levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
+                    gameState = LEVEL_SELECT;
+
+
+                    adCounter = adCounter + 5;
+                    checkIntAdd();
                 }
                 break;
             }
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK)) {
+            // Do something
         }
     }
 
@@ -360,6 +402,13 @@ public class Slider extends ApplicationAdapter {
     @Override
     public void pause() {
 
+    }
+
+    public void checkIntAdd() {
+        if (adCounter >= Constants.addFrequency) {
+            myRequestHandler.showIntAd();
+            adCounter = 0;
+        }
     }
 
 }

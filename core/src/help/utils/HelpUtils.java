@@ -11,7 +11,7 @@ import java.util.Comparator;
 public class HelpUtils {
 
 
-    public static Element getElementByAttributeValue( NodeList nodeList,  String attributeName,  String attributeValue) {
+    public static Element getElementByAttributeValue(NodeList nodeList, String attributeName, String attributeValue) {
 
         Element element = null;
 
@@ -76,19 +76,23 @@ public class HelpUtils {
     }
 
     public static void sortByY(ArrayList<map.Object> objects) {
+        try {
+            Collections.sort(objects, new Comparator<Object>() {
+                @Override
+                public int compare(Object o1, Object o2) {
+                    if (o1.getY() < o2.getY())
+                        return -1;
+                    else if (o1.getX() > o2.getX())
+                        return 1;
+                    else
+                        return 0;
+                }
 
-        Collections.sort(objects, new Comparator<Object>() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                if (o1.getY() < o2.getY())
-                    return -1;
-                else if (o1.getX() == o2.getX())
-                    return 0;
-                else
-                    return 1;
             }
+            );
+        } catch (IllegalArgumentException e) {
+          //  System.out.println("something went wrong with comparator");
         }
-        );
     }
 
     public static void sortByYReverse(ArrayList<map.Object> objects) {

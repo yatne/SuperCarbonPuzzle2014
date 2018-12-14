@@ -1,5 +1,6 @@
 package map;
 
+import enums.Coordinates;
 import enums.ObjectsType;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class Object {
 
     private ObjectsType objectsType;
     private ArrayList<String> behavior;
-    private boolean goneThroughTele;
+    private Coordinates goneThroughTele;
     private int id;
     private int x;
     private int y;
@@ -19,7 +20,8 @@ public class Object {
         this.x = x;
         this.y = y;
         this.id = id;
-        goneThroughTele = false;
+        goneThroughTele = Coordinates.NONE;
+
     }
 
     public Object(String anEnum, ArrayList<String> behavior, int id) {
@@ -100,11 +102,11 @@ public class Object {
         return id;
     }
 
-    public boolean isGoneThroughTele() {
+    public Coordinates isGoneThroughTele() {
         return goneThroughTele;
     }
 
-    public void setGoneThroughTele(boolean goneThroughTele) {
+    public void setGoneThroughTele(Coordinates goneThroughTele) {
         this.goneThroughTele = goneThroughTele;
     }
 }

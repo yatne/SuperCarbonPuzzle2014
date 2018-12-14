@@ -19,10 +19,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import controllers.GestureController;
 import enums.Controls;
+import enums.Coordinates;
 import enums.Sounds;
 import help.utils.BlocksReader;
 import help.utils.Constants;
-import help.utils.MapsReader;
 import help.utils.ObjectsReader;
 import map.Field;
 import map.Map;
@@ -44,7 +44,7 @@ public class MapView {
     private HashMap<Sounds, Sound> soundHashMap;
     private ArrayList<Sprite> sprites;
     private HashMap<Sprite, Integer> spriteStates;
-    private HashMap<Sprite, Integer> portalStates;
+    private HashMap<Sprite, Coordinates> portalStates;
     private GestureController gestureController;
     private TextureRegionDrawable topPanelRegion;
     private TextureRegionDrawable bottomPanelRegion;
@@ -52,11 +52,10 @@ public class MapView {
     private Button menu;
     private BitmapFont counterFont;
     private BitmapFont buttonFont;
-    private BitmapFont levelNameFont;
     private Controls control;
-    private Text levelName;
     private int watchDog;
     private ArrayList<TextureRegion> backgrounds;
+    private ObjectiveStripe objectiveStripe;
     //----------------------------------
 
     public MapView(OrthographicCamera camera) {
@@ -93,7 +92,7 @@ public class MapView {
         }
 
 
-        soundHashMap = SoundActivator.soundHashMap();
+        soundHashMap = SoundActivator.makeSoundHashMap();
 
         inputMultiplexer = new InputMultiplexer();
 
@@ -120,9 +119,6 @@ public class MapView {
             }
         });
 
-        levelName = new Text(0,
-                (int) (camera.viewportHeight - ((camera.viewportHeight - camera.viewportWidth) / 2) - Constants.adHeight + levelNameFont.getCapHeight() + (((camera.viewportHeight - camera.viewportWidth) / 2) - levelNameFont.getCapHeight()) / 2),
-                "");
 
         sprites = new ArrayList<>();
         spriteStates = new HashMap<>();
@@ -130,6 +126,7 @@ public class MapView {
 
         topPanelRegion = new TextureRegionDrawable();
         bottomPanelRegion = new TextureRegionDrawable();
+        objectiveStripe = new ObjectiveStripe(0, camera.viewportHeight - panelsHeight, camera.viewportWidth, panelsHeight - Constants.adHeight, (int) ((camera.viewportHeight - camera.viewportWidth) / 5));
 
         control = Controls.NONE;
 
@@ -164,20 +161,20 @@ public class MapView {
 
         backgrounds.get(map.getMapWorld() - 1).setRegion(0, 0, 450, 200);
         topPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
+        objectiveStripe.prepareStripe(map.getGoals(), map.getMapWorld());
+        objectiveStripe.prepareToDraw(map.getMovesTaken());
 
         backgrounds.get(map.getMapWorld() - 1).setRegion(0, 300, 450, 200);
         bottomPanelRegion.setRegion(backgrounds.get(map.getMapWorld() - 1));
 
 
         gestureController.setGestureField(0, camera.viewportWidth, panelsHeight, panelsHeight + camera.viewportWidth);
-        levelName.setText(help.utils.MapsReader.getMapName(map));
-        levelName.setPosX((int) ((camera.viewportWidth / 2) - (levelNameFont.getBounds(MapsReader.getMapName(map)).width / 2)));
-
 
     }
 
     public void prepareMap(OrthographicCamera camera, Map map) {
 
+        objectiveStripe.prepareToDraw(map.getMovesTaken());
         createSpritesList(map, camera);
         control = Controls.NONE;
 
@@ -204,7 +201,8 @@ public class MapView {
 
     }
 
-    public void prepareAnimation() {
+    public void prepareAnimation(Map map) {
+        objectiveStripe.prepareToDraw(map.getMovesTaken());
         gestureController.setGestureField(0, 0, 0, 0);
         if (Constants.soundOn)
             soundHashMap.get(Sounds.SLIDE).play();
@@ -218,7 +216,6 @@ public class MapView {
     public boolean drawAnimation(Map map, OrthographicCamera camera, SpriteBatch batch) {
 
         watchDog++;
-
         drawStaticMap(map, camera, batch);
 
         batch.begin();
@@ -228,9 +225,15 @@ public class MapView {
         boolean allSpritesReady = true;
 
         for (int i = 0; i < sprites.size(); i++) {
-            if (!isSpriteInTheSamePlace(sprites.get(i), wantedSprites.get(i))) {
-                if (portalStates.get(sprites.get(i)) == 1)
-                    portalMoveSprite(sprites.get(i), wantedSprites.get(i), camera);
+
+            if (!isSpriteTheSame(sprites.get(i), wantedSprites.get(i))) {
+                animateSprite(sprites.get(i), wantedSprites.get(i));
+                allSpritesReady = false;
+            }
+
+            if (!isSpriteInTheSamePlace(sprites.get(i), wantedSprites.get(i)) || !(portalStates.get(sprites.get(i)) == Coordinates.NONE)) {
+                if (portalStates.get(sprites.get(i)) != Coordinates.NONE)
+                    portalMoveSprite(sprites.get(i), camera);
                 else
                     moveSprite(sprites.get(i), wantedSprites.get(i));
                 allSpritesReady = false;
@@ -238,12 +241,7 @@ public class MapView {
                 animateSprite(sprites.get(i), wantedSprites.get(i));
                 allSpritesReady = false;
             }
-            if (sprites.get(i).getTexture().equals(textureHashMap.get("SWITCH"))) {
-                if (checkOtherSpriteInThatPlace(sprites.get(i)))
-                    switchDoors();
-            }
         }
-
 
         if (allSpritesReady)
             createSpritesList(map, camera);
@@ -263,13 +261,14 @@ public class MapView {
         batch.end();
         drawUI(map, camera, batch);
 
-        if (watchDog > 50) {
+        if (watchDog > 45) {
             createSpritesList(map, camera);
             allSpritesReady = true;
         }
 
         if (allSpritesReady) {
             watchDog = 0;
+
         }
 
         return allSpritesReady;
@@ -289,31 +288,31 @@ public class MapView {
 
     }
 
-    private void portalMoveSprite(Sprite sprite, Sprite desiredSprite, OrthographicCamera camera) {
-        if (sprite.getX() > desiredSprite.getX()) {
+    private void portalMoveSprite(Sprite sprite, OrthographicCamera camera) {                               //todo
+        if (portalStates.get(sprite) == Coordinates.RIGHT) {
             sprite.translateX(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
             if (sprite.getX() > camera.viewportWidth) {
                 sprite.setPosition(-sprite.getWidth(), sprite.getY());
-                portalStates.put(sprite, 0);
+                portalStates.put(sprite, Coordinates.NONE);
             }
-        } else if (sprite.getX() < desiredSprite.getX()) {
+        } else if (portalStates.get(sprite) == Coordinates.LEFT) {
             sprite.translateX(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
             if (sprite.getX() < -sprite.getWidth()) {
                 sprite.setPosition(camera.viewportWidth, sprite.getY());
-                portalStates.put(sprite, 0);
+                portalStates.put(sprite, Coordinates.NONE);
             }
-        } else if (sprite.getY() > desiredSprite.getY()) {
+        } else if (portalStates.get(sprite) == Coordinates.UP) {
             float panelHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
             sprite.translateY(Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
             if (sprite.getY() > panelHeight + camera.viewportWidth) {
                 sprite.setPosition(sprite.getX(), panelHeight - sprite.getHeight());
-                portalStates.put(sprite, 0);
+                portalStates.put(sprite, Coordinates.NONE);
             }
-        } else if (sprite.getY() < desiredSprite.getY()) {
+        } else if (portalStates.get(sprite) == Coordinates.DOWN) {
             float panelHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
             sprite.translateY(-Constants.spritesMovingSpeed * Gdx.graphics.getDeltaTime());
             if (sprite.getY() < panelHeight - sprite.getHeight()) {
-                portalStates.put(sprite, 0);
+                portalStates.put(sprite, Coordinates.NONE);
                 sprite.setPosition(sprite.getX(), panelHeight + camera.viewportWidth);
             }
         }
@@ -323,29 +322,40 @@ public class MapView {
 
         if (sprite.getTexture().equals(textureHashMap.get("BALL")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED"))) {
-                cleanEndSprite(desiredSprite);
-                sprite.setTexture(textureHashMap.get("FINISHED"));
+                if (checkSpriteInThatPlace(sprite, textureHashMap.get("END"))) {
 
-                if (Constants.soundOn) {
-                    Gdx.input.vibrate(100);
-                    soundHashMap.get(Sounds.END).play();
+                    sprite.setTexture(textureHashMap.get("FINISHED"));
+                    if (Constants.soundOn) {
+                        soundHashMap.get(Sounds.END).play();
+                    }
                 }
+
             }
         if (sprite.getTexture().equals(textureHashMap.get("BALL2")) || spriteStates.get(sprite) != 0)
             if (desiredSprite.getTexture().equals(textureHashMap.get("FINISHED2"))) {
-                cleanEndSprite(desiredSprite);
-                sprite.setTexture(textureHashMap.get("FINISHED2"));
 
-                if (Constants.soundOn) {
-                    Gdx.input.vibrate(100);
-                    soundHashMap.get(Sounds.END).play();
+                if (checkOtherSpriteInThatPlace(sprite)) {
+                    sprite.setTexture(textureHashMap.get("FINISHED2"));
+                    if (Constants.soundOn) {
+
+                        soundHashMap.get(Sounds.END).play();
+                    }
                 }
+
             }
+        if (sprite.getTexture().equals(textureHashMap.get("END")) || sprite.getTexture().equals(textureHashMap.get("END2"))) {
+            if (desiredSprite.getTexture().equals(textureHashMap.get("ENDBALL"))) {
+                if (checkSpriteInThatPlace(sprite, textureHashMap.get("FINISHED")) || checkSpriteInThatPlace(sprite, textureHashMap.get("FINISHED2"))
+                        )
+                    sprite.setTexture(desiredSprite.getTexture());
+            }
+        }
 
         if (desiredSprite.getTexture().equals(textureHashMap.get("NOTHING"))) {
             if (checkOtherSpriteInThatPlace(sprite))
                 sprite.setTexture(textureHashMap.get("NOTHING"));
         }
+
 
         if (desiredSprite.getTexture().equals(textureHashMap.get("TRAPA"))) {
             if (checkOtherSpriteInThatPlace(sprite)) {
@@ -353,6 +363,11 @@ public class MapView {
                 if (Constants.soundOn)
                     soundHashMap.get(Sounds.RED).play();
             }
+        }
+
+        if (desiredSprite.getTexture().equals(textureHashMap.get("KILLED"))) {
+            if (isSpriteInTheSamePlace(sprite, desiredSprite))
+                sprite.setTexture(textureHashMap.get("KILLED"));
         }
 
         if (sprite.getTexture().equals(textureHashMap.get("GHOSTLY")) || spriteStates.get(sprite) != 0)
@@ -436,7 +451,7 @@ public class MapView {
             sprite.setSize(width * scaleX, width * scaleY);
             sprites.add(sprite);
             spriteStates.put(sprite, 0);
-            portalStates.put(sprite, 0);
+            portalStates.put(sprite, Coordinates.NONE);
 
 
         }
@@ -472,8 +487,8 @@ public class MapView {
         ArrayList<Object> objects = map.getObjects();
         help.utils.HelpUtils.sortById(objects);
         for (int j = 0; j < sprites.size(); j++) {
-            if (objects.get(j).isGoneThroughTele())
-                portalStates.put(sprites.get(j), 1);
+            if (objects.get(j).isGoneThroughTele() != Coordinates.NONE)
+                portalStates.put(sprites.get(j), objects.get(j).isGoneThroughTele());                            //todo
         }
 
     }
@@ -482,7 +497,8 @@ public class MapView {
 
         for (Sprite chosenSprite : sprites) {
             if (isSpriteInTheSamePlace(chosenSprite, sprite)) {
-                chosenSprite.setTexture(textureHashMap.get("NOTHING"));
+                if (sprite.getTexture().equals(textureHashMap.get("END")) || sprite.getTexture().equals(textureHashMap.get("END2")))
+                    chosenSprite.setTexture(textureHashMap.get("NOTHING"));
             }
         }
     }
@@ -492,6 +508,17 @@ public class MapView {
         for (Sprite chosenSprite : sprites) {
             if (isSpriteInTheSamePlace(chosenSprite, sprite)) {
                 if (!chosenSprite.equals(sprite))
+                    isThere = true;
+            }
+        }
+        return isThere;
+    }
+
+    public boolean checkSpriteInThatPlace(Sprite sprite, Texture texture) {
+        boolean isThere = false;
+        for (Sprite chosenSprite : sprites) {
+            if (isSpriteInTheSamePlace(chosenSprite, sprite)) {
+                if (!chosenSprite.equals(sprite) && chosenSprite.getTexture().equals(texture))
                     isThere = true;
             }
         }
@@ -566,6 +593,7 @@ public class MapView {
         float panelsHeight = (camera.viewportHeight - camera.viewportWidth) / 2;
         topPanelRegion.draw(batch, 0, camera.viewportHeight - panelsHeight, camera.viewportWidth, panelsHeight);
         bottomPanelRegion.draw(batch, 0, 0, camera.viewportWidth, panelsHeight);
+        objectiveStripe.draw(batch);
         menu.draw(batch, 1, buttonFont);
         reset.draw(batch, 1, buttonFont);
 
@@ -588,10 +616,8 @@ public class MapView {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
         buttonFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 5));
-        levelNameFont = generator.generateFont((int) (((camera.viewportHeight - camera.viewportWidth) / 2) - Constants.adHeight) * 2 / 3);
         counterFont.setColor(Color.BLACK);
         buttonFont.setColor(Color.BLACK);
-        levelNameFont.setColor(Color.BLACK);
         generator.dispose();
 
 
@@ -605,4 +631,5 @@ public class MapView {
         }
 
     }
+
 }

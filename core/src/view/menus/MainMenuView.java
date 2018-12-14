@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import enums.Controls;
-import help.utils.Constants;
 import textures.TextureHolder;
 import view.buttons.BasicButton;
 import view.buttons.SoundButton;
@@ -36,7 +35,7 @@ public class MainMenuView extends PanelView {
         quitButton.setButtonWorld(1);
 
         soundButton = new SoundButton(new Texture("menus/soundon.png"), new Texture("menus/soundoff.png"));
-        soundButton.setSize(camera.viewportWidth / 10, camera.viewportWidth / 10);
+        soundButton.setSize(camera.viewportWidth / 9, camera.viewportWidth / 9);
         soundButton.setPosition(camera.viewportWidth - (2 * soundButton.getWidth()), camera.viewportHeight - ((camera.viewportWidth / 5) * 7));
 
         playButton.addListener(new ClickListener() {
@@ -56,7 +55,6 @@ public class MainMenuView extends PanelView {
 
             }
         });
-
 
 
     }
@@ -79,7 +77,6 @@ public class MainMenuView extends PanelView {
         logo.draw(batch, 1);
         playButton.draw(batch, 1, buttonFont);
         quitButton.draw(batch, 1, buttonFont);
-        buttonFont.draw(batch, Constants.version, 0,buttonFont.getCapHeight()+5);
         soundButton.draw(batch, 1);
 
         batch.end();
