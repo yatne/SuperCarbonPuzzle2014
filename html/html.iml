@@ -17,6 +17,6 @@
     <orderEntry type="library" exported="" name="gdx-backend-gwt-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gdx-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="gwt-user-2.6.0" level="project" />
+    <orderEntry type="library" name="libgdx-1.1" level="project" />
   </component>
 </module>
-

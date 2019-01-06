@@ -9,7 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/build" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
     </content>
-    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="core" exported="" />
     <orderEntry type="library" name="lwjgl-2.9.1" level="project" />
@@ -29,6 +29,6 @@
     <orderEntry type="library" name="gdx-freetype" level="project" />
     <orderEntry type="library" name="gdx-freetype-natives" level="project" />
     <orderEntry type="library" name="google-play-services" level="project" />
+    <orderEntry type="library" name="libgdx-1.1" level="project" />
   </component>
 </module>
-

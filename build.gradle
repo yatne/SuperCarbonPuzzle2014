@@ -77,10 +77,10 @@ project(":html") {
 project(":core") {
     apply plugin: "java"
 
-
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        compile group: 'com.badlogicgames.gdx', name: 'gdx-freetype', version: '1.1.0'
     }
 }
 
