@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SuperCarbonPuzzle2014.iml" filepath="$PROJECT_DIR$/.idea/modules/SuperCarbonPuzzle2014.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
       <module fileurl="file://$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/../adt-bundle-windows-x86-20140321/sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />

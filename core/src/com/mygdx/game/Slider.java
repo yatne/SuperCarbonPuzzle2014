@@ -157,7 +157,7 @@ public class Slider extends ApplicationAdapter {
                     player = new Player();
                     mapsInfo = new MapsInfo();
                     selectedWorld = 1;
-                    backgrounds = new ArrayList<>();
+                    backgrounds = new ArrayList<Image>();
                     for (int i = 0; i < Constants.howManyWorlds; i++) {
                         backgrounds.add(new Image(new Texture("menus/background" + (i + 1) + ".png")));
                         backgrounds.get(i).setSize(camera.viewportWidth, camera.viewportHeight);
