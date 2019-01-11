@@ -24,48 +24,53 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.9.8/84024cd60ad6f26370891fbcd17de9f0167e662/gdx-backend-android-1.9.8.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.1.0/be72ba2987612670c7e9533bdaaa999955752237/gdx-backend-android-1.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.9.8/fa6c464c1a911ce39f252cb2b86e9d05eecb6a1d/gdx-backend-android-1.9.8-sources.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.1.0/fb44c77894319e626d0d61615f1319272e16cc44/gdx-backend-android-1.1.0-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.8/6f0497b7958216464101adfb7bdc3a0f7b88d6d3/gdx-box2d-1.9.8.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.1.0/919bff3c5e92062ee3413f86076c089bd810b5b3/gdx-box2d-1.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.8/1fd1df309f965e52196900b270afc2bcd0acd0a2/gdx-box2d-1.9.8-sources.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.1.0/4a031279bbde63fafdcc6b487c4c85aa4dd1207b/gdx-box2d-1.1.0-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.8/d92b5b8beab10e3b3c0dd836d4fc186f95e7ea4b/gdx-freetype-1.9.8.jar!/"/>
+          <root url="jar://C:/Users/Antek/.m2/repository/com/badlogicgames/gdx/gdx-freetype/1.1.0/gdx-freetype-1.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
-        <SOURCES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.8/a16774d14a95c8e45b9ae4cd3f2d7450fa1f7c94/gdx-freetype-1.9.8-sources.jar!/"/>
-        </SOURCES>
+        <SOURCES/>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/a35a0076fbce873f9c2d5a1a1c8066244231bb3c/gdx-1.9.8.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.1.0/686f5a609c717eb0769d3b954c501a49bf4fe351/gdx-1.1.0.jar!/"/>
         </CLASSES>
         <JAVADOC/>
         <SOURCES>
-          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.8/bac17f395be5010619b31280fe84e9f53118d0b9/gdx-1.9.8-sources.jar!/"/>
+          <root url="jar://C:/Users/Antek/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.1.0/abdb14d6d21978e13055b14f834108e4c8dd8cba/gdx-1.1.0-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="core" exported=""/>
+  </component>
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="UPDATE_PROPERTY_FILES" value="true"/>
+      </configuration>
+    </facet>
   </component>
   <component name="FacetManager">
     <facet type="android" name="Android">
