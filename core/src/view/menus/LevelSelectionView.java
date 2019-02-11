@@ -93,7 +93,7 @@ public class LevelSelectionView extends PanelView {
                             selectedLevel = finalI;
                         } else {
                             alert.setActive(true);
-                            alert.prepareAlert("you need " + mapsInfo.getStarsToUnlock(world, finalI) + " stars to unlock this level");
+                            alert.prepareAlert("you need to beat previous level to unlock this one");
                             levelButton.setDrawable(lockedLevel);
                         }
                     }
@@ -192,7 +192,7 @@ public class LevelSelectionView extends PanelView {
             levelButton.setLocked(false);
 
             levelButton.setStars(mapsInfo.getStarsToObtain(selectedWorld, levelButton.getLevel()), player.getStarsFromLevel(selectedWorld, levelButton.getLevel()));
-            if (mapsInfo.getStarsToUnlock(selectedWorld, levelButton.getLevel()) > player.getStars() && !Constants.cheatMode) {
+            if (player.getLevelsDoneInWorld(selectedWorld) < levelButton.getLevel() - 1 && !Constants.cheatMode) {
                 levelButton.setDrawable(lockedLevel);
                 levelButton.setLocked(true);
             }

@@ -74,7 +74,7 @@ public class WorldSelectionView extends PanelView {
                     super.touchUp(event, x, y, pointer, button);
                     if (worldButton.isLocked() && !Constants.cheatMode) {
                         alert.setActive(true);
-                        alert.prepareAlert("You need " + mapsInfo.getStarsToUnlockWorld(finalI) + " stars to unlock this world");
+                        alert.prepareAlert("You need to beat 10 levels in the previous world to unlock this one.");
                     } else
                         selectedWorld = finalI;
                     worldButton.setDrawable(worldButton.getTextureRegionDrawable());
@@ -132,7 +132,7 @@ public class WorldSelectionView extends PanelView {
         stage.addActor(starImage);
         for (WorldButton worldButton : worldButtons) {
             worldButton.setLocked(false);
-            if (mapsInfo.getStarsToUnlockWorld(worldButton.getWorldNumber()) > player.getStars() && !Constants.cheatMode) {
+            if (worldButton.getWorldNumber() > 1 && player.getLevelsDoneInWorld(worldButton.getWorldNumber() - 1) < 10 && !Constants.cheatMode) {
 
                 lockedWorld = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, 0, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));
                 lockedClicked = new TextureRegionDrawable(new TextureRegion(TextureHolder.lockedButton, 0, TextureHolder.lockedButton.getHeight() / 2, TextureHolder.lockedButton.getWidth(), TextureHolder.lockedButton.getHeight() / 2));

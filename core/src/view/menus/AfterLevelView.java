@@ -115,12 +115,7 @@ public class AfterLevelView extends PanelView {
             nextLevelButton.addListener(new ClickListener() {
                 public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                     super.touchUp(event, x, y, pointer, button);
-                    if (player.getStars() < mapsInfo.getStarsToUnlock(mapWorld, mapNumber + 1) && !Constants.cheatMode) {
-                        alert.setActive(true);
-                        alert.prepareAlert("you need " + mapsInfo.getStarsToUnlock(mapWorld, mapNumber + 1) + " stars to unlock next level");
-                    } else {
-                        control = Controls.NEXT;
-                    }
+                    control = Controls.NEXT;
                     nextLevelButton.setDrawable(nextLevelButton.getTextureRegionDrawable());
                 }
             });

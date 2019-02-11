@@ -26,6 +26,7 @@ public class Player {
     HashMap<Integer, HashMap<Integer, Integer>> mapScore;
     HashMap<Integer, HashMap<Integer, Integer>> mapStars;
     private int stars;
+    HashMap<Integer, Integer> levelsDoneInWorlds;
 
     public Player() {
         mapScore = new HashMap<>();
@@ -63,6 +64,11 @@ public class Player {
             stars = stars + (newStars - oldStars);
         }
 
+        if (levelsDoneInWorlds.get(map.getMapWorld()) == null ||
+                levelsDoneInWorlds.get(map.getMapWorld()) < map.getMapNumber()) {
+            levelsDoneInWorlds.put(map.getMapWorld(), map.getMapNumber());
+        }
+
     }
 
     public void loadPlayer() {
@@ -91,6 +97,7 @@ public class Player {
             String starCount = starsEle.getAttribute("count");
             this.stars = Integer.parseInt(starCount);
 
+            levelsDoneInWorlds = new HashMap<Integer, Integer>();
             NodeList worlds = player.getElementsByTagName("world");
             for (int worldNum = 0; worldNum < worlds.getLength(); worldNum++) {
                 Element worldEle = (Element) worlds.item(worldNum);
@@ -107,6 +114,8 @@ public class Player {
 
                     this.mapScore.get(WorldNumber).put(mapNumber, mapScore);
                     this.mapStars.get(WorldNumber).put(mapNumber, mapStars);
+
+                    levelsDoneInWorlds.put(WorldNumber, mapNumber);
 
                 }
             }
@@ -219,6 +228,11 @@ public class Player {
     public int getStars() {
         return stars;
     }
-
-
+    public int getLevelsDoneInWorld(int world) {
+        if (levelsDoneInWorlds.get(world) == null) {
+            return 0;
+        } else {
+            return levelsDoneInWorlds.get(world);
+        }
+    }
 }
