@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/android/android.iml" filepath="$PROJECT_DIR$/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/build/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/android/build/source/buildConfig/buildConfig.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/desktop/desktop.iml" filepath="$PROJECT_DIR$/desktop/desktop.iml" />
       <module fileurl="file://$PROJECT_DIR$/html/html.iml" filepath="$PROJECT_DIR$/html/html.iml" />
       <module fileurl="file://$PROJECT_DIR$/mapTester/mapTester.iml" filepath="$PROJECT_DIR$/mapTester/mapTester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/build/source/r/r.iml" filepath="$PROJECT_DIR$/android/build/source/r/r.iml" />
       <module fileurl="file://$PROJECT_DIR$/slider.iml" filepath="$PROJECT_DIR$/slider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/superSlideMe.iml" filepath="$PROJECT_DIR$/android/superSlideMe.iml" />
     </modules>
   </component>
 </project>

@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import controllers.GestureController;
+import controllers.KeyboardController;
 import enums.Controls;
 import enums.Coordinates;
 import enums.Sounds;
@@ -46,6 +47,7 @@ public class MapView {
     private HashMap<Sprite, Integer> spriteStates;
     private HashMap<Sprite, Coordinates> portalStates;
     private GestureController gestureController;
+    private KeyboardController keyboardController;
     private TextureRegionDrawable topPanelRegion;
     private TextureRegionDrawable bottomPanelRegion;
     private Button reset;
@@ -64,6 +66,7 @@ public class MapView {
         watchDog = 0;
         gestureController = new GestureController();
         gestureDetector = new GestureDetector(gestureController);
+        keyboardController = new KeyboardController();
 
         createFonts(camera);
         NodeList blocksList = BlocksReader.getBlocksList();
