@@ -74,7 +74,7 @@ public class WorldSelectionView extends PanelView {
                     super.touchUp(event, x, y, pointer, button);
                     if (worldButton.isLocked() && !Constants.cheatMode) {
                         alert.setActive(true);
-                        alert.prepareAlert("You need to beat 10 levels in the previous world to unlock this one.");
+                        alert.prepareAlert("You need to beat 10 levels in the previous world.");
                     } else
                         selectedWorld = finalI;
                     worldButton.setDrawable(worldButton.getTextureRegionDrawable());

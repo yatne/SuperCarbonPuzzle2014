@@ -101,9 +101,9 @@ public class Player {
             NodeList worlds = player.getElementsByTagName("world");
             for (int worldNum = 0; worldNum < worlds.getLength(); worldNum++) {
                 Element worldEle = (Element) worlds.item(worldNum);
-                int WorldNumber = Integer.parseInt(worldEle.getAttribute("nr"));
-                this.mapScore.put(WorldNumber, new HashMap<Integer, Integer>());
-                this.mapStars.put(WorldNumber, new HashMap<Integer, Integer>());
+                int worldNumber = Integer.parseInt(worldEle.getAttribute("nr"));
+                this.mapScore.put(worldNumber, new HashMap<Integer, Integer>());
+                this.mapStars.put(worldNumber, new HashMap<Integer, Integer>());
 
                 NodeList maps = worldEle.getElementsByTagName("map");
                 for (int mapNum = 0; mapNum < maps.getLength(); mapNum++) {
@@ -112,10 +112,13 @@ public class Player {
                     int mapScore = Integer.parseInt(mapEle.getAttribute("score"));
                     int mapStars = Integer.parseInt(mapEle.getAttribute("stars"));
 
-                    this.mapScore.get(WorldNumber).put(mapNumber, mapScore);
-                    this.mapStars.get(WorldNumber).put(mapNumber, mapStars);
+                    this.mapScore.get(worldNumber).put(mapNumber, mapScore);
+                    this.mapStars.get(worldNumber).put(mapNumber, mapStars);
 
-                    levelsDoneInWorlds.put(WorldNumber, mapNumber);
+                    if (levelsDoneInWorlds.get(worldNumber) == null
+                            || mapNumber > levelsDoneInWorlds.get(worldNumber)) {
+                        levelsDoneInWorlds.put(worldNumber, mapNumber);
+                    }
 
                 }
             }

@@ -42,17 +42,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca3bcd41-9e4b-454c-a610-f9a847d4233a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/assets/player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/assets/player.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/player/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/resources/newPlayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/resources/newPlayer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/MapView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/desktop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/html.iml" beforeDir="false" afterPath="$PROJECT_DIR$/html/html.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slider.iml" beforeDir="false" afterPath="$PROJECT_DIR$/slider.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" afterDir="false" />
     </list>
     <ignored path="slider.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -152,19 +146,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="194" selection-start-line="194" selection-end-line="194" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/resources/newPlayer.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="17">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -179,10 +164,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/MainMenuView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="76" column="92" selection-start-line="76" selection-start-column="92" selection-end-line="76" selection-end-column="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+              <folding>
+                <element signature="e#8153#8154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
+            <state relative-caret-position="10149">
               <caret line="632" column="50" selection-start-line="632" selection-start-column="50" selection-end-line="632" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="194" selection-start-line="194" selection-end-line="194" />
             </state>
           </provider>
         </entry>
@@ -265,13 +289,13 @@
         <option value="$PROJECT_DIR$/core/src/mapSystem/MapInfo.java" />
         <option value="$PROJECT_DIR$/core/src/mapSystem/MapsInfo.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
-        <option value="$PROJECT_DIR$/core/src/player/Player.java" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
         <option value="$PROJECT_DIR$/android/build.gradle" />
         <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/resources/newPlayer.xml" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
+        <option value="$PROJECT_DIR$/core/src/player/Player.java" />
       </list>
     </option>
   </component>
@@ -283,9 +307,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="width" value="1700" />
-    <option name="height" value="1030" />
+    <option name="y" value="128" />
+    <option name="width" value="1278" />
+    <option name="height" value="670" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -429,7 +453,7 @@
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550008368078" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550087177430" />
     <property name="device.picker.selection" value="W3D7N16126016703" />
     <property name="dynamic.classpath" value="false" />
     <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$/desktop" />
@@ -790,6 +814,7 @@
       <workItem from="1549911060500" duration="7269000" />
       <workItem from="1550006251716" duration="58000" />
       <workItem from="1550006945102" duration="1412000" />
+      <workItem from="1550083198209" duration="1734000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1403451005863</created>
@@ -1054,7 +1079,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31035000" />
+    <option name="totallyTimeSpent" value="32769000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1080,7 +1105,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" sideWeight="0.6720368" side_tool="true" weight="0.24946696" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.48387095" visible="true" weight="0.19664429" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48387095" visible="true" weight="0.19664429" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Captures" order="4" />
@@ -1093,8 +1118,8 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3352855" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.42347527" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.35139093" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.42313322" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" visible="true" weight="0.48381603" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
@@ -1195,9 +1220,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/desktop.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1335,12 +1357,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/res/layout/main.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1415,20 +1437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="231" selection-start-line="231" selection-end-line="231" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="134" column="118" selection-start-line="134" selection-start-column="118" selection-end-line="134" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1477,16 +1485,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/controllers/KeyboardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
+        <state relative-caret-position="10149">
           <caret line="632" column="50" selection-start-line="632" selection-start-column="50" selection-end-line="632" selection-end-column="50" />
         </state>
       </provider>
@@ -1500,8 +1501,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/resources/newPlayer.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/controllers/KeyboardController.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/MainMenuView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="76" column="92" selection-start-line="76" selection-start-column="92" selection-end-line="76" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/player/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+          <folding>
+            <element signature="e#8153#8154#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
