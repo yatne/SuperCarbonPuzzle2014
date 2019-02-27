@@ -1,6 +1,6 @@
 android {
-    buildToolsVersion "19.1.0"
-    compileSdkVersion 19
+    buildToolsVersion "27.0.0"
+    compileSdkVersion 27
     lintOptions {
         abortOnError false
     }
