@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.mygdx.game.ActionResolver;
 import com.mygdx.game.IActivityRequestHandler;
 import com.mygdx.game.Slider;
@@ -22,6 +24,9 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
     private final int SHOW_ADS = 1;
     private final int HIDE_ADS = 0;
     private final int SHOW_INTER = 2;
+
+    private InterstitialAd mInterstitialAd;
+
     protected Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -43,6 +48,11 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
         AppRater.app_launched(this);
         RelativeLayout layout = new RelativeLayout(this);
