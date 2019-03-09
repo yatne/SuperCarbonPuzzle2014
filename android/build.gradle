@@ -1,5 +1,5 @@
 android {
-    buildToolsVersion "27.0.0"
+    buildToolsVersion '27.0.3'
     compileSdkVersion 27
     lintOptions {
         abortOnError false
@@ -14,7 +14,6 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('tests')
     }
 }
 

@@ -2,11 +2,11 @@ package mygdx.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.game.IActivityRequestHandler;
+import com.mygdx.game.ActionResolver;
 import com.mygdx.game.Slider;
 import help.utils.Constants;
 
-public class DesktopLauncher implements IActivityRequestHandler {
+public class DesktopLauncher implements ActionResolver {
     private static DesktopLauncher application;
 
     public static void main(String[] arg) {
@@ -24,12 +24,12 @@ public class DesktopLauncher implements IActivityRequestHandler {
     }
 
     @Override
-    public void showAds(boolean show) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void showInterstitialAd() {
+        System.out.println("Show Ad!");
     }
 
     @Override
-    public void showIntAd() {
-        System.out.println("reklama");
+    public void loadInterstitialAd() {
+        System.out.println("Load Ad!");
     }
 }

@@ -66,7 +66,7 @@ public class Slider extends ApplicationAdapter {
                     "       gl_FragColor = texColor * vColor;\n" +
                     "}";
     ArrayList<Image> backgrounds;
-    private IActivityRequestHandler myRequestHandler;
+    private ActionResolver actionResolver;
     private ShaderProgram shader;
     private OrthographicCamera camera;
     private Stage mainStage;
@@ -89,8 +89,8 @@ public class Slider extends ApplicationAdapter {
     private int splashState;
     private int adCounter;
 
-    public Slider(IActivityRequestHandler myRequestHandler) {
-        this.myRequestHandler = myRequestHandler;
+    public Slider(ActionResolver actionResolver) {
+        this.actionResolver = actionResolver;
     }
 
     @Override
@@ -151,7 +151,6 @@ public class Slider extends ApplicationAdapter {
                     shader.end();
 
                     //keyboardController = new KeyboardController();
-                    myRequestHandler.showAds(false);
                     map = new Map(1, 1);
                     Constants.spritesMovingSpeed = (int) (Constants.spritesSpeedFactor * camera.viewportWidth);
                     player = new Player();
@@ -258,8 +257,6 @@ public class Slider extends ApplicationAdapter {
 
             case LEVEL: {
 
-                myRequestHandler.showAds(true);
-
                 if (map.checkForFinish()) {
 
                     player.update(map);
@@ -267,7 +264,6 @@ public class Slider extends ApplicationAdapter {
                     afterLevelView.prepareAfterLevelView(mainStage, map, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera);
                     gameState = AFTER_LEVEL;
                     player.savePlayer();
-                    myRequestHandler.showAds(false);
                 }
 
                 Controls control = mapView.getControl();
@@ -284,7 +280,6 @@ public class Slider extends ApplicationAdapter {
                     } else if (control == Controls.MENU) {
                         Gdx.input.setInputProcessor(mainStage);
                         levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
-                        myRequestHandler.showAds(false);
                         gameState = LEVEL_SELECT;
                         adCounter = adCounter + 5;
                         checkIntAdd();
@@ -302,7 +297,6 @@ public class Slider extends ApplicationAdapter {
                     }
                     Gdx.input.setInputProcessor(mainStage);
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
-                    myRequestHandler.showAds(false);
                     gameState = LEVEL_SELECT;
 
                     adCounter = adCounter + 5;
@@ -406,7 +400,7 @@ public class Slider extends ApplicationAdapter {
 
     public void checkIntAdd() {
         if (adCounter >= Constants.addFrequency) {
-            myRequestHandler.showIntAd();
+            actionResolver.showInterstitialAd();
             adCounter = 0;
         }
     }

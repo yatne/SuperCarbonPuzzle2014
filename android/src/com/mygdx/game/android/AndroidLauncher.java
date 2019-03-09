@@ -15,12 +15,11 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.mygdx.game.ActionResolver;
-import com.mygdx.game.IActivityRequestHandler;
 import com.mygdx.game.Slider;
 import help.utils.Constants;
 
 
-public class AndroidLauncher extends AndroidApplication implements IActivityRequestHandler, ActionResolver {
+public class AndroidLauncher extends AndroidApplication implements ActionResolver {
     private final int SHOW_ADS = 1;
     private final int HIDE_ADS = 0;
     private final int SHOW_INTER = 2;
@@ -87,17 +86,12 @@ public class AndroidLauncher extends AndroidApplication implements IActivityRequ
     }
 
     @Override
+    public void loadInterstitialAd() {
+
+    }
+
+    @Override
     public void showInterstitialAd() {
-
-    }
-
-    @Override
-    public void showAds(boolean show) {
-
-    }
-
-    @Override
-    public void showIntAd() {
 
     }
 }
