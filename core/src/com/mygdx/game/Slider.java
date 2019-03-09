@@ -274,14 +274,12 @@ public class Slider extends ApplicationAdapter {
                     if (control == Controls.RESET) {
                         map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
-                        adCounter++;
                         checkIntAdd();
 
                     } else if (control == Controls.MENU) {
                         Gdx.input.setInputProcessor(mainStage);
                         levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                         gameState = LEVEL_SELECT;
-                        adCounter = adCounter + 5;
                         checkIntAdd();
                     } else {
                         map.makeMove(control);
@@ -298,8 +296,6 @@ public class Slider extends ApplicationAdapter {
                     Gdx.input.setInputProcessor(mainStage);
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-
-                    adCounter = adCounter + 5;
                     checkIntAdd();
                 }
                 break;
@@ -326,21 +322,17 @@ public class Slider extends ApplicationAdapter {
                     mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
-                    adCounter = adCounter + 10;
-                    checkIntAdd();
+                    actionResolver.showInterstitialAd();
                 } else if (controls == Controls.RESET) {
                     map.loadMap(selectedWorld, selectedLevel);
                     mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
-                    adCounter = adCounter + 5;
-                    checkIntAdd();
+                    actionResolver.showInterstitialAd();
                 } else if (controls == Controls.MENU) {
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-
-                    adCounter = adCounter + 5;
-                    checkIntAdd();
+                    actionResolver.showInterstitialAd();
                 }
 
                 if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
@@ -349,10 +341,7 @@ public class Slider extends ApplicationAdapter {
                     }
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-
-
-                    adCounter = adCounter + 5;
-                    checkIntAdd();
+                    actionResolver.showInterstitialAd();
                 }
                 break;
             }
@@ -399,6 +388,7 @@ public class Slider extends ApplicationAdapter {
     }
 
     public void checkIntAdd() {
+        adCounter++;
         if (adCounter >= Constants.addFrequency) {
             actionResolver.showInterstitialAd();
             adCounter = 0;

@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.mygdx.game.ActionResolver;
@@ -83,15 +85,24 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
 
         }
         Constants.adHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+        });
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
     public void loadInterstitialAd() {
-
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
     public void showInterstitialAd() {
-
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        }
     }
 }
