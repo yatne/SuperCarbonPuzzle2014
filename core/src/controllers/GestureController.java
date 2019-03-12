@@ -106,4 +106,9 @@ public class GestureController implements GestureDetector.GestureListener {
         return false;
     }
 
+    @Override
+    public void pinchStop() {
+
+    }
+
 }
