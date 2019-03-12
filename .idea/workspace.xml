@@ -11,14 +11,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="gdx version switch">
+    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="gdx version switch refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/ObjectiveStripe.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/ObjectiveStripe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/buttons/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/buttons/Button.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/buttons/WorldButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/buttons/WorldButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/Alert.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/Alert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/buttons/BasicButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/buttons/BasicButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -121,24 +119,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="WorldSelectionView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -163,8 +143,8 @@
       <file leaf-file-name="Alert.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/view/Alert.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="83" column="125" selection-start-line="83" selection-start-column="125" selection-end-line="83" selection-end-column="125" />
+            <state relative-caret-position="237">
+              <caret line="87" column="126" selection-start-line="87" selection-start-column="126" selection-end-line="87" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -196,20 +176,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldButton.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/WorldButton.java">
+      <file leaf-file-name="LevelButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
+            <state relative-caret-position="393">
+              <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <file leaf-file-name="PreLevelView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10353">
-              <caret line="617" selection-start-line="617" selection-end-line="617" />
+            <state relative-caret-position="220">
+              <caret line="156" column="113" selection-start-line="156" selection-start-column="113" selection-end-line="156" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/WorldButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="257">
+              <caret line="96" column="60" lean-forward="true" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/BasicButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -226,7 +224,11 @@
       <find>gdx-freetype-platform-natives-arm64-v8a.jar</find>
       <find>Glyp</find>
       <find>width</find>
+      <find>font.getBounds(worldName)</find>
     </findStrings>
+    <replaceStrings>
+      <replace>layout</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -2920,7 +2922,6 @@
         <option value="$PROJECT_DIR$/mapTester/src/mapTester.java" />
         <option value="$PROJECT_DIR$/local.properties" />
         <option value="$PROJECT_DIR$/core/build.gradle" />
-        <option value="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
         <option value="$PROJECT_DIR$/core/src/resources/blocks.xml" />
         <option value="$PROJECT_DIR$/android/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/core/src/mapSystem/MapInfo.java" />
@@ -2941,12 +2942,15 @@
         <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/Alert.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
         <option value="$PROJECT_DIR$/core/src/view/buttons/Button.java" />
         <option value="$PROJECT_DIR$/core/src/view/ObjectiveStripe.java" />
         <option value="$PROJECT_DIR$/core/src/view/buttons/WorldButton.java" />
+        <option value="$PROJECT_DIR$/core/src/view/buttons/BasicButton.java" />
+        <option value="$PROJECT_DIR$/core/src/view/Alert.java" />
+        <option value="$PROJECT_DIR$/core/src/view/buttons/LevelButton.java" />
+        <option value="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
       </list>
     </option>
   </component>
@@ -3290,12 +3294,12 @@
       <option name="project" value="LOCAL" />
       <updated>1552419794207</updated>
     </task>
-    <task id="LOCAL-00003" summary="rozrzucenie kodu po nowych paczkach: mapView i enums">
-      <created>1403459083351</created>
+    <task id="LOCAL-00003" summary="gdx version switch refactor">
+      <created>1552425298650</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1403459083351</updated>
+      <updated>1552425298650</updated>
     </task>
     <task id="LOCAL-00004" summary="rozrzucenie kodu po nowych paczkach: mapView i enums">
       <created>1403460273748</created>
@@ -3549,7 +3553,7 @@
       <option name="project" value="LOCAL" />
       <updated>1551299257502</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -3557,6 +3561,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
@@ -3700,7 +3705,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed IActivityRequestHandler" />
     <MESSAGE value="gdx version switch" />
-    <option name="LAST_COMMIT_MESSAGE" value="gdx version switch" />
+    <MESSAGE value="gdx version switch refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="gdx version switch refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3713,20 +3719,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -4000,20 +3992,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/Alert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="83" column="125" selection-start-line="83" selection-start-column="125" selection-end-line="83" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -4055,7 +4033,35 @@
     <entry file="file://$PROJECT_DIR$/core/src/view/buttons/WorldButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
-          <caret line="96" column="55" selection-start-line="96" selection-start-column="55" selection-end-line="96" selection-end-column="55" />
+          <caret line="96" column="60" lean-forward="true" selection-start-line="96" selection-start-column="60" selection-end-line="96" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/BasicButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/Alert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="87" column="126" selection-start-line="87" selection-start-column="126" selection-end-line="87" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/PreLevelView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="156" column="113" selection-start-line="156" selection-start-column="113" selection-end-line="156" selection-end-column="113" />
         </state>
       </provider>
     </entry>

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import view.Star;
@@ -44,8 +45,8 @@ public class LevelButton extends Button {
         float textPosY = (float) (posY + levelButtonHeight - ((levelButtonWidth - font.getCapHeight()) / 2.2));
 
         this.setPosition(posX, posY);
-
-        float textPosX = posX + (levelButtonWidth / 2) - (font.getBounds(Integer.toString(levelNumber + 1)).width / 2);
+        GlyphLayout layout = new GlyphLayout(font, Integer.toString(levelNumber + 1));
+        float textPosX = posX + (levelButtonWidth / 2) - (layout.width / 2);
         text = new Text((int) textPosX, (int) textPosY, levelNumber + 1, color);
 
 

@@ -5,12 +5,15 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
+
 import enums.Controls;
 import help.utils.Constants;
 import map.Map;
@@ -44,19 +47,31 @@ public class PreLevelView extends PanelView {
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
+        FreeTypeFontGenerator.FreeTypeFontParameter fontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter buttonFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter bigFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter smallFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        fontParameter.size = (int) ((camera.viewportHeight - camera.viewportWidth) / 4);
+        buttonFontParameter.size = (int) (height * 3 / 4);
+
+        font = generator.generateFont(fontParameter);
         font.setColor(Color.BLACK);
-        this.buttonFont = generator.generateFont((int) (height * 3 / 4));
+        this.buttonFont = generator.generateFont(bigFontParameter);
         this.buttonFont.setColor(Color.BLACK);
 
         float textPanelHeight = camera.viewportWidth + ((camera.viewportHeight - camera.viewportWidth) / 2);
         float maxBigFontSize = textPanelHeight / 9;
-        bigFont = generator.generateFont((int) maxBigFontSize);
-        while (bigFont.getBounds("Level 25 Completed").width > camera.viewportWidth) {
-            maxBigFontSize--;
-            bigFont = generator.generateFont((int) maxBigFontSize);
+        bigFontParameter.size = (int) maxBigFontSize;
+
+        bigFont = generator.generateFont(bigFontParameter);
+        GlyphLayout bigLayout = new GlyphLayout(bigFont, "Level 25 Completed");
+        while (bigLayout.width > camera.viewportWidth) {
+            bigFontParameter.size--;
+            bigFont = generator.generateFont(bigFontParameter);
+            bigLayout.setText(bigFont, "Level 25 Completed");
         }
-        smallFont = generator.generateFont((int) (textPanelHeight) / 12);
+        smallFontParameter.size = (int) (textPanelHeight) / 12;
+        smallFont = generator.generateFont(smallFontParameter);
         generator.dispose();
 
         text = new Text(0, (int) (camera.viewportHeight - font.getCapHeight()), "");
@@ -139,7 +154,7 @@ public class PreLevelView extends PanelView {
     public Controls drawPreLevel(OrthographicCamera camera, SpriteBatch batch) {
         batch.begin();
         background.draw(batch, 1);
-        font.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+        font.draw(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, Align.center, true);
         if (world == 5) {
             buttonFont.setColor(Constants.fifthWorldButtonColor);
         }

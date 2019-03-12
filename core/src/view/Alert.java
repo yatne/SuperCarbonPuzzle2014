@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
+
 import enums.Controls;
 import textures.TextureHolder;
 import view.buttons.BasicButton;
@@ -41,7 +43,9 @@ public class Alert {
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        font = generator.generateFont((int) (camera.viewportHeight / 11));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = (int) (camera.viewportHeight / 11);
+        font = generator.generateFont(parameter);
         font.setColor(Color.BLACK);
         generator.dispose();
 
@@ -81,7 +85,7 @@ public class Alert {
         altBatch.begin();
         image.draw(altBatch, 1);
         button.draw(altBatch, 1, font);
-        font.drawWrapped(altBatch, text.getText(), text.getPosX(), text.getPosY(), (2 * camera.viewportWidth / 3), BitmapFont.HAlignment.CENTER);
+        font.draw(altBatch, text.getText(), text.getPosX(), text.getPosY(), (2 * camera.viewportWidth / 3), Align.center, true);
         altBatch.end();
 
         return control;
