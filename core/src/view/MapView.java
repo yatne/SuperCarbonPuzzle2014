@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+
 import controllers.GestureController;
 import controllers.KeyboardController;
 import enums.Controls;
@@ -28,8 +30,10 @@ import help.utils.ObjectsReader;
 import map.Field;
 import map.Map;
 import map.Object;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+
 import sound.SoundActivator;
 import textures.TextureHolder;
 import view.buttons.Button;
@@ -58,6 +62,7 @@ public class MapView {
     private int watchDog;
     private ArrayList<TextureRegion> backgrounds;
     private ObjectiveStripe objectiveStripe;
+    private GlyphLayout glyphLayout;
     //----------------------------------
 
     public MapView(OrthographicCamera camera) {
@@ -71,6 +76,8 @@ public class MapView {
         createFonts(camera);
         NodeList blocksList = BlocksReader.getBlocksList();
         NodeList objectsList = ObjectsReader.getObjectsList();
+        GlyphLayout glyphLayout = new GlyphLayout(); // Obviously stick this in a field to avoid allocation each frame.
+        this.glyphLayout = glyphLayout;
 
         backgrounds = new ArrayList<>();
         for (int i = 0; i < Constants.howManyWorlds; i++) {
@@ -606,7 +613,8 @@ public class MapView {
         } else
             moves = "99";
 
-        counterFont.draw(batch, moves, (camera.viewportWidth / 2) - (counterFont.getBounds(moves).width / 2), (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
+        this.glyphLayout.setText(counterFont, moves);
+        counterFont.draw(batch, moves, (camera.viewportWidth / 2) - this.glyphLayout.width / 2, (camera.viewportHeight - camera.viewportWidth) * 7 / 20);
 
         //levelNameFont.draw(batch, levelName.getText(), levelName.getPosX(), levelName.getPosY());
 
@@ -615,10 +623,15 @@ public class MapView {
     }
 
     public void createFonts(OrthographicCamera camera) {
+        FreeTypeFontGenerator.FreeTypeFontParameter counterFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        counterFontParameter.size = (int) ((camera.viewportHeight - camera.viewportWidth) / 4);
+        FreeTypeFontGenerator.FreeTypeFontParameter buttonFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        buttonFontParameter.size = (int) ((camera.viewportHeight - camera.viewportWidth) / 5);
+
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        counterFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 4));
-        buttonFont = generator.generateFont((int) ((camera.viewportHeight - camera.viewportWidth) / 5));
+        counterFont = generator.generateFont(counterFontParameter);
+        buttonFont = generator.generateFont(buttonFontParameter);
         counterFont.setColor(Color.BLACK);
         buttonFont.setColor(Color.BLACK);
         generator.dispose();

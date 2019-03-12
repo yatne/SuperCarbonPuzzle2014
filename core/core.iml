@@ -27,15 +27,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-box2d-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-freetype-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-box2d-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-freetype-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-box2d-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-1.1.0" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-freetype-1.1.0" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-box2d-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-freetype-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Gradle: gdx-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-box2d-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-freetype-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="RUNTIME" name="Gradle: gdx-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-box2d-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-freetype-1.9.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="Gradle: gdx-1.9.1" level="project" />
     <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
     <orderEntry type="library" exported="" name="core.core-1.0" level="project" />
     <orderEntry type="library" exported="" name="core.core-1.0" level="project" />

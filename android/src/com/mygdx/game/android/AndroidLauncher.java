@@ -26,6 +26,7 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
     private final int HIDE_ADS = 0;
     private final int SHOW_INTER = 2;
 
+
     private InterstitialAd mInterstitialAd;
 
     protected Handler handler = new Handler() {

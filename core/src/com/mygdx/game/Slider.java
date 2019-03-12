@@ -169,7 +169,7 @@ public class Slider extends ApplicationAdapter {
                     FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
                     FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
                     freeTypeFontParameter.size = (int) (camera.viewportWidth / 8);
-                    buttonFont = generator.generateFont((int) (camera.viewportWidth / 8));
+                    buttonFont = generator.generateFont(freeTypeFontParameter);
                     buttonFont.setColor(0, 0, 0, 1);
                     generator.dispose();
 

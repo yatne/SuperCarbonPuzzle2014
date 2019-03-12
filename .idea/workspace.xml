@@ -11,22 +11,43 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="">
+    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="Removed IActivityRequestHandler">
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_backend_android_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_box2d_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_badlogicgames_gdx_gdx_freetype_1_1_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_backend_lwjgl_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_box2d_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_box2d_platform_1_1_0_natives_desktop.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_freetype_1_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_freetype_platform_1_1_0_natives_desktop.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__gdx_platform_1_1_0_natives_desktop.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__lwjgl_2_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__lwjgl_platform_2_9_1_natives_linux.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__lwjgl_platform_2_9_1_natives_osx.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__lwjgl_platform_2_9_1_natives_windows.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__lwjgl_util_2_9_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SuperCarbonPuzzle2014.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SuperCarbonPuzzle2014.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx-box2d.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx-box2d.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx-freetype.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx-freetype.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi-v7a/libgdx.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi/libgdx-box2d.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi/libgdx-box2d.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi/libgdx-freetype.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi/libgdx-freetype.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/armeabi/libgdx.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/armeabi/libgdx.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/x86/libgdx-box2d.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/x86/libgdx-box2d.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/x86/libgdx-freetype.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/x86/libgdx-freetype.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/libs/x86/libgdx.so" beforeDir="false" afterPath="$PROJECT_DIR$/android/libs/x86/libgdx.so" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/view/MapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/view/MapView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/desktop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +68,68 @@
         <task path="$PROJECT_DIR$/android">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/desktop">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/core">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":android" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":android" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":android" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="android" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":android" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="install" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":android" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":core" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":core" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SuperCarbonPuzzle2014" type="f1a62948:ProjectNode" />
+                <item name=":core" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -69,53 +146,36 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="17">
+              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="9" />
+            </state>
+          </provider>
           <provider editor-type-id="android-manifest">
             <state />
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/project.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
-            </state>
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidLauncher.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActionResolver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DesktopLauncher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-              <folding>
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1227#1228#0" expanded="true" />
-                <element signature="e#1282#1283#0" expanded="true" />
-                <element signature="e#1328#1329#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -123,12 +183,44 @@
       <file leaf-file-name="Slider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="402" column="48" selection-start-line="402" selection-start-column="48" selection-end-line="402" selection-end-column="48" />
-              <folding>
-                <element signature="e#3597#3598#0" expanded="true" />
-                <element signature="e#3653#3654#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2414">
+              <caret line="170" column="82" selection-start-line="170" selection-start-column="82" selection-end-line="170" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10353">
+              <caret line="617" selection-start-line="617" selection-end-line="617" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AfterLevelView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="901">
+              <caret line="77" column="45" selection-start-line="77" selection-start-column="45" selection-end-line="77" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/view/buttons/LevelButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BitmapFont.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.0/e424d5ef62ebe25712e9f2217616ea1de449fe96/gdx-1.9.0-sources.jar!/com/badlogic/gdx/graphics/g2d/BitmapFont.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11764">
+              <caret line="775" column="26" selection-start-line="775" selection-start-column="21" selection-end-line="775" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -140,6 +232,11 @@
       <find>uses-sd</find>
       <find>Slider</find>
       <find>instrumentTest</find>
+      <find>adCounter</find>
+      <find>gdxVe</find>
+      <find>gdx-freetype-platform-natives-arm64-v8a.jar</find>
+      <find>Glyp</find>
+      <find>width</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2840,59 +2937,41 @@
         <option value="$PROJECT_DIR$/core/src/mapSystem/MapInfo.java" />
         <option value="$PROJECT_DIR$/core/src/mapSystem/MapsInfo.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
-        <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/resources/newPlayer.xml" />
         <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/player/Player.java" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/desktop/build.gradle" />
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/android/build.gradle" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
         <option value="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" />
+        <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
         <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
+        <option value="$PROJECT_DIR$/android/build.gradle" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
+        <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
-            <path>
-              <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
-              <item name="android" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
-              <item name="core" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
               <item name="desktop" type="e9137016:NonAndroidModuleNode" />
@@ -2908,12 +2987,31 @@
               <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
               <item name="desktop" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2922,7 +3020,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552120895038" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552238356322" />
     <property name="device.picker.selection" value="Nexus_5X_API_28" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.1.0" />
@@ -2940,7 +3038,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SuperCarbonPuzzle2014:android [assemble]">
+  <component name="RunManager" selected="Android App.android">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -2961,7 +3059,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="android" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="android" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -3010,6 +3108,11 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
     </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="mygdx.game.desktop.DesktopLauncher" />
+      <module name="desktop" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method>
@@ -3028,6 +3131,74 @@
         <option name="taskNames">
           <list>
             <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <configuration name="SuperCarbonPuzzle2014:android [copyAndroidNatives]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/android" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="copyAndroidNatives" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <configuration name="SuperCarbonPuzzle2014:desktop [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/desktop" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <configuration name="SuperCarbonPuzzle2014:desktop [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/desktop" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+    </configuration>
+    <configuration name="SuperCarbonPuzzle2014:desktop [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/desktop" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -3067,10 +3238,19 @@
     </configuration>
     <list>
       <item itemvalue="Android App.android" />
+      <item itemvalue="Application.Unnamed" />
       <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [assemble]" />
+      <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [assemble]" />
+      <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [build]" />
+      <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [jar]" />
+      <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [copyAndroidNatives]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [copyAndroidNatives]" />
+        <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [jar]" />
+        <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [build]" />
+        <item itemvalue="Gradle.SuperCarbonPuzzle2014:desktop [assemble]" />
         <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [assemble]" />
       </list>
     </recent_temporary>
@@ -3101,13 +3281,14 @@
       <workItem from="1551821816216" duration="1753000" />
       <workItem from="1551824126846" duration="840000" />
       <workItem from="1552034254207" duration="1686000" />
+      <workItem from="1552238319016" duration="46000" />
     </task>
-    <task id="LOCAL-00001" summary="test">
-      <created>1403451005863</created>
+    <task id="LOCAL-00001" summary="Removed IActivityRequestHandler">
+      <created>1552128996403</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1403451005863</updated>
+      <updated>1552128996403</updated>
     </task>
     <task id="LOCAL-00002" summary="poprawione">
       <created>1403451348503</created>
@@ -3375,10 +3556,11 @@
       <option name="project" value="LOCAL" />
       <updated>1551299257502</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1695000" />
+    <option name="totallyTimeSpent" value="1741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -3386,14 +3568,13 @@
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
-      <window_info anchor="bottom" id="Messages" order="17" weight="0.43631038" />
       <window_info id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="6" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.50067115" side_tool="true" weight="0.3660322" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.27086383" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.7792023" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.27086383" />
       <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" weight="0.4114202" />
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info id="Captures" order="4" />
@@ -3401,46 +3582,132 @@
       <window_info anchor="right" id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.48387095" visible="true" weight="0.18724832" />
       <window_info anchor="bottom" id="Build" order="20" visible="true" weight="0.2977208" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
-      <window_info anchor="right" id="Gradle" order="8" visible="true" weight="0.16644295" />
+      <window_info anchor="right" id="Gradle" order="8" visible="true" weight="0.16577181" />
       <window_info id="Structure" order="0" sideWeight="0.6720368" side_tool="true" weight="0.24946696" />
       <window_info anchor="right" id="Device File Explorer" order="7" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info id="Favorites" order="9" sideWeight="0.516129" side_tool="true" weight="0.21946308" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.3001464" />
+      <window_info id="Favorites" order="9" sideWeight="0.516129" side_tool="true" weight="0.21946308" />
       <window_info anchor="right" id="Maven" order="0" />
-      <window_info anchor="bottom" id="Application Servers" order="15" />
+      <window_info active="true" anchor="bottom" id="Build" order="20" visible="true" weight="0.22986823" />
+      <window_info anchor="right" id="Designer" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="22" />
       <window_info anchor="right" id="JetGradle" order="5" sideWeight="0.64652014" weight="0.225058" />
-      <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="Memory Monitor" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.7792023" />
+      <window_info id="Build Variants" order="6" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Android" order="21" weight="0.38434982" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="14" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="13" sideWeight="0.6882453" weight="0.16060606" />
       <window_info anchor="bottom" id="Changes" order="8" weight="0.32796317" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info id="Favorites" order="9" sideWeight="0.516129" side_tool="true" weight="0.21946308" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" weight="0.4114202" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info id="UI Designer" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.50067115" side_tool="true" weight="0.3660322" />
       <window_info anchor="bottom" id="Statistic" order="14" />
+      <window_info anchor="right" id="Preview" order="12" sideWeight="0.80437285" weight="0.16308725" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48387095" weight="0.18724832" />
+      <window_info anchor="right" id="Device File Explorer" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info id="Web" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Logcat" order="10" />
+      <window_info anchor="bottom" id="Application Servers" order="15" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.27086383" />
       <window_info anchor="right" id="Maven Projects" order="15" sideWeight="0.7502877" weight="0.22483222" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info id="simpleUML" order="5" />
+      <window_info anchor="right" id="Gradle" order="8" visible="true" weight="0.16577181" />
+      <window_info id="Captures" order="4" sideWeight="0.4201521" visible="true" weight="0.18993288" />
       <window_info anchor="bottom" id="Inspection" order="6" visible="true" weight="0.48381603" />
       <window_info anchor="bottom" id="Dependency Viewer" order="18" weight="0.32911393" />
+      <window_info anchor="bottom" id="Messages" order="17" weight="0.43631038" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info id="Web" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
+      <window_info id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
       <window_info anchor="right" id="Notes" order="3" />
-      <window_info anchor="right" id="Preview" order="12" sideWeight="0.80437285" weight="0.16308725" />
+      <window_info id="Structure" order="0" sideWeight="0.57984793" side_tool="true" visible="true" weight="0.18993288" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3001464" />
       <window_info anchor="right" id="Database" order="9" />
       <window_info anchor="right" id="Bean Validation" order="11" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info active="true" anchor="bottom" id="Build" order="20" visible="true" weight="0.22986823" />
+      <window_info anchor="right" id="Designer" order="2" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Memory Monitor" order="12" side_tool="true" />
+      <window_info id="Build Variants" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="15" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Android" order="21" weight="0.38434982" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.7792023" />
+      <window_info anchor="right" id="JetGradle" order="5" sideWeight="0.64652014" weight="0.225058" />
+      <window_info anchor="right" id="Ant Build" order="13" sideWeight="0.6882453" weight="0.16060606" />
+      <window_info anchor="bottom" id="Changes" order="8" weight="0.32796317" />
+      <window_info id="UI Designer" order="7" />
+      <window_info id="Favorites" order="9" sideWeight="0.516129" side_tool="true" weight="0.21946308" />
+      <window_info id="Captures" order="4" sideWeight="0.4201521" visible="true" weight="0.18993288" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="14" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.50067115" side_tool="true" weight="0.3660322" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Statistic" order="14" />
+      <window_info anchor="right" id="Preview" order="12" sideWeight="0.80437285" weight="0.16308725" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
+      <window_info anchor="right" id="Device File Explorer" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="22" />
+      <window_info anchor="bottom" id="Logcat" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.27086383" />
+      <window_info anchor="right" id="Maven Projects" order="15" sideWeight="0.7502877" weight="0.22483222" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" weight="0.4114202" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info id="simpleUML" order="5" />
+      <window_info anchor="right" id="Gradle" order="8" visible="true" weight="0.16577181" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48387095" weight="0.18724832" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="18" weight="0.32911393" />
+      <window_info anchor="bottom" id="Messages" order="17" weight="0.43631038" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info id="Web" order="10" side_tool="true" />
+      <window_info id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="Notes" order="3" />
+      <window_info id="Structure" order="0" sideWeight="0.57984793" side_tool="true" visible="true" weight="0.18993288" />
+      <window_info anchor="bottom" id="Inspection" order="6" visible="true" weight="0.48381603" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
+      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="11" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.3001464" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Removed IActivityRequestHandler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed IActivityRequestHandler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3453,6 +3720,94 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="402" column="48" selection-start-line="402" selection-start-column="48" selection-end-line="402" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4233">
+          <caret line="277" lean-forward="true" selection-start-line="277" selection-end-line="277" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="88" column="21" lean-forward="true" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -3524,62 +3879,184 @@
     <entry file="file://$PROJECT_DIR$/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
+        <state relative-caret-position="493">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="402" column="48" selection-start-line="402" selection-start-column="48" selection-end-line="402" selection-end-column="48" />
-          <folding>
-            <element signature="e#3597#3598#0" expanded="true" />
-            <element signature="e#3653#3654#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="42" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+        <state relative-caret-position="289">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1227#1228#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#1328#1329#0" expanded="true" />
-          </folding>
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4233">
+          <caret line="277" selection-start-line="277" selection-end-line="277" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="104">
+          <caret line="88" column="21" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/resources/newPlayer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="36" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2839">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="9" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-27/android.jar!/android/app/Instrumentation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3068">
+          <caret line="355" selection-start-line="355" selection-end-line="355" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/gradle-app.setting">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2414">
+          <caret line="170" column="82" selection-start-line="170" selection-start-column="82" selection-end-line="170" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.0/e424d5ef62ebe25712e9f2217616ea1de449fe96/gdx-1.9.0-sources.jar!/com/badlogic/gdx/graphics/g2d/BitmapFont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11764">
+          <caret line="775" column="26" selection-start-line="775" selection-start-column="21" selection-end-line="775" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10353">
+          <caret line="617" selection-start-line="617" selection-end-line="617" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
         </state>
       </provider>
     </entry>
