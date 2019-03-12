@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -67,7 +68,10 @@ public class LevelSelectionView extends PanelView {
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
-        levelFont = generator.generateFont((int) (camera.viewportWidth / 6.9));
+
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = (int) (camera.viewportWidth / 6.9);
+        levelFont = generator.generateFont(parameter);
         levelFont.setColor(Color.BLACK);
         generator.dispose();
 
@@ -128,8 +132,9 @@ public class LevelSelectionView extends PanelView {
                 backButton.setDrawable(backButton.getTextureRegionDrawable());
             }
         });
+        GlyphLayout glyphLayout = new GlyphLayout(buttonFont, Integer.toString(player.getStars()));
 
-        int posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2));
+        int posX = (int) ((camera.viewportWidth * 4 / 5) - glyphLayout.width / 2);
         int posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) + buttonFont.getCapHeight() * 3 / 2);
 
         starsCount = new Text(posX, posY, player.getStars());
@@ -164,11 +169,13 @@ public class LevelSelectionView extends PanelView {
             }
         });
 
-        posX = (int) ((camera.viewportWidth * 4 / 5) - (buttonFont.getBounds("999").width));
-        posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - buttonFont.getBounds("999").width / 4);
+        glyphLayout.setText(buttonFont, "999");
+        
+        posX = (int) ((camera.viewportWidth * 4 / 5) - (glyphLayout.width));
+        posY = (int) ((((camera.viewportHeight - camera.viewportWidth) / 2) / 5) - glyphLayout.width / 4);
 
         starImage.setPosition(posX, posY);
-        starImage.setSize(2 * buttonFont.getBounds("999").width, 2 * buttonFont.getBounds("999").width);
+        starImage.setSize(2 * glyphLayout.width, 2 * glyphLayout.width);
     }
 
     public void prepareLevelSelection(int selectedWorld, Stage stage, Player player, MapsInfo mapsInfo, Image background, float cameraViewPortWidth) {
@@ -206,8 +213,9 @@ public class LevelSelectionView extends PanelView {
             buttonFont.setColor(Color.BLACK);
             levelFont.setColor(Color.BLACK);
         }
+        GlyphLayout glyphLayout = new GlyphLayout(buttonFont, Integer.toString(player.getStars()));
 
-        starsCount.setPosX((int) ((cameraViewPortWidth * 4 / 5) - (buttonFont.getBounds(Integer.toString(player.getStars())).width / 2)));
+        starsCount.setPosX((int) ((cameraViewPortWidth * 4 / 5) - glyphLayout.width / 2));
         starsCount.setText(Integer.toString(player.getStars()));
         levelsInWorld = mapsInfo.getMapsCountInWorld(selectedWorld);
         backButton.setButtonWorld(selectedWorld);

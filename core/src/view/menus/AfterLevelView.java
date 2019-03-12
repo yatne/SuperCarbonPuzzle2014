@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
@@ -13,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.Align;
+
 import enums.Controls;
 import help.utils.Constants;
 import map.Map;
@@ -72,15 +75,25 @@ public class AfterLevelView extends PanelView {
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
 
-        bigFont = generator.generateFont((int) maxBigFontSize);
-        while (bigFont.getBounds("Level 25 Completed").width > camera.viewportWidth) {
+        FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        freeTypeFontParameter.size = (int) maxBigFontSize;
+
+        bigFont = generator.generateFont(freeTypeFontParameter);
+        GlyphLayout layout = new GlyphLayout(bigFont, "Level 25 Completed");
+        while (layout.width > camera.viewportWidth) {
             maxBigFontSize--;
-            bigFont = generator.generateFont((int) maxBigFontSize);
+            freeTypeFontParameter.size = (int) maxBigFontSize;
+            bigFont = generator.generateFont(freeTypeFontParameter);
         }
-        smallFont = generator.generateFont((int) (textPanelHeight) / 12);
 
+        FreeTypeFontGenerator.FreeTypeFontParameter smallFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        freeTypeFontParameter.size = (int) (textPanelHeight) / 12;
+        smallFont = generator.generateFont(smallFontParameter);
 
-        this.buttonFont = generator.generateFont((int) (height * 3 / 4));
+        FreeTypeFontGenerator.FreeTypeFontParameter buttonFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+        buttonFontParameter.size = (int) (height * 3 / 4);
+        this.buttonFont = generator.generateFont(buttonFontParameter);
         this.buttonFont.setColor(Color.BLACK);
         generator.dispose();
 
@@ -228,12 +241,17 @@ public class AfterLevelView extends PanelView {
             buttonFont.setColor(Constants.fifthWorldButtonColor);
         }
 
+//        font.drawWrapped(batch, "meow meow meow meow meow meow", x, y, width, HAlignment.RIGHT);
+//        font.draw(batch, "meow meow meow meow meow meow", x, y, width, Align.right, true);
+
+
+
         background.draw(batch, 1);
-        bigFont.drawWrapped(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+        bigFont.draw(batch, text.getText(), text.getPosX(), text.getPosY(), camera.viewportWidth, Align.center, true);
         if (allStarsObtained)
-            smallFont.drawWrapped(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY() - 2 * smallFont.getCapHeight(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+            smallFont.draw(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY() - 2 * smallFont.getCapHeight(), camera.viewportWidth, Align.center, true);
         else
-            smallFont.drawWrapped(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY(), camera.viewportWidth, BitmapFont.HAlignment.CENTER);
+            smallFont.draw(batch, movesTakenText.getText(), movesTakenText.getPosX(), movesTakenText.getPosY(), camera.viewportWidth, Align.center, true);
         retryButton.draw(batch, 1, this.buttonFont);
         levelSelectButton.draw(batch, 1, this.buttonFont);
         if (drawNextLevelButton)

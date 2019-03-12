@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import help.utils.Constants;
@@ -32,14 +33,18 @@ public class ObjectiveStripe {
         this.width = width;
         this.height = height;
         this.goals = new ArrayList<>();
+        FreeTypeFontGenerator.FreeTypeFontParameter maxFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        FreeTypeFontGenerator.FreeTypeFontParameter notMaxFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        maxFontParameter.size = maxFontSize;
+        notMaxFontParameter.size = (int) (5 * height / 6);
 
         FileHandle fontFile = Gdx.files.internal("menufont.ttf");
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(fontFile);
         if ((int) (5 * height / 6) < maxFontSize) {
-            goalsFont = generator.generateFont((int) (5 * height / 6));
+            goalsFont = generator.generateFont(notMaxFontParameter);
             starSize = (5 * height / 9);
         } else {
-            goalsFont = generator.generateFont(maxFontSize);
+            goalsFont = generator.generateFont(maxFontParameter);
             starSize = 2 * maxFontSize / 3;
         }
         goalsFont.setColor(Color.BLACK);
@@ -67,13 +72,15 @@ public class ObjectiveStripe {
         float starSpan = starSize / 3;
         int starCount = goals.size() + 1;
 
-        int posX = (int) (width / 2 - ((goalsFont.getBounds("Goal: 99  ").width + (starCount * starSize) + ((starCount - 1) * starSpan)) / 2));
+        GlyphLayout layout = new GlyphLayout(goalsFont, "Goal: 99  ");
+
+        int posX = (int) (width / 2 - ((layout.width + (starCount * starSize) + ((starCount - 1) * starSpan)) / 2));
         int posY = (int) (y + goalsFont.getCapHeight() + ((height - goalsFont.getCapHeight()) / 2));
 
         text.setPosX(posX);
         text.setPosY(posY);
 
-        firstStarPosX = (int) (text.getPosX() + goalsFont.getBounds("Goal: 99  ").width);
+        firstStarPosX = (int) (text.getPosX() + layout.width);
         firstStarPosY = (int) (y + ((height - goalsFont.getCapHeight()) / 2));
 
     }
