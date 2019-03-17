@@ -1,0 +1,305 @@
+<maps world="the first one">
+
+    <map name="The first one" number="1" silver="4" unlocked="0">
+        <row nr="1">OOXOOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OOOEOO</row>
+        <row nr="4">XOSOOO</row>
+        <row nr="5">OOOOOX</row>
+        <row nr="6">OOXOOO</row>
+    </map>
+
+    <map name="easy easy" number="2" silver="8" unlocked="1">
+        <row nr="1">OOOXOO</row>
+        <row nr="2">XOOOOE</row>
+        <row nr="3">OOOOXX</row>
+        <row nr="4">OXOOSX</row>
+        <row nr="5">OOOOOO</row>
+        <row nr="6">OXOOOO</row>
+    </map>
+
+    <map name="very very very easy" number="3" silver="6" unlocked="2">
+
+        <row nr="1">OOXOOO</row>
+        <row nr="2">OOOOOO</row>
+        <row nr="3">OXSOXO</row>
+        <row nr="4">OOOOEO</row>
+        <row nr="5">OOOOXO</row>
+        <row nr="6">OOXOOO</row>
+
+    </map>
+
+    <map name="only a few blocks" number="4" silver="5" unlocked="3">
+        <row nr="1">OOOOOOOO</row>
+        <row nr="2">OOOOXOOO</row>
+        <row nr="3">OXOOOOOO</row>
+        <row nr="4">OSOOOXOO</row>
+        <row nr="5">OOOOOOEO</row>
+        <row nr="6">OOXOOOOO</row>
+        <row nr="7">OXOOXOOO</row>
+        <row nr="8">OOOOOOOO</row>
+    </map>
+
+    <map name="that box moves" number="5" gold="6" silver="9" unlocked="5">
+
+        <row nr="1">OOOOOO</row>
+        <row nr="2">OSOBXX</row>
+        <row nr="3">XXOOOX</row>
+        <row nr="4">OOOOOE</row>
+        <row nr="5">OOOXXO</row>
+        <row nr="6">OXOXXO</row>
+
+    </map>
+
+    <map name="Hello there children!" number="6" gold="8" silver="10" unlocked="7">
+        <row nr="1">XOOOXOXO</row>
+        <row nr="2">EOOOOOOO</row>
+        <row nr="3">XOSOOOOO</row>
+        <row nr="4">OOOOXOOO</row>
+        <row nr="5">OOXOOOOO</row>
+        <row nr="6">OXOOOXOX</row>
+        <row nr="7">OOOXOOOO</row>
+        <row nr="8">OXOOOOOX</row>
+    </map>
+
+    <map name="a little more complicated" number="7" silver="9" unlocked="10">
+
+        <row nr="1">OXOXOXOO</row>
+        <row nr="2">OOOXOOOX</row>
+        <row nr="3">OOOOOSOO</row>
+        <row nr="4">XOOOOOOO</row>
+        <row nr="5">OOOXOOXO</row>
+        <row nr="6">XOOEOXOO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OXOOXOXO</row>
+
+    </map>
+
+
+    <map name="another box bites the dust" number="8" gold="7" silver="12" unlocked="11">
+
+        <row nr="1">OXOOOOO</row>
+        <row nr="2">XOOXOOO</row>
+        <row nr="3">OOBOXOO</row>
+        <row nr="4">SOXOXOO</row>
+        <row nr="5">XOOOOEO</row>
+        <row nr="6">OOOOXOO</row>
+        <row nr="7">OOXXOOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="9" silver="9" unlocked="12">
+
+        <row nr="1">OXXOOOO</row>
+        <row nr="2">OOOOXOO</row>
+        <row nr="3">XOOOEOX</row>
+        <row nr="4">OOXOXOX</row>
+        <row nr="5">XOOXOOO</row>
+        <row nr="6">SOOXBOO</row>
+        <row nr="7">XOOOXOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="10" gold="10" silver="14" unlocked="13">
+
+        <row nr="1">XOOOOOX</row>
+        <row nr="2">OOOOXOO</row>
+        <row nr="3">OXOOOOO</row>
+        <row nr="4">XXXOXBO</row>
+        <row nr="5">OOOOXXX</row>
+        <row nr="6">OEOOOXS</row>
+        <row nr="7">OXOOOOO</row>
+
+    </map>
+
+    <map name="those green fields" number="11" gold="9" silver="11" unlocked="15">
+
+        <row nr="1">OXOXOOOX</row>
+        <row nr="2">OSOOOXXO</row>
+        <row nr="3">OXOOOOOX</row>
+        <row nr="4">OXOXOOOO</row>
+        <row nr="5">XOBOOOXO</row>
+        <row nr="6">OOOXOOOO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OEOXOOOO</row>
+
+    </map>
+
+
+    <map name="whole lotta love" number="12" gold="8" silver="13" unlocked="17">
+
+        <row nr="1">OOBOOX</row>
+        <row nr="2">OOSOOX</row>
+        <row nr="3">XOOOOE</row>
+        <row nr="4">OOBXOX</row>
+        <row nr="5">OOOOOX</row>
+        <row nr="6">OOOOOO</row>
+
+    </map>
+
+    <map name="no place for you" number="13" gold="21" silver="25" unlocked="19">
+
+        <row nr="1">XXSXOOOX</row>
+        <row nr="2">XXOXXXXX</row>
+        <row nr="3">XOOOBXOX</row>
+        <row nr="4">XXXXBBXX</row>
+        <row nr="5">XOXXBXOX</row>
+        <row nr="6">XOOXBXOX</row>
+        <row nr="7">XOXOBXOX</row>
+        <row nr="8">XOOXEXOX</row>
+
+    </map>
+
+    <map name="two balls" number="14" silver="8" unlocked="21">
+
+        <row nr="1">OOOSOO</row>
+        <row nr="2">OOOXOO</row>
+        <row nr="3">OOSOOO</row>
+        <row nr="4">OOXOOX</row>
+        <row nr="5">XOOEOE</row>
+        <row nr="6">OOOOXO</row>
+
+    </map>
+
+    <map name="live and let die" number="15" plat="10" gold="12" silver="18" unlocked="23">
+
+        <row nr="1">OOXBBOO</row>
+        <row nr="2">XEXXXXO</row>
+        <row nr="3">OOOOOOO</row>
+        <row nr="4">OXOXXXO</row>
+        <row nr="5">XSBBOXO</row>
+        <row nr="6">OOXOOOO</row>
+        <row nr="7">OOXOOXO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="16" gold="20" silver="24" unlocked="25">
+
+        <row nr="1">OXOOSXOO</row>
+        <row nr="2">OOXOXEXX</row>
+        <row nr="3">OOOOOOOO</row>
+        <row nr="4">OOOOXOOO</row>
+        <row nr="5">XOOOXOOO</row>
+        <row nr="6">OOOOOOOO</row>
+        <row nr="7">OOXOXOOO</row>
+        <row nr="8">OOBXBOOX</row>
+
+    </map>
+
+
+    <map name="triple baller" number="17" gold="11" silver="16" unlocked="26">
+
+        <row nr="1">EOOOOOO</row>
+        <row nr="2">XOOXEXO</row>
+        <row nr="3">OOOOOSO</row>
+        <row nr="4">SOOOOOO</row>
+        <row nr="5">OXOSXOO</row>
+        <row nr="6">OOOEOOX</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+    <map name="you can do better" number="18" gold="16" silver="19" plat="13" unlocked="29">>
+
+        <row nr="1">XOOEOOO</row>
+        <row nr="2">XOOOXXX</row>
+        <row nr="3">SOOOOXB</row>
+        <row nr="4">XXOEOOO</row>
+        <row nr="5">SOOOXOX</row>
+        <row nr="6">OOEOXOO</row>
+        <row nr="7">OOOOXOS</row>
+
+    </map>
+
+    <map name="use that boxes" number="19" plat="8" gold="11" silver="18" unlocked="31">
+
+        <row nr="1">OOOOOOOE</row>
+        <row nr="2">OXBXOOXX</row>
+        <row nr="3">OBSBBOOO</row>
+        <row nr="4">OXOXOXSO</row>
+        <row nr="5">OOOOOOOO</row>
+        <row nr="6">OEOOXOOO</row>
+        <row nr="7">XOOOOOOO</row>
+        <row nr="8">OOOOOOOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="20" gold="4" silver="5" unlocked="34">
+
+        <row nr="1">XOEOOEO</row>
+        <row nr="2">OSOOOOX</row>
+        <row nr="3">OOOOOOO</row>
+        <row nr="4">OXO+XOO</row>
+        <row nr="5">OEOOSOO</row>
+        <row nr="6">XOOOSOX</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+
+    <map name="only balls" number="21" gold="6" silver="12" unlocked="36">
+
+        <row nr="1">OOOOOOO</row>
+        <row nr="2">OOEOEOO</row>
+        <row nr="3">OOSOOOO</row>
+        <row nr="4">ESSSOEO</row>
+        <row nr="5">OOSOOOO</row>
+        <row nr="6">OOEOOOO</row>
+        <row nr="7">OOOOOOO</row>
+
+    </map>
+
+
+    <map name="you only live once" number="22" gold="11" silver="18" unlocked="39">
+
+        <row nr="1">OOOXOOO</row>
+        <row nr="2">BXBOOXB</row>
+        <row nr="3">BXSXOXE</row>
+        <row nr="4">OOBXOOO</row>
+        <row nr="5">BXSOOXB</row>
+        <row nr="6">BXBXOXE</row>
+        <row nr="7">OOOXOXO</row>
+
+    </map>
+
+    <map name="last one here" number="23" plat="17" gold="19" silver="25" unlocked="42">
+
+        <row nr="1">OOXOOXOX</row>
+        <row nr="2">BOOOOOOO</row>
+        <row nr="3">SOOXOOXO</row>
+        <row nr="4">OOOOOOEO</row>
+        <row nr="5">SOOOOOXO</row>
+        <row nr="6">OXOOXOEO</row>
+        <row nr="7">OOOOOOOO</row>
+        <row nr="8">OOXOXOOO</row>
+
+    </map>
+
+
+    <map name="whole lotta love" number="24" plat="22" gold="28" silver="30" unlocked="47">
+
+        <row nr="1">XEXOXOOO</row>
+        <row nr="2">XSXOOOOO</row>
+        <row nr="3">OOOOOBXO</row>
+        <row nr="4">OOOSOXEO</row>
+        <row nr="5">XOXOOOXO</row>
+        <row nr="6">OOOXOOXO</row>
+        <row nr="7">OOOOBOOO</row>
+        <row nr="8">OSOXEOOO</row>
+
+    </map>
+
+    <map name="whole lotta love" number="25" gold="21" silver="30" unlocked="54">
+
+        <row nr="1">SOXOXEXX</row>
+        <row nr="2">OOOOOOOO</row>
+        <row nr="3">XOOOBOOX</row>
+        <row nr="4">OOOOOXXO</row>
+        <row nr="5">OOBOOOOO</row>
+        <row nr="6">XOOOOXXO</row>
+        <row nr="7">XXOXXOBO</row>
+        <row nr="8">OSOOXEOO</row>
+
+    </map>
+
+</maps>

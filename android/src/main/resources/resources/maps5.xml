@@ -1,0 +1,337 @@
+<maps world="purple">
+
+
+    <map name="a little more complicated" number="1" silver="6" unlocked="210">
+
+        <row nr="1">XOOXOO</row>
+        <row nr="2">[l#]---rO</row>
+        <row nr="3">OOOOSO</row>
+        <row nr="4">OOOEOO</row>
+        <row nr="5">OXOOOO</row>
+        <row nr="6">XOOOOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="2" silver="7" unlocked="212">
+
+        <row nr="1">OXuEXS</row>
+        <row nr="2">OO|OOO</row>
+        <row nr="3">l-[5#]-3O</row>
+        <row nr="4">OOdO|O</row>
+        <row nr="5">OXOl[8#]r</row>
+        <row nr="6">OXOOXO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="3" gold="9" silver="10" unlocked="215">
+
+        <row nr="1">E[l#]--rO</row>
+        <row nr="2">[l#]--3OO</row>
+        <row nr="3">OO[u#]|OO</row>
+        <row nr="4">[l#]3||uO</row>
+        <row nr="5">Xd|79O</row>
+        <row nr="6">Sl9OOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="4" gold="10" silver="12" unlocked="218">
+
+        <row nr="1">XOOXXOO</row>
+        <row nr="2">XSsOOOO</row>
+        <row nr="3">XOOOOOO</row>
+        <row nr="4">XOOOOXX</row>
+        <row nr="5">[u#]eEOOOO</row>
+        <row nr="6">7----rO</row>
+        <row nr="7">XOOOOOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="5" silver="11" unlocked="221">
+
+        <row nr="1">OOOOSXEO</row>
+        <row nr="2">OXXXXTOO</row>
+        <row nr="3">l2-3OOOO</row>
+        <row nr="4">T[|#]O[|#]TOOO</row>
+        <row nr="5">O7-8rOOO</row>
+        <row nr="6">OOOOOO@X</row>
+        <row nr="7">XXXXOXOO</row>
+        <row nr="8">*OOOOXOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="6" gold="21" silver="29" unlocked="223">
+
+        <row nr="1">XOXSOuOX</row>
+        <row nr="2">OOXOO|OX</row>
+        <row nr="3">OOOXO|XX</row>
+        <row nr="4">13OOO|OO</row>
+        <row nr="5">48---5-r</row>
+        <row nr="6">[d#]XOOX|XX</row>
+        <row nr="7">OBXOOdOO</row>
+        <row nr="8">OBEXOOOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="7" gold="12" silver="14" unlocked="226">
+
+        <row nr="1">UUXSSXBB</row>
+        <row nr="2">Ql-[2#]3XOO</row>
+        <row nr="3">OOO7[8#]--r</row>
+        <row nr="4">OOOOOOOO</row>
+        <row nr="5">XXXOOOOO</row>
+        <row nr="6">EEXOOOOO</row>
+        <row nr="7">TTXXXOXX</row>
+        <row nr="8">DDXOOOOW</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="8" gold="10" silver="12" unlocked="229">
+
+        <row nr="1">UUUUUUUW</row>
+        <row nr="2">S[u#]OuOOOW</row>
+        <row nr="3">u|O[|#]XuOW</row>
+        <row nr="4">[|#]|u|O[|#]uW</row>
+        <row nr="5">|d[|#]|O|[|#]E</row>
+        <row nr="6">dOd|Od|W</row>
+        <row nr="7">OOOdOOdW</row>
+        <row nr="8">DDDDDDDW</row>
+
+    </map>
+
+    <map name="a little more complicated" number="9" gold="10" silver="12" unlocked="231">
+
+        <row nr="1">OXOsOXXO</row>
+        <row nr="2">OSXOOOOO</row>
+        <row nr="3">OOOOOOOX</row>
+        <row nr="4">OOO[1#]3OXO</row>
+        <row nr="5">OOO79OOO</row>
+        <row nr="6">OeOOOOOO</row>
+        <row nr="7">OOOXOEOO</row>
+        <row nr="8">OOOOOOOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="10" plat="20" gold="24" silver="30" unlocked="234">
+
+        <row nr="1">SOXOXEXE</row>
+        <row nr="2">OOOBOOXO</row>
+        <row nr="3">Ol----[r#]O</row>
+        <row nr="4">l--[-#]rOXT</row>
+        <row nr="5">OOl--[-#]-r</row>
+        <row nr="6">XOOOOOOO</row>
+        <row nr="7">Ol-[-#]-rOO</row>
+        <row nr="8">OOOOOOXS</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="11" gold="8" silver="11" unlocked="238">
+
+        <row nr="1">OO@UU@OO</row>
+        <row nr="2">OSOuOXOO</row>
+        <row nr="3">eOO[|#]uO@O</row>
+        <row nr="4">XXO||OEO</row>
+        <row nr="5">OOO||O@s</row>
+        <row nr="6">O*Od[|#]OO@</row>
+        <row nr="7">OOOOdOOO</row>
+        <row nr="8">OXODDOOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="12" gold="15" silver="19" unlocked="241">
+
+        <row nr="1">AAAAAAAA</row>
+        <row nr="2">O1--rOOO</row>
+        <row nr="3">e|OOOOeO</row>
+        <row nr="4">O72-rOOO</row>
+        <row nr="5">OE|OOOOO</row>
+        <row nr="6">OO[7#]-rOOO</row>
+        <row nr="7">XXXXOOEO</row>
+        <row nr="8">sSOsSXOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="13" gold="18" silver="25" unlocked="244">
+
+        <row nr="1">OOOXXOXO</row>
+        <row nr="2">QOuOOOOX</row>
+        <row nr="3">O16OOXOS</row>
+        <row nr="4">O[|#]dOuOXX</row>
+        <row nr="5">15-[-#]6OXO</row>
+        <row nr="6">[|#]dXOdOOX</row>
+        <row nr="7">|OOXOOXO</row>
+        <row nr="8">7--rOEOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="14" gold="11" silver="18" unlocked="248">
+
+        <row nr="1">OOXOSXOO</row>
+        <row nr="2">OBXOSXOX</row>
+        <row nr="3">OOl[-#][-#]rOO</row>
+        <row nr="4">OOOOOOOO</row>
+        <row nr="5">XOOOOOOE</row>
+        <row nr="6">BOOEOOOX</row>
+        <row nr="7">OOOXOOOO</row>
+        <row nr="8">XOOOOOOO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="15" gold="17" silver="28" unlocked="250">
+
+        <row nr="1">OuOOOX@O</row>
+        <row nr="2">Q|XOOOOO</row>
+        <row nr="3">Q|XOOOOX</row>
+        <row nr="4">Q|OOXOOO</row>
+        <row nr="5">[QS][|#]OOOOO@</row>
+        <row nr="6">Q|XOXO@*</row>
+        <row nr="7">Q|OOO@O@</row>
+        <row nr="8">OdO@O@XE</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="16" gold="11" silver="16" unlocked="253">
+
+        <row nr="1">XOEXOOO</row>
+        <row nr="2">OO[1#]-2rX</row>
+        <row nr="3">OX|O|OO</row>
+        <row nr="4">Ol8-9OO</row>
+        <row nr="5">OOXOOOO</row>
+        <row nr="6">OOSXOXO</row>
+        <row nr="7">OOOOXXX</row>
+
+    </map>
+
+    <map name="a little more complicated" number="17" gold="14" silver="20" unlocked="256">
+
+        <row nr="1">BOUUUXOO</row>
+        <row nr="2">OOOuOOEO</row>
+        <row nr="3">OOu|uOXO</row>
+        <row nr="4">OO[|#][|S][|#]OOO</row>
+        <row nr="5">OO|[|#]|OBO</row>
+        <row nr="6">OOd|dOOO</row>
+        <row nr="7">OOOdOOOO</row>
+        <row nr="8">OODDDOXO</row>
+
+    </map>
+
+
+    <map name="a little more complicated" number="18" gold="15" silver="19" unlocked="259">
+
+        <row nr="1">XuXXXXuX</row>
+        <row nr="2">Q[d#]SOuO[d#]W</row>
+        <row nr="3">XXX@[d#]XXX</row>
+        <row nr="4">XOXOXOOO</row>
+        <row nr="5">OOOOOOXO</row>
+        <row nr="6">OOXOOOOO</row>
+        <row nr="7">OOOOOX*O</row>
+        <row nr="8">EXOOOOOO</row>
+
+    </map>
+
+
+    <map name="portale" number="19"  gold="34" silver="45" unlocked="263">
+
+        <row nr="1">OOO[u#]Xl3OS</row>
+        <row nr="2">O1-6OX|XX</row>
+        <row nr="3">O|O4--9uO</row>
+        <row nr="4">O|O|OOO[|#]O</row>
+        <row nr="5">l83dO1-9O</row>
+        <row nr="6">1-82[-#]82rO</row>
+        <row nr="7">|O191-6OO</row>
+        <row nr="8">[7#]-9O[d#]O|EO</row>
+        <row nr="9">OOOOOO[d#]OO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="20" plat="14" gold="15" silver="20" unlocked="266">
+
+        <row nr="1">ET+@O@XX</row>
+        <row nr="2">TT+@OOOX</row>
+        <row nr="3">++XOOOO+</row>
+        <row nr="4">@@OOOOO+</row>
+        <row nr="5">OOOOXXOO</row>
+        <row nr="6">@OOOXSBO</row>
+        <row nr="7">XOOOOB*O</row>
+        <row nr="8">XX++OOOO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="21" gold="10" silver="14" unlocked="270">
+
+        <row nr="1">XOOuO[u#]OT</row>
+        <row nr="2">XOO[d#]uduT</row>
+        <row nr="3">O+u+[|#]O|E</row>
+        <row nr="4">SO[|#]Odu|T</row>
+        <row nr="5">O+dOu[|#][d#]T</row>
+        <row nr="6">OOOO[|#]|OT</row>
+        <row nr="7">OXOOd|O[u#]</row>
+        <row nr="8">OOOOOdOd</row>
+
+    </map>
+
+
+    <map name="portale" number="22" gold="12" silver="15" unlocked="275">
+
+        <row nr="1">OOOOXOOO</row>
+        <row nr="2">XOO@O@XO</row>
+        <row nr="3">LO*TST+R</row>
+        <row nr="4">X[l#]-r@OOO</row>
+        <row nr="5">O[l#]-rOOOO</row>
+        <row nr="6">OOOOOOOX</row>
+        <row nr="7">OXOOXXOO</row>
+        <row nr="8">BOXEXXXO</row>
+
+    </map>
+
+    <map name="a little more complicated" number="23" gold="8" silver="15" unlocked="285">
+
+        <row nr="1">OOUUUUXO</row>
+        <row nr="2">OOOuuOOO</row>
+        <row nr="3">LOX[d#][|#]sOR</row>
+        <row nr="4">Ll[r#]e7[-#]rR</row>
+        <row nr="5">Ll[-#]3E[l#]rR</row>
+        <row nr="6">LOS[|#][u#]XOR</row>
+        <row nr="7">OOOddOOO</row>
+        <row nr="8">OXDDDDOO</row>
+
+    </map>
+
+    <map name="portale" number="24" plat="24" gold="28" silver="34" unlocked="300">
+
+        <row nr="1">OUUOXO+O+</row>
+        <row nr="2">L@@X[l#]--rR</row>
+        <row nr="3">LOXOO[l#]-rR</row>
+        <row nr="4">OXOX*OOOO</row>
+        <row nr="5">XXOOXTXXX</row>
+        <row nr="6">+SOsX[l#]-rO</row>
+        <row nr="7">QOX+XOOOE</row>
+        <row nr="8">Q+OOXOOeO</row>
+        <row nr="9">ODDOXOOOW</row>
+
+    </map>
+
+    <map name="portale" number="25" unlocked="376">
+
+        <row nr="1">sBSBsSOOE</row>
+        <row nr="2">T+T+T+T+T</row>
+        <row nr="3">*B*B*BOOO</row>
+        <row nr="4">TTT@O@O@O</row>
+        <row nr="5">OOOXXXXXX</row>
+        <row nr="6">LOOXXOOOR</row>
+        <row nr="7">XXXO[u#][u#][u#][u#]O</row>
+        <row nr="8">L[l#][-#][-#][5#]556R</row>
+        <row nr="9">XeEeddddO</row>
+
+    </map>
+
+</maps>

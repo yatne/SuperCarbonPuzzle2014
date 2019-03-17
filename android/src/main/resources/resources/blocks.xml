@@ -1,0 +1,17 @@
+<blocks>
+
+    <block name="obstacle" enum="OBSTACLE" texture="obstacle.png" representation="X">
+        <behavior>solid</behavior>
+    </block>
+
+    <block name="empty" enum="EMPTY" texture="empty.png" representation="O">
+        <behavior>empty</behavior>
+    </block>
+
+    <block name="black_tile" enum="NONE" texture="none.png" representation="N">
+        <behavior>solid</behavior>
+    </block>
+
+
+
+</blocks>

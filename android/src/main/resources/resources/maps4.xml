@@ -1,0 +1,327 @@
+<maps world="gray one">
+
+
+    <map name="portale" number="1" silver="10" gold="6" unlocked="150">
+
+        <row nr="1">OOUUUUOO</row>
+        <row nr="2">OOXOOOXO</row>
+        <row nr="3">XOOOXOOO</row>
+        <row nr="4">LOSXOOOR</row>
+        <row nr="5">LOOOOXOR</row>
+        <row nr="6">LXXOXXOR</row>
+        <row nr="7">OEOOOOOO</row>
+        <row nr="8">OODDDDOO</row>
+
+    </map>
+
+    <map name="gora-dol" number="2" silver="10" unlocked="153">
+
+        <row nr="1">UUUUUUUU</row>
+        <row nr="2">OOOOOXOX</row>
+        <row nr="3">XSOXOXOO</row>
+        <row nr="4">XOOXOOOO</row>
+        <row nr="5">OXXOOXOO</row>
+        <row nr="6">XOXOOOXO</row>
+        <row nr="7">OOOXXOEO</row>
+        <row nr="8">DDDDDDDD</row>
+
+    </map>
+
+    <map name="a little more complicated" number="3" silver="5" unlocked="155">
+
+        <row nr="1">OOOUOOO</row>
+        <row nr="2">OOXOEOO</row>
+        <row nr="3">OeOOOOO</row>
+        <row nr="4">LOSXO+R</row>
+        <row nr="5">OOOOOOO</row>
+        <row nr="6">OsOOXOO</row>
+        <row nr="7">OOODOOO</row>
+
+    </map>
+
+    <map name="those green fields" number="4" gold="5" silver="15" unlocked="157">
+
+        <row nr="1">tUOXOUy</row>
+        <row nr="2">LOOXOOR</row>
+        <row nr="3">OOBOBOO</row>
+        <row nr="4">XXOSOXX</row>
+        <row nr="5">OOOOOOO</row>
+        <row nr="6">LOOXOER</row>
+        <row nr="7">gDOXODh</row>
+
+    </map>
+
+    <map name="destroyer test" number="5" silver="7" unlocked="159">
+        <row nr="1">XSOXE</row>
+        <row nr="2">OOOXO</row>
+        <row nr="3">*OOXO</row>
+        <row nr="4">OXO@O</row>
+        <row nr="5">OOO@O</row>
+
+    </map>
+
+    <map name="a little more complicated" number="6" gold="10" silver="12" unlocked="161">
+
+        <row nr="1">XOXSOXO</row>
+        <row nr="2">OO@OOXO</row>
+        <row nr="3">OOOX@OO</row>
+        <row nr="4">OOOOOOE</row>
+        <row nr="5">OOOO*OX</row>
+        <row nr="6">OOOOOXO</row>
+        <row nr="7">O@OOOOO</row>
+    </map>
+
+
+    <map name="portale" number="7" silver="7" unlocked="164">
+
+        <row nr="1">EOOOOAO</row>
+        <row nr="2">XO@OO@O</row>
+        <row nr="3">O@*@OOX</row>
+        <row nr="4">OO@OO@O</row>
+        <row nr="5">OOOOO@O</row>
+        <row nr="6">Q@O@@SX</row>
+        <row nr="7">OOXOOXO</row>
+
+    </map>
+
+    <map name="portale" number="8" gold="9" silver="13" unlocked="166">
+
+        <row nr="1">ETTOOOXO</row>
+        <row nr="2">XOOOTXOO</row>
+        <row nr="3">LOOXOOOR</row>
+        <row nr="4">LOOBXOOR</row>
+        <row nr="5">LOOOXOOR</row>
+        <row nr="6">XXOOOOOO</row>
+        <row nr="7">SOOOOOXO</row>
+        <row nr="8">OOBOXOOO</row>
+
+    </map>
+
+
+    <map name="portale" number="9" gold="10" silver="14" unlocked="168">
+
+        <row nr="1">OOOO+UOO</row>
+        <row nr="2">OEOsOOOX</row>
+        <row nr="3">XXOOOOOX</row>
+        <row nr="4">LEXOOO+R</row>
+        <row nr="5">XXOOOXOX</row>
+        <row nr="6">OXSOOOOO</row>
+        <row nr="7">OSOOOOXO</row>
+        <row nr="8">OOeTODOO</row>
+
+    </map>
+
+
+    <map name="portale" number="10" gold="5" silver="10" unlocked="171">
+
+        <row nr="1">;XUUUUU'</row>
+        <row nr="2">LOOOXOXR</row>
+        <row nr="3">LOXOOSOR</row>
+        <row nr="4">LOOOOOXR</row>
+        <row nr="5">L@E@OOOX</row>
+        <row nr="6">LOOOOXOR</row>
+        <row nr="7">LO@XO*OR</row>
+        <row nr="8">.DDDDDD/</row>
+
+    </map>
+
+    <map name="blablab" number="11" gold="12" silver="18" unlocked="173">
+        <row nr="1">OUOXEO</row>
+        <row nr="2">OSOS+O</row>
+        <row nr="3">XXEOOE</row>
+        <row nr="4">LOXOOR</row>
+        <row nr="5">O+OXXX</row>
+        <row nr="6">ODOSOO</row>
+    </map>
+
+
+    <map name="portale" number="12" gold="7" silver="9" unlocked="175">
+
+        <row nr="1">S@OO@O@</row>
+        <row nr="2">XOO*OOX</row>
+        <row nr="3">L@XOOOR</row>
+        <row nr="4">LOO@XOR</row>
+        <row nr="5">LOOO@XR</row>
+        <row nr="6">OEOOOOO</row>
+        <row nr="7">.OO@OO/</row>
+
+
+    </map>
+
+    <map name="portale" number="13" gold="10" silver="16" unlocked="177">
+
+        <row nr="1">AXOOOOOO</row>
+        <row nr="2">OS+OXO*O</row>
+        <row nr="3">OOOOOOOX</row>
+        <row nr="4">OO@@OOOO</row>
+        <row nr="5">OOOOOXOO</row>
+        <row nr="6">XOOOOOOO</row>
+        <row nr="7">OOOEOOOX</row>
+        <row nr="8">.OOOOOOO</row>
+
+    </map>
+
+
+    <map name="portale" number="14" gold="8" silver="14" unlocked="180">
+
+        <row nr="1">tOBXBOy</row>
+        <row nr="2">XOOOOOO</row>
+        <row nr="3">OOOOOOO</row>
+        <row nr="4">OXOEOOO</row>
+        <row nr="5">OOOOOOO</row>
+        <row nr="6">OOOOOOX</row>
+        <row nr="7">gOSXOOh</row>
+
+    </map>
+
+
+    <map name="portale" number="15" gold="13" silver="18" unlocked="181">
+
+        <row nr="1">tUEXOOOR</row>
+        <row nr="2">LEXOXOOR</row>
+        <row nr="3">EXOOOXXX</row>
+        <row nr="4">XOOSOXOO</row>
+        <row nr="5">OOOOOSOO</row>
+        <row nr="6">SOOOOOXO</row>
+        <row nr="7">XOOOOOOO</row>
+        <row nr="8">DDOXOOOO</row>
+
+    </map>
+
+    <map name="portale" number="16" plat="7" gold="10" silver="20" unlocked="184">
+
+        <row nr="1">tOUUUXEy</row>
+        <row nr="2">LXXXOXX[RB]</row>
+        <row nr="3">LXSOOOOR</row>
+        <row nr="4">LXOBOOXX</row>
+        <row nr="5">XXOOOOXR</row>
+        <row nr="6">LOOOOsX[RB]</row>
+        <row nr="7">LXXOXXXR</row>
+        <row nr="8">geXDDDOh</row>
+
+    </map>
+
+
+    <map name="portale" number="17" gold="9" silver="13" unlocked="188">
+
+        <row nr="1">OOOOXEOW</row>
+        <row nr="2">OOOSOOOW</row>
+        <row nr="3">*OOXOOOW</row>
+        <row nr="4">OOOO*O@W</row>
+        <row nr="5">O*OOXOOW</row>
+        <row nr="6">XOOOO*OW</row>
+        <row nr="7">O*X*OOOW</row>
+        <row nr="8">OOOOXOO[W*]</row>
+
+    </map>
+
+    <map name="portale" number="18" gold="12" silver="18" unlocked="191">
+
+        <row nr="1">UUUUUUUU</row>
+        <row nr="2">OXOOXOOO</row>
+        <row nr="3">OOXOOOOO</row>
+        <row nr="4">XOOOOOOO</row>
+        <row nr="5">SOOXOOOO</row>
+        <row nr="6">BOSBOXXX</row>
+        <row nr="7">TTTTTETE</row>
+        <row nr="8">DDDDDDDD</row>
+
+    </map>
+
+    <map name="portale" number="19" gold="35" silver="42" unlocked="193">
+
+        <row nr="1">XXXOOOSO</row>
+        <row nr="2">OOXSOOOS</row>
+        <row nr="3">OEXXXX@@</row>
+        <row nr="4">EO@TOOOS</row>
+        <row nr="5">OOXOOOOO</row>
+        <row nr="6">OOX+XOOO</row>
+        <row nr="7">EO+OOOOX</row>
+        <row nr="8">XEXOOO*O</row>
+
+    </map>
+
+
+    <map name="portale" number="20" plat="12" gold="18" silver="21" unlocked="196">
+
+        <row nr="1">TUUUXUUU</row>
+        <row nr="2">EOOXOOXO</row>
+        <row nr="3">XOXOBOOX</row>
+        <row nr="4">LXOOOOXR</row>
+        <row nr="5">LOXSOBXR</row>
+        <row nr="6">LOBXOOXR</row>
+        <row nr="7">OOOXOXOO</row>
+        <row nr="8">ODDDXDDD</row>
+
+    </map>
+
+
+    <map name="portale" number="21" plat="19" gold="27" silver="32" unlocked="200">
+
+        <row nr="1">OSOOXSO</row>
+        <row nr="2">OOOOOOO</row>
+        <row nr="3">XO*OOXX</row>
+        <row nr="4">OOOOXEE</row>
+        <row nr="5">OOOOXOO</row>
+        <row nr="6">OOOO@OO</row>
+        <row nr="7">OOOO@OW</row>
+
+    </map>
+
+
+    <map name="portale" number="22" plat="20" gold="22" silver="30" unlocked="208">
+
+        <row nr="1">OXUUOEXO</row>
+        <row nr="2">LO@XXXOR</row>
+        <row nr="3">LOOOXeOR</row>
+        <row nr="4">OOXXOXOO</row>
+        <row nr="5">XXOO*OXX</row>
+        <row nr="6">SOOOOOOO</row>
+        <row nr="7">OOOsOOOO</row>
+        <row nr="8">OODDOOXO</row>
+
+    </map>
+    <map name="portale" number="23" gold="14" silver="18" unlocked="217">
+
+        <row nr="1">XOOOOO@O</row>
+        <row nr="2">BOOXOOXS</row>
+        <row nr="3">QOOOOXEW</row>
+        <row nr="4">LOOX@TOR</row>
+        <row nr="5">QX@XOXXW</row>
+        <row nr="6">OO@O*XXO</row>
+        <row nr="7">OOOOXOO@</row>
+        <row nr="8">OOOOOOOO</row>
+
+    </map>
+
+    <map name="portale" number="24" plat="14" gold="18" silver="24" unlocked="225">
+
+        <row nr="1">UUXUUUXUU</row>
+        <row nr="2">O+XO++X+O</row>
+        <row nr="3">XEXXeOXO+</row>
+        <row nr="4">OXOSXeXEX</row>
+        <row nr="5">OOOOOXOXO</row>
+        <row nr="6">sOOOOOOXO</row>
+        <row nr="7">LOXOOSOOR</row>
+        <row nr="8">LOOXOOXsR</row>
+        <row nr="9">gDODDDXDh</row>
+
+    </map>
+
+
+    <map name="portale" number="25" gold="23" silver="30" unlocked="235">
+
+        <row nr="1">tUOE@OXUy</row>
+        <row nr="2">LOOOOXOOR</row>
+        <row nr="3">OBOOOOOOO</row>
+        <row nr="4">OOOOOOOXO</row>
+        <row nr="5">XXTX@XOXX</row>
+        <row nr="6">O*OXOOXE@</row>
+        <row nr="7">OOOXBOXTT</row>
+        <row nr="8">LOOXSSXOR</row>
+        <row nr="9">gD@EXSXDh</row>
+
+    </map>
+
+
+</maps>
