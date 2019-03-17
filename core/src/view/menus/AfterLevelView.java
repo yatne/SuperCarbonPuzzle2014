@@ -87,7 +87,7 @@ public class AfterLevelView extends PanelView {
         }
 
         FreeTypeFontGenerator.FreeTypeFontParameter smallFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        freeTypeFontParameter.size = (int) (textPanelHeight) / 12;
+        smallFontParameter.size = (int) (textPanelHeight) / 12;
         smallFont = generator.generateFont(smallFontParameter);
 
         FreeTypeFontGenerator.FreeTypeFontParameter buttonFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -191,7 +191,7 @@ public class AfterLevelView extends PanelView {
         }
 
 
-        movesTakenText.setText("moves t\baken:\n" + movesTaken + "\nyour best:\n" + yourBest);
+        movesTakenText.setText("moves taken:\n" + movesTaken + "\nyour best:\n" + yourBest);
         if (!allStarsObtained) {
 
             movesTakenText.setText(movesTakenText.getText() + "\nnext star:\n" + nextStar);
