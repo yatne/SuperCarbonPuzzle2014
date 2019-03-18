@@ -12,11 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/help/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/help/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/desktop.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
+    <ignored path="D:\home\slider\SuperCarbonPuzzle2014\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,34 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="192" selection-start-line="192" selection-end-line="192" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3637#3831#0" expanded="true" />
-                <element signature="e#3830#3831#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+            <state relative-caret-position="-263">
+              <caret line="345" column="39" selection-start-line="345" selection-start-column="39" selection-end-line="345" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3584#3585#0" expanded="true" />
@@ -118,22 +99,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+        <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="306">
+              <caret line="18" column="39" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="39" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
@@ -196,8 +167,6 @@
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
         <option value="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" />
-        <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
         <option value="$PROJECT_DIR$/core/src/view/MapView.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/WorldSelectionView.java" />
         <option value="$PROJECT_DIR$/core/src/view/menus/LevelSelectionView.java" />
@@ -214,6 +183,8 @@
         <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
+        <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
       </list>
     </option>
   </component>
@@ -321,7 +292,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552814259772" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552914896183" />
     <property name="device.picker.selection" value="52001d14535395cb" />
     <property name="last_opened_file_path" value="D:/download/test" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
@@ -554,6 +525,7 @@
       <workItem from="1551824126846" duration="840000" />
       <workItem from="1552034254207" duration="1686000" />
       <workItem from="1552238319016" duration="46000" />
+      <workItem from="1552914351695" duration="1448000" />
     </task>
     <task id="LOCAL-00001" summary="Removed IActivityRequestHandler">
       <created>1552128996403</created>
@@ -597,12 +569,12 @@
       <option name="project" value="LOCAL" />
       <updated>1552812980588</updated>
     </task>
-    <task id="LOCAL-00007" summary="new obstacle texture">
-      <created>1403723760862</created>
+    <task id="LOCAL-00007" summary="fixed ad">
+      <created>1552814599007</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1403723760862</updated>
+      <updated>1552814599007</updated>
     </task>
     <task id="LOCAL-00008" summary="new obstacle texture">
       <created>1403723811910</created>
@@ -828,20 +800,21 @@
       <option name="project" value="LOCAL" />
       <updated>1551299257502</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4931000" />
+    <option name="totallyTimeSpent" value="6839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.57984793" side_tool="true" visible="true" weight="0.18993288" />
+      <window_info id="Structure" order="0" sideWeight="0.58125913" side_tool="true" visible="true" weight="0.18993288" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48387095" weight="0.22348994" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info id="Captures" order="4" sideWeight="0.4201521" visible="true" weight="0.18993288" />
+      <window_info id="Captures" order="4" sideWeight="0.41874084" visible="true" weight="0.18993288" />
       <window_info id="simpleUML" order="5" />
       <window_info id="Build Variants" order="6" side_tool="true" />
       <window_info id="UI Designer" order="7" />
@@ -851,13 +824,13 @@
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.6163982" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.2737921" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.3001464" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" visible="true" weight="0.48381603" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
       <window_info anchor="bottom" id="Changes" order="8" weight="0.32796317" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Memory Monitor" order="12" side_tool="true" />
@@ -868,7 +841,7 @@
       <window_info anchor="bottom" id="Messages" order="17" weight="0.43631038" />
       <window_info anchor="bottom" id="Dependency Viewer" order="18" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.50067115" side_tool="true" weight="0.3660322" />
-      <window_info anchor="bottom" id="Build" order="20" weight="0.45827234" />
+      <window_info anchor="bottom" id="Build" order="20" weight="0.2942899" />
       <window_info anchor="bottom" id="Android" order="21" weight="0.38434982" />
       <window_info anchor="bottom" id="Java Enterprise" order="22" />
       <window_info anchor="right" id="Maven" order="0" />
@@ -960,7 +933,8 @@
     <MESSAGE value="gdx version switch refactor" />
     <MESSAGE value="restored resources" />
     <MESSAGE value="after level view fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="after level view fix" />
+    <MESSAGE value="fixed ad" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed ad" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -998,13 +972,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
-    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1133,12 +1100,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/res/resources/maps1.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/res/blocks.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/android/res/resources/maps1.xml" />
+    <entry file="file://$PROJECT_DIR$/android/res/blocks.xml" />
     <entry file="file://$PROJECT_DIR$/android/build/outputs/apk/debug/android-debug.apk">
       <provider selected="true" editor-type-id="apk-viewer" />
     </entry>
@@ -1190,30 +1153,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="2805">
           <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="324" column="47" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3584#3585#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1224,14 +1167,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3637#3831#0" expanded="true" />
-            <element signature="e#3830#3831#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-263">
+          <caret line="345" column="39" selection-start-line="345" selection-start-column="39" selection-end-line="345" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3584#3585#0" expanded="true" />
+            <element signature="e#3636#3637#0" expanded="true" />
           </folding>
         </state>
       </provider>

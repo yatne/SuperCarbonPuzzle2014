@@ -87,7 +87,8 @@ public class Slider extends ApplicationAdapter {
     private boolean levelSelectWasMade;
     private boolean mapViewWasMade;
     private int splashState;
-    private int adCounter;
+    private int retryAdCounter;
+    private int levelAdCounter;
 
     public Slider(ActionResolver actionResolver) {
         this.actionResolver = actionResolver;
@@ -122,7 +123,8 @@ public class Slider extends ApplicationAdapter {
                     worldSelectWasMade = false;
                     levelSelectWasMade = false;
                     mapViewWasMade = false;
-                    adCounter = 0;
+                    retryAdCounter = 0;
+                    levelAdCounter = 0;
                     Constants.cheatMode = false;
                     Constants.cheatActivation = 0;
                     ShaderProgram.pedantic = false;
@@ -274,13 +276,13 @@ public class Slider extends ApplicationAdapter {
                     if (control == Controls.RESET) {
                         map.loadMap(selectedWorld, selectedLevel);
                         mapView.prepareMap(camera, map);
-                        checkIntAdd();
+                        checkIntAdd(true);
 
                     } else if (control == Controls.MENU) {
                         Gdx.input.setInputProcessor(mainStage);
                         levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                         gameState = LEVEL_SELECT;
-                        checkIntAdd();
+                        checkIntAdd(true);
                     } else {
                         map.makeMove(control);
                         mapView.checkForPortalMoves(map);
@@ -296,7 +298,7 @@ public class Slider extends ApplicationAdapter {
                     Gdx.input.setInputProcessor(mainStage);
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-                    checkIntAdd();
+                    checkIntAdd(true);
                 }
                 break;
             }
@@ -322,17 +324,17 @@ public class Slider extends ApplicationAdapter {
                     mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
-                    actionResolver.showInterstitialAd();
+                    checkIntAdd(false);
                 } else if (controls == Controls.RESET) {
                     map.loadMap(selectedWorld, selectedLevel);
                     mapView.prepareMapUI(camera, map, mainStage);
                     mapView.prepareMap(camera, map);
                     gameState = LEVEL;
-                    actionResolver.showInterstitialAd();
+                    checkIntAdd(false);
                 } else if (controls == Controls.MENU) {
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-                    actionResolver.showInterstitialAd();
+                    checkIntAdd(false);
                 }
 
                 if ((Gdx.input.isKeyPressed(Input.Keys.BACK))) {
@@ -341,7 +343,7 @@ public class Slider extends ApplicationAdapter {
                     }
                     levelSelectionView.prepareLevelSelection(selectedWorld, mainStage, player, mapsInfo, backgrounds.get(selectedWorld - 1), camera.viewportWidth);
                     gameState = LEVEL_SELECT;
-                    actionResolver.showInterstitialAd();
+                    checkIntAdd(false);
                 }
                 break;
             }
@@ -387,11 +389,19 @@ public class Slider extends ApplicationAdapter {
 
     }
 
-    public void checkIntAdd() {
-        adCounter++;
-        if (adCounter >= Constants.addFrequency) {
-            actionResolver.showInterstitialAd();
-            adCounter = 0;
+    public void checkIntAdd(boolean retry) {
+        if (retry) {
+            retryAdCounter++;
+            if (retryAdCounter >= Constants.restartAddFrequency) {
+                actionResolver.showInterstitialAd();
+                retryAdCounter = 0;
+            }
+        } else {
+            levelAdCounter++;
+            if (levelAdCounter >= Constants.levelAddFrequency) {
+                actionResolver.showInterstitialAd();
+                levelAdCounter = 0;
+            }
         }
     }
 

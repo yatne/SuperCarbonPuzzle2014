@@ -15,6 +15,6 @@ public class Constants {
     public static Color fourthWorldTextColor = Color.WHITE;
     public static boolean cheatMode;
     public static int cheatActivation;
-    public static int addFrequency = 5;
-
+    public static int restartAddFrequency = 5;
+    public static int levelAddFrequency = 2;
 }
