@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package com.mygdx.ssm;
 
 public interface ActionResolver {
     public void showInterstitialAd();

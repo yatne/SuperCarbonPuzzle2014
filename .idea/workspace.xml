@@ -11,13 +11,30 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="">
+    <list default="true" id="6b03101e-2e62-43a7-a97d-27a4eb03adf5" name="Default Changelist" comment="changed package name">
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/gen/com/mygdx/game/superSlideMe/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AndroidLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/com/mygdx/game/android/AppRater.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AppRater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/core/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/help/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/help/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/Slider.gwt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/Slider.gwt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/ssm/ActionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/mygdx/ssm/Slider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/desktop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/desktop.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/mygdx/ssm/desktop/DesktopLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/Manifest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/Manifest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/mygdx/game/superSlideMe/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/html/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/src/com/mygdx/game/GdxDefinition.gwt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/html/src/com/mygdx/game/GdxDefinition.gwt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/src/com/mygdx/game/GdxDefinitionSuperdev.gwt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/html/src/com/mygdx/game/GdxDefinitionSuperdev.gwt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/src/com/mygdx/game/client/HtmlLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/html/src/com/mygdx/game/client/HtmlLauncher.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <ignored path="D:\home\slider\SuperCarbonPuzzle2014\.idea\shelf/" />
@@ -84,25 +101,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AndroidLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-263">
-              <caret line="345" column="39" selection-start-line="345" selection-start-column="39" selection-end-line="345" selection-end-column="39" />
+            <state relative-caret-position="68">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3584#3585#0" expanded="true" />
-                <element signature="e#3636#3637#0" expanded="true" />
+                <element signature="e#3362#3538#0" expanded="true" />
+                <element signature="e#3537#3538#0" expanded="true" />
+                <element signature="e#3748#3988#0" expanded="true" />
+                <element signature="e#3987#3988#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
+        <entry file="file://$PROJECT_DIR$/html/src/com/mygdx/game/client/HtmlLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="39" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="39" />
+            <state relative-caret-position="119">
+              <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+              <folding>
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#427#428#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="28" selection-start-column="28" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/gradle-app.setting">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/project.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/superSlideMe.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/build/generated/source/buildConfig/release/com/mygdx/game/superSlideMe/BuildConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/build/generated/source/r/debug/com/mygdx/game/superSlideMe/R.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="234" column="30" lean-forward="true" selection-start-line="234" selection-start-column="30" selection-end-line="234" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/Slider.gwt.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/production/core/Slider.gwt.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -129,10 +213,21 @@
       <find>movesTakenText</find>
       <find>moves t</find>
       <find>small</find>
+      <find>ca-app-pub-3940256099942544~3347511713</find>
+      <find>com.mygdx.game/</find>
+      <find>activity</find>
+      <find>game</find>
+      <find>mygdx</find>
+      <find>com.mygdx.game</find>
     </findStrings>
     <replaceStrings>
       <replace>layout</replace>
     </replaceStrings>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="D:\dev\keystore\ssm-keystore.jks" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -163,7 +258,6 @@
         <option value="$PROJECT_DIR$/core/src/player/Player.java" />
         <option value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/desktop/build.gradle" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
         <option value="$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java" />
@@ -179,12 +273,22 @@
         <option value="$PROJECT_DIR$/core/src/view/menus/PreLevelView.java" />
         <option value="$PROJECT_DIR$/core/src/controllers/GestureController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/android/build.gradle" />
         <option value="$PROJECT_DIR$/core/src/view/menus/AfterLevelView.java" />
-        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
         <option value="$PROJECT_DIR$/core/src/help/utils/Constants.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java" />
+        <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/ssm/Slider.java" />
+        <option value="$PROJECT_DIR$/desktop/build.gradle" />
+        <option value="$PROJECT_DIR$/android/build.gradle" />
+        <option value="$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AppRater.java" />
+        <option value="$PROJECT_DIR$/android/build/generated/source/buildConfig/androidTest/debug/com/mygdx/ssm/test/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/html/build.gradle" />
+        <option value="$PROJECT_DIR$/out/production/desktop/tmp/dist/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/desktop/src/mygdx/ssm/desktop/DesktopLauncher.java" />
+        <option value="$PROJECT_DIR$/core/src/Slider.gwt.xml" />
+        <option value="$PROJECT_DIR$/out/production/core/Slider.gwt.xml" />
+        <option value="$PROJECT_DIR$/android/build/generated/source/buildConfig/release/com/mygdx/game/superSlideMe/BuildConfig.java" />
       </list>
     </option>
   </component>
@@ -199,6 +303,18 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="58d84e3e:PackageViewProjectNode" />
+              <item name="android" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,6 +326,96 @@
               <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
               <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mygdx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mygdx" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="r" type="462c0819:PsiDirectoryNode" />
+              <item name="debug" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mygdx" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="superSlideMe" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
@@ -240,13 +446,40 @@
               <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="desktop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SuperCarbonPuzzle2014" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SuperCarbonPuzzle2014" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -273,27 +506,21 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SuperCarbonPuzzle2014" type="58d84e3e:PackageViewProjectNode" />
-              <item name="android" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ExportApk.ApkPath" value="D:\home\slider\SuperCarbonPuzzle2014\android" />
+    <property name="ExportApk.BuildType" value="release" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.SignV1" value="true" />
+    <property name="ExportApk.SignV2" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552914896183" />
-    <property name="device.picker.selection" value="52001d14535395cb" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553726495082" />
+    <property name="device.picker.selection" value="W3D7N16126016703" />
     <property name="last_opened_file_path" value="D:/download/test" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.1.0" />
@@ -355,7 +582,7 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mygdx.game.desktop.DesktopLauncher" />
+      <option name="MAIN_CLASS_NAME" value="mygdx.ssm.desktop.DesktopLauncher" />
       <module name="desktop" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <method v="2">
@@ -380,6 +607,25 @@
         <option name="taskNames">
           <list>
             <option value="assembleAndroidTest" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="SuperCarbonPuzzle2014 [assembleRelease]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assembleRelease" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -425,25 +671,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SuperCarbonPuzzle2014:android [copyAndroidNatives]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/android" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="copyAndroidNatives" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="SuperCarbonPuzzle2014:android [installDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -482,19 +709,19 @@
     <list>
       <item itemvalue="Android App.android" />
       <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [copyAndroidNatives]" />
       <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [installDebug]" />
       <item itemvalue="Gradle.SuperCarbonPuzzle2014 [build]" />
       <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assemble]" />
       <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assembleAndroidTest]" />
+      <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assembleRelease]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assembleRelease]" />
         <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assembleAndroidTest]" />
         <item itemvalue="Gradle.SuperCarbonPuzzle2014 [assemble]" />
         <item itemvalue="Gradle.SuperCarbonPuzzle2014 [build]" />
         <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [installDebug]" />
-        <item itemvalue="Gradle.SuperCarbonPuzzle2014:android [copyAndroidNatives]" />
       </list>
     </recent_temporary>
   </component>
@@ -525,7 +752,8 @@
       <workItem from="1551824126846" duration="840000" />
       <workItem from="1552034254207" duration="1686000" />
       <workItem from="1552238319016" duration="46000" />
-      <workItem from="1552914351695" duration="1448000" />
+      <workItem from="1552914351695" duration="3749000" />
+      <workItem from="1553284584145" duration="8972000" />
     </task>
     <task id="LOCAL-00001" summary="Removed IActivityRequestHandler">
       <created>1552128996403</created>
@@ -576,19 +804,19 @@
       <option name="project" value="LOCAL" />
       <updated>1552814599007</updated>
     </task>
-    <task id="LOCAL-00008" summary="new obstacle texture">
-      <created>1403723811910</created>
+    <task id="LOCAL-00008" summary="lowered ad frequency">
+      <created>1552922548593</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1403723811910</updated>
+      <updated>1552922548593</updated>
     </task>
-    <task id="LOCAL-00009" summary="map.makemove() rozbite na mniejsze części">
-      <created>1403729038239</created>
+    <task id="LOCAL-00009" summary="added admob ids">
+      <created>1553031251035</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1403729038239</updated>
+      <updated>1553031251035</updated>
     </task>
     <task id="LOCAL-00010" summary="Zmieniona zasada przesuwania obiektów (działa teraz trochę szybciej z nadzieją na działanie jeszcze szybsze) + będzie można zrobić tablicę przesunięć wykorzystaną potem to animacji!">
       <created>1403865541913</created>
@@ -800,21 +1028,21 @@
       <option name="project" value="LOCAL" />
       <updated>1551299257502</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6839000" />
+    <option name="totallyTimeSpent" value="18112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.58125913" side_tool="true" visible="true" weight="0.18993288" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.48387095" weight="0.22348994" />
+      <window_info id="Structure" order="0" sideWeight="0.521978" side_tool="true" weight="0.17114094" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.47933885" visible="true" weight="0.17114094" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info id="Captures" order="4" sideWeight="0.41874084" visible="true" weight="0.18993288" />
+      <window_info id="Captures" order="4" sideWeight="0.41874084" weight="0.18993288" />
       <window_info id="simpleUML" order="5" />
       <window_info id="Build Variants" order="6" side_tool="true" />
       <window_info id="UI Designer" order="7" />
@@ -823,22 +1051,22 @@
       <window_info id="Web" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.30390492" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.2737921" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3001464" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.30307466" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.21522693" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.16251831" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" visible="true" weight="0.48381603" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32796317" />
       <window_info anchor="bottom" id="Changes" order="8" weight="0.32796317" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Memory Monitor" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.27086383" />
       <window_info anchor="bottom" id="Statistic" order="14" />
       <window_info anchor="bottom" id="Application Servers" order="15" />
-      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" weight="0.4114202" />
-      <window_info anchor="bottom" id="Messages" order="17" weight="0.43631038" />
+      <window_info anchor="bottom" id="Terminal" order="16" sideWeight="0.49932885" weight="0.5988287" />
+      <window_info active="true" anchor="bottom" id="Messages" order="17" visible="true" weight="0.43631038" />
       <window_info anchor="bottom" id="Dependency Viewer" order="18" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="19" sideWeight="0.50067115" side_tool="true" weight="0.3660322" />
       <window_info anchor="bottom" id="Build" order="20" weight="0.2942899" />
@@ -934,10 +1162,33 @@
     <MESSAGE value="restored resources" />
     <MESSAGE value="after level view fix" />
     <MESSAGE value="fixed ad" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed ad" />
+    <MESSAGE value="lowered ad frequency" />
+    <MESSAGE value="added admob ids" />
+    <MESSAGE value="changed package name" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed package name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/view/MapView.java</url>
+          <line>95</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AndroidLauncher.java</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AndroidLauncher.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="java-exception">
           <log-expression disabled="true" expression="&#13;&#13;JAVA" />
@@ -945,6 +1196,15 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>mInterstitialAd.isLoaded()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/src/resources/newPlayer.xml">
@@ -968,26 +1228,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/IActivityRequestHandler.java" />
-    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/game/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-27/android.jar!/android/app/Instrumentation.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3068">
           <caret line="355" selection-start-line="355" selection-end-line="355" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/gradle-app.setting">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -996,20 +1243,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/project.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.0/e424d5ef62ebe25712e9f2217616ea1de449fe96/gdx-1.9.0-sources.jar!/com/badlogic/gdx/graphics/g2d/BitmapFont.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11764">
           <caret line="775" column="26" selection-start-line="775" selection-start-column="21" selection-end-line="775" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10353">
-          <caret line="617" selection-start-line="617" selection-end-line="617" />
         </state>
       </provider>
     </entry>
@@ -1093,13 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/res/resources/maps1.xml" />
     <entry file="file://$PROJECT_DIR$/android/res/blocks.xml" />
     <entry file="file://$PROJECT_DIR$/android/build/outputs/apk/debug/android-debug.apk">
@@ -1160,47 +1390,160 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/ActionResolver.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/ssm/ActionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.9/839b0670ba0f218435d8dcba7fd58d70939c20e1/gdx-freetype-1.9.9-sources.jar!/com/badlogic/gdx/graphics/g2d/freetype/FreeTypeFontGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="151">
+          <caret line="186" column="22" selection-start-line="186" selection-start-column="22" selection-end-line="186" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/game/android/AndroidLauncher.java">
+    <entry file="file://$PROJECT_DIR$/core/src/view/MapView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="274">
+          <caret line="639" column="5" selection-start-line="639" selection-start-column="5" selection-end-line="639" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/help/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="39" />
+          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Slider.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/ssm/Slider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-263">
-          <caret line="345" column="39" selection-start-line="345" selection-start-column="39" selection-end-line="345" selection-end-column="39" />
+        <state>
+          <caret column="20" selection-start-column="20" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3584#3585#0" expanded="true" />
-            <element signature="e#3636#3637#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="88" column="82" selection-start-line="88" selection-start-column="82" selection-end-line="88" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AppRater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build/generated/source/buildConfig/androidTest/debug/com/mygdx/ssm/test/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/desktop/tmp/dist/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/mygdx/ssm/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/core/Slider.gwt.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/gradle-app.setting">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/project.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/superSlideMe.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build/generated/source/buildConfig/release/com/mygdx/game/superSlideMe/BuildConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="60" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/build/generated/source/r/debug/com/mygdx/game/superSlideMe/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="234" column="30" lean-forward="true" selection-start-line="234" selection-start-column="30" selection-end-line="234" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/src/com/mygdx/ssm/android/AndroidLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3362#3538#0" expanded="true" />
+            <element signature="e#3537#3538#0" expanded="true" />
+            <element signature="e#3748#3988#0" expanded="true" />
+            <element signature="e#3987#3988#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/src/com/mygdx/game/client/HtmlLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding>
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#427#428#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/Slider.gwt.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>

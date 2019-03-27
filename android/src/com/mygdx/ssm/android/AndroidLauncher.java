@@ -1,4 +1,4 @@
-package com.mygdx.game.android;
+package com.mygdx.ssm.android;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-import com.mygdx.game.ActionResolver;
-import com.mygdx.game.Slider;
+import com.mygdx.ssm.ActionResolver;
+import com.mygdx.ssm.Slider;
 import help.utils.Constants;
 
 
@@ -25,6 +25,9 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
     private final int SHOW_ADS = 1;
     private final int HIDE_ADS = 0;
     private final int SHOW_INTER = 2;
+
+    private final String ADMOB_APP_ID = "ca-app-pub-3940256099942544~3347511713";
+    private final String ADMOB_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
 
 
     private InterstitialAd mInterstitialAd;
@@ -51,10 +54,11 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
         super.onCreate(savedInstanceState);
 
         // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(this, ADMOB_APP_ID);
 
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.setAdUnitId(ADMOB_UNIT_ID);
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         AppRater.app_launched(this);
         RelativeLayout layout = new RelativeLayout(this);
@@ -92,7 +96,6 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
                 mInterstitialAd.loadAd(new AdRequest.Builder().build());
             }
         });
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
@@ -106,6 +109,8 @@ public class AndroidLauncher extends AndroidApplication implements ActionResolve
             @Override public void run() {
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
+                } else {
+                    mInterstitialAd.loadAd(new AdRequest.Builder().build());
                 }
             }
         });

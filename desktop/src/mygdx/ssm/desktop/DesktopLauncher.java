@@ -1,9 +1,9 @@
-package mygdx.game.desktop;
+package mygdx.ssm.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.game.ActionResolver;
-import com.mygdx.game.Slider;
+import com.mygdx.ssm.ActionResolver;
+import com.mygdx.ssm.Slider;
 import help.utils.Constants;
 
 public class DesktopLauncher implements ActionResolver {

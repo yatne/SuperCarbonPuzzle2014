@@ -1,4 +1,4 @@
-package com.mygdx.game.android;
+package com.mygdx.ssm.android;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class AppRater {
     private final static String APP_TITLE = "Super Slide Me";// App Name
-    private final static String APP_PNAME = "com.mygdx.game.superSlideMe";// Package Name
+    private final static String APP_PNAME = "com.mygdx.ssm.superSlideMe";// Package Name
 
     private final static int DAYS_UNTIL_PROMPT = 7;//Min number of days
     private final static int LAUNCHES_UNTIL_PROMPT = 10;//Min number of launches
